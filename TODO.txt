@@ -5,6 +5,10 @@ OK - install Bootstrap;
 OK - startup Angular app from backend;
 OK - remove duplicated app-root - https://stackoverflow.com/a/46184112
 OK - add temp logo
-- header style: logo left
+OK - header style: logo left
 - header style: title center
 - header style: tbns right
+- small screen menu
+- fix /main bug
+- fix small screen dropdown menu
+OK - add form component
