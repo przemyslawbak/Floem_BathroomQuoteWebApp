@@ -1,7 +1,16 @@
+.navbar {
+  min-height: 100px;
+}
+
 a.navbar-brand {
   white-space: normal;
   text-align: center;
   word-break: break-all;
+}
+
+a.navbar-brand img {
+  width: 205px;
+  height: 80px;
 }
 
 .box-shadow {

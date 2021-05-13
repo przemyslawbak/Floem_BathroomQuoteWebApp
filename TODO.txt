@@ -1,4 +1,10 @@
 - Favicon change;
-- environment links change;
-- install Bootstrap;
-- startup Angular app from backend;
+- PNG logo
+OK - environment links change;
+OK - install Bootstrap;
+OK - startup Angular app from backend;
+OK - remove duplicated app-root - https://stackoverflow.com/a/46184112
+OK - add temp logo
+- header style: logo left
+- header style: title center
+- header style: tbns right
