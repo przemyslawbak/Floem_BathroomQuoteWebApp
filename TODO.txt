@@ -1,5 +1,7 @@
 - Favicon change;
 - PNG logo
+- logo redirects to Wix app
+- links redirecting to Wix app
 OK - environment links change;
 OK - install Bootstrap;
 OK - startup Angular app from backend;
@@ -9,7 +11,7 @@ OK - header style: logo left
 OK - header style: title center
 OK - header style: btns right
 OK - small screen menu
-- fix /main rouing bug
+OK - fix /main rouing bug
 OK - fix small screen dropdown menu
 OK - add form component
 - multiple steps form
