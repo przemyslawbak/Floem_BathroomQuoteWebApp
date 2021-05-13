@@ -6,9 +6,11 @@ OK - startup Angular app from backend;
 OK - remove duplicated app-root - https://stackoverflow.com/a/46184112
 OK - add temp logo
 OK - header style: logo left
-- header style: title center
-- header style: tbns right
-- small screen menu
-- fix /main bug
-- fix small screen dropdown menu
+OK - header style: title center
+OK - header style: btns right
+OK - small screen menu
+- fix /main rouing bug
+OK - fix small screen dropdown menu
 OK - add form component
+- multiple steps form
+- component model values
