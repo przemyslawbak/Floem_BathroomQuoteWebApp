@@ -1,3 +1,4 @@
 - Favicon change;
 - environment links change;
-- 
+- install Bootstrap;
+- startup Angular app from backend;

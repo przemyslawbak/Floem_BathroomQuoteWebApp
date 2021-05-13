@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
@@ -20,6 +21,12 @@ namespace Floem_BathroomQuote
                     .AllowCredentials()
                     .SetIsOriginAllowed((host) => true));
             });
+            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Latest);
+
+            services.AddHttpsRedirection(options =>
+            {
+                options.HttpsPort = 443;
+            });
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -31,10 +38,8 @@ namespace Floem_BathroomQuote
 
             app.UseRouting();
             app.UseCors("CorsPolicy");
-            app.UseEndpoints(endpoints =>
-            {
-                endpoints.MapControllerRoute("default", "{controller=Home}/{action=Index}");
-            });
+            app.UseDefaultFiles();
+            app.UseStaticFiles();
         }
     }
 }
