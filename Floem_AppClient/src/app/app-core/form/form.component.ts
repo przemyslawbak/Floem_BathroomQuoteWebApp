@@ -12,7 +12,6 @@ import { map } from 'rxjs/operators';
 })
 export class FormComponent {
   isLinear = true;
-  constructor(private _formBuilder: FormBuilder) {}
 
   firstFormGroup = this._formBuilder.group({
     name: ['', Validators.required],
@@ -24,9 +23,19 @@ export class FormComponent {
     stock: ['', Validators.required],
   });
 
+  stepperOrientation: Observable<StepperOrientation>;
+
+  constructor(
+    private _formBuilder: FormBuilder,
+    breakpointObserver: BreakpointObserver
+  ) {
+    this.stepperOrientation = breakpointObserver
+      .observe('(min-width: 800px)')
+      .pipe(map(({ matches }) => (matches ? 'horizontal' : 'vertical')));
+  }
+
   submit() {
     console.log(this.firstFormGroup.value);
-
     console.log(this.secondFormGroup.value);
   }
 }

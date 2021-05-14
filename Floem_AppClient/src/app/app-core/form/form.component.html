@@ -1,6 +1,19 @@
 <h3>Floem sample form</h3>
 
-<mat-horizontal-stepper [linear]="isLinear" #stepper>
+<ng-container [ngSwitch]="stepperOrientation | async">
+  <div *ngSwitchCase="'horizontal'">
+    Make your screen smaller to see a vertical stepper
+  </div>
+  <div *ngSwitchCase="'vertical'">
+    Make your screen larger to see a horizontal stepper
+  </div>
+</ng-container>
+
+<mat-stepper
+  [linear]="isLinear"
+  #stepper
+  [orientation]="(stepperOrientation | async)!"
+>
   <mat-step [stepControl]="firstFormGroup">
     <form [formGroup]="firstFormGroup">
       <ng-template matStepLabel>Part 1</ng-template>
@@ -99,4 +112,4 @@
       <button mat-button (click)="submit()">Submit</button>
     </div>
   </mat-step>
-</mat-horizontal-stepper>
+</mat-stepper>
