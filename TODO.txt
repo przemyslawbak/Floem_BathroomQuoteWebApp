@@ -14,5 +14,11 @@ OK - small screen menu
 OK - fix /main rouing bug
 OK - fix small screen dropdown menu
 OK - add form component
+- small screen menu btns margins
 - multiple steps form
+	material: https://www.itsolutionstuff.com/post/angular-multi-step-reactive-form-exampleexample.html
+	https://www.telerik.com/kendo-angular-ui/components/forms/advanced-forms/multi-step-form/
+	http://troch.github.io/angular-multi-step-form/#/getting-started
+	https://dev.to/thisdotmedia/modular-multi-step-form-with-ngrx-in-less-than-20-minutes-3770
 - component model values
+- header menu btns change to anchors
