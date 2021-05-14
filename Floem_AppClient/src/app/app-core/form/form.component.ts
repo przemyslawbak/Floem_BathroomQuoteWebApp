@@ -11,23 +11,22 @@ import { map } from 'rxjs/operators';
   styleUrls: ['./form.component.css'],
 })
 export class FormComponent {
-  firstFormGroup = this._formBuilder.group({
-    firstCtrl: ['', Validators.required],
-  });
-  secondFormGroup = this._formBuilder.group({
-    secondCtrl: ['', Validators.required],
-  });
-  thirdFormGroup = this._formBuilder.group({
-    thirdCtrl: ['', Validators.required],
-  });
-  stepperOrientation: Observable<StepperOrientation>;
+  isLinear = true;
+  constructor(private _formBuilder: FormBuilder) {}
 
-  constructor(
-    private _formBuilder: FormBuilder,
-    breakpointObserver: BreakpointObserver
-  ) {
-    this.stepperOrientation = breakpointObserver
-      .observe('(min-width: 800px)')
-      .pipe(map(({ matches }) => (matches ? 'horizontal' : 'vertical')));
+  firstFormGroup = this._formBuilder.group({
+    name: ['', Validators.required],
+    description: ['', Validators.required],
+  });
+
+  secondFormGroup = this._formBuilder.group({
+    amount: ['', Validators.required],
+    stock: ['', Validators.required],
+  });
+
+  submit() {
+    console.log(this.firstFormGroup.value);
+
+    console.log(this.secondFormGroup.value);
   }
 }
