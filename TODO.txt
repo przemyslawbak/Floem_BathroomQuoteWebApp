@@ -17,7 +17,9 @@ OK - add form component
 - small screen menu btns margins
 OK - form example
 OK - mobile responsive form
-- multiple steps form
+OK - multiple steps form
 OK - form colors fixed?
+OK - step names below
+- step names below the icon
 - data binding
 - header menu btns change to anchors

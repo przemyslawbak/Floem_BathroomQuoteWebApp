@@ -1,5 +1,3 @@
-<h3>Floem sample form</h3>
-
 <ng-container [ngSwitch]="stepperOrientation | async">
   <div *ngSwitchCase="'horizontal'">
     Make your screen smaller to see a vertical stepper
@@ -12,6 +10,7 @@
 <mat-stepper
   [linear]="isLinear"
   #stepper
+  labelPosition="bottom"
   [orientation]="(stepperOrientation | async)!"
 >
   <mat-step [stepControl]="form1">
