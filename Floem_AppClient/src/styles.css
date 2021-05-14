@@ -21,6 +21,7 @@ app-footer {
   width: 100%;
 }
 
-.mat-step-icon-selected {
+.mat-step-icon-selected,
+.mat-step-icon-state-edit {
   background-color: #9db946 !important;
 }

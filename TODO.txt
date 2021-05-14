@@ -18,6 +18,6 @@ OK - add form component
 OK - form example
 OK - mobile responsive form
 - multiple steps form
-- form colors fixed?
+OK - form colors fixed?
 - data binding
 - header menu btns change to anchors
