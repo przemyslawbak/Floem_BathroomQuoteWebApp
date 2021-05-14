@@ -13,14 +13,32 @@ import { map } from 'rxjs/operators';
 export class FormComponent {
   isLinear = true;
 
-  firstFormGroup = this._formBuilder.group({
+  form1 = this._formBuilder.group({
     name: ['', Validators.required],
-    description: ['', Validators.required],
   });
 
-  secondFormGroup = this._formBuilder.group({
+  form2 = this._formBuilder.group({
     amount: ['', Validators.required],
-    stock: ['', Validators.required],
+  });
+
+  form3 = this._formBuilder.group({
+    amount: ['', Validators.required],
+  });
+
+  form4 = this._formBuilder.group({
+    amount: ['', Validators.required],
+  });
+
+  form5 = this._formBuilder.group({
+    amount: ['', Validators.required],
+  });
+
+  form6 = this._formBuilder.group({
+    amount: ['', Validators.required],
+  });
+
+  form7 = this._formBuilder.group({
+    amount: ['', Validators.required],
   });
 
   stepperOrientation: Observable<StepperOrientation>;
@@ -35,7 +53,6 @@ export class FormComponent {
   }
 
   submit() {
-    console.log(this.firstFormGroup.value);
-    console.log(this.secondFormGroup.value);
+    //todo
   }
 }

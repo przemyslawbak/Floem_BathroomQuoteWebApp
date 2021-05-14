@@ -14,43 +14,25 @@
   #stepper
   [orientation]="(stepperOrientation | async)!"
 >
-  <mat-step [stepControl]="firstFormGroup">
-    <form [formGroup]="firstFormGroup">
-      <ng-template matStepLabel>Part 1</ng-template>
-
+  <mat-step [stepControl]="form1">
+    <form [formGroup]="form1">
+      <ng-template matStepLabel>Dimentions</ng-template>
       <mat-form-field>
-        <mat-label>Name</mat-label>
-
+        <mat-label>Test</mat-label>
         <input matInput placeholder="Name" formControlName="name" required />
       </mat-form-field>
-
-      <br />
-
-      <mat-form-field>
-        <mat-label>Description</mat-label>
-
-        <textarea
-          matInput
-          placeholder="Description"
-          formControlName="description"
-          required
-        >
-        </textarea>
-      </mat-form-field>
-
       <div>
         <button mat-button matStepperNext>Next</button>
       </div>
     </form>
   </mat-step>
 
-  <mat-step [stepControl]="secondFormGroup">
-    <form [formGroup]="secondFormGroup">
-      <ng-template matStepLabel>Part 2</ng-template>
+  <mat-step [stepControl]="form2">
+    <form [formGroup]="form2">
+      <ng-template matStepLabel>Removals</ng-template>
 
       <mat-form-field>
-        <mat-label>Amount</mat-label>
-
+        <mat-label>Test</mat-label>
         <input
           matInput
           placeholder="Amount"
@@ -58,57 +40,147 @@
           required
         />
       </mat-form-field>
-
-      <br />
-
-      <mat-form-field>
-        <mat-label>Stock</mat-label>
-
-        <input matInput placeholder="Stock" formControlName="stock" required />
-      </mat-form-field>
-
-      <br />
-
       <div>
         <button mat-button matStepperPrevious>Back</button>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
 
+  <mat-step [stepControl]="form3">
+    <form [formGroup]="form3">
+      <ng-template matStepLabel>Floor</ng-template>
+      <mat-form-field>
+        <mat-label>Test</mat-label>
+        <input
+          matInput
+          placeholder="Amount"
+          formControlName="amount"
+          required
+        />
+      </mat-form-field>
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+
+  <mat-step [stepControl]="form4">
+    <form [formGroup]="form4">
+      <ng-template matStepLabel>Walls</ng-template>
+      <mat-form-field>
+        <mat-label>Test</mat-label>
+        <input
+          matInput
+          placeholder="Amount"
+          formControlName="amount"
+          required
+        />
+      </mat-form-field>
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+
+  <mat-step [stepControl]="form5">
+    <form [formGroup]="form5">
+      <ng-template matStepLabel>Items</ng-template>
+      <mat-form-field>
+        <mat-label>Test</mat-label>
+        <input
+          matInput
+          placeholder="Amount"
+          formControlName="amount"
+          required
+        />
+      </mat-form-field>
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+
+  <mat-step [stepControl]="form6">
+    <form [formGroup]="form6">
+      <ng-template matStepLabel>Doors</ng-template>
+      <mat-form-field>
+        <mat-label>Test</mat-label>
+        <input
+          matInput
+          placeholder="Amount"
+          formControlName="amount"
+          required
+        />
+      </mat-form-field>
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+
+  <mat-step [stepControl]="form7">
+    <form [formGroup]="form7">
+      <ng-template matStepLabel>Electrical</ng-template>
+      <mat-form-field>
+        <mat-label>Test</mat-label>
+        <input
+          matInput
+          placeholder="Amount"
+          formControlName="amount"
+          required
+        />
+      </mat-form-field>
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
         <button mat-button matStepperNext>Next</button>
       </div>
     </form>
   </mat-step>
 
   <mat-step>
-    <ng-template matStepLabel>Final</ng-template>
-
+    <ng-template matStepLabel>Summary</ng-template>
     <p>You are now done.</p>
-
     <mat-list>
       <mat-list-item>
         <strong>Name:</strong>
-        {{ this.firstFormGroup.value.name }}</mat-list-item
+        {{ this.form1.value.name }}</mat-list-item
       >
-
       <mat-list-item>
-        <strong>Description:</strong>
-        {{ this.firstFormGroup.value.description }}</mat-list-item
+        <strong>Amount:</strong>
+        {{ this.form2.value.amount }}</mat-list-item
+      >
+      <mat-list-item>
+        <strong>Amount:</strong>
+        {{ this.form3.value.amount }}</mat-list-item
+      >
+      <mat-list-item>
+        <strong>Amount:</strong>
+        {{ this.form4.value.amount }}</mat-list-item
+      >
+      <mat-list-item>
+        <strong>Amount:</strong>
+        {{ this.form5.value.amount }}</mat-list-item
       >
 
       <mat-list-item>
         <strong>Amount:</strong>
-        {{ this.secondFormGroup.value.amount }}</mat-list-item
+        {{ this.form6.value.amount }}</mat-list-item
       >
 
       <mat-list-item>
-        <strong>Stock:</strong>
-        {{ this.secondFormGroup.value.stock }}</mat-list-item
+        <strong>Amount:</strong>
+        {{ this.form7.value.amount }}</mat-list-item
       >
     </mat-list>
 
     <div>
       <button mat-button matStepperPrevious>Back</button>
-
       <button mat-button (click)="stepper.reset()">Reset</button>
-
       <button mat-button (click)="submit()">Submit</button>
     </div>
   </mat-step>
