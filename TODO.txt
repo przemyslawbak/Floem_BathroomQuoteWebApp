@@ -25,3 +25,6 @@ OK - step names below
 - step names below the icon
 - data binding
 - header menu btns change to anchors
+- next / back btn style change
+- on next / step change (?) model update
+- units in / cm

@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { QuoteItems } from './../_models/quote-items.model';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { BreakpointObserver } from '@angular/cdk/layout';
 import { StepperOrientation } from '@angular/material/stepper';
@@ -12,11 +13,21 @@ import { map } from 'rxjs/operators';
 })
 export class FormComponent {
   isLinear = true;
+  public quoteModel: QuoteItems = new QuoteItems();
+
+  constructor(
+    private _formBuilder: FormBuilder,
+    breakpointObserver: BreakpointObserver
+  ) {
+    this.stepperOrientation = breakpointObserver
+      .observe('(min-width: 800px)')
+      .pipe(map(({ matches }) => (matches ? 'horizontal' : 'vertical')));
+  }
 
   form1 = this._formBuilder.group({
-    width: ['', Validators.required],
-    height: ['', Validators.required],
-    length: ['', Validators.required],
+    width: [this.quoteModel.width, Validators.required],
+    height: [this.quoteModel.height, Validators.required],
+    depth: [this.quoteModel.depth, Validators.required],
     //todo: units
   });
 
@@ -45,15 +56,6 @@ export class FormComponent {
   });
 
   stepperOrientation: Observable<StepperOrientation>;
-
-  constructor(
-    private _formBuilder: FormBuilder,
-    breakpointObserver: BreakpointObserver
-  ) {
-    this.stepperOrientation = breakpointObserver
-      .observe('(min-width: 800px)')
-      .pipe(map(({ matches }) => (matches ? 'horizontal' : 'vertical')));
-  }
 
   submit() {
     //todo
