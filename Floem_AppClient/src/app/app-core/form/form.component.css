@@ -5,3 +5,16 @@
 .mat-form-field {
   margin-top: 16px;
 }
+
+.dimensionsHeaderPic {
+  height: 100px;
+  background-image: url("../../../assets/images/dimensions.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+h4 {
+  line-height: 100px;
+  margin-left: 20px;
+  color: white;
+}

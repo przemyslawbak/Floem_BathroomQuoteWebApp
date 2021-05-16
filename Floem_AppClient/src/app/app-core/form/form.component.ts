@@ -14,7 +14,10 @@ export class FormComponent {
   isLinear = true;
 
   form1 = this._formBuilder.group({
-    name: ['', Validators.required],
+    width: ['', Validators.required],
+    height: ['', Validators.required],
+    length: ['', Validators.required],
+    //todo: units
   });
 
   form2 = this._formBuilder.group({

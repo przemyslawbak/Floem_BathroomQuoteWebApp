@@ -20,6 +20,8 @@ OK - mobile responsive form
 OK - multiple steps form
 OK - form colors fixed?
 OK - step names below
+- form controls
+- pics for each step?
 - step names below the icon
 - data binding
 - header menu btns change to anchors

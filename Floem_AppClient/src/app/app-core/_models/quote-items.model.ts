@@ -3,6 +3,8 @@ export interface QuoteItems {
   width: number;
   height: number;
   depth: number;
+  unitsCm: boolean;
+  unitsIn: boolean;
   //2 removal
   removals: boolean;
   //3 floor
