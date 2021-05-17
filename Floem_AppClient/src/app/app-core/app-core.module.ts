@@ -6,6 +6,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatStepperModule } from '@angular/material/stepper';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
+import { MatSelectModule } from '@angular/material/select';
 import { MatListModule } from '@angular/material/list';
 
 import { FooterComponent } from './footer/footer.component';
@@ -19,6 +20,7 @@ import { FormComponent } from './form/form.component';
     MatStepperModule,
     MatButtonModule,
     MatListModule,
+    MatSelectModule,
     FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,

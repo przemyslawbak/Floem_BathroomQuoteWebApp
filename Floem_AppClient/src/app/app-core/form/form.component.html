@@ -11,6 +11,16 @@
     <form [formGroup]="form1">
       <ng-template matStepLabel>Dimensions</ng-template>
       <div class="row">
+        <mat-form-field class="col-lg-3" appearance="fill">
+          <mat-label>Units</mat-label>
+          <mat-select formControlName="units" [(value)]="this.quoteModel.units">
+            <mat-option *ngFor="let key of keys" [value]="key">
+              {{ key }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div class="row">
         <div class="col-lg-3">
           <mat-form-field>
             <mat-label>Bathroom width</mat-label>
@@ -46,7 +56,7 @@
         </div>
       </div>
       <div>
-        <button mat-button matStepperNext>Next</button>
+        <button mat-button matStepperNext (click)="onNext()">Next</button>
       </div>
     </form>
   </mat-step>

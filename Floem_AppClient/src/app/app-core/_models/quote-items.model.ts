@@ -1,10 +1,14 @@
+export enum DimentionUnits {
+  Inches = 'in',
+  Centimeters = 'cm',
+}
+
 export class QuoteItems {
   //1 dimemtions
   width: number;
   height: number;
   depth: number;
-  unitsCm: boolean;
-  unitsIn: boolean;
+  units: DimentionUnits;
   //2 removal
   removals: boolean;
   //3 floor
@@ -42,11 +46,10 @@ export class QuoteItems {
   socketsQty: number;
 
   constructor() {
-    this.width = 1;
-    this.height = 1;
-    this.depth = 1;
-    this.unitsCm = true;
-    this.unitsIn = false;
+    this.width = 100;
+    this.height = 200;
+    this.depth = 100;
+    this.units = DimentionUnits.Centimeters;
     this.removals = false;
     this.floorLvt = false;
     this.floorOther = false;
