@@ -32,7 +32,6 @@ export class FormComponent {
     height: [this.quoteModel.height, Validators.required],
     depth: [this.quoteModel.depth, Validators.required],
     units: [this.quoteModel.units, Validators.required],
-    //todo: units
   });
 
   form2 = this._formBuilder.group({

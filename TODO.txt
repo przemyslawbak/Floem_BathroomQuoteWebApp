@@ -21,10 +21,11 @@ OK - multiple steps form
 OK - form colors fixed?
 OK - step names below
 - form controls
-- pics for each step?
-- step names below the icon
+- pics for each step
+OK - step names below the icon
 - data binding
 - header menu btns change to anchors
-- next / back btn style change
+OK - next / back btn style change
 - on next / step change (?) model update
-- units in / cm
+OK - units in / cm
+- each step in separate component

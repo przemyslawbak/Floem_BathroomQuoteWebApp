@@ -5,8 +5,8 @@
   [orientation]="(stepperOrientation | async)!"
 >
   <mat-step [stepControl]="form1">
-    <div class="dimensionsHeaderPic col-sm rounded-top">
-      <h4 class="align-text-bottom">Enter bathroom dimensions:</h4>
+    <div class="dimensionsHeaderPic stepHeader col-sm rounded-top">
+      <h4 class="align-text-bottom text-body">Enter bathroom dimensions:</h4>
     </div>
     <form [formGroup]="form1">
       <ng-template matStepLabel>Dimensions</ng-template>
@@ -69,6 +69,9 @@
   </mat-step>
 
   <mat-step [stepControl]="form2">
+    <div class="removalsHeaderPic stepHeader col-sm rounded-top">
+      <h4 class="align-text-bottom text-body">Expected removals:</h4>
+    </div>
     <form [formGroup]="form2">
       <ng-template matStepLabel>Removals</ng-template>
 
