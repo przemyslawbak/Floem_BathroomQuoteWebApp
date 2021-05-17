@@ -23,7 +23,7 @@
       <div class="row">
         <div class="col-lg-3">
           <mat-form-field>
-            <mat-label>Bathroom width</mat-label>
+            <mat-label>Bathroom width ({{ quoteModel.units }})</mat-label>
             <input
               matInput
               placeholder="Width"
@@ -34,7 +34,7 @@
         </div>
         <div class="col-lg-3">
           <mat-form-field>
-            <mat-label>Bathroom height</mat-label>
+            <mat-label>Bathroom height ({{ quoteModel.units }})</mat-label>
             <input
               matInput
               placeholder="Height"
@@ -45,7 +45,7 @@
         </div>
         <div class="col-lg-3">
           <mat-form-field>
-            <mat-label>Bathroom depth</mat-label>
+            <mat-label>Bathroom depth ({{ quoteModel.units }})</mat-label>
             <input
               matInput
               placeholder="Depth"
@@ -56,7 +56,14 @@
         </div>
       </div>
       <div>
-        <button mat-button matStepperNext (click)="onNext()">Next</button>
+        <button
+          type="button"
+          class="btn btn-success"
+          matStepperNext
+          (click)="onNext()"
+        >
+          Next
+        </button>
       </div>
     </form>
   </mat-step>
@@ -75,8 +82,12 @@
         />
       </mat-form-field>
       <div>
-        <button mat-button matStepperPrevious>Back</button>
-        <button mat-button matStepperNext>Next</button>
+        <button type="button" class="btn btn-secondary" matStepperPrevious>
+          Back
+        </button>
+        <button type="button" class="btn btn-success" matStepperNext>
+          Next
+        </button>
       </div>
     </form>
   </mat-step>
@@ -94,8 +105,12 @@
         />
       </mat-form-field>
       <div>
-        <button mat-button matStepperPrevious>Back</button>
-        <button mat-button matStepperNext>Next</button>
+        <button type="button" class="btn btn-secondary" matStepperPrevious>
+          Back
+        </button>
+        <button type="button" class="btn btn-success" matStepperNext>
+          Next
+        </button>
       </div>
     </form>
   </mat-step>
@@ -113,8 +128,12 @@
         />
       </mat-form-field>
       <div>
-        <button mat-button matStepperPrevious>Back</button>
-        <button mat-button matStepperNext>Next</button>
+        <button type="button" class="btn btn-secondary" matStepperPrevious>
+          Back
+        </button>
+        <button type="button" class="btn btn-success" matStepperNext>
+          Next
+        </button>
       </div>
     </form>
   </mat-step>
@@ -132,8 +151,12 @@
         />
       </mat-form-field>
       <div>
-        <button mat-button matStepperPrevious>Back</button>
-        <button mat-button matStepperNext>Next</button>
+        <button type="button" class="btn btn-secondary" matStepperPrevious>
+          Back
+        </button>
+        <button type="button" class="btn btn-success" matStepperNext>
+          Next
+        </button>
       </div>
     </form>
   </mat-step>
@@ -151,8 +174,12 @@
         />
       </mat-form-field>
       <div>
-        <button mat-button matStepperPrevious>Back</button>
-        <button mat-button matStepperNext>Next</button>
+        <button type="button" class="btn btn-secondary" matStepperPrevious>
+          Back
+        </button>
+        <button type="button" class="btn btn-success" matStepperNext>
+          Next
+        </button>
       </div>
     </form>
   </mat-step>
@@ -170,8 +197,12 @@
         />
       </mat-form-field>
       <div>
-        <button mat-button matStepperPrevious>Back</button>
-        <button mat-button matStepperNext>Next</button>
+        <button type="button" class="btn btn-secondary" matStepperPrevious>
+          Back
+        </button>
+        <button type="button" class="btn btn-success" matStepperNext>
+          Next
+        </button>
       </div>
     </form>
   </mat-step>
@@ -213,7 +244,9 @@
     </mat-list>
 
     <div>
-      <button mat-button matStepperPrevious>Back</button>
+      <button type="button" class="btn btn-secondary" matStepperPrevious>
+        Back
+      </button>
       <button mat-button (click)="stepper.reset()">Reset</button>
       <button mat-button (click)="submit()">Submit</button>
     </div>

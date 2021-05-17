@@ -62,7 +62,7 @@ export class FormComponent {
   stepperOrientation: Observable<StepperOrientation>;
 
   private getKeys(): string[] {
-    var keys = Object.keys(this.unitsDimentions);
+    var keys = Object.values(this.unitsDimentions);
     return keys;
   }
 
@@ -71,6 +71,6 @@ export class FormComponent {
   }
 
   public onNext(): void {
-    console.log(this.quoteModel.units);
+    console.log(this.quoteModel.units); //todo: remove later on
   }
 }
