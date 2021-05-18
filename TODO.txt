@@ -2,6 +2,7 @@
 - PNG logo
 - logo redirects to Wix app
 - links redirecting to Wix app
+- step 0 - some info / seo
 OK - environment links change;
 OK - install Bootstrap;
 OK - startup Angular app from backend;
@@ -26,8 +27,9 @@ OK - step names below the icon
 - data binding
 - header menu btns change to anchors
 OK - next / back btn style change
-- on next / step change (?) model update
+NO - on next / step change (?) model update
 OK - units in / cm
 - each step in separate component
-- fix bug: missing toggles
-- step 5 comments display
+OK - fix bug: missing toggles
+OK - step 5 comments display
+OK - between med/sm screen in step 5 is a mess

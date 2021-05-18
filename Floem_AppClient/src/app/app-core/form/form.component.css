@@ -40,12 +40,16 @@ ng-toggle {
 }
 
 .toggleText {
-  height: 50px !important;
+  height: 20px !important;
   display: flex;
   align-items: center;
 }
 
 .extender {
   display: inline-block;
-  width: 200px;
+  width: 185px;
+}
+
+.animatedAppearance {
+  transition: all 0.3s;
 }

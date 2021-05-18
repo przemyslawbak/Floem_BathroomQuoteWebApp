@@ -9,8 +9,8 @@
       <img src="../../../assets/images/dimensions.png" />
       <h4 class="align-text-bottom text-white">Bathroom dimensions:</h4>
     </div>
+    <ng-template matStepLabel>Dimensions</ng-template>
     <form [formGroup]="form1">
-      <ng-template matStepLabel>Dimensions</ng-template>
       <div class="formContainer">
         <div class="row">
           <mat-form-field class="col-lg-3" appearance="fill">
@@ -86,7 +86,6 @@
           <ng-toggle
             onColor="info"
             offColor="secondary"
-            size="lg"
             [(ngModel)]="this.quoteModel.removals"
           >
             <ng-template ngToggleLabel forLabel="on">
@@ -176,7 +175,7 @@
   <mat-step [stepControl]="form5">
     <div class="stepHeader col-sm rounded-top">
       <img src="../../../assets/images/items.png" />
-      <h4 class="align-text-bottom text-white">Additional items</h4>
+      <h4 class="align-text-bottom text-white">Additional works</h4>
     </div>
     <ng-template matStepLabel>Items</ng-template>
     <div class="formContainer">
@@ -185,7 +184,6 @@
           <ng-toggle
             onColor="info"
             offColor="secondary"
-            size="lg"
             [(ngModel)]="this.quoteModel.bathItem"
           >
             <ng-template ngToggleLabel forLabel="on">
@@ -204,7 +202,6 @@
           <ng-toggle
             onColor="info"
             offColor="secondary"
-            size="lg"
             [(ngModel)]="this.quoteModel.showerItem"
           >
             <ng-template ngToggleLabel forLabel="on">
@@ -223,7 +220,6 @@
           <ng-toggle
             onColor="info"
             offColor="secondary"
-            size="lg"
             [(ngModel)]="this.quoteModel.toiletItem"
           >
             <ng-template ngToggleLabel forLabel="on">
@@ -242,7 +238,6 @@
           <ng-toggle
             onColor="info"
             offColor="secondary"
-            size="lg"
             [(ngModel)]="this.quoteModel.towelRailItem"
           >
             <ng-template ngToggleLabel forLabel="on">
@@ -261,7 +256,6 @@
           <ng-toggle
             onColor="info"
             offColor="secondary"
-            size="lg"
             [(ngModel)]="this.quoteModel.basinItem"
           >
             <ng-template ngToggleLabel forLabel="on">
@@ -280,7 +274,6 @@
           <ng-toggle
             onColor="info"
             offColor="secondary"
-            size="lg"
             [(ngModel)]="this.quoteModel.pipingItem"
           >
             <ng-template ngToggleLabel forLabel="on">
@@ -299,7 +292,6 @@
           <ng-toggle
             onColor="info"
             offColor="secondary"
-            size="lg"
             [(ngModel)]="this.quoteModel.otherItem"
           >
             <ng-template ngToggleLabel forLabel="on">
@@ -315,6 +307,24 @@
           </ng-toggle>
         </div>
       </div>
+      <form [formGroup]="form5">
+        <div
+          [style.opacity]="this.quoteModel.otherItem ? '1' : '0'"
+          [style.visibility]="this.quoteModel.otherItem ? 'visible' : 'hidden'"
+          class="row animatedAppearance"
+        >
+          <div class="col-lg-3">
+            <mat-form-field>
+              <mat-label>Other items</mat-label>
+              <input
+                matInput
+                placeholder="Comment"
+                formControlName="otherItemComments"
+              />
+            </mat-form-field>
+          </div>
+        </div>
+      </form>
     </div>
     <div>
       <button type="button" class="btn btn-secondary" matStepperPrevious>
@@ -322,7 +332,6 @@
       </button>
       <button type="button" class="btn btn-success" matStepperNext>Next</button>
     </div>
-    <form [formGroup]="form5"></form>
   </mat-step>
 
   <mat-step [stepControl]="form6">
@@ -355,7 +364,7 @@
   <mat-step [stepControl]="form7">
     <div class="stepHeader col-sm rounded-top">
       <img src="../../../assets/images/electrical.png" />
-      <h4 class="align-text-bottom text-white">Electrical items</h4>
+      <h4 class="align-text-bottom text-white">Electrical works</h4>
     </div>
     <form [formGroup]="form7">
       <ng-template matStepLabel>Electrical</ng-template>

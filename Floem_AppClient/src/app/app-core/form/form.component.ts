@@ -48,6 +48,7 @@ export class FormComponent {
 
   form5 = this._formBuilder.group({
     valid: [true, Validators.required],
+    otherItemComments: [this.quoteModel.otherItemComments],
   });
 
   form6 = this._formBuilder.group({
