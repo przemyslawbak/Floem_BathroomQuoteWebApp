@@ -10,49 +10,54 @@
     </div>
     <form [formGroup]="form1">
       <ng-template matStepLabel>Dimensions</ng-template>
-      <div class="row">
-        <mat-form-field class="col-lg-3" appearance="fill">
-          <mat-label>Units</mat-label>
-          <mat-select formControlName="units" [(value)]="this.quoteModel.units">
-            <mat-option *ngFor="let key of keys" [value]="key">
-              {{ key }}
-            </mat-option>
-          </mat-select>
-        </mat-form-field>
-      </div>
-      <div class="row">
-        <div class="col-lg-3">
-          <mat-form-field>
-            <mat-label>Bathroom width ({{ quoteModel.units }})</mat-label>
-            <input
-              matInput
-              placeholder="Width"
-              formControlName="width"
-              required
-            />
+      <div class="formContainer">
+        <div class="row">
+          <mat-form-field class="col-lg-3" appearance="fill">
+            <mat-label>Units</mat-label>
+            <mat-select
+              formControlName="units"
+              [(value)]="this.quoteModel.units"
+            >
+              <mat-option *ngFor="let key of keys" [value]="key">
+                {{ key }}
+              </mat-option>
+            </mat-select>
           </mat-form-field>
         </div>
-        <div class="col-lg-3">
-          <mat-form-field>
-            <mat-label>Bathroom height ({{ quoteModel.units }})</mat-label>
-            <input
-              matInput
-              placeholder="Height"
-              formControlName="height"
-              required
-            />
-          </mat-form-field>
-        </div>
-        <div class="col-lg-3">
-          <mat-form-field>
-            <mat-label>Bathroom depth ({{ quoteModel.units }})</mat-label>
-            <input
-              matInput
-              placeholder="Depth"
-              formControlName="depth"
-              required
-            />
-          </mat-form-field>
+        <div class="row">
+          <div class="col-lg-3">
+            <mat-form-field>
+              <mat-label>Bathroom width ({{ quoteModel.units }})</mat-label>
+              <input
+                matInput
+                placeholder="Width"
+                formControlName="width"
+                required
+              />
+            </mat-form-field>
+          </div>
+          <div class="col-lg-3">
+            <mat-form-field>
+              <mat-label>Bathroom height ({{ quoteModel.units }})</mat-label>
+              <input
+                matInput
+                placeholder="Height"
+                formControlName="height"
+                required
+              />
+            </mat-form-field>
+          </div>
+          <div class="col-lg-3">
+            <mat-form-field>
+              <mat-label>Bathroom depth ({{ quoteModel.units }})</mat-label>
+              <input
+                matInput
+                placeholder="Depth"
+                formControlName="depth"
+                required
+              />
+            </mat-form-field>
+          </div>
         </div>
       </div>
       <div>
@@ -74,16 +79,28 @@
     </div>
     <form [formGroup]="form2">
       <ng-template matStepLabel>Removals</ng-template>
+      <div class="formContainer">
+        <div class="row">
+          <div class="col-lg-3">
+            <ng-toggle
+              [value]="this.quoteModel.removals"
+              [color]="{
+                unchecked: '#dcdcdc',
+                checked: '#9db946'
+              }"
+              [labels]="{ checked: 'Yes', unchecked: 'No' }"
+              [speed]="300"
+              [width]="100"
+              [height]="40"
+              [margin]="15"
+              [fontSize]="15"
+            >
+            </ng-toggle>
+            <mat-label class="col-lg-1 ms-2">Removals</mat-label>
+          </div>
+        </div>
+      </div>
 
-      <mat-form-field>
-        <mat-label>Test</mat-label>
-        <input
-          matInput
-          placeholder="Amount"
-          formControlName="amount"
-          required
-        />
-      </mat-form-field>
       <div>
         <button type="button" class="btn btn-secondary" matStepperPrevious>
           Back

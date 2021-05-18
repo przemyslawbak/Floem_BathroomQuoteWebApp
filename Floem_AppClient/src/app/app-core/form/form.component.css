@@ -2,10 +2,6 @@
   margin-top: 8px;
 }
 
-.mat-form-field {
-  margin-top: 16px;
-}
-
 .stepHeader {
   margin-top: 5px;
   height: 100px;
@@ -28,4 +24,10 @@ h4 {
 
 button {
   margin: 5px;
+}
+
+.formContainer {
+  margin-top: 20px;
+  margin-left: 20px;
+  min-height: 100px;
 }
