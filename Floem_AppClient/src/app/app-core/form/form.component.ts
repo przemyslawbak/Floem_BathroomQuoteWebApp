@@ -103,4 +103,12 @@ export class FormComponent {
     this.quoteModel.floorOther = true;
     this.quoteModel.floorTiled = false;
   }
+
+  public setRemovals(): void {
+    this.quoteModel.removals = true;
+  }
+
+  public setNoRemovals(): void {
+    this.quoteModel.removals = false;
+  }
 }

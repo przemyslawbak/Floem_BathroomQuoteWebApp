@@ -82,23 +82,29 @@
     <ng-template matStepLabel>Removals</ng-template>
     <div class="formContainer">
       <div class="row">
-        <div class="col-lg-4">
-          <ng-toggle
-            onColor="info"
-            offColor="secondary"
-            [(ngModel)]="this.quoteModel.removals"
+        <label class="selectLabel">Please select one:</label>
+      </div>
+      <div class="row">
+        <div>
+          <mat-button-toggle-group
+            name="fontStyle"
+            aria-label="Font Style"
+            value="removalNo"
+            class="col-lg-6 col-12"
           >
-            <ng-template ngToggleLabel forLabel="on">
-              <div class="toggleText">
-                <span class="extender">With removals</span>
-              </div>
-            </ng-template>
-            <ng-template ngToggleLabel forLabel="off">
-              <div class="toggleText">
-                <span class="extender">No removals</span>
-              </div>
-            </ng-template>
-          </ng-toggle>
+            <mat-button-toggle
+              class="col-lg-6 col-12"
+              value="removalNo"
+              (change)="setNoRemovals()"
+              >No removal
+            </mat-button-toggle>
+            <mat-button-toggle
+              class="col-lg-6 col-12"
+              value="removalYes"
+              (change)="setRemovals()"
+              >With removal</mat-button-toggle
+            >
+          </mat-button-toggle-group>
         </div>
       </div>
     </div>
@@ -126,7 +132,7 @@
     <ng-template matStepLabel>Floor</ng-template>
     <div class="formContainer">
       <div class="row">
-        <label class="selectLabel">Please select:</label>
+        <label class="selectLabel">Please select one:</label>
       </div>
       <div class="row">
         <div>
@@ -137,25 +143,25 @@
             class="col-sm-12"
           >
             <mat-button-toggle
-              class="col-lg-3 col-sm-12"
+              class="col-lg-3 col-12"
               value="none"
               (change)="setNoneFloor()"
               >No change</mat-button-toggle
             >
             <mat-button-toggle
-              class="col-lg-3 col-sm-12"
+              class="col-lg-3 col-12"
               value="tiled"
               (change)="setTiledFloor()"
               >Tiled floor</mat-button-toggle
             >
             <mat-button-toggle
-              class="col-lg-3 col-sm-12"
+              class="col-lg-3 col-12"
               value="lvt"
               (change)="setLvtFloor()"
               >LVT floor</mat-button-toggle
             >
             <mat-button-toggle
-              class="col-lg-3 col-sm-12"
+              class="col-lg-3 col-12"
               value="other"
               (change)="setOtherFloor()"
               >Other</mat-button-toggle
@@ -171,7 +177,7 @@
         >
           <div class="col-lg-auto">
             <mat-form-field style="width: 50vw">
-              <mat-label>Other floor</mat-label>
+              <mat-label>Other floor type</mat-label>
               <input
                 matInput
                 placeholder="Comment"
