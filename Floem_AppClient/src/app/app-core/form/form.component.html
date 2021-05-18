@@ -77,39 +77,37 @@
     <div class="removalsHeaderPic stepHeader col-sm rounded-top">
       <h4 class="align-text-bottom text-body">Expected removals:</h4>
     </div>
-    <form [formGroup]="form2">
-      <ng-template matStepLabel>Removals</ng-template>
-      <div class="formContainer">
-        <div class="row">
-          <div class="col-lg-3">
-            <ng-toggle
-              [value]="this.quoteModel.removals"
-              [color]="{
-                unchecked: '#dcdcdc',
-                checked: '#9db946'
-              }"
-              [labels]="{ checked: 'Yes', unchecked: 'No' }"
-              [speed]="300"
-              [width]="100"
-              [height]="40"
-              [margin]="15"
-              [fontSize]="15"
-            >
-            </ng-toggle>
-            <mat-label class="col-lg-1 ms-2">Removals</mat-label>
-          </div>
+    <ng-template matStepLabel>Removals</ng-template>
+    <div class="formContainer">
+      <div class="row">
+        <div class="col-lg-3">
+          <ng-toggle
+            onColor="info"
+            onText="Yes"
+            offColor="secondary"
+            offText="No"
+            [disabled]="false"
+            [(ngModel)]="this.quoteModel.removals"
+          >
+          </ng-toggle>
+          <mat-label class="col-lg-1 ms-2">Removals</mat-label>
         </div>
       </div>
+    </div>
 
-      <div>
-        <button type="button" class="btn btn-secondary" matStepperPrevious>
-          Back
-        </button>
-        <button type="button" class="btn btn-success" matStepperNext>
-          Next
-        </button>
-      </div>
-    </form>
+    <div>
+      <button type="button" class="btn btn-secondary" matStepperPrevious>
+        Back
+      </button>
+      <button
+        type="button"
+        class="btn btn-success"
+        matStepperNext
+        (click)="onNext()"
+      >
+        Next
+      </button>
+    </div>
   </mat-step>
 
   <mat-step [stepControl]="form3">

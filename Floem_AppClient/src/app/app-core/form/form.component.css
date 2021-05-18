@@ -31,3 +31,8 @@ button {
   margin-left: 20px;
   min-height: 100px;
 }
+
+.ng-toggle-handle {
+  border-style: dashed !important;
+  border-color: black !important;
+}

@@ -50,7 +50,7 @@ export class QuoteItems {
     this.height = 200;
     this.depth = 100;
     this.units = DimentionUnits.Centimeters;
-    this.removals = false;
+    this.removals = true;
     this.floorLvt = false;
     this.floorOther = false;
     this.floorTiled = false;

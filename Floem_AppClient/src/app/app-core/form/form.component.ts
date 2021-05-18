@@ -71,5 +71,6 @@ export class FormComponent {
 
   public onNext(): void {
     console.log(this.quoteModel.units); //todo: remove later on
+    console.log(this.quoteModel.removals); //todo: remove later on
   }
 }

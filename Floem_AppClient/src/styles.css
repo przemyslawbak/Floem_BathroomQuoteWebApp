@@ -22,6 +22,9 @@ app-footer {
 }
 
 .mat-step-icon-selected,
-.mat-step-icon-state-edit {
+.mat-step-icon-state-edit,
+.btn-info {
   background-color: #9db946 !important;
+  color: white !important;
+  border: none;
 }
