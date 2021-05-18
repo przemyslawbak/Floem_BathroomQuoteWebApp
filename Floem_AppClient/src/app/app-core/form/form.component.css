@@ -43,10 +43,6 @@ mat-button-toggle-group {
   flex-wrap: wrap;
 }
 
-mat-button-toggle {
-  width: 25%;
-}
-
 .toggleText {
   height: 20px !important;
   display: flex;
@@ -60,4 +56,8 @@ mat-button-toggle {
 
 .animatedAppearance {
   transition: all 0.3s;
+}
+
+.selectLabel {
+  margin-bottom: 20px;
 }

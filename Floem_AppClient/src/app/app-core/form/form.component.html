@@ -126,6 +126,9 @@
     <ng-template matStepLabel>Floor</ng-template>
     <div class="formContainer">
       <div class="row">
+        <label class="selectLabel">Please select:</label>
+      </div>
+      <div class="row">
         <div>
           <mat-button-toggle-group
             name="fontStyle"
@@ -133,16 +136,28 @@
             value="none"
             class="col-sm-12"
           >
-            <mat-button-toggle value="none" (change)="setNoneFloor()"
+            <mat-button-toggle
+              class="col-lg-3 col-sm-12"
+              value="none"
+              (change)="setNoneFloor()"
               >No change</mat-button-toggle
             >
-            <mat-button-toggle value="tiled" (change)="setTiledFloor()"
+            <mat-button-toggle
+              class="col-lg-3 col-sm-12"
+              value="tiled"
+              (change)="setTiledFloor()"
               >Tiled floor</mat-button-toggle
             >
-            <mat-button-toggle value="lvt" (change)="setLvtFloor()"
+            <mat-button-toggle
+              class="col-lg-3 col-sm-12"
+              value="lvt"
+              (change)="setLvtFloor()"
               >LVT floor</mat-button-toggle
             >
-            <mat-button-toggle value="other" (change)="setOtherFloor()"
+            <mat-button-toggle
+              class="col-lg-3 col-sm-12"
+              value="other"
+              (change)="setOtherFloor()"
               >Other</mat-button-toggle
             >
           </mat-button-toggle-group>
@@ -207,7 +222,7 @@
       <img src="../../../assets/images/items.png" />
       <h4 class="align-text-bottom text-white">Additional works</h4>
     </div>
-    <ng-template matStepLabel>Items</ng-template>
+    <ng-template matStepLabel>Units</ng-template>
     <div class="formContainer">
       <div class="row">
         <div class="col-lg-3">
