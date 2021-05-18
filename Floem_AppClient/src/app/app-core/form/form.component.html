@@ -85,14 +85,21 @@
         <div class="col-lg-4">
           <ng-toggle
             onColor="info"
-            onText="Yes"
             offColor="secondary"
-            offText="No"
-            [disabled]="false"
+            size="lg"
             [(ngModel)]="this.quoteModel.removals"
           >
+            <ng-template ngToggleLabel forLabel="on">
+              <div class="toggleText">
+                <span class="extender">With removals</span>
+              </div>
+            </ng-template>
+            <ng-template ngToggleLabel forLabel="off">
+              <div class="toggleText">
+                <span class="extender">No removals</span>
+              </div>
+            </ng-template>
           </ng-toggle>
-          <label class="col-lg-1 ms-2">Removals</label>
         </div>
       </div>
     </div>
@@ -171,105 +178,151 @@
       <img src="../../../assets/images/items.png" />
       <h4 class="align-text-bottom text-white">Additional items</h4>
     </div>
-    <form [formGroup]="form5">
-      <ng-template matStepLabel>Items</ng-template>
-      <div class="formContainer">
-        <div class="row">
-          <div class="col-lg-4">
-            <ng-toggle
-              onColor="info"
-              onText="Yes"
-              offColor="secondary"
-              offText="No"
-              [disabled]="false"
-              [(ngModel)]="this.quoteModel.bathItem"
-            >
-            </ng-toggle>
-            <mat-label class="col-lg-1 ms-2">Bath with shower screen</mat-label>
-          </div>
-          <div class="col-lg-4">
-            <ng-toggle
-              onColor="info"
-              onText="Yes"
-              offColor="secondary"
-              offText="No"
-              [disabled]="false"
-              [(ngModel)]="this.quoteModel.showerItem"
-            >
-            </ng-toggle>
-            <mat-label class="col-lg-1 ms-2">Shower ensuite</mat-label>
-          </div>
-          <div class="col-lg-4">
-            <ng-toggle
-              onColor="info"
-              onText="Yes"
-              offColor="secondary"
-              offText="No"
-              [disabled]="false"
-              [(ngModel)]="this.quoteModel.toiletItem"
-            >
-            </ng-toggle>
-            <mat-label class="col-lg-1 ms-2">Toilet ensuite</mat-label>
-          </div>
-          <div class="col-lg-4">
-            <ng-toggle
-              onColor="info"
-              onText="Yes"
-              offColor="secondary"
-              offText="No"
-              [disabled]="false"
-              [(ngModel)]="this.quoteModel.towelRailItem"
-            >
-            </ng-toggle>
-            <mat-label class="col-lg-1 ms-2">Towel rail</mat-label>
-          </div>
-          <div class="col-lg-4">
-            <ng-toggle
-              onColor="info"
-              onText="Yes"
-              offColor="secondary"
-              offText="No"
-              [disabled]="false"
-              [(ngModel)]="this.quoteModel.basinItem"
-            >
-            </ng-toggle>
-            <mat-label class="col-lg-1 ms-2">Basin</mat-label>
-          </div>
-          <div class="col-lg-4">
-            <ng-toggle
-              onColor="info"
-              onText="Yes"
-              offColor="secondary"
-              offText="No"
-              [disabled]="false"
-              [(ngModel)]="this.quoteModel.pipingItem"
-            >
-            </ng-toggle>
-            <mat-label class="col-lg-1 ms-2">Piping works</mat-label>
-          </div>
-          <div class="col-lg-4">
-            <ng-toggle
-              onColor="info"
-              onText="Yes"
-              offColor="secondary"
-              offText="No"
-              [disabled]="false"
-              [(ngModel)]="this.quoteModel.otherItem"
-            >
-            </ng-toggle>
-            <mat-label class="col-lg-1 ms-2">Other</mat-label>
-          </div>
+    <ng-template matStepLabel>Items</ng-template>
+    <div class="formContainer">
+      <div class="row">
+        <div class="col-lg-3">
+          <ng-toggle
+            onColor="info"
+            offColor="secondary"
+            size="lg"
+            [(ngModel)]="this.quoteModel.bathItem"
+          >
+            <ng-template ngToggleLabel forLabel="on">
+              <div class="toggleText">
+                <span class="extender">Bath with shower screen</span>
+              </div>
+            </ng-template>
+            <ng-template ngToggleLabel forLabel="off">
+              <div class="toggleText">
+                <span class="extender">No bath</span>
+              </div>
+            </ng-template>
+          </ng-toggle>
+        </div>
+        <div class="col-lg-3">
+          <ng-toggle
+            onColor="info"
+            offColor="secondary"
+            size="lg"
+            [(ngModel)]="this.quoteModel.showerItem"
+          >
+            <ng-template ngToggleLabel forLabel="on">
+              <div class="toggleText">
+                <span class="extender">Shower ensuite</span>
+              </div>
+            </ng-template>
+            <ng-template ngToggleLabel forLabel="off">
+              <div class="toggleText">
+                <span class="extender">No shower</span>
+              </div>
+            </ng-template>
+          </ng-toggle>
+        </div>
+        <div class="col-lg-3">
+          <ng-toggle
+            onColor="info"
+            offColor="secondary"
+            size="lg"
+            [(ngModel)]="this.quoteModel.toiletItem"
+          >
+            <ng-template ngToggleLabel forLabel="on">
+              <div class="toggleText">
+                <span class="extender">Toilet</span>
+              </div>
+            </ng-template>
+            <ng-template ngToggleLabel forLabel="off">
+              <div class="toggleText">
+                <span class="extender">No toilet</span>
+              </div>
+            </ng-template>
+          </ng-toggle>
+        </div>
+        <div class="col-lg-3">
+          <ng-toggle
+            onColor="info"
+            offColor="secondary"
+            size="lg"
+            [(ngModel)]="this.quoteModel.towelRailItem"
+          >
+            <ng-template ngToggleLabel forLabel="on">
+              <div class="toggleText">
+                <span class="extender">Towel rail</span>
+              </div>
+            </ng-template>
+            <ng-template ngToggleLabel forLabel="off">
+              <div class="toggleText">
+                <span class="extender">No towel rail</span>
+              </div>
+            </ng-template>
+          </ng-toggle>
+        </div>
+        <div class="col-lg-3">
+          <ng-toggle
+            onColor="info"
+            offColor="secondary"
+            size="lg"
+            [(ngModel)]="this.quoteModel.basinItem"
+          >
+            <ng-template ngToggleLabel forLabel="on">
+              <div class="toggleText">
+                <span class="extender">Basin</span>
+              </div>
+            </ng-template>
+            <ng-template ngToggleLabel forLabel="off">
+              <div class="toggleText">
+                <span class="extender">No basin</span>
+              </div>
+            </ng-template>
+          </ng-toggle>
+        </div>
+        <div class="col-lg-3">
+          <ng-toggle
+            onColor="info"
+            offColor="secondary"
+            size="lg"
+            [(ngModel)]="this.quoteModel.pipingItem"
+          >
+            <ng-template ngToggleLabel forLabel="on">
+              <div class="toggleText">
+                <span class="extender">Piping works</span>
+              </div>
+            </ng-template>
+            <ng-template ngToggleLabel forLabel="off">
+              <div class="toggleText">
+                <span class="extender">No piping works</span>
+              </div>
+            </ng-template>
+          </ng-toggle>
+        </div>
+        <div class="col-lg-3">
+          <ng-toggle
+            onColor="info"
+            offColor="secondary"
+            size="lg"
+            [(ngModel)]="this.quoteModel.otherItem"
+          >
+            <ng-template ngToggleLabel forLabel="on">
+              <div class="toggleText">
+                <span class="extender">Other</span>
+              </div>
+            </ng-template>
+            <ng-template ngToggleLabel forLabel="off">
+              <div class="toggleText">
+                <span class="extender">No other items</span>
+              </div>
+            </ng-template>
+          </ng-toggle>
         </div>
       </div>
-      <div>
-        <button type="button" class="btn btn-secondary" matStepperPrevious>
-          Back
-        </button>
-        <button type="button" class="btn btn-success" matStepperNext>
-          Next
-        </button>
-      </div>
-    </form>
+    </div>
+    <div>
+      <button type="button" class="btn btn-secondary" matStepperPrevious>
+        Back
+      </button>
+      <button type="button" class="btn btn-success" matStepperNext>Next</button>
+    </div>
+    <form [formGroup]="form5"></form>
   </mat-step>
 
   <mat-step [stepControl]="form6">

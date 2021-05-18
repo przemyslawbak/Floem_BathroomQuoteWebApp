@@ -32,15 +32,20 @@ button {
 
 .formContainer {
   margin-top: 20px;
-  margin-left: 20px;
   min-height: 100px;
-}
-
-.ng-toggle-handle {
-  border-style: dashed !important;
-  border-color: black !important;
 }
 
 ng-toggle {
   margin: 5px;
+}
+
+.toggleText {
+  height: 50px !important;
+  display: flex;
+  align-items: center;
+}
+
+.extender {
+  display: inline-block;
+  width: 200px;
 }
