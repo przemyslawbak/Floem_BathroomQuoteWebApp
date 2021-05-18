@@ -39,7 +39,8 @@ export class FormComponent {
   });
 
   form3 = this._formBuilder.group({
-    amount: ['', Validators.required],
+    valid: [true, Validators.required],
+    floorOtherComments: [this.quoteModel.floorOtherComments],
   });
 
   form4 = this._formBuilder.group({
@@ -73,5 +74,33 @@ export class FormComponent {
   public onNext(): void {
     console.log(this.quoteModel.units); //todo: remove later on
     console.log(this.quoteModel.removals); //todo: remove later on
+  }
+
+  public setNoneFloor(): void {
+    this.quoteModel.floorNone = true;
+    this.quoteModel.floorLvt = false;
+    this.quoteModel.floorOther = false;
+    this.quoteModel.floorTiled = false;
+  }
+
+  public setTiledFloor(): void {
+    this.quoteModel.floorNone = false;
+    this.quoteModel.floorLvt = false;
+    this.quoteModel.floorOther = false;
+    this.quoteModel.floorTiled = true;
+  }
+
+  public setLvtFloor(): void {
+    this.quoteModel.floorNone = false;
+    this.quoteModel.floorLvt = true;
+    this.quoteModel.floorOther = false;
+    this.quoteModel.floorTiled = false;
+  }
+
+  public setOtherFloor(): void {
+    this.quoteModel.floorNone = false;
+    this.quoteModel.floorLvt = false;
+    this.quoteModel.floorOther = true;
+    this.quoteModel.floorTiled = false;
   }
 }

@@ -39,6 +39,14 @@ ng-toggle {
   margin: 5px;
 }
 
+mat-button-toggle-group {
+  flex-wrap: wrap;
+}
+
+mat-button-toggle {
+  width: 25%;
+}
+
 .toggleText {
   height: 20px !important;
   display: flex;

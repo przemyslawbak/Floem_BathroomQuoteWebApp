@@ -7,7 +7,7 @@
   <mat-step [stepControl]="form1">
     <div class="stepHeader col-sm rounded-top">
       <img src="../../../assets/images/dimensions.png" />
-      <h4 class="align-text-bottom text-white">Bathroom dimensions:</h4>
+      <h4 class="align-text-bottom text-white">Bathroom dimensions</h4>
     </div>
     <ng-template matStepLabel>Dimensions</ng-template>
     <form [formGroup]="form1">
@@ -123,26 +123,56 @@
       <img src="../../../assets/images/floor.png" />
       <h4 class="align-text-bottom text-white">Floor types</h4>
     </div>
-    <form [formGroup]="form3">
-      <ng-template matStepLabel>Floor</ng-template>
-      <mat-form-field>
-        <mat-label>Test</mat-label>
-        <input
-          matInput
-          placeholder="Amount"
-          formControlName="amount"
-          required
-        />
-      </mat-form-field>
-      <div>
-        <button type="button" class="btn btn-secondary" matStepperPrevious>
-          Back
-        </button>
-        <button type="button" class="btn btn-success" matStepperNext>
-          Next
-        </button>
+    <ng-template matStepLabel>Floor</ng-template>
+    <div class="formContainer">
+      <div class="row">
+        <div>
+          <mat-button-toggle-group
+            name="fontStyle"
+            aria-label="Font Style"
+            value="none"
+            class="col-sm-12"
+          >
+            <mat-button-toggle value="none" (change)="setNoneFloor()"
+              >No change</mat-button-toggle
+            >
+            <mat-button-toggle value="tiled" (change)="setTiledFloor()"
+              >Tiled floor</mat-button-toggle
+            >
+            <mat-button-toggle value="lvt" (change)="setLvtFloor()"
+              >LVT floor</mat-button-toggle
+            >
+            <mat-button-toggle value="other" (change)="setOtherFloor()"
+              >Other</mat-button-toggle
+            >
+          </mat-button-toggle-group>
+        </div>
       </div>
-    </form>
+      <form [formGroup]="form3">
+        <div
+          [style.opacity]="this.quoteModel.floorOther ? '1' : '0'"
+          [style.visibility]="this.quoteModel.floorOther ? 'visible' : 'hidden'"
+          class="row animatedAppearance"
+        >
+          <div class="col-lg-auto">
+            <mat-form-field style="width: 50vw">
+              <mat-label>Other floor</mat-label>
+              <input
+                matInput
+                placeholder="Comment"
+                formControlName="floorOtherComments"
+              />
+            </mat-form-field>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div>
+      <button type="button" class="btn btn-secondary" matStepperPrevious>
+        Back
+      </button>
+      <button type="button" class="btn btn-success" matStepperNext>Next</button>
+    </div>
   </mat-step>
 
   <mat-step [stepControl]="form4">

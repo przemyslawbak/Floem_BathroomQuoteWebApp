@@ -9,6 +9,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatSelectModule } from '@angular/material/select';
 import { MatListModule } from '@angular/material/list';
 import { NgToggleModule } from '@nth-cloud/ng-toggle';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
 
 import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
@@ -16,6 +17,7 @@ import { FormComponent } from './form/form.component';
 
 @NgModule({
   imports: [
+    MatButtonToggleModule,
     NgToggleModule,
     BrowserModule,
     AppRoutingModule,
