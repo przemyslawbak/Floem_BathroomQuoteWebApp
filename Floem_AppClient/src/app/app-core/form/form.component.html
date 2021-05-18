@@ -201,17 +201,71 @@
       <img src="../../../assets/images/wall.png" />
       <h4 class="align-text-bottom text-white">Wall types</h4>
     </div>
+    <div class="formContainer">
+      <div class="row">
+        <label class="selectLabel">Please select one:</label>
+      </div>
+      <div class="row">
+        <div>
+          <mat-button-toggle-group
+            name="fontStyle"
+            aria-label="Font Style"
+            value="none"
+            class="col-12"
+          >
+            <mat-button-toggle
+              class="col-lg-7 col-12"
+              value="none"
+              (change)="setNoneWall()"
+              >No change</mat-button-toggle
+            >
+            <mat-button-toggle
+              class="col-lg-7 col-12"
+              value="tiled"
+              (change)="setFullWall()"
+              >Full height
+            </mat-button-toggle>
+            <mat-button-toggle
+              class="col-lg-7 col-12"
+              value="lvt"
+              (change)="setHalfWall()"
+              >Half height</mat-button-toggle
+            >
+            <mat-button-toggle
+              class="col-lg-7 col-12"
+              value="other"
+              (change)="setPlasteredWall()"
+              >Plastered</mat-button-toggle
+            ><mat-button-toggle
+              class="col-lg-7 col-12"
+              value="other"
+              (change)="setOtherWall()"
+              >Other</mat-button-toggle
+            >
+          </mat-button-toggle-group>
+        </div>
+      </div>
+      <form [formGroup]="form4">
+        <div
+          [style.opacity]="this.quoteModel.floorOther ? '1' : '0'"
+          [style.visibility]="this.quoteModel.floorOther ? 'visible' : 'hidden'"
+          class="row animatedAppearance"
+        >
+          <div class="col-lg-auto">
+            <mat-form-field style="width: 50vw">
+              <mat-label>Other wall type</mat-label>
+              <input
+                matInput
+                placeholder="Comment"
+                formControlName="wallOtherComments"
+              />
+            </mat-form-field>
+          </div>
+        </div>
+      </form>
+    </div>
     <form [formGroup]="form4">
       <ng-template matStepLabel>Walls</ng-template>
-      <mat-form-field>
-        <mat-label>Test</mat-label>
-        <input
-          matInput
-          placeholder="Amount"
-          formControlName="amount"
-          required
-        />
-      </mat-form-field>
       <div>
         <button type="button" class="btn btn-secondary" matStepperPrevious>
           Back

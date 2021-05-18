@@ -45,6 +45,7 @@ export class FormComponent {
 
   form4 = this._formBuilder.group({
     valid: [true, Validators.required],
+    wallOtherComments: [this.quoteModel.wallsOtherComments],
   });
 
   form5 = this._formBuilder.group({
@@ -110,5 +111,45 @@ export class FormComponent {
 
   public setNoRemovals(): void {
     this.quoteModel.removals = false;
+  }
+
+  public setNoneWall(): void {
+    this.quoteModel.wallsNone = true;
+    this.quoteModel.wallsFullHeight = false;
+    this.quoteModel.wallsHalfHeight = false;
+    this.quoteModel.wallsOther = false;
+    this.quoteModel.wallsPlastered = false;
+  }
+
+  public setFullWall(): void {
+    this.quoteModel.wallsNone = false;
+    this.quoteModel.wallsFullHeight = true;
+    this.quoteModel.wallsHalfHeight = false;
+    this.quoteModel.wallsOther = false;
+    this.quoteModel.wallsPlastered = false;
+  }
+
+  public setHalfWall(): void {
+    this.quoteModel.wallsNone = false;
+    this.quoteModel.wallsFullHeight = false;
+    this.quoteModel.wallsHalfHeight = true;
+    this.quoteModel.wallsOther = false;
+    this.quoteModel.wallsPlastered = false;
+  }
+
+  public setPlasteredWall(): void {
+    this.quoteModel.wallsNone = false;
+    this.quoteModel.wallsFullHeight = false;
+    this.quoteModel.wallsHalfHeight = false;
+    this.quoteModel.wallsOther = false;
+    this.quoteModel.wallsPlastered = true;
+  }
+
+  public setOtherWall(): void {
+    this.quoteModel.wallsNone = false;
+    this.quoteModel.wallsFullHeight = false;
+    this.quoteModel.wallsHalfHeight = false;
+    this.quoteModel.wallsOther = true;
+    this.quoteModel.wallsPlastered = false;
   }
 }
