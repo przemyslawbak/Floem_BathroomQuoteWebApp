@@ -5,8 +5,9 @@
   [orientation]="(stepperOrientation | async)!"
 >
   <mat-step [stepControl]="form1">
-    <div class="dimensionsHeaderPic stepHeader col-sm rounded-top">
-      <h4 class="align-text-bottom text-body">Enter bathroom dimensions:</h4>
+    <div class="stepHeader col-sm rounded-top">
+      <img src="../../../assets/images/dimensions.png" />
+      <h4 class="align-text-bottom text-white">Bathroom dimensions:</h4>
     </div>
     <form [formGroup]="form1">
       <ng-template matStepLabel>Dimensions</ng-template>
@@ -74,8 +75,9 @@
   </mat-step>
 
   <mat-step [stepControl]="form2">
-    <div class="removalsHeaderPic stepHeader col-sm rounded-top">
-      <h4 class="align-text-bottom text-body">Expected removals:</h4>
+    <div class="stepHeader col-sm rounded-top">
+      <img src="../../../assets/images/removals.png" />
+      <h4 class="align-text-bottom text-white">Expected removals</h4>
     </div>
     <ng-template matStepLabel>Removals</ng-template>
     <div class="formContainer">
@@ -111,6 +113,10 @@
   </mat-step>
 
   <mat-step [stepControl]="form3">
+    <div class="stepHeader col-sm rounded-top">
+      <img src="../../../assets/images/floor.png" />
+      <h4 class="align-text-bottom text-white">Floor types</h4>
+    </div>
     <form [formGroup]="form3">
       <ng-template matStepLabel>Floor</ng-template>
       <mat-form-field>
@@ -134,6 +140,10 @@
   </mat-step>
 
   <mat-step [stepControl]="form4">
+    <div class="stepHeader col-sm rounded-top">
+      <img src="../../../assets/images/wall.png" />
+      <h4 class="align-text-bottom text-white">Wall types</h4>
+    </div>
     <form [formGroup]="form4">
       <ng-template matStepLabel>Walls</ng-template>
       <mat-form-field>
@@ -157,6 +167,10 @@
   </mat-step>
 
   <mat-step [stepControl]="form5">
+    <div class="stepHeader col-sm rounded-top">
+      <img src="../../../assets/images/items.png" />
+      <h4 class="align-text-bottom text-white">Additional items</h4>
+    </div>
     <form [formGroup]="form5">
       <ng-template matStepLabel>Items</ng-template>
       <mat-form-field>
@@ -180,6 +194,10 @@
   </mat-step>
 
   <mat-step [stepControl]="form6">
+    <div class="stepHeader col-sm rounded-top">
+      <img src="../../../assets/images/doors.png" />
+      <h4 class="align-text-bottom text-white">Door replacement</h4>
+    </div>
     <form [formGroup]="form6">
       <ng-template matStepLabel>Doors</ng-template>
       <mat-form-field>
@@ -203,6 +221,10 @@
   </mat-step>
 
   <mat-step [stepControl]="form7">
+    <div class="stepHeader col-sm rounded-top">
+      <img src="../../../assets/images/electrical.png" />
+      <h4 class="align-text-bottom text-white">Electrical items</h4>
+    </div>
     <form [formGroup]="form7">
       <ng-template matStepLabel>Electrical</ng-template>
       <mat-form-field>

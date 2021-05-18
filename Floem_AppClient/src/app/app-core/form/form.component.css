@@ -3,18 +3,22 @@
 }
 
 .stepHeader {
+  display: flex;
   margin-top: 5px;
   height: 100px;
-  background-repeat: no-repeat;
-  background-position: center;
+  background: rgb(60, 60, 60);
+  background: linear-gradient(
+    90deg,
+    rgba(60, 60, 60, 1) 0%,
+    rgba(25, 135, 84, 1) 28%,
+    rgba(157, 185, 70, 1) 100%
+  );
 }
 
-.dimensionsHeaderPic {
-  background-image: url("../../../assets/images/dimensions.jpg");
-}
-
-.removalsHeaderPic {
-  background-image: url("../../../assets/images/removals.jpg");
+.stepHeader img {
+  height: 50px;
+  width: 50px;
+  margin: 25px;
 }
 
 h4 {

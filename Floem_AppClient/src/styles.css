@@ -28,3 +28,7 @@ app-footer {
   color: white !important;
   border: none;
 }
+
+.ng-toggle-handle {
+  background-color: #ece8e7 !important;
+}
