@@ -44,7 +44,7 @@ export class FormComponent {
   });
 
   form4 = this._formBuilder.group({
-    amount: ['', Validators.required],
+    valid: [true, Validators.required],
   });
 
   form5 = this._formBuilder.group({
