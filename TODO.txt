@@ -29,3 +29,5 @@ OK - next / back btn style change
 - on next / step change (?) model update
 OK - units in / cm
 - each step in separate component
+- fix bug: missing toggles
+- step 5 comments display

@@ -82,7 +82,7 @@
     <ng-template matStepLabel>Removals</ng-template>
     <div class="formContainer">
       <div class="row">
-        <div class="col-lg-3">
+        <div class="col-lg-4">
           <ng-toggle
             onColor="info"
             onText="Yes"
@@ -92,7 +92,7 @@
             [(ngModel)]="this.quoteModel.removals"
           >
           </ng-toggle>
-          <mat-label class="col-lg-1 ms-2">Removals</mat-label>
+          <label class="col-lg-1 ms-2">Removals</label>
         </div>
       </div>
     </div>
@@ -173,15 +173,94 @@
     </div>
     <form [formGroup]="form5">
       <ng-template matStepLabel>Items</ng-template>
-      <mat-form-field>
-        <mat-label>Test</mat-label>
-        <input
-          matInput
-          placeholder="Amount"
-          formControlName="amount"
-          required
-        />
-      </mat-form-field>
+      <div class="formContainer">
+        <div class="row">
+          <div class="col-lg-4">
+            <ng-toggle
+              onColor="info"
+              onText="Yes"
+              offColor="secondary"
+              offText="No"
+              [disabled]="false"
+              [(ngModel)]="this.quoteModel.bathItem"
+            >
+            </ng-toggle>
+            <mat-label class="col-lg-1 ms-2">Bath with shower screen</mat-label>
+          </div>
+          <div class="col-lg-4">
+            <ng-toggle
+              onColor="info"
+              onText="Yes"
+              offColor="secondary"
+              offText="No"
+              [disabled]="false"
+              [(ngModel)]="this.quoteModel.showerItem"
+            >
+            </ng-toggle>
+            <mat-label class="col-lg-1 ms-2">Shower ensuite</mat-label>
+          </div>
+          <div class="col-lg-4">
+            <ng-toggle
+              onColor="info"
+              onText="Yes"
+              offColor="secondary"
+              offText="No"
+              [disabled]="false"
+              [(ngModel)]="this.quoteModel.toiletItem"
+            >
+            </ng-toggle>
+            <mat-label class="col-lg-1 ms-2">Toilet ensuite</mat-label>
+          </div>
+          <div class="col-lg-4">
+            <ng-toggle
+              onColor="info"
+              onText="Yes"
+              offColor="secondary"
+              offText="No"
+              [disabled]="false"
+              [(ngModel)]="this.quoteModel.towelRailItem"
+            >
+            </ng-toggle>
+            <mat-label class="col-lg-1 ms-2">Towel rail</mat-label>
+          </div>
+          <div class="col-lg-4">
+            <ng-toggle
+              onColor="info"
+              onText="Yes"
+              offColor="secondary"
+              offText="No"
+              [disabled]="false"
+              [(ngModel)]="this.quoteModel.basinItem"
+            >
+            </ng-toggle>
+            <mat-label class="col-lg-1 ms-2">Basin</mat-label>
+          </div>
+          <div class="col-lg-4">
+            <ng-toggle
+              onColor="info"
+              onText="Yes"
+              offColor="secondary"
+              offText="No"
+              [disabled]="false"
+              [(ngModel)]="this.quoteModel.pipingItem"
+            >
+            </ng-toggle>
+            <mat-label class="col-lg-1 ms-2">Piping works</mat-label>
+          </div>
+          <div class="col-lg-4">
+            <ng-toggle
+              onColor="info"
+              onText="Yes"
+              offColor="secondary"
+              offText="No"
+              [disabled]="false"
+              [(ngModel)]="this.quoteModel.otherItem"
+            >
+            </ng-toggle>
+            <mat-label class="col-lg-1 ms-2">Other</mat-label>
+          </div>
+        </div>
+      </div>
       <div>
         <button type="button" class="btn btn-secondary" matStepperPrevious>
           Back

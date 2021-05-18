@@ -35,7 +35,7 @@ export class FormComponent {
   });
 
   form2 = this._formBuilder.group({
-    removals: [this.quoteModel.removals, Validators.required],
+    valid: [true, Validators.required],
   });
 
   form3 = this._formBuilder.group({
@@ -47,7 +47,7 @@ export class FormComponent {
   });
 
   form5 = this._formBuilder.group({
-    amount: ['', Validators.required],
+    valid: [true, Validators.required],
   });
 
   form6 = this._formBuilder.group({

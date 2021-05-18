@@ -40,3 +40,7 @@ button {
   border-style: dashed !important;
   border-color: black !important;
 }
+
+ng-toggle {
+  margin: 5px;
+}
