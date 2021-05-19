@@ -12,6 +12,9 @@
     </div>
     <ng-template matStepLabel>Dimensions</ng-template>
     <div class="formContainer">
+      <div class="row">
+        <label class="selectLabel">Please enter bathroom dimensions:</label>
+      </div>
       <form [formGroup]="form1">
         <div class="row">
           <mat-form-field class="col-lg-3" appearance="fill">
@@ -344,18 +347,35 @@
       <img src="../../../assets/images/doors.png" />
       <h4 class="align-text-bottom text-white">Door replacement</h4>
     </div>
-    <form [formGroup]="form6">
-      <ng-template matStepLabel>Doors</ng-template>
-      <mat-form-field>
-        <mat-label>Test</mat-label>
-        <input
-          matInput
-          placeholder="Amount"
-          formControlName="amount"
-          required
-        />
-      </mat-form-field>
-    </form>
+    <ng-template matStepLabel>Doors</ng-template>
+    <div class="formContainer">
+      <div class="row">
+        <label class="selectLabel">Please select one:</label>
+      </div>
+      <div class="row">
+        <div>
+          <mat-button-toggle-group
+            name="fontStyle"
+            aria-label="Font Style"
+            value="changingNo"
+            class="col-lg-6 col-12"
+          >
+            <mat-button-toggle
+              class="col-lg-6 col-12"
+              value="changingNo"
+              (change)="setNoChangingDoors()"
+              >No changing doors
+            </mat-button-toggle>
+            <mat-button-toggle
+              class="col-lg-6 col-12"
+              value="changingYes"
+              (change)="setChangingDoors()"
+              >Changing doors
+            </mat-button-toggle>
+          </mat-button-toggle-group>
+        </div>
+      </div>
+    </div>
     <div>
       <button type="button" class="btn btn-secondary" matStepperPrevious>
         Back

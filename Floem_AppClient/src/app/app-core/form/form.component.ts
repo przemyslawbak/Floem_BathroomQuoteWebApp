@@ -54,7 +54,7 @@ export class FormComponent {
   });
 
   form6 = this._formBuilder.group({
-    amount: ['', Validators.required],
+    valid: [true, Validators.required],
   });
 
   form7 = this._formBuilder.group({
@@ -189,5 +189,13 @@ export class FormComponent {
     } else {
       this.quoteModel.basinItem = false;
     }
+  }
+
+  public setNoChangingDoors(): void {
+    this.quoteModel.doorsChanging = false;
+  }
+
+  public setChangingDoors(): void {
+    this.quoteModel.doorsChanging = true;
   }
 }
