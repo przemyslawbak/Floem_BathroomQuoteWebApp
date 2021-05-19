@@ -45,3 +45,5 @@ OK - between med/sm screen in step 5 is a mess
 - remove piping
 - mat-button-toggle click colors change
 - more text in steps for SEO
+- toggle btn icons? optional
+- toggle btns list 1st always with diff borders, framework bug?

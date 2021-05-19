@@ -207,31 +207,32 @@
             value="none"
             class="col-12"
           >
+            <!--col-lg-7 Bootstrap overriden in css file-->
             <mat-button-toggle
-              class="col-lg-7 col-12"
+              class="col-lg-7"
               value="none"
               (change)="setNoneWall()"
               >No change</mat-button-toggle
             >
             <mat-button-toggle
-              class="col-lg-7 col-12"
+              class="col-lg-7"
               value="tiled"
               (change)="setFullWall()"
               >Full height
             </mat-button-toggle>
             <mat-button-toggle
-              class="col-lg-7 col-12"
+              class="col-lg-7"
               value="lvt"
               (change)="setHalfWall()"
               >Half height</mat-button-toggle
             >
             <mat-button-toggle
-              class="col-lg-7 col-12"
+              class="col-lg-7"
               value="other"
               (change)="setPlasteredWall()"
               >Plastered</mat-button-toggle
             ><mat-button-toggle
-              class="col-lg-7 col-12"
+              class="col-lg-7"
               value="other"
               (change)="setOtherWall()"
               >Other</mat-button-toggle
@@ -286,25 +287,26 @@
             class="col-sm-12"
             (change)="onValChange($event.value)"
           >
-            <mat-button-toggle class="col-lg-9 col-12" value="bath"
+            <!--col-lg-9 Bootstrap overriden in css file-->
+            <mat-button-toggle class="col-lg-9" value="bath"
               >Bath</mat-button-toggle
             >
-            <mat-button-toggle class="col-lg-9 col-12" value="ensuite"
+            <mat-button-toggle class="col-lg-9" value="ensuite"
               >Shower ensuite</mat-button-toggle
             >
-            <mat-button-toggle class="col-lg-9 col-12" value="mixer"
+            <mat-button-toggle class="col-lg-9" value="mixer"
               >Shower mixer</mat-button-toggle
             >
-            <mat-button-toggle class="col-lg-9 col-12" value="toilet"
+            <mat-button-toggle class="col-lg-9" value="toilet"
               >Toilet</mat-button-toggle
             >
-            <mat-button-toggle class="col-lg-9 col-12" value="rail"
+            <mat-button-toggle class="col-lg-9" value="rail"
               >Towel rail</mat-button-toggle
             >
-            <mat-button-toggle class="col-lg-9 col-12" value="basin"
+            <mat-button-toggle class="col-lg-9" value="basin"
               >Basin</mat-button-toggle
             >
-            <mat-button-toggle class="col-lg-9 col-12" value="other"
+            <mat-button-toggle class="col-lg-9" value="other"
               >Other</mat-button-toggle
             >
           </mat-button-toggle-group>

@@ -62,10 +62,19 @@ mat-button-toggle-group {
   margin-bottom: 20px;
 }
 
-.col-lg-7 {
-  width: 20%;
+@media (min-width: 0px) {
+  .col-lg-9,
+  .col-lg-7 {
+    width: 100%;
+  }
 }
 
-.col-lg-9 {
-  width: 14.28571428571429%;
+@media (min-width: 992px) {
+  .col-lg-7 {
+    width: 20%;
+  }
+
+  .col-lg-9 {
+    width: 14.28571428571429%;
+  }
 }
