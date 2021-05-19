@@ -14,7 +14,7 @@
     <div class="formContainer">
       <div class="row">
         <label class="selectLabel"
-          >Please enter bathroom <b>dimensions</b>:</label
+          >Please enter below bathroom <b>dimensions</b>:</label
         >
       </div>
       <form [formGroup]="form1">
@@ -88,7 +88,9 @@
     <ng-template matStepLabel>Removals</ng-template>
     <div class="formContainer">
       <div class="row">
-        <label class="selectLabel">Please select <b>one</b> option:</label>
+        <label class="selectLabel"
+          >Please select below <b>one</b> option:</label
+        >
       </div>
       <div class="row">
         <div>
@@ -130,7 +132,9 @@
     <ng-template matStepLabel>Floor</ng-template>
     <div class="formContainer">
       <div class="row">
-        <label class="selectLabel">Please select <b>one</b> option:</label>
+        <label class="selectLabel"
+          >Please select below <b>one</b> option:</label
+        >
       </div>
       <div class="row">
         <div>
@@ -202,7 +206,9 @@
     <ng-template matStepLabel>Wall</ng-template>
     <div class="formContainer">
       <div class="row">
-        <label class="selectLabel">Please select <b>one</b> option:</label>
+        <label class="selectLabel"
+          >Please select below <b>one</b> option:</label
+        >
       </div>
       <div class="row">
         <div>
@@ -281,7 +287,7 @@
     <div class="formContainer">
       <div class="row">
         <label class="selectLabel"
-          >Please select <b>multiple</b> options:</label
+          >Please select below <b>multiple</b> options:</label
         >
       </div>
       <div class="row">
@@ -354,7 +360,9 @@
     <ng-template matStepLabel>Doors</ng-template>
     <div class="formContainer">
       <div class="row">
-        <label class="selectLabel">Please select <b>one</b> option:</label>
+        <label class="selectLabel"
+          >Please select below <b>one</b> option:</label
+        >
       </div>
       <div class="row">
         <div>
@@ -397,7 +405,7 @@
     <div class="formContainer">
       <div class="row">
         <label class="selectLabel"
-          >Please select <b>multiple</b> options:</label
+          >Please select below <b>multiple</b> options:</label
         >
       </div>
       <div class="row">
@@ -431,6 +439,7 @@
       <form [formGroup]="form7">
         <div
           [style.opacity]="this.quoteModel.socketsElectrical ? '1' : '0'"
+          [style.height]="this.quoteModel.socketsElectrical ? '66px' : '0'"
           [style.visibility]="
             this.quoteModel.socketsElectrical ? 'visible' : 'hidden'
           "
@@ -450,6 +459,7 @@
 
         <div
           [style.opacity]="this.quoteModel.spotlightsElectrical ? '1' : '0'"
+          [style.height]="this.quoteModel.spotlightsElectrical ? '66px' : '0'"
           [style.visibility]="
             this.quoteModel.spotlightsElectrical ? 'visible' : 'hidden'
           "
