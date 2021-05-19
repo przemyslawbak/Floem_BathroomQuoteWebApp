@@ -4,14 +4,15 @@
   labelPosition="bottom"
   [orientation]="(stepperOrientation | async)!"
 >
+  <!--STEP 1-->
   <mat-step [stepControl]="form1">
     <div class="stepHeader col-sm rounded-top">
       <img src="../../../assets/images/dimensions.png" />
       <h4 class="align-text-bottom text-white">Bathroom dimensions</h4>
     </div>
     <ng-template matStepLabel>Dimensions</ng-template>
-    <form [formGroup]="form1">
-      <div class="formContainer">
+    <div class="formContainer">
+      <form [formGroup]="form1">
         <div class="row">
           <mat-form-field class="col-lg-3" appearance="fill">
             <mat-label>Units</mat-label>
@@ -60,20 +61,20 @@
             </mat-form-field>
           </div>
         </div>
-      </div>
-      <div>
-        <button
-          type="button"
-          class="btn btn-success"
-          matStepperNext
-          (click)="onNext()"
-        >
-          Next
-        </button>
-      </div>
-    </form>
+      </form>
+    </div>
+    <div>
+      <button
+        type="button"
+        class="btn btn-success"
+        matStepperNext
+        (click)="onNext()"
+      >
+        Next
+      </button>
+    </div>
   </mat-step>
-
+  <!--STEP 2-->
   <mat-step [stepControl]="form2">
     <div class="stepHeader col-sm rounded-top">
       <img src="../../../assets/images/removals.png" />
@@ -108,22 +109,14 @@
         </div>
       </div>
     </div>
-
     <div>
       <button type="button" class="btn btn-secondary" matStepperPrevious>
         Back
       </button>
-      <button
-        type="button"
-        class="btn btn-success"
-        matStepperNext
-        (click)="onNext()"
-      >
-        Next
-      </button>
+      <button type="button" class="btn btn-success" matStepperNext>Next</button>
     </div>
   </mat-step>
-
+  <!--STEP 3-->
   <mat-step [stepControl]="form3">
     <div class="stepHeader col-sm rounded-top">
       <img src="../../../assets/images/floor.png" />
@@ -195,12 +188,13 @@
       <button type="button" class="btn btn-success" matStepperNext>Next</button>
     </div>
   </mat-step>
-
+  <!--STEP 4-->
   <mat-step [stepControl]="form4">
     <div class="stepHeader col-sm rounded-top">
       <img src="../../../assets/images/wall.png" />
       <h4 class="align-text-bottom text-white">Wall types</h4>
     </div>
+    <ng-template matStepLabel>Wall</ng-template>
     <div class="formContainer">
       <div class="row">
         <label class="selectLabel">Please select one:</label>
@@ -247,8 +241,8 @@
       </div>
       <form [formGroup]="form4">
         <div
-          [style.opacity]="this.quoteModel.floorOther ? '1' : '0'"
-          [style.visibility]="this.quoteModel.floorOther ? 'visible' : 'hidden'"
+          [style.opacity]="this.quoteModel.wallsOther ? '1' : '0'"
+          [style.visibility]="this.quoteModel.wallsOther ? 'visible' : 'hidden'"
           class="row animatedAppearance"
         >
           <div class="col-lg-auto">
@@ -264,19 +258,14 @@
         </div>
       </form>
     </div>
-    <form [formGroup]="form4">
-      <ng-template matStepLabel>Walls</ng-template>
-      <div>
-        <button type="button" class="btn btn-secondary" matStepperPrevious>
-          Back
-        </button>
-        <button type="button" class="btn btn-success" matStepperNext>
-          Next
-        </button>
-      </div>
-    </form>
+    <div>
+      <button type="button" class="btn btn-secondary" matStepperPrevious>
+        Back
+      </button>
+      <button type="button" class="btn btn-success" matStepperNext>Next</button>
+    </div>
   </mat-step>
-
+  <!--STEP 5-->
   <mat-step [stepControl]="form5">
     <div class="stepHeader col-sm rounded-top">
       <img src="../../../assets/images/items.png" />
@@ -285,131 +274,60 @@
     <ng-template matStepLabel>Units</ng-template>
     <div class="formContainer">
       <div class="row">
-        <div class="col-lg-3">
-          <ng-toggle
-            onColor="info"
-            offColor="secondary"
-            [(ngModel)]="this.quoteModel.bathItem"
+        <label class="selectLabel">Please select multiple:</label>
+      </div>
+      <div class="row">
+        <div>
+          <mat-button-toggle-group
+            multiple="true"
+            name="fontStyle"
+            aria-label="Font Style"
+            value="none"
+            class="col-sm-12"
           >
-            <ng-template ngToggleLabel forLabel="on">
-              <div class="toggleText">
-                <span class="extender">Bath with shower screen</span>
-              </div>
-            </ng-template>
-            <ng-template ngToggleLabel forLabel="off">
-              <div class="toggleText">
-                <span class="extender">No bath</span>
-              </div>
-            </ng-template>
-          </ng-toggle>
-        </div>
-        <div class="col-lg-3">
-          <ng-toggle
-            onColor="info"
-            offColor="secondary"
-            [(ngModel)]="this.quoteModel.showerItem"
-          >
-            <ng-template ngToggleLabel forLabel="on">
-              <div class="toggleText">
-                <span class="extender">Shower ensuite</span>
-              </div>
-            </ng-template>
-            <ng-template ngToggleLabel forLabel="off">
-              <div class="toggleText">
-                <span class="extender">No shower</span>
-              </div>
-            </ng-template>
-          </ng-toggle>
-        </div>
-        <div class="col-lg-3">
-          <ng-toggle
-            onColor="info"
-            offColor="secondary"
-            [(ngModel)]="this.quoteModel.toiletItem"
-          >
-            <ng-template ngToggleLabel forLabel="on">
-              <div class="toggleText">
-                <span class="extender">Toilet</span>
-              </div>
-            </ng-template>
-            <ng-template ngToggleLabel forLabel="off">
-              <div class="toggleText">
-                <span class="extender">No toilet</span>
-              </div>
-            </ng-template>
-          </ng-toggle>
-        </div>
-        <div class="col-lg-3">
-          <ng-toggle
-            onColor="info"
-            offColor="secondary"
-            [(ngModel)]="this.quoteModel.towelRailItem"
-          >
-            <ng-template ngToggleLabel forLabel="on">
-              <div class="toggleText">
-                <span class="extender">Towel rail</span>
-              </div>
-            </ng-template>
-            <ng-template ngToggleLabel forLabel="off">
-              <div class="toggleText">
-                <span class="extender">No towel rail</span>
-              </div>
-            </ng-template>
-          </ng-toggle>
-        </div>
-        <div class="col-lg-3">
-          <ng-toggle
-            onColor="info"
-            offColor="secondary"
-            [(ngModel)]="this.quoteModel.basinItem"
-          >
-            <ng-template ngToggleLabel forLabel="on">
-              <div class="toggleText">
-                <span class="extender">Basin</span>
-              </div>
-            </ng-template>
-            <ng-template ngToggleLabel forLabel="off">
-              <div class="toggleText">
-                <span class="extender">No basin</span>
-              </div>
-            </ng-template>
-          </ng-toggle>
-        </div>
-        <div class="col-lg-3">
-          <ng-toggle
-            onColor="info"
-            offColor="secondary"
-            [(ngModel)]="this.quoteModel.pipingItem"
-          >
-            <ng-template ngToggleLabel forLabel="on">
-              <div class="toggleText">
-                <span class="extender">Piping works</span>
-              </div>
-            </ng-template>
-            <ng-template ngToggleLabel forLabel="off">
-              <div class="toggleText">
-                <span class="extender">No piping works</span>
-              </div>
-            </ng-template>
-          </ng-toggle>
-        </div>
-        <div class="col-lg-3">
-          <ng-toggle
-            onColor="info"
-            offColor="secondary"
-            [(ngModel)]="this.quoteModel.otherItem"
-          >
-            <ng-template ngToggleLabel forLabel="on">
-              <div class="toggleText">
-                <span class="extender">Other</span>
-              </div>
-            </ng-template>
-            <ng-template ngToggleLabel forLabel="off">
-              <div class="toggleText">
-                <span class="extender">No other items</span>
-              </div>
-            </ng-template>
-          </ng-toggle>
+            <mat-button-toggle
+              class="col-lg-9 col-12"
+              value="none"
+              (change)="setNoneFloor()"
+              >Bath</mat-button-toggle
+            >
+            <mat-button-toggle
+              class="col-lg-9 col-12"
+              value="tiled"
+              (change)="setTiledFloor()"
+              >Shower ensuite</mat-button-toggle
+            >
+            <mat-button-toggle
+              class="col-lg-9 col-12"
+              value="lvt"
+              (change)="setLvtFloor()"
+              >Shower mixer</mat-button-toggle
+            >
+            <mat-button-toggle
+              class="col-lg-9 col-12"
+              value="other"
+              (change)="setOtherFloor()"
+              >Toilet</mat-button-toggle
+            >
+            <mat-button-toggle
+              class="col-lg-9 col-12"
+              value="other"
+              (change)="setOtherFloor()"
+              >Towel rail</mat-button-toggle
+            >
+            <mat-button-toggle
+              class="col-lg-9 col-12"
+              value="other"
+              (change)="setOtherFloor()"
+              >Basin</mat-button-toggle
+            >
+            <mat-button-toggle
+              class="col-lg-9 col-12"
+              value="other"
+              (change)="setOtherFloor()"
+              >Other</mat-button-toggle
+            >
+          </mat-button-toggle-group>
         </div>
       </div>
       <form [formGroup]="form5">
@@ -438,7 +356,7 @@
       <button type="button" class="btn btn-success" matStepperNext>Next</button>
     </div>
   </mat-step>
-
+  <!--STEP 6-->
   <mat-step [stepControl]="form6">
     <div class="stepHeader col-sm rounded-top">
       <img src="../../../assets/images/doors.png" />
@@ -455,17 +373,15 @@
           required
         />
       </mat-form-field>
-      <div>
-        <button type="button" class="btn btn-secondary" matStepperPrevious>
-          Back
-        </button>
-        <button type="button" class="btn btn-success" matStepperNext>
-          Next
-        </button>
-      </div>
     </form>
+    <div>
+      <button type="button" class="btn btn-secondary" matStepperPrevious>
+        Back
+      </button>
+      <button type="button" class="btn btn-success" matStepperNext>Next</button>
+    </div>
   </mat-step>
-
+  <!--STEP 7-->
   <mat-step [stepControl]="form7">
     <div class="stepHeader col-sm rounded-top">
       <img src="../../../assets/images/electrical.png" />

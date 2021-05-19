@@ -33,3 +33,15 @@ OK - units in / cm
 OK - fix bug: missing toggles
 OK - step 5 comments display
 OK - between med/sm screen in step 5 is a mess
+- select with content
+- items -> units
+- ft + in / cm
+- tiles for all selects
+- dynamic total quote
+- step: contacts email, tel, address, RODO
+- summary: link
+- summary: email to Floem + email to client
+- summary: for each step price
+- remove piping
+- mat-button-toggle click colors change
+- more text in steps for SEO
