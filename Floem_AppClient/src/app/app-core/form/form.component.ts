@@ -58,7 +58,9 @@ export class FormComponent {
   });
 
   form7 = this._formBuilder.group({
-    amount: ['', Validators.required],
+    valid: [true, Validators.required],
+    socketsQty: [this.quoteModel.socketsQty],
+    spotlightsQty: [this.quoteModel.spotlightsQty],
   });
 
   stepperOrientation: Observable<StepperOrientation>;
@@ -153,7 +155,7 @@ export class FormComponent {
     this.quoteModel.wallsPlastered = false;
   }
 
-  public onValChange(e: Array<string>): void {
+  public onUnitsValChange(e: Array<string>): void {
     if (e.includes('other')) {
       this.quoteModel.otherItem = true;
     } else {
@@ -188,6 +190,34 @@ export class FormComponent {
       this.quoteModel.basinItem = true;
     } else {
       this.quoteModel.basinItem = false;
+    }
+  }
+
+  public onElectricalValChange(e: Array<string>): void {
+    if (e.includes('mirror')) {
+      this.quoteModel.mirrorElectrical = true;
+    } else {
+      this.quoteModel.mirrorElectrical = false;
+    }
+    if (e.includes('fan')) {
+      this.quoteModel.fanElectrical = true;
+    } else {
+      this.quoteModel.fanElectrical = false;
+    }
+    if (e.includes('spotlight')) {
+      this.quoteModel.spotlightsElectrical = true;
+    } else {
+      this.quoteModel.spotlightsElectrical = false;
+    }
+    if (e.includes('switch')) {
+      this.quoteModel.switcherElectrical = true;
+    } else {
+      this.quoteModel.switcherElectrical = false;
+    }
+    if (e.includes('socket')) {
+      this.quoteModel.socketsElectrical = true;
+    } else {
+      this.quoteModel.socketsElectrical = false;
     }
   }
 

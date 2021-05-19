@@ -42,10 +42,10 @@ export class QuoteItems {
   mirrorElectrical: boolean;
   fanElectrical: boolean;
   spotlightsElectrical: boolean;
-  spotlightsQty: number;
   switcherElectrical: boolean;
   socketsElectrical: boolean;
   socketsQty: number;
+  spotlightsQty: number;
 
   constructor() {
     this.width = 100;

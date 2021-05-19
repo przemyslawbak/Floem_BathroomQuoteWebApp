@@ -13,7 +13,9 @@
     <ng-template matStepLabel>Dimensions</ng-template>
     <div class="formContainer">
       <div class="row">
-        <label class="selectLabel">Please enter bathroom dimensions:</label>
+        <label class="selectLabel"
+          >Please enter bathroom <b>dimensions</b>:</label
+        >
       </div>
       <form [formGroup]="form1">
         <div class="row">
@@ -86,7 +88,7 @@
     <ng-template matStepLabel>Removals</ng-template>
     <div class="formContainer">
       <div class="row">
-        <label class="selectLabel">Please select one:</label>
+        <label class="selectLabel">Please select <b>one</b> option:</label>
       </div>
       <div class="row">
         <div>
@@ -128,7 +130,7 @@
     <ng-template matStepLabel>Floor</ng-template>
     <div class="formContainer">
       <div class="row">
-        <label class="selectLabel">Please select one:</label>
+        <label class="selectLabel">Please select <b>one</b> option:</label>
       </div>
       <div class="row">
         <div>
@@ -200,7 +202,7 @@
     <ng-template matStepLabel>Wall</ng-template>
     <div class="formContainer">
       <div class="row">
-        <label class="selectLabel">Please select one:</label>
+        <label class="selectLabel">Please select <b>one</b> option:</label>
       </div>
       <div class="row">
         <div>
@@ -278,17 +280,19 @@
     <ng-template matStepLabel>Units</ng-template>
     <div class="formContainer">
       <div class="row">
-        <label class="selectLabel">Please select multiple:</label>
+        <label class="selectLabel"
+          >Please select <b>multiple</b> options:</label
+        >
       </div>
       <div class="row">
         <div>
           <mat-button-toggle-group
-            multiple="true"
             name="fontStyle"
             aria-label="Font Style"
             value="none"
             class="col-sm-12"
-            (change)="onValChange($event.value)"
+            multiple="true"
+            (change)="onUnitsValChange($event.value)"
           >
             <!--col-lg-9 Bootstrap overriden in css file-->
             <mat-button-toggle class="col-lg-9" value="bath"
@@ -350,7 +354,7 @@
     <ng-template matStepLabel>Doors</ng-template>
     <div class="formContainer">
       <div class="row">
-        <label class="selectLabel">Please select one:</label>
+        <label class="selectLabel">Please select <b>one</b> option:</label>
       </div>
       <div class="row">
         <div>
@@ -389,26 +393,87 @@
       <img src="../../../assets/images/electrical.png" />
       <h4 class="align-text-bottom text-white">Electrical works</h4>
     </div>
-    <form [formGroup]="form7">
-      <ng-template matStepLabel>Electrical</ng-template>
-      <mat-form-field>
-        <mat-label>Test</mat-label>
-        <input
-          matInput
-          placeholder="Amount"
-          formControlName="amount"
-          required
-        />
-      </mat-form-field>
-      <div>
-        <button type="button" class="btn btn-secondary" matStepperPrevious>
-          Back
-        </button>
-        <button type="button" class="btn btn-success" matStepperNext>
-          Next
-        </button>
+    <ng-template matStepLabel>Electrical</ng-template>
+    <div class="formContainer">
+      <div class="row">
+        <label class="selectLabel"
+          >Please select <b>multiple</b> options:</label
+        >
       </div>
-    </form>
+      <div class="row">
+        <div>
+          <mat-button-toggle-group
+            name="fontStyle"
+            aria-label="Font Style"
+            class="col-12"
+            multiple="true"
+            (change)="onElectricalValChange($event.value)"
+          >
+            <!--col-lg-7 Bootstrap overriden in css file-->
+            <mat-button-toggle class="col-lg-7" value="mirror"
+              >Elecrical mirror</mat-button-toggle
+            >
+            <mat-button-toggle class="col-lg-7" value="fan"
+              >Mechanic fan
+            </mat-button-toggle>
+            <mat-button-toggle class="col-lg-7" value="switch"
+              >Light switch</mat-button-toggle
+            >
+            <mat-button-toggle class="col-lg-7" value="spotlight"
+              >Spotlights</mat-button-toggle
+            >
+            <mat-button-toggle class="col-lg-7" value="socket"
+              >Power sockets</mat-button-toggle
+            >
+          </mat-button-toggle-group>
+        </div>
+      </div>
+      <form [formGroup]="form7">
+        <div
+          [style.opacity]="this.quoteModel.socketsElectrical ? '1' : '0'"
+          [style.visibility]="
+            this.quoteModel.socketsElectrical ? 'visible' : 'hidden'
+          "
+          class="row animatedAppearance"
+        >
+          <div class="col-lg-auto">
+            <mat-form-field style="width: 50vw">
+              <mat-label>How many sockets?</mat-label>
+              <input
+                matInput
+                placeholder="Comment"
+                formControlName="socketsQty"
+              />
+            </mat-form-field>
+          </div>
+        </div>
+
+        <div
+          [style.opacity]="this.quoteModel.spotlightsElectrical ? '1' : '0'"
+          [style.visibility]="
+            this.quoteModel.spotlightsElectrical ? 'visible' : 'hidden'
+          "
+          class="row animatedAppearance"
+        >
+          <div class="col-lg-auto">
+            <mat-form-field style="width: 50vw">
+              <mat-label>How many spotlights?</mat-label>
+              <input
+                matInput
+                placeholder="Comment"
+                formControlName="spotlightsQty"
+              />
+            </mat-form-field>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div>
+      <button type="button" class="btn btn-secondary" matStepperPrevious>
+        Back
+      </button>
+      <button type="button" class="btn btn-success" matStepperNext>Next</button>
+    </div>
   </mat-step>
 
   <mat-step>
