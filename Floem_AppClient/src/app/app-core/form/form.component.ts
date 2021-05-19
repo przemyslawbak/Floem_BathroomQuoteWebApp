@@ -28,9 +28,18 @@ export class FormComponent {
   }
 
   form1 = this._formBuilder.group({
-    width: [this.quoteModel.width, Validators.required],
-    height: [this.quoteModel.height, Validators.required],
-    depth: [this.quoteModel.depth, Validators.required],
+    width: [
+      this.quoteModel.width,
+      [Validators.required, Validators.pattern('^[0-9]*$')],
+    ],
+    height: [
+      this.quoteModel.height,
+      [Validators.required, Validators.pattern('^[0-9]*$')],
+    ],
+    depth: [
+      this.quoteModel.depth,
+      [Validators.required, Validators.pattern('^[0-9]*$')],
+    ],
     units: [this.quoteModel.units, Validators.required],
   });
 
@@ -59,8 +68,11 @@ export class FormComponent {
 
   form7 = this._formBuilder.group({
     valid: [true, Validators.required],
-    socketsQty: [this.quoteModel.socketsQty],
-    spotlightsQty: [this.quoteModel.spotlightsQty],
+    socketsQty: [this.quoteModel.socketsQty, Validators.pattern('^[0-9]*$')],
+    spotlightsQty: [
+      this.quoteModel.spotlightsQty,
+      Validators.pattern('^[0-9]*$'),
+    ],
   });
 
   stepperOrientation: Observable<StepperOrientation>;

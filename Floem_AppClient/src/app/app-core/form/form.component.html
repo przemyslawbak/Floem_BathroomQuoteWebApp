@@ -41,6 +41,7 @@
                 formControlName="width"
                 required
               />
+              <mat-error *ngIf="form1.invalid">Numbers only allowed</mat-error>
             </mat-form-field>
           </div>
           <div class="col-lg-3">
@@ -52,6 +53,7 @@
                 formControlName="height"
                 required
               />
+              <mat-error *ngIf="form1.invalid">Numbers only allowed</mat-error>
             </mat-form-field>
           </div>
           <div class="col-lg-3">
@@ -63,6 +65,7 @@
                 formControlName="depth"
                 required
               />
+              <mat-error *ngIf="form1.invalid">Numbers only allowed</mat-error>
             </mat-form-field>
           </div>
         </div>
@@ -453,6 +456,7 @@
                 placeholder="Comment"
                 formControlName="socketsQty"
               />
+              <mat-error *ngIf="form7.invalid">Numbers only allowed</mat-error>
             </mat-form-field>
           </div>
         </div>
@@ -473,6 +477,7 @@
                 placeholder="Comment"
                 formControlName="spotlightsQty"
               />
+              <mat-error *ngIf="form7.invalid">Numbers only allowed</mat-error>
             </mat-form-field>
           </div>
         </div>
