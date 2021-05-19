@@ -175,9 +175,29 @@
         </div>
       </div>
       <form [formGroup]="form3">
+        <!--tiles-->
+        <div
+          [style.opacity]="this.quoteModel.floorTiled ? '1' : '0'"
+          [style.visibility]="this.quoteModel.floorTiled ? 'visible' : 'hidden'"
+          [style.height]="this.quoteModel.floorTiled ? '200px' : '0'"
+          class="row animatedAppearance"
+        >
+          <label class="selectLabel col-12"
+            >Please select below <b>one</b> option: (testing items
+            display)</label
+          >
+          <div class="col-12">
+            <div *ngFor="let tile of getTiles(); let i = index">
+              <div>
+                {{ tile.code }}
+              </div>
+            </div>
+          </div>
+        </div>
         <div
           [style.opacity]="this.quoteModel.floorOther ? '1' : '0'"
           [style.visibility]="this.quoteModel.floorOther ? 'visible' : 'hidden'"
+          [style.height]="this.quoteModel.socketsElectrical ? '66px' : '0'"
           class="row animatedAppearance"
         >
           <div class="col-lg-auto">
@@ -258,6 +278,7 @@
         <div
           [style.opacity]="this.quoteModel.wallsOther ? '1' : '0'"
           [style.visibility]="this.quoteModel.wallsOther ? 'visible' : 'hidden'"
+          [style.height]="this.quoteModel.socketsElectrical ? '66px' : '0'"
           class="row animatedAppearance"
         >
           <div class="col-lg-auto">
@@ -332,6 +353,7 @@
         <div
           [style.opacity]="this.quoteModel.otherItem ? '1' : '0'"
           [style.visibility]="this.quoteModel.otherItem ? 'visible' : 'hidden'"
+          [style.height]="this.quoteModel.socketsElectrical ? '66px' : '0'"
           class="row animatedAppearance"
         >
           <div class="col-lg-auto">
