@@ -26,6 +26,7 @@ OK - fix bug: missing toggles
 OK - step 5 comments display
 OK - between med/sm screen in step 5 is a mess
 OK - number form validation
+- bug: other... comments under step navi btns
 - jumping between valid steps?
 - small screen menu btns margins
 - data binding
@@ -40,7 +41,7 @@ OK - number form validation
 - items -> units
 - ft + in / cm
 - tiles for all selects
-- placing 'selected total' in the corner
+- placing 'selected total' in the corner or fixed
 - dynamic total quote
 - additional step? or only when sending?: contacts email, tel, address, RODO
 - summary: link

@@ -174,44 +174,55 @@
           </mat-button-toggle-group>
         </div>
       </div>
-      <form [formGroup]="form3">
-        <!--tiles-->
-        <div
-          [style.opacity]="this.quoteModel.floorTiled ? '1' : '0'"
-          [style.visibility]="this.quoteModel.floorTiled ? 'visible' : 'hidden'"
-          [style.height]="this.quoteModel.floorTiled ? '200px' : '0'"
-          class="row animatedAppearance"
-        >
-          <label class="selectLabel col-12"
-            >Please select below <b>one</b> option: (testing items
-            display)</label
+      <div class="row">
+        <form [formGroup]="form3" class="col-12">
+          <!--tiles floor-->
+          <div
+            [style.opacity]="this.quoteModel.floorTiled ? '1' : '0'"
+            [style.visibility]="
+              this.quoteModel.floorTiled ? 'visible' : 'hidden'
+            "
+            [style.height]="this.quoteModel.floorTiled ? '130px' : '0'"
+            class="animatedAppearance col-12"
           >
-          <div class="col-12">
-            <div *ngFor="let tile of getTiles(); let i = index">
-              <div>
-                {{ tile.code }}
+            <div class="row itemListedCollection">
+              <label class="selectLabel col-12">Please select tiles:</label>
+              <div class="center row">
+                <div
+                  *ngFor="let tile of getTiles(); let i = index"
+                  class="itemListedDisplay col-lg-2 col-md-3 col-sm-4 col-4"
+                >
+                  <img
+                    src="../../../assets/images/{{ tile.type }}/{{
+                      tile.code
+                    }}.jpg"
+                  />
+                </div>
               </div>
             </div>
           </div>
-        </div>
-        <div
-          [style.opacity]="this.quoteModel.floorOther ? '1' : '0'"
-          [style.visibility]="this.quoteModel.floorOther ? 'visible' : 'hidden'"
-          [style.height]="this.quoteModel.socketsElectrical ? '66px' : '0'"
-          class="row animatedAppearance"
-        >
-          <div class="col-lg-auto">
-            <mat-form-field style="width: 50vw">
-              <mat-label>Other floor type</mat-label>
-              <input
-                matInput
-                placeholder="Comment"
-                formControlName="floorOtherComments"
-              />
-            </mat-form-field>
+          <!--other floor-->
+          <div
+            [style.opacity]="this.quoteModel.floorOther ? '1' : '0'"
+            [style.visibility]="
+              this.quoteModel.floorOther ? 'visible' : 'hidden'
+            "
+            [style.height]="this.quoteModel.socketsElectrical ? '66px' : '0'"
+            class="row animatedAppearance"
+          >
+            <div class="col-lg-auto">
+              <mat-form-field style="width: 50vw">
+                <mat-label>Other floor type</mat-label>
+                <input
+                  matInput
+                  placeholder="Comment"
+                  formControlName="floorOtherComments"
+                />
+              </mat-form-field>
+            </div>
           </div>
-        </div>
-      </form>
+        </form>
+      </div>
     </div>
     <div>
       <button type="button" class="btn btn-secondary" matStepperPrevious>
