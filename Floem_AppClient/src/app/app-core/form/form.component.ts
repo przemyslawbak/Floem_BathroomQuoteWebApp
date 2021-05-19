@@ -152,4 +152,42 @@ export class FormComponent {
     this.quoteModel.wallsOther = true;
     this.quoteModel.wallsPlastered = false;
   }
+
+  public onValChange(e: Array<string>): void {
+    if (e.includes('other')) {
+      this.quoteModel.otherItem = true;
+    } else {
+      this.quoteModel.otherItem = false;
+    }
+    if (e.includes('bath')) {
+      this.quoteModel.bathItem = true;
+    } else {
+      this.quoteModel.bathItem = false;
+    }
+    if (e.includes('ensuite')) {
+      this.quoteModel.ensuiteItem = true;
+    } else {
+      this.quoteModel.ensuiteItem = false;
+    }
+    if (e.includes('mixer')) {
+      this.quoteModel.mixerItem = true;
+    } else {
+      this.quoteModel.mixerItem = false;
+    }
+    if (e.includes('toilet')) {
+      this.quoteModel.toiletItem = true;
+    } else {
+      this.quoteModel.toiletItem = false;
+    }
+    if (e.includes('rail')) {
+      this.quoteModel.towelRailItem = true;
+    } else {
+      this.quoteModel.towelRailItem = false;
+    }
+    if (e.includes('basin')) {
+      this.quoteModel.basinItem = true;
+    } else {
+      this.quoteModel.basinItem = false;
+    }
+  }
 }

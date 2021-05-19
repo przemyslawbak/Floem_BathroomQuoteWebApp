@@ -28,11 +28,11 @@ export class QuoteItems {
   wallsOtherComments: string;
   //5 items
   bathItem: boolean;
-  showerItem: boolean;
+  ensuiteItem: boolean;
+  mixerItem: boolean;
   toiletItem: boolean;
   towelRailItem: boolean;
   basinItem: boolean;
-  pipingItem: boolean;
   otherItem: boolean;
   otherItemComments: string;
   //6 doors
@@ -69,8 +69,8 @@ export class QuoteItems {
     this.bathItem = false;
     this.basinItem = false;
     this.otherItem = false;
-    this.pipingItem = false;
-    this.showerItem = false;
+    this.ensuiteItem = false;
+    this.mixerItem = false;
     this.toiletItem = false;
     this.towelRailItem = false;
     this.otherItemComments = '';

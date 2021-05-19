@@ -284,47 +284,27 @@
             aria-label="Font Style"
             value="none"
             class="col-sm-12"
+            (change)="onValChange($event.value)"
           >
-            <mat-button-toggle
-              class="col-lg-9 col-12"
-              value="none"
-              (change)="setNoneFloor()"
+            <mat-button-toggle class="col-lg-9 col-12" value="bath"
               >Bath</mat-button-toggle
             >
-            <mat-button-toggle
-              class="col-lg-9 col-12"
-              value="tiled"
-              (change)="setTiledFloor()"
+            <mat-button-toggle class="col-lg-9 col-12" value="ensuite"
               >Shower ensuite</mat-button-toggle
             >
-            <mat-button-toggle
-              class="col-lg-9 col-12"
-              value="lvt"
-              (change)="setLvtFloor()"
+            <mat-button-toggle class="col-lg-9 col-12" value="mixer"
               >Shower mixer</mat-button-toggle
             >
-            <mat-button-toggle
-              class="col-lg-9 col-12"
-              value="other"
-              (change)="setOtherFloor()"
+            <mat-button-toggle class="col-lg-9 col-12" value="toilet"
               >Toilet</mat-button-toggle
             >
-            <mat-button-toggle
-              class="col-lg-9 col-12"
-              value="other"
-              (change)="setOtherFloor()"
+            <mat-button-toggle class="col-lg-9 col-12" value="rail"
               >Towel rail</mat-button-toggle
             >
-            <mat-button-toggle
-              class="col-lg-9 col-12"
-              value="other"
-              (change)="setOtherFloor()"
+            <mat-button-toggle class="col-lg-9 col-12" value="basin"
               >Basin</mat-button-toggle
             >
-            <mat-button-toggle
-              class="col-lg-9 col-12"
-              value="other"
-              (change)="setOtherFloor()"
+            <mat-button-toggle class="col-lg-9 col-12" value="other"
               >Other</mat-button-toggle
             >
           </mat-button-toggle-group>
