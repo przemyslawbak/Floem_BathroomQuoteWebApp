@@ -65,13 +65,22 @@ mat-button-toggle-group {
   height: 20px;
 }
 
-.itemListedCollection {
+.itemListedConainer {
   border: 1px solid #ccc;
   border-radius: 4px;
+  overflow-x: auto;
+  white-space: nowrap;
+  flex-wrap: nowrap;
 }
 
-.itemListedDisplay {
-  margin-bottom: 20px;
+.itemListedConainer .col {
+  display: inline-block;
+  float: none;
+}
+
+.itemListed {
+  margin: 0px;
+  padding: 0px;
 }
 
 .center {
@@ -88,42 +97,42 @@ mat-button-toggle-group {
 }
 
 @media (min-width: 250px) {
-  .itemListedDisplay img {
+  .itemListed img {
     height: 30px;
     width: 30px;
   }
 }
 
 @media (min-width: 300px) {
-  .itemListedDisplay img {
+  .itemListed img {
     height: 40px;
     width: 40px;
   }
 }
 
 @media (min-width: 350px) {
-  .itemListedDisplay img {
+  .itemListed img {
     height: 70px;
     width: 70px;
   }
 }
 
 @media (min-width: 450px) {
-  .itemListedDisplay img {
+  .itemListed img {
     height: 105px;
     width: 105px;
   }
 }
 
 @media (min-width: 576px) {
-  .itemListedDisplay img {
+  .itemListed img {
     height: 110px;
     width: 110px;
   }
 }
 
 @media (min-width: 765px) {
-  .itemListedDisplay img {
+  .itemListed img {
     height: 115px;
     width: 115px;
   }
@@ -138,14 +147,14 @@ mat-button-toggle-group {
     width: 14.28571428571429%;
   }
 
-  .itemListedDisplay img {
+  .itemListed img {
     height: 125px;
     width: 125px;
   }
 }
 
 @media (min-width: 1200px) {
-  .itemListedDisplay img {
+  .itemListed img {
     height: 150px;
     width: 150px;
   }

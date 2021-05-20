@@ -182,22 +182,20 @@
             [style.visibility]="
               this.quoteModel.floorTiled ? 'visible' : 'hidden'
             "
-            [style.height]="this.quoteModel.floorTiled ? '130px' : '0'"
+            [style.height]="this.quoteModel.floorTiled ? '630px' : '0'"
             class="animatedAppearance col-12"
           >
-            <div class="row itemListedCollection">
-              <label class="selectLabel col-12">Please select tiles:</label>
-              <div class="center row">
-                <div
-                  *ngFor="let tile of getTiles(); let i = index"
-                  class="itemListedDisplay col-lg-2 col-md-3 col-sm-4 col-4"
-                >
-                  <img
-                    src="../../../assets/images/{{ tile.type }}/{{
-                      tile.code
-                    }}.jpg"
-                  />
-                </div>
+            <label class="selectLabel col-12">Please select tiles:</label>
+            <div class="center row itemListedConainer">
+              <div
+                *ngFor="let tile of getTiles(); let i = index"
+                class="itemListed col"
+              >
+                <img
+                  src="../../../assets/images/{{ tile.type }}/{{
+                    tile.code
+                  }}.jpg"
+                />
               </div>
             </div>
           </div>
