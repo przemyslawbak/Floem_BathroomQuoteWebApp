@@ -157,18 +157,21 @@
               class="col-lg-3 col-12"
               value="tiled"
               (change)="setTiledFloor()"
+              (click)="scroll('tiled-floor')"
               >Tiled floor</mat-button-toggle
             >
             <mat-button-toggle
               class="col-lg-3 col-12"
               value="lvt"
               (change)="setLvtFloor()"
+              (click)="scroll('lvt-floor')"
               >LVT floor</mat-button-toggle
             >
             <mat-button-toggle
               class="col-lg-3 col-12"
               value="other"
               (change)="setOtherFloor()"
+              (click)="scroll('other-floor')"
               >Other</mat-button-toggle
             >
           </mat-button-toggle-group>
@@ -184,6 +187,7 @@
             "
             [style.height]="this.quoteModel.floorTiled ? '190px' : '0'"
             class="animatedAppearance col-12"
+            id="tiled-floor"
           >
             <label class="selectLabel col-12">Please select floor tiles:</label>
             <div class="center row itemListedConainer scroller">
@@ -205,6 +209,7 @@
             [style.visibility]="this.quoteModel.floorLvt ? 'visible' : 'hidden'"
             [style.height]="this.quoteModel.floorLvt ? '190px' : '0'"
             class="animatedAppearance col-12"
+            id="lvt-floor"
           >
             <label class="selectLabel col-12">Please select floor LVT:</label>
             <div class="center row itemListedConainer scroller">
@@ -228,6 +233,7 @@
             "
             [style.height]="this.quoteModel.floorOther ? '70px' : '0'"
             class="col-12 animatedAppearance"
+            id="other-floor"
           >
             <div class="col-lg-auto">
               <mat-form-field style="width: 50vw">
@@ -282,23 +288,27 @@
               class="col-lg-7"
               value="tiled"
               (change)="setFullWall()"
+              (click)="scroll('tiled-wall')"
               >Full height
             </mat-button-toggle>
             <mat-button-toggle
               class="col-lg-7"
               value="lvt"
               (change)="setHalfWall()"
+              (click)="scroll('tiled-wall')"
               >Half height</mat-button-toggle
             >
             <mat-button-toggle
               class="col-lg-7"
               value="other"
               (change)="setPlasteredWall()"
+              (click)="scroll('tiled-wall')"
               >Plastered</mat-button-toggle
             ><mat-button-toggle
               class="col-lg-7"
               value="other"
               (change)="setOtherWall()"
+              (click)="scroll('other-wall')"
               >Other</mat-button-toggle
             >
           </mat-button-toggle-group>
@@ -329,6 +339,7 @@
               : '0'
           "
           class="animatedAppearance col-12"
+          id="tiled-wall"
         >
           <label class="selectLabel col-12">Please select wall tiles:</label>
           <div class="center row itemListedConainer scroller">
@@ -348,6 +359,7 @@
           [style.visibility]="this.quoteModel.wallsOther ? 'visible' : 'hidden'"
           [style.height]="this.quoteModel.wallsOther ? '70px' : '0'"
           class="col-12 animatedAppearance"
+          id="other-wall"
         >
           <div class="col-lg-auto">
             <mat-form-field style="width: 50vw">
@@ -393,25 +405,46 @@
             (change)="onUnitsValChange($event.value)"
           >
             <!--col-lg-9 Bootstrap overriden in css file-->
-            <mat-button-toggle class="col-lg-9" value="bath"
+            <mat-button-toggle
+              class="col-lg-9"
+              value="bath"
+              (click)="scroll('bath-unit')"
               >Bath</mat-button-toggle
             >
-            <mat-button-toggle class="col-lg-9" value="ensuite"
+            <mat-button-toggle
+              class="col-lg-9"
+              value="ensuite"
+              (click)="scroll('ensuite-unit')"
               >Shower ensuite</mat-button-toggle
             >
-            <mat-button-toggle class="col-lg-9" value="mixer"
+            <mat-button-toggle
+              class="col-lg-9"
+              value="mixer"
+              (click)="scroll('mixer-unit')"
               >Shower mixer</mat-button-toggle
             >
-            <mat-button-toggle class="col-lg-9" value="toilet"
+            <mat-button-toggle
+              class="col-lg-9"
+              value="toilet"
+              (click)="scroll('toilet-unit')"
               >Toilet</mat-button-toggle
             >
-            <mat-button-toggle class="col-lg-9" value="rail"
+            <mat-button-toggle
+              class="col-lg-9"
+              value="rail"
+              (click)="scroll('rail-unit')"
               >Towel rail</mat-button-toggle
             >
-            <mat-button-toggle class="col-lg-9" value="basin"
+            <mat-button-toggle
+              class="col-lg-9"
+              value="basin"
+              (click)="scroll('basin-unit')"
               >Basin</mat-button-toggle
             >
-            <mat-button-toggle class="col-lg-9" value="other"
+            <mat-button-toggle
+              class="col-lg-9"
+              value="other"
+              (click)="scroll('other-unit')"
               >Other</mat-button-toggle
             >
           </mat-button-toggle-group>
@@ -424,6 +457,7 @@
           [style.visibility]="this.quoteModel.bathItem ? 'visible' : 'hidden'"
           [style.height]="this.quoteModel.bathItem ? '190px' : '0'"
           class="animatedAppearance col-12"
+          id="bath-unit"
         >
           <label class="selectLabel col-12">Please select bath:</label>
           <div class="center row itemListedConainer scroller">
@@ -445,6 +479,7 @@
           "
           [style.height]="this.quoteModel.ensuiteItem ? '190px' : '0'"
           class="animatedAppearance col-12"
+          id="ensuite-unit"
         >
           <label class="selectLabel col-12"
             >Please select shower ensuite:</label
@@ -466,6 +501,7 @@
           [style.visibility]="this.quoteModel.mixerItem ? 'visible' : 'hidden'"
           [style.height]="this.quoteModel.mixerItem ? '190px' : '0'"
           class="animatedAppearance col-12"
+          id="mixer-unit"
         >
           <label class="selectLabel col-12">Please select shower mixer:</label>
           <div class="center row itemListedConainer scroller">
@@ -485,6 +521,7 @@
           [style.visibility]="this.quoteModel.toiletItem ? 'visible' : 'hidden'"
           [style.height]="this.quoteModel.toiletItem ? '190px' : '0'"
           class="animatedAppearance col-12"
+          id="toilet-unit"
         >
           <label class="selectLabel col-12">Please select toilet:</label>
           <div class="center row itemListedConainer scroller">
@@ -506,6 +543,7 @@
           "
           [style.height]="this.quoteModel.towelRailItem ? '190px' : '0'"
           class="animatedAppearance col-12"
+          id="rail-unit"
         >
           <label class="selectLabel col-12">Please select towel rail:</label>
           <div class="center row itemListedConainer scroller">
@@ -525,6 +563,7 @@
           [style.visibility]="this.quoteModel.basinItem ? 'visible' : 'hidden'"
           [style.height]="this.quoteModel.basinItem ? '190px' : '0'"
           class="animatedAppearance col-12"
+          id="basin-unit"
         >
           <label class="selectLabel col-12">Please select basin:</label>
           <div class="center row itemListedConainer scroller">
@@ -544,6 +583,7 @@
           [style.visibility]="this.quoteModel.otherItem ? 'visible' : 'hidden'"
           [style.height]="this.quoteModel.otherItem ? '70px' : '0'"
           class="col-12 animatedAppearance"
+          id="other-unit"
         >
           <div class="col-lg-auto">
             <mat-form-field style="width: 50vw">
@@ -596,6 +636,7 @@
               class="col-lg-6 col-12"
               value="changingYes"
               (change)="setChangingDoors()"
+              (click)="scroll('doors-type')"
               >Changing doors
             </mat-button-toggle>
           </mat-button-toggle-group>
@@ -609,6 +650,7 @@
             "
             [style.height]="this.quoteModel.doorsChanging ? '190px' : '0'"
             class="animatedAppearance col-12"
+            id="doors-type"
           >
             <label class="selectLabel col-12">Please select doors:</label>
             <div class="center row itemListedConainer scroller">
@@ -657,7 +699,10 @@
             (change)="onElectricalValChange($event.value)"
           >
             <!--col-lg-7 Bootstrap overriden in css file-->
-            <mat-button-toggle class="col-lg-7" value="mirror"
+            <mat-button-toggle
+              class="col-lg-7"
+              value="mirror"
+              (click)="scroll('mirror-electrical')"
               >Elecrical mirror</mat-button-toggle
             >
             <mat-button-toggle class="col-lg-7" value="fan"
@@ -684,6 +729,7 @@
           "
           [style.height]="this.quoteModel.mirrorElectrical ? '190px' : '0'"
           class="animatedAppearance col-12"
+          id="mirror-electrical"
         >
           <label class="selectLabel col-12">Please select mirror:</label>
           <div class="center row itemListedConainer scroller">
@@ -705,6 +751,7 @@
             this.quoteModel.socketsElectrical ? 'visible' : 'hidden'
           "
           class="col-12 animatedAppearance"
+          id="sockets-qty"
         >
           <div class="col-lg-auto">
             <mat-form-field style="width: 50vw">
@@ -726,6 +773,7 @@
             this.quoteModel.spotlightsElectrical ? 'visible' : 'hidden'
           "
           class="col-12 animatedAppearance"
+          id="spotlights-qty"
         >
           <div class="col-lg-auto">
             <mat-form-field style="width: 50vw">

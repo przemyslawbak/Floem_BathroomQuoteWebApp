@@ -441,4 +441,11 @@ export class FormComponent {
     ];
     return tiles;
   }
+
+  public scroll(id: string) {
+    setTimeout(function () {
+      let el: any = document.getElementById(id);
+      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 400);
+  }
 }

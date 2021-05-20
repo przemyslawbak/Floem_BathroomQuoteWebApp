@@ -32,9 +32,14 @@ OK - bug: other... comments under step navi btns
 - scroled list default
 - scrolled list data binding / price binding
 - after list selection, scroll to the list?
+OK - after next/back scroll to the step
+- scroll speed change
+OK - bug: if some list disapears, scrolling to the wrong place
+- after step click scroll to the step (mobile)
 - bug: in mobile version wrapped step label (step 5) needs margin-bottom
 - in mobile version all step labels centered?
 - remove "please" in labels
+- removing "sockets" and "spotlights" resets values to '0'
 - in mobile list scroll always visible (some browsers disapearing)
 - list conainer height for ngIf
 - jumping between valid steps?
