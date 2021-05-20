@@ -31,6 +31,11 @@ OK - scrolled list scroller formatting
 OK - bug: other... comments under step navi btns
 - scroled list default
 - scrolled list data binding / price binding
+- after list selection, scroll to the list?
+- bug: in mobile version wrapped step label (step 5) needs margin-bottom
+- in mobile version all step labels centered?
+- remove "please" in labels
+- in mobile list scroll always visible (some browsers disapearing)
 - list conainer height for ngIf
 - jumping between valid steps?
 - small screen menu btns margins

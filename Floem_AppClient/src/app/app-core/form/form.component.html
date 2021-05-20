@@ -333,7 +333,7 @@
           <label class="selectLabel col-12">Please select wall tiles:</label>
           <div class="center row itemListedConainer scroller">
             <div
-              *ngFor="let tile of getTilesFloorItems(); let i = index"
+              *ngFor="let tile of getTiledWallItems(); let i = index"
               class="itemListed col"
             >
               <img
@@ -418,6 +418,127 @@
         </div>
       </div>
       <form [formGroup]="form5">
+        <!--bath units-->
+        <div
+          [style.opacity]="this.quoteModel.bathItem ? '1' : '0'"
+          [style.visibility]="this.quoteModel.bathItem ? 'visible' : 'hidden'"
+          [style.height]="this.quoteModel.bathItem ? '190px' : '0'"
+          class="animatedAppearance col-12"
+        >
+          <label class="selectLabel col-12">Please select bath:</label>
+          <div class="center row itemListedConainer scroller">
+            <div
+              *ngFor="let tile of getBathUnitItems(); let i = index"
+              class="itemListed col"
+            >
+              <img
+                src="../../../assets/images/{{ tile.type }}/{{ tile.code }}.jpg"
+              />
+            </div>
+          </div>
+        </div>
+        <!--shower ensuite units-->
+        <div
+          [style.opacity]="this.quoteModel.ensuiteItem ? '1' : '0'"
+          [style.visibility]="
+            this.quoteModel.ensuiteItem ? 'visible' : 'hidden'
+          "
+          [style.height]="this.quoteModel.ensuiteItem ? '190px' : '0'"
+          class="animatedAppearance col-12"
+        >
+          <label class="selectLabel col-12"
+            >Please select shower ensuite:</label
+          >
+          <div class="center row itemListedConainer scroller">
+            <div
+              *ngFor="let tile of getEnsuiteUnitItems(); let i = index"
+              class="itemListed col"
+            >
+              <img
+                src="../../../assets/images/{{ tile.type }}/{{ tile.code }}.jpg"
+              />
+            </div>
+          </div>
+        </div>
+        <!--shower mixer units-->
+        <div
+          [style.opacity]="this.quoteModel.mixerItem ? '1' : '0'"
+          [style.visibility]="this.quoteModel.mixerItem ? 'visible' : 'hidden'"
+          [style.height]="this.quoteModel.mixerItem ? '190px' : '0'"
+          class="animatedAppearance col-12"
+        >
+          <label class="selectLabel col-12">Please select shower mixer:</label>
+          <div class="center row itemListedConainer scroller">
+            <div
+              *ngFor="let tile of getMixerUnitItems(); let i = index"
+              class="itemListed col"
+            >
+              <img
+                src="../../../assets/images/{{ tile.type }}/{{ tile.code }}.jpg"
+              />
+            </div>
+          </div>
+        </div>
+        <!--toilet units-->
+        <div
+          [style.opacity]="this.quoteModel.toiletItem ? '1' : '0'"
+          [style.visibility]="this.quoteModel.toiletItem ? 'visible' : 'hidden'"
+          [style.height]="this.quoteModel.toiletItem ? '190px' : '0'"
+          class="animatedAppearance col-12"
+        >
+          <label class="selectLabel col-12">Please select toilet:</label>
+          <div class="center row itemListedConainer scroller">
+            <div
+              *ngFor="let tile of getToiletUnitItems(); let i = index"
+              class="itemListed col"
+            >
+              <img
+                src="../../../assets/images/{{ tile.type }}/{{ tile.code }}.jpg"
+              />
+            </div>
+          </div>
+        </div>
+        <!--towel rail units-->
+        <div
+          [style.opacity]="this.quoteModel.towelRailItem ? '1' : '0'"
+          [style.visibility]="
+            this.quoteModel.towelRailItem ? 'visible' : 'hidden'
+          "
+          [style.height]="this.quoteModel.towelRailItem ? '190px' : '0'"
+          class="animatedAppearance col-12"
+        >
+          <label class="selectLabel col-12">Please select towel rail:</label>
+          <div class="center row itemListedConainer scroller">
+            <div
+              *ngFor="let tile of getRailUnitItems(); let i = index"
+              class="itemListed col"
+            >
+              <img
+                src="../../../assets/images/{{ tile.type }}/{{ tile.code }}.jpg"
+              />
+            </div>
+          </div>
+        </div>
+        <!--basin units-->
+        <div
+          [style.opacity]="this.quoteModel.basinItem ? '1' : '0'"
+          [style.visibility]="this.quoteModel.basinItem ? 'visible' : 'hidden'"
+          [style.height]="this.quoteModel.basinItem ? '190px' : '0'"
+          class="animatedAppearance col-12"
+        >
+          <label class="selectLabel col-12">Please select basin:</label>
+          <div class="center row itemListedConainer scroller">
+            <div
+              *ngFor="let tile of getBasinUnitItems(); let i = index"
+              class="itemListed col"
+            >
+              <img
+                src="../../../assets/images/{{ tile.type }}/{{ tile.code }}.jpg"
+              />
+            </div>
+          </div>
+        </div>
+        <!--other units-->
         <div
           [style.opacity]="this.quoteModel.otherItem ? '1' : '0'"
           [style.visibility]="this.quoteModel.otherItem ? 'visible' : 'hidden'"
@@ -479,6 +600,31 @@
             </mat-button-toggle>
           </mat-button-toggle-group>
         </div>
+        <form [formGroup]="form6">
+          <!--doors type-->
+          <div
+            [style.opacity]="this.quoteModel.doorsChanging ? '1' : '0'"
+            [style.visibility]="
+              this.quoteModel.doorsChanging ? 'visible' : 'hidden'
+            "
+            [style.height]="this.quoteModel.doorsChanging ? '190px' : '0'"
+            class="animatedAppearance col-12"
+          >
+            <label class="selectLabel col-12">Please select doors:</label>
+            <div class="center row itemListedConainer scroller">
+              <div
+                *ngFor="let tile of getDoorItems(); let i = index"
+                class="itemListed col"
+              >
+                <img
+                  src="../../../assets/images/{{ tile.type }}/{{
+                    tile.code
+                  }}.jpg"
+                />
+              </div>
+            </div>
+          </div>
+        </form>
       </div>
     </div>
     <div>
@@ -530,6 +676,28 @@
         </div>
       </div>
       <form [formGroup]="form7">
+        <!--mirror electrical-->
+        <div
+          [style.opacity]="this.quoteModel.mirrorElectrical ? '1' : '0'"
+          [style.visibility]="
+            this.quoteModel.mirrorElectrical ? 'visible' : 'hidden'
+          "
+          [style.height]="this.quoteModel.mirrorElectrical ? '190px' : '0'"
+          class="animatedAppearance col-12"
+        >
+          <label class="selectLabel col-12">Please select mirror:</label>
+          <div class="center row itemListedConainer scroller">
+            <div
+              *ngFor="let tile of getMirrorElecricalItems(); let i = index"
+              class="itemListed col"
+            >
+              <img
+                src="../../../assets/images/{{ tile.type }}/{{ tile.code }}.jpg"
+              />
+            </div>
+          </div>
+        </div>
+        <!--sockets qty-->
         <div
           [style.opacity]="this.quoteModel.socketsElectrical ? '1' : '0'"
           [style.height]="this.quoteModel.socketsElectrical ? '70px' : '0'"
@@ -550,7 +718,7 @@
             </mat-form-field>
           </div>
         </div>
-
+        <!--spotlights qty-->
         <div
           [style.opacity]="this.quoteModel.spotlightsElectrical ? '1' : '0'"
           [style.height]="this.quoteModel.spotlightsElectrical ? '70px' : '0'"
