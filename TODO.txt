@@ -26,6 +26,10 @@ OK - fix bug: missing toggles
 OK - step 5 comments display
 OK - between med/sm screen in step 5 is a mess
 OK - number form validation
+OK - scrolling items list
+OK - scrolled list scroller formatting
+- scroled list default
+- scrolled list data binding / price binding
 - bug: other... comments under step navi btns
 - jumping between valid steps?
 - small screen menu btns margins
@@ -44,6 +48,7 @@ OK - number form validation
 - placing 'selected total' in the corner or fixed
 - dynamic total quote
 - additional step? or only when sending?: contacts email, tel, address, RODO
+- additional step: sufit
 - summary: link
 - summary: email to Floem + email to client
 - summary: for each step price

@@ -81,12 +81,18 @@ mat-button-toggle-group {
 .itemListed {
   margin: 0px;
   padding: 0px;
+  margin: 2px;
 }
 
 .center {
   margin: 0 auto;
   width: 90%;
   padding: 0px !important;
+}
+
+.scroller {
+  overflow-y: scroll;
+  scrollbar-width: thin;
 }
 
 @media (min-width: 0px) {
