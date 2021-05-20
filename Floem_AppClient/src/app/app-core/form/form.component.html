@@ -182,13 +182,34 @@
             [style.visibility]="
               this.quoteModel.floorTiled ? 'visible' : 'hidden'
             "
-            [style.height]="this.quoteModel.floorTiled ? '630px' : '0'"
+            [style.height]="this.quoteModel.floorTiled ? '190px' : '0'"
             class="animatedAppearance col-12"
           >
-            <label class="selectLabel col-12">Please select tiles:</label>
+            <label class="selectLabel col-12">Please select floor tiles:</label>
             <div class="center row itemListedConainer scroller">
               <div
-                *ngFor="let tile of getTiles(); let i = index"
+                *ngFor="let tile of getTilesFloorItems(); let i = index"
+                class="itemListed col"
+              >
+                <img
+                  src="../../../assets/images/{{ tile.type }}/{{
+                    tile.code
+                  }}.jpg"
+                />
+              </div>
+            </div>
+          </div>
+          <!--lvt floor-->
+          <div
+            [style.opacity]="this.quoteModel.floorLvt ? '1' : '0'"
+            [style.visibility]="this.quoteModel.floorLvt ? 'visible' : 'hidden'"
+            [style.height]="this.quoteModel.floorLvt ? '190px' : '0'"
+            class="animatedAppearance col-12"
+          >
+            <label class="selectLabel col-12">Please select floor LVT:</label>
+            <div class="center row itemListedConainer scroller">
+              <div
+                *ngFor="let tile of getTilesFloorItems(); let i = index"
                 class="itemListed col"
               >
                 <img
@@ -205,8 +226,8 @@
             [style.visibility]="
               this.quoteModel.floorOther ? 'visible' : 'hidden'
             "
-            [style.height]="this.quoteModel.socketsElectrical ? '66px' : '0'"
-            class="row animatedAppearance"
+            [style.height]="this.quoteModel.floorOther ? '70px' : '0'"
+            class="col-12 animatedAppearance"
           >
             <div class="col-lg-auto">
               <mat-form-field style="width: 50vw">
@@ -284,11 +305,49 @@
         </div>
       </div>
       <form [formGroup]="form4">
+        <!--tiles wall-->
+        <div
+          [style.opacity]="
+            this.quoteModel.wallsFullHeight ||
+            this.quoteModel.wallsHalfHeight ||
+            this.quoteModel.wallsPlastered
+              ? '1'
+              : '0'
+          "
+          [style.visibility]="
+            this.quoteModel.wallsFullHeight ||
+            this.quoteModel.wallsHalfHeight ||
+            this.quoteModel.wallsPlastered
+              ? 'visible'
+              : 'hidden'
+          "
+          [style.height]="
+            this.quoteModel.wallsFullHeight ||
+            this.quoteModel.wallsHalfHeight ||
+            this.quoteModel.wallsPlastered
+              ? '190px'
+              : '0'
+          "
+          class="animatedAppearance col-12"
+        >
+          <label class="selectLabel col-12">Please select wall tiles:</label>
+          <div class="center row itemListedConainer scroller">
+            <div
+              *ngFor="let tile of getTilesFloorItems(); let i = index"
+              class="itemListed col"
+            >
+              <img
+                src="../../../assets/images/{{ tile.type }}/{{ tile.code }}.jpg"
+              />
+            </div>
+          </div>
+        </div>
+        <!--other wall-->
         <div
           [style.opacity]="this.quoteModel.wallsOther ? '1' : '0'"
           [style.visibility]="this.quoteModel.wallsOther ? 'visible' : 'hidden'"
-          [style.height]="this.quoteModel.socketsElectrical ? '66px' : '0'"
-          class="row animatedAppearance"
+          [style.height]="this.quoteModel.wallsOther ? '70px' : '0'"
+          class="col-12 animatedAppearance"
         >
           <div class="col-lg-auto">
             <mat-form-field style="width: 50vw">
@@ -362,8 +421,8 @@
         <div
           [style.opacity]="this.quoteModel.otherItem ? '1' : '0'"
           [style.visibility]="this.quoteModel.otherItem ? 'visible' : 'hidden'"
-          [style.height]="this.quoteModel.socketsElectrical ? '66px' : '0'"
-          class="row animatedAppearance"
+          [style.height]="this.quoteModel.otherItem ? '70px' : '0'"
+          class="col-12 animatedAppearance"
         >
           <div class="col-lg-auto">
             <mat-form-field style="width: 50vw">
@@ -473,11 +532,11 @@
       <form [formGroup]="form7">
         <div
           [style.opacity]="this.quoteModel.socketsElectrical ? '1' : '0'"
-          [style.height]="this.quoteModel.socketsElectrical ? '66px' : '0'"
+          [style.height]="this.quoteModel.socketsElectrical ? '70px' : '0'"
           [style.visibility]="
             this.quoteModel.socketsElectrical ? 'visible' : 'hidden'
           "
-          class="row animatedAppearance"
+          class="col-12 animatedAppearance"
         >
           <div class="col-lg-auto">
             <mat-form-field style="width: 50vw">
@@ -494,11 +553,11 @@
 
         <div
           [style.opacity]="this.quoteModel.spotlightsElectrical ? '1' : '0'"
-          [style.height]="this.quoteModel.spotlightsElectrical ? '66px' : '0'"
+          [style.height]="this.quoteModel.spotlightsElectrical ? '70px' : '0'"
           [style.visibility]="
             this.quoteModel.spotlightsElectrical ? 'visible' : 'hidden'
           "
-          class="row animatedAppearance"
+          class="col-12 animatedAppearance"
         >
           <div class="col-lg-auto">
             <mat-form-field style="width: 50vw">

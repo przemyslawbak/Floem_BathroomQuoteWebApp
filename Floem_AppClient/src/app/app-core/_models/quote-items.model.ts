@@ -59,7 +59,7 @@ export class QuoteItems {
     this.floorTiled = false;
     this.floorOtherComments = '';
     this.floorType = '';
-    this.wallsFullHeight = true;
+    this.wallsFullHeight = false;
     this.wallsHalfHeight = false;
     this.wallsOther = false;
     this.wallsNone = true;

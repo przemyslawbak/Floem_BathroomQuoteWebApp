@@ -28,9 +28,10 @@ OK - between med/sm screen in step 5 is a mess
 OK - number form validation
 OK - scrolling items list
 OK - scrolled list scroller formatting
+OK - bug: other... comments under step navi btns
 - scroled list default
 - scrolled list data binding / price binding
-- bug: other... comments under step navi btns
+- list conainer height for ngIf
 - jumping between valid steps?
 - small screen menu btns margins
 - data binding
