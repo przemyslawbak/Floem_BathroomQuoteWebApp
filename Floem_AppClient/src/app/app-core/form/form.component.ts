@@ -439,12 +439,14 @@ export class FormComponent {
 
   public scroll(id: string) {
     setTimeout(function () {
-      let el: any = document.getElementById(id);
-      el.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start',
-        inline: 'nearest',
-      });
+      let el: HTMLElement = document.getElementById(id)!;
+      if (el.offsetHeight > 0) {
+        el.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start',
+          inline: 'nearest',
+        });
+      }
     }, 400);
   }
 
