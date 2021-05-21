@@ -28,7 +28,9 @@ export class FormComponent {
       .observe('(min-width: 800px)')
       .pipe(map(({ matches }) => (matches ? 'horizontal' : 'vertical')));
   }
-
+  form0 = this._formBuilder.group({
+    valid: [true, Validators.required],
+  });
   form1 = this._formBuilder.group({
     width: [
       this.quoteModel.width,

@@ -12,6 +12,40 @@
   [orientation]="(stepperOrientation | async)!"
   (selectionChange)="scrollToIndex($event)"
 >
+  <!--STEP 0-->
+  <mat-step [stepControl]="form0" [completed]="true">
+    <div class="stepHeader col-sm rounded-top" id="step0">
+      <img src="../../../assets/images/about.png" />
+      <h4 class="align-text-bottom text-white">About you</h4>
+    </div>
+    <ng-template matStepLabel (click)="scroll('step2')">About</ng-template>
+    <div class="formContainer">
+      <div class="row">
+        <div class="col-12">
+          (here a few words about a person that is visiting this website and why
+          should use it, maybe some instruction, or other bullshit for SEO)
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo consequat. Duis aute irure dolor in
+          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+          culpa qui officia deserunt mollit anim id est laborum.
+        </div>
+      </div>
+    </div>
+    <div>
+      <button
+        type="button"
+        class="btn btn-success"
+        matStepperNext
+        (click)="scroll('step1')"
+      >
+        Start
+      </button>
+    </div>
+  </mat-step>
+
   <!--STEP 1-->
   <mat-step [stepControl]="form1" [completed]="true">
     <div class="stepHeader col-sm rounded-top" id="step1">
@@ -80,6 +114,14 @@
       </form>
     </div>
     <div>
+      <button
+        type="button"
+        class="btn btn-secondary"
+        matStepperPrevious
+        (click)="scroll('step0')"
+      >
+        Back
+      </button>
       <button
         type="button"
         class="btn btn-success"
