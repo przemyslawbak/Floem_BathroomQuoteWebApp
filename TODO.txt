@@ -40,13 +40,14 @@ OK - bug: step 5 list label position wrong if opened more than 1
 OK - bug: in mobile version wrapped step label (step 5) needs margin-bottom
 OK - bug: after showing list, step header is moved (step 5, 6), scrolling maybe moves it
 OK - remove "please" in labels
+OK - jumping between steps?
+- bug: form height in step 5
 - scroled list default
 - scrolled list data binding / price binding
 - in mobile version all step labels centered?
 - removing "sockets" and "spotlights" resets values to '0'
 - in mobile list scroll always visible (some browsers disapearing)
 - list conainer height for ngIf
-- jumping between valid steps?
 - small screen menu btns margins
 - data binding
 - header menu btns change to anchors

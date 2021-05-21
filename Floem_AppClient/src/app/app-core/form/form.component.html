@@ -6,7 +6,7 @@
   (selectionChange)="scrollToIndex($event)"
 >
   <!--STEP 1-->
-  <mat-step [stepControl]="form1">
+  <mat-step [stepControl]="form1" [completed]="true">
     <div class="stepHeader col-sm rounded-top" id="step1">
       <img src="../../../assets/images/dimensions.png" />
       <h4 class="align-text-bottom text-white">Bathroom dimensions</h4>
@@ -84,7 +84,7 @@
     </div>
   </mat-step>
   <!--STEP 2-->
-  <mat-step [stepControl]="form2">
+  <mat-step [stepControl]="form2" [completed]="true">
     <div class="stepHeader col-sm rounded-top" id="step2">
       <img src="../../../assets/images/removals.png" />
       <h4 class="align-text-bottom text-white">Expected removals</h4>
@@ -138,7 +138,7 @@
     </div>
   </mat-step>
   <!--STEP 3-->
-  <mat-step [stepControl]="form3">
+  <mat-step [stepControl]="form3" [completed]="true">
     <div class="stepHeader col-sm rounded-top" id="step3">
       <img src="../../../assets/images/floor.png" />
       <h4 class="align-text-bottom text-white">Floor types</h4>
@@ -195,6 +195,7 @@
               this.quoteModel.floorTiled ? 'visible' : 'hidden'
             "
             [style.height]="this.quoteModel.floorTiled ? '190px' : '0'"
+            [style.marginTop]="this.quoteModel.floorTiled ? '30px' : '0'"
             class="animatedAppearance col-12"
             id="tiled-floor"
           >
@@ -217,6 +218,7 @@
             [style.opacity]="this.quoteModel.floorLvt ? '1' : '0'"
             [style.visibility]="this.quoteModel.floorLvt ? 'visible' : 'hidden'"
             [style.height]="this.quoteModel.floorLvt ? '190px' : '0'"
+            [style.marginTop]="this.quoteModel.floorLvt ? '30px' : '0'"
             class="animatedAppearance col-12"
             id="lvt-floor"
           >
@@ -278,7 +280,7 @@
     </div>
   </mat-step>
   <!--STEP 4-->
-  <mat-step [stepControl]="form4">
+  <mat-step [stepControl]="form4" [completed]="true">
     <div class="stepHeader col-sm rounded-top" id="step4">
       <img src="../../../assets/images/wall.png" />
       <h4 class="align-text-bottom text-white">Wall types</h4>
@@ -357,6 +359,13 @@
               ? '190px'
               : '0'
           "
+          [style.marginTop]="
+            this.quoteModel.wallsFullHeight ||
+            this.quoteModel.wallsHalfHeight ||
+            this.quoteModel.wallsPlastered
+              ? '30px'
+              : '0'
+          "
           class="animatedAppearance col-12"
           id="tiled-wall"
         >
@@ -413,7 +422,7 @@
     </div>
   </mat-step>
   <!--STEP 5-->
-  <mat-step [stepControl]="form5">
+  <mat-step [stepControl]="form5" [completed]="true">
     <div class="stepHeader col-sm rounded-top" id="step5">
       <img src="../../../assets/images/items.png" />
       <h4 class="align-text-bottom text-white">Additional works</h4>
@@ -485,6 +494,7 @@
           [style.opacity]="this.quoteModel.bathItem ? '1' : '0'"
           [style.visibility]="this.quoteModel.bathItem ? 'visible' : 'hidden'"
           [style.height]="this.quoteModel.bathItem ? '190px' : '0'"
+          [style.marginTop]="this.quoteModel.bathItem ? '30px' : '0'"
           class="animatedAppearance col-12"
           id="bath-unit"
         >
@@ -507,6 +517,7 @@
             this.quoteModel.ensuiteItem ? 'visible' : 'hidden'
           "
           [style.height]="this.quoteModel.ensuiteItem ? '190px' : '0'"
+          [style.marginTop]="this.quoteModel.ensuiteItem ? '30px' : '0'"
           class="animatedAppearance col-12"
           id="ensuite-unit"
         >
@@ -527,6 +538,7 @@
           [style.opacity]="this.quoteModel.mixerItem ? '1' : '0'"
           [style.visibility]="this.quoteModel.mixerItem ? 'visible' : 'hidden'"
           [style.height]="this.quoteModel.mixerItem ? '190px' : '0'"
+          [style.marginTop]="this.quoteModel.mixerItem ? '30px' : '0'"
           class="animatedAppearance col-12"
           id="mixer-unit"
         >
@@ -547,6 +559,7 @@
           [style.opacity]="this.quoteModel.toiletItem ? '1' : '0'"
           [style.visibility]="this.quoteModel.toiletItem ? 'visible' : 'hidden'"
           [style.height]="this.quoteModel.toiletItem ? '190px' : '0'"
+          [style.marginTop]="this.quoteModel.toiletItem ? '30px' : '0'"
           class="animatedAppearance col-12"
           id="toilet-unit"
         >
@@ -569,6 +582,7 @@
             this.quoteModel.towelRailItem ? 'visible' : 'hidden'
           "
           [style.height]="this.quoteModel.towelRailItem ? '190px' : '0'"
+          [style.marginTop]="this.quoteModel.towelRailItem ? '30px' : '0'"
           class="animatedAppearance col-12"
           id="rail-unit"
         >
@@ -589,6 +603,7 @@
           [style.opacity]="this.quoteModel.basinItem ? '1' : '0'"
           [style.visibility]="this.quoteModel.basinItem ? 'visible' : 'hidden'"
           [style.height]="this.quoteModel.basinItem ? '190px' : '0'"
+          [style.marginTop]="this.quoteModel.basinItem ? '30px' : '0'"
           class="animatedAppearance col-12"
           id="basin-unit"
         >
@@ -609,6 +624,7 @@
           [style.opacity]="this.quoteModel.otherItem ? '1' : '0'"
           [style.visibility]="this.quoteModel.otherItem ? 'visible' : 'hidden'"
           [style.height]="this.quoteModel.otherItem ? '70px' : '0'"
+          [style.marginTop]="this.quoteModel.otherItem ? '30px' : '0'"
           class="col-12 animatedAppearance"
           id="other-unit"
         >
@@ -645,7 +661,7 @@
     </div>
   </mat-step>
   <!--STEP 6-->
-  <mat-step [stepControl]="form6">
+  <mat-step [stepControl]="form6" [completed]="true">
     <div class="stepHeader col-sm rounded-top" id="step6">
       <img src="../../../assets/images/doors.png" />
       <h4 class="align-text-bottom text-white">Door replacement</h4>
@@ -686,6 +702,7 @@
               this.quoteModel.doorsChanging ? 'visible' : 'hidden'
             "
             [style.height]="this.quoteModel.doorsChanging ? '190px' : '0'"
+            [style.marginTop]="this.quoteModel.doorsChanging ? '30px' : '0'"
             class="animatedAppearance col-12"
             id="doors-type"
           >
@@ -726,7 +743,7 @@
     </div>
   </mat-step>
   <!--STEP 7-->
-  <mat-step [stepControl]="form7">
+  <mat-step [stepControl]="form7" [completed]="true">
     <div class="stepHeader col-sm rounded-top" id="step7">
       <img src="../../../assets/images/electrical.png" />
       <h4 class="align-text-bottom text-white">Electrical works</h4>
@@ -775,6 +792,7 @@
             this.quoteModel.mirrorElectrical ? 'visible' : 'hidden'
           "
           [style.height]="this.quoteModel.mirrorElectrical ? '190px' : '0'"
+          [style.marginTop]="this.quoteModel.mirrorElectrical ? '30px' : '0'"
           class="animatedAppearance col-12"
           id="mirror-electrical"
         >
@@ -797,6 +815,7 @@
           [style.visibility]="
             this.quoteModel.socketsElectrical ? 'visible' : 'hidden'
           "
+          [style.marginTop]="this.quoteModel.socketsElectrical ? '30px' : '0'"
           class="col-12 animatedAppearance"
           id="sockets-qty"
         >
@@ -856,7 +875,7 @@
     </div>
   </mat-step>
 
-  <mat-step>
+  <mat-step [completed]="true">
     <ng-template matStepLabel (click)="scroll('summary')">Summary</ng-template>
     <p id="summary">You are now done.</p>
     <mat-list>
