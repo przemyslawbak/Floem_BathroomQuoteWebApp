@@ -29,13 +29,17 @@ OK - number form validation
 OK - scrolling items list
 OK - scrolled list scroller formatting
 OK - bug: other... comments under step navi btns
+OK - after step click scroll to the step (mobile)
+NO - remove scrolling to list?
+OK - bug: if some list disapears, scrolling to the wrong place
+OK - after next/back scroll to the step
+NO - scroll speed change https://www.npmjs.com/package/@boatzako/ngx-smooth-scroll
 - scroled list default
 - scrolled list data binding / price binding
 - after list selection, scroll to the list?
-OK - after next/back scroll to the step
-- scroll speed change
-OK - bug: if some list disapears, scrolling to the wrong place
-- after step click scroll to the step (mobile)
+- do not scroll if item is unchecked (maybe check height)
+- bug: after showing list, step header is moved (step 5, 6), scrolling maybe moves it
+- bug: step 5 list label position wron if opened more than 1
 - bug: in mobile version wrapped step label (step 5) needs margin-bottom
 - in mobile version all step labels centered?
 - remove "please" in labels

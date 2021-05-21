@@ -3,14 +3,15 @@
   #stepper
   labelPosition="bottom"
   [orientation]="(stepperOrientation | async)!"
+  (selectionChange)="scrollToIndex($event)"
 >
   <!--STEP 1-->
   <mat-step [stepControl]="form1">
-    <div class="stepHeader col-sm rounded-top">
+    <div class="stepHeader col-sm rounded-top" id="step1">
       <img src="../../../assets/images/dimensions.png" />
       <h4 class="align-text-bottom text-white">Bathroom dimensions</h4>
     </div>
-    <ng-template matStepLabel>Dimensions</ng-template>
+    <ng-template matStepLabel (click)="scroll('step1')">Dimensions</ng-template>
     <div class="formContainer">
       <div class="row">
         <label class="selectLabel"
@@ -76,7 +77,7 @@
         type="button"
         class="btn btn-success"
         matStepperNext
-        (click)="onNext()"
+        (click)="scroll('step2')"
       >
         Next
       </button>
@@ -84,11 +85,11 @@
   </mat-step>
   <!--STEP 2-->
   <mat-step [stepControl]="form2">
-    <div class="stepHeader col-sm rounded-top">
+    <div class="stepHeader col-sm rounded-top" id="step2">
       <img src="../../../assets/images/removals.png" />
       <h4 class="align-text-bottom text-white">Expected removals</h4>
     </div>
-    <ng-template matStepLabel>Removals</ng-template>
+    <ng-template matStepLabel (click)="scroll('step2')">Removals</ng-template>
     <div class="formContainer">
       <div class="row">
         <label class="selectLabel"
@@ -120,19 +121,31 @@
       </div>
     </div>
     <div>
-      <button type="button" class="btn btn-secondary" matStepperPrevious>
+      <button
+        type="button"
+        class="btn btn-secondary"
+        matStepperPrevious
+        (click)="scroll('step1')"
+      >
         Back
       </button>
-      <button type="button" class="btn btn-success" matStepperNext>Next</button>
+      <button
+        type="button"
+        class="btn btn-success"
+        matStepperNext
+        (click)="scroll('step3')"
+      >
+        Next
+      </button>
     </div>
   </mat-step>
   <!--STEP 3-->
   <mat-step [stepControl]="form3">
-    <div class="stepHeader col-sm rounded-top">
+    <div class="stepHeader col-sm rounded-top" id="step3">
       <img src="../../../assets/images/floor.png" />
       <h4 class="align-text-bottom text-white">Floor types</h4>
     </div>
-    <ng-template matStepLabel>Floor</ng-template>
+    <ng-template matStepLabel (click)="scroll('step3')">Floor</ng-template>
     <div class="formContainer">
       <div class="row">
         <label class="selectLabel"
@@ -250,19 +263,31 @@
       </div>
     </div>
     <div>
-      <button type="button" class="btn btn-secondary" matStepperPrevious>
+      <button
+        type="button"
+        class="btn btn-secondary"
+        matStepperPrevious
+        (click)="scroll('step2')"
+      >
         Back
       </button>
-      <button type="button" class="btn btn-success" matStepperNext>Next</button>
+      <button
+        type="button"
+        class="btn btn-success"
+        matStepperNext
+        (click)="scroll('step4')"
+      >
+        Next
+      </button>
     </div>
   </mat-step>
   <!--STEP 4-->
   <mat-step [stepControl]="form4">
-    <div class="stepHeader col-sm rounded-top">
+    <div class="stepHeader col-sm rounded-top" id="step4">
       <img src="../../../assets/images/wall.png" />
       <h4 class="align-text-bottom text-white">Wall types</h4>
     </div>
-    <ng-template matStepLabel>Wall</ng-template>
+    <ng-template matStepLabel (click)="scroll('step4')">Wall</ng-template>
     <div class="formContainer">
       <div class="row">
         <label class="selectLabel"
@@ -375,19 +400,31 @@
       </form>
     </div>
     <div>
-      <button type="button" class="btn btn-secondary" matStepperPrevious>
+      <button
+        type="button"
+        class="btn btn-secondary"
+        matStepperPrevious
+        (click)="scroll('step3')"
+      >
         Back
       </button>
-      <button type="button" class="btn btn-success" matStepperNext>Next</button>
+      <button
+        type="button"
+        class="btn btn-success"
+        matStepperNext
+        (click)="scroll('step5')"
+      >
+        Next
+      </button>
     </div>
   </mat-step>
   <!--STEP 5-->
   <mat-step [stepControl]="form5">
-    <div class="stepHeader col-sm rounded-top">
+    <div class="stepHeader col-sm rounded-top" id="step5">
       <img src="../../../assets/images/items.png" />
       <h4 class="align-text-bottom text-white">Additional works</h4>
     </div>
-    <ng-template matStepLabel>Units</ng-template>
+    <ng-template matStepLabel (click)="scroll('step5')">Units</ng-template>
     <div class="formContainer">
       <div class="row">
         <label class="selectLabel"
@@ -599,19 +636,31 @@
       </form>
     </div>
     <div>
-      <button type="button" class="btn btn-secondary" matStepperPrevious>
+      <button
+        type="button"
+        class="btn btn-secondary"
+        matStepperPrevious
+        (click)="scroll('step4')"
+      >
         Back
       </button>
-      <button type="button" class="btn btn-success" matStepperNext>Next</button>
+      <button
+        type="button"
+        class="btn btn-success"
+        matStepperNext
+        (click)="scroll('step6')"
+      >
+        Next
+      </button>
     </div>
   </mat-step>
   <!--STEP 6-->
   <mat-step [stepControl]="form6">
-    <div class="stepHeader col-sm rounded-top">
+    <div class="stepHeader col-sm rounded-top" id="step6">
       <img src="../../../assets/images/doors.png" />
       <h4 class="align-text-bottom text-white">Door replacement</h4>
     </div>
-    <ng-template matStepLabel>Doors</ng-template>
+    <ng-template matStepLabel (click)="scroll('step6')">Doors</ng-template>
     <div class="formContainer">
       <div class="row">
         <label class="selectLabel"
@@ -670,19 +719,31 @@
       </div>
     </div>
     <div>
-      <button type="button" class="btn btn-secondary" matStepperPrevious>
+      <button
+        type="button"
+        class="btn btn-secondary"
+        matStepperPrevious
+        (click)="scroll('step5')"
+      >
         Back
       </button>
-      <button type="button" class="btn btn-success" matStepperNext>Next</button>
+      <button
+        type="button"
+        class="btn btn-success"
+        matStepperNext
+        (click)="scroll('step7')"
+      >
+        Next
+      </button>
     </div>
   </mat-step>
   <!--STEP 7-->
   <mat-step [stepControl]="form7">
-    <div class="stepHeader col-sm rounded-top">
+    <div class="stepHeader col-sm rounded-top" id="step7">
       <img src="../../../assets/images/electrical.png" />
       <h4 class="align-text-bottom text-white">Electrical works</h4>
     </div>
-    <ng-template matStepLabel>Electrical</ng-template>
+    <ng-template matStepLabel (click)="scroll('step7')">Electrical</ng-template>
     <div class="formContainer">
       <div class="row">
         <label class="selectLabel"
@@ -790,16 +851,28 @@
       </form>
     </div>
     <div>
-      <button type="button" class="btn btn-secondary" matStepperPrevious>
+      <button
+        type="button"
+        class="btn btn-secondary"
+        matStepperPrevious
+        (click)="scroll('step6')"
+      >
         Back
       </button>
-      <button type="button" class="btn btn-success" matStepperNext>Next</button>
+      <button
+        type="button"
+        class="btn btn-success"
+        matStepperNext
+        (click)="scroll('summary')"
+      >
+        Next
+      </button>
     </div>
   </mat-step>
 
   <mat-step>
-    <ng-template matStepLabel>Summary</ng-template>
-    <p>You are now done.</p>
+    <ng-template matStepLabel (click)="scroll('summary')">Summary</ng-template>
+    <p id="summary">You are now done.</p>
     <mat-list>
       <mat-list-item>
         <strong>Name:</strong>

@@ -87,11 +87,6 @@ export class FormComponent {
     //todo
   }
 
-  public onNext(): void {
-    console.log(this.quoteModel.units); //todo: remove later on
-    console.log(this.quoteModel.removals); //todo: remove later on
-  }
-
   public setNoneFloor(): void {
     this.quoteModel.floorNone = true;
     this.quoteModel.floorLvt = false;
@@ -445,7 +440,16 @@ export class FormComponent {
   public scroll(id: string) {
     setTimeout(function () {
       let el: any = document.getElementById(id);
-      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      el.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start',
+        inline: 'nearest',
+      });
     }, 400);
+  }
+
+  public scrollToIndex(event: any) {
+    let id = 'step' + event.selectedIndex;
+    this.scroll(id);
   }
 }
