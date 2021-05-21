@@ -42,7 +42,6 @@ ng-toggle {
 
 mat-button-toggle-group {
   flex-wrap: wrap;
-  margin-bottom: 20px;
 }
 
 .toggleText {
@@ -58,10 +57,11 @@ mat-button-toggle-group {
 
 .animatedAppearance {
   transition: all 0.3s;
+  margin-top: 30px;
 }
 
 .selectLabel {
-  margin-bottom: 20px;
+  margin-bottom: 30px;
   height: 20px;
 }
 
