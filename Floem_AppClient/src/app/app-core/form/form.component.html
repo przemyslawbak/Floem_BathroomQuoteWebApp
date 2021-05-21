@@ -150,6 +150,7 @@
             aria-label="Font Style"
             value="removalNo"
             class="col-lg-6 col-12"
+            (change)="calculateTotal()"
           >
             <mat-button-toggle
               class="col-lg-6 col-12"
@@ -204,6 +205,7 @@
             aria-label="Font Style"
             value="none"
             class="col-sm-12"
+            (change)="calculateTotal()"
           >
             <mat-button-toggle
               class="col-lg-3 col-12"
@@ -346,6 +348,7 @@
             aria-label="Font Style"
             value="none"
             class="col-12"
+            (change)="calculateTotal()"
           >
             <!--col-lg-7 Bootstrap overriden in css file-->
             <mat-button-toggle
@@ -489,7 +492,7 @@
             value="none"
             class="col-sm-12"
             multiple="true"
-            (change)="onUnitsValChange($event.value)"
+            (change)="onUnitsValChange($event.value); calculateTotal()"
           >
             <!--col-lg-9 Bootstrap overriden in css file-->
             <mat-button-toggle
@@ -727,6 +730,7 @@
             aria-label="Font Style"
             value="changingNo"
             class="col-lg-6 col-12"
+            (change)="calculateTotal()"
           >
             <mat-button-toggle
               class="col-lg-6 col-12"
@@ -809,7 +813,7 @@
             aria-label="Font Style"
             class="col-12"
             multiple="true"
-            (change)="onElectricalValChange($event.value)"
+            (change)="onElectricalValChange($event.value); calculateTotal()"
           >
             <!--col-lg-7 Bootstrap overriden in css file-->
             <mat-button-toggle

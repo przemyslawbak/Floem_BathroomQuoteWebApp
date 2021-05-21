@@ -440,7 +440,7 @@ export class FormComponent {
     return tiles;
   }
 
-  public scroll(id: string) {
+  public scroll(id: string): void {
     setTimeout(function () {
       let el: HTMLElement = document.getElementById(id)!;
       if (el.offsetHeight > 0) {
@@ -453,8 +453,12 @@ export class FormComponent {
     }, 400);
   }
 
-  public scrollToIndex(event: any) {
+  public scrollToIndex(event: any): void {
     let id = 'step' + event.selectedIndex;
     this.scroll(id);
+  }
+
+  public calculateTotal(): void {
+    this.total = this.total + 100;
   }
 }

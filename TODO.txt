@@ -41,34 +41,37 @@ OK - bug: in mobile version wrapped step label (step 5) needs margin-bottom
 OK - bug: after showing list, step header is moved (step 5, 6), scrolling maybe moves it
 OK - remove "please" in labels
 OK - jumping between steps?
-- bug: form height in step 5
-- scroled list default
+OK - bug: form height in step 5
+NO - in mobile version all step labels centered?
+NO - removing "sockets" and "spotlights" resets values to '0'
+?? - list container height for ngIf
+OK - placing 'selected total' in the corner or fixed
+OK - step 0 - some info / seo
+OK - change 'removal' icon
+OK - items -> units
+OK - tiles for all selects
+NO - more text in steps for SEO
+- mat-button-toggle click colors change
+- additional step: sufit
+- dynamic total quote
+- all html events for `calculateTotal()`
+- all events for list tile update
+- scrolled list default
 - scrolled list data binding / price binding
-- in mobile version all step labels centered?
-- removing "sockets" and "spotlights" resets values to '0'
 - in mobile list scroll always visible (some browsers disapearing)
-- list conainer height for ngIf
 - small screen menu btns margins
 - data binding
 - header menu btns change to anchors
 - each step in separate component
-- Favicon change;
+- Favicon change
 - PNG logo
 - logo redirects to Wix app
 - links redirecting to Wix app
-- step 0 - some info / seo
 - select with content
-- items -> units
 - ft + in / cm
-- tiles for all selects
-- placing 'selected total' in the corner or fixed
-- dynamic total quote
 - additional step? or only when sending?: contacts email, tel, address, RODO
-- additional step: sufit
 - summary: link
 - summary: email to Floem + email to client
 - summary: for each step price
-- mat-button-toggle click colors change
-- more text in steps for SEO
 - toggle btn icons? optional
 - toggle btns list 1st always with diff borders, framework bug?
