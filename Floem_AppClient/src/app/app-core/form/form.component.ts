@@ -18,6 +18,7 @@ export class FormComponent {
   keys: Array<string> = this.getKeys();
   public isLinear: boolean = true;
   public quoteModel: QuoteItems = new QuoteItems();
+  public total: number = 0;
 
   constructor(
     private _formBuilder: FormBuilder,
