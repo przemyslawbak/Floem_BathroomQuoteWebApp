@@ -113,6 +113,10 @@ mat-button-toggle-group {
   scrollbar-width: thin;
 }
 
+.text-justify {
+  text-align: justify;
+}
+
 @media (min-width: 0px) {
   .col-lg-9,
   .col-lg-7 {
