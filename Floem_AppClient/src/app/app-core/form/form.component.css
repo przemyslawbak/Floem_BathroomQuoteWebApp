@@ -117,6 +117,20 @@ mat-button-toggle-group {
   text-align: justify;
 }
 
+mat-button-toggle:hover {
+  background-color: #fff !important;
+}
+
+.mat-button-toggle-checked {
+  background-color: #9db946;
+  color: white;
+}
+
+.mat-button-toggle-checked:hover {
+  background-color: #9cb946cc !important;
+  color: black;
+}
+
 @media (min-width: 0px) {
   .col-lg-9,
   .col-lg-7 {

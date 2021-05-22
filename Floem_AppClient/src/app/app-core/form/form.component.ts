@@ -79,6 +79,10 @@ export class FormComponent {
     ],
   });
 
+  form8 = this._formBuilder.group({
+    valid: [true, Validators.required],
+  });
+
   stepperOrientation: Observable<StepperOrientation>;
 
   private getKeys(): string[] {
@@ -460,5 +464,13 @@ export class FormComponent {
 
   public calculateTotal(): void {
     this.total = this.total + 100;
+  }
+
+  public setYesCeilingPainting(): void {
+    this.quoteModel.paintingCeiling = true;
+  }
+
+  public setNoCeilingPainting(): void {
+    this.quoteModel.paintingCeiling = false;
   }
 }

@@ -921,6 +921,61 @@
         type="button"
         class="btn btn-success"
         matStepperNext
+        (click)="scroll('step8')"
+      >
+        Next
+      </button>
+    </div>
+  </mat-step>
+  <!--STEP 8-->
+  <mat-step [stepControl]="form8" [completed]="true">
+    <div class="stepHeader col-sm rounded-top" id="step8">
+      <img src="../../../assets/images/ceiling.png" />
+      <h4 class="align-text-bottom text-white">Ceiling</h4>
+    </div>
+    <ng-template matStepLabel (click)="scroll('step8')">Ceiling</ng-template>
+    <div class="formContainer">
+      <div class="row">
+        <label class="selectLabel">Select below <b>one</b> option:</label>
+      </div>
+      <div class="row">
+        <div>
+          <mat-button-toggle-group
+            name="fontStyle"
+            aria-label="Font Style"
+            value="ceilingPaintNo"
+            class="col-lg-6 col-12"
+            (change)="calculateTotal()"
+          >
+            <mat-button-toggle
+              class="col-lg-6 col-12"
+              value="ceilingPaintNo"
+              (change)="setNoCeilingPainting()"
+              >No paint ceiling
+            </mat-button-toggle>
+            <mat-button-toggle
+              class="col-lg-6 col-12"
+              value="ceilingPaintYes"
+              (change)="setYesCeilingPainting()"
+              >Paint ceiling
+            </mat-button-toggle>
+          </mat-button-toggle-group>
+        </div>
+      </div>
+    </div>
+    <div>
+      <button
+        type="button"
+        class="btn btn-secondary"
+        matStepperPrevious
+        (click)="scroll('step7')"
+      >
+        Back
+      </button>
+      <button
+        type="button"
+        class="btn btn-success"
+        matStepperNext
         (click)="scroll('summary')"
       >
         Next

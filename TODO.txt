@@ -51,8 +51,8 @@ OK - change 'removal' icon
 OK - items -> units
 OK - tiles for all selects
 NO - more text in steps for SEO
-- mat-button-toggle click colors change
-- additional step: sufit
+OK - mat-button-toggle click colors change
+OK - additional step: ceiling
 - dynamic total quote
 - all html events for `calculateTotal()`
 - all events for list tile update

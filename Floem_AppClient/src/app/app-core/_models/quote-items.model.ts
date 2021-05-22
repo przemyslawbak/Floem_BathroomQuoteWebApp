@@ -46,6 +46,8 @@ export class QuoteItems {
   socketsElectrical: boolean;
   socketsQty: number;
   spotlightsQty: number;
+  //8 ceiling
+  paintingCeiling: boolean;
 
   constructor() {
     this.width = 100;
@@ -83,5 +85,6 @@ export class QuoteItems {
     this.socketsElectrical = false;
     this.spotlightsQty = 0;
     this.socketsQty = 0;
+    this.paintingCeiling = false;
   }
 }
