@@ -55,15 +55,16 @@ OK - mat-button-toggle click colors change
 OK - additional step: ceiling
 OK - all html events for `calculateTotal()`
 OK - list tile hover effect
-- bug: what happens on itemListed click?
+OK - bug: what happens on itemListed click?
+OK - list tile selected method
+OK - list tile selected effect
+OK - tile list default
+OK - tile list data binding / price binding
+OK - on init set all tiles index 0;
+- bug: step 5 & 7 inputs positioned wrongly
 - check 190px -> 240px in small screen
-- list tile selected method
-- list tile selected effect
-- on init set all tiles index 0;
 - each list 'go up'? fixed?
 - all events for list tile update
-- tile list default
-- tile list data binding / price binding
 - quote calculation
 - dynamic total quote
 - in mobile list scroll always visible (some browsers disapearing)
@@ -82,5 +83,6 @@ OK - list tile hover effect
 - summary: link
 - summary: email to Floem + email to client
 - summary: for each step price
+- populate arrays (waiting for pictures & prices)
 - toggle btn icons? optional
 - toggle btns list 1st always with diff borders, framework bug?

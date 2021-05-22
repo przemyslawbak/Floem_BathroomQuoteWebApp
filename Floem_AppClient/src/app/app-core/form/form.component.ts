@@ -477,7 +477,35 @@ export class FormComponent {
   }
 
   public setDefaultTiles(): void {
-    //todo: if tile codes not selected, set defaults
+    //tiles
+    this.setTileSelected(this.tiles, this.quoteModel.floorCode);
+    //lvt
+    //wall
+    //bath
+    //ensuite
+    //mixer
+    //toilet
+    //rail
+    //basin
+    //doors
+    //mirror
+  }
+
+  private setTileSelected(arr: UnitModel[], code: string): void {
+    if (code == '') {
+      this.setTile(arr[0], 0);
+      return;
+    } else {
+      for (var i = 0; i < arr.length; i++) {
+        if (arr[i].code == code) {
+          this.setTile(arr[i], i);
+          return;
+        }
+      }
+
+      this.setTile(arr[0], 0);
+      return;
+    }
   }
 
   private resetArraySelection(arr: UnitModel[]): void {
@@ -490,6 +518,7 @@ export class FormComponent {
   }
 
   public setTile(tile: UnitModel, index: number): void {
+    //tiles
     if (tile.type == 'tiles') {
       this.quoteModel.floorPrice = tile.price;
       this.quoteModel.floorType = tile.code;
