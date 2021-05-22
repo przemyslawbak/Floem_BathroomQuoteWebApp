@@ -53,14 +53,19 @@ OK - tiles for all selects
 NO - more text in steps for SEO
 OK - mat-button-toggle click colors change
 OK - additional step: ceiling
-- dynamic total quote
-- all html events for `calculateTotal()`
+OK - all html events for `calculateTotal()`
+- list tile hover effect
+- list tile selected effect
+- list tile selected method
 - all events for list tile update
-- scrolled list default
-- scrolled list data binding / price binding
+- tile list default
+- tile list data binding / price binding
+- quote calculation
+- dynamic total quote
 - in mobile list scroll always visible (some browsers disapearing)
 - small screen menu btns margins
 - data binding
+- bug: mobile view disances between tile lists too big?
 - header menu btns change to anchors
 - each step in separate component
 - Favicon change
