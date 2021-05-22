@@ -102,6 +102,12 @@ mat-button-toggle-group {
   margin: 2px;
 }
 
+.itemListed:hover {
+  cursor: pointer;
+  opacity: 0.5;
+  transition: all 0.3s;
+}
+
 .center {
   margin: 0 auto;
   width: 90%;

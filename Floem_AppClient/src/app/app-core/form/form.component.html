@@ -259,6 +259,7 @@
               <div
                 *ngFor="let tile of getTilesFloorItems(); let i = index"
                 class="itemListed col"
+                (click)="focusTile($event); setTile(tile)"
               >
                 <img
                   src="../../../assets/images/{{ tile.type }}/{{
@@ -282,6 +283,7 @@
               <div
                 *ngFor="let tile of getTilesFloorItems(); let i = index"
                 class="itemListed col"
+                (click)="focusTile($event)"
               >
                 <img
                   src="../../../assets/images/{{ tile.type }}/{{
@@ -430,6 +432,7 @@
             <div
               *ngFor="let tile of getTiledWallItems(); let i = index"
               class="itemListed col"
+              (click)="setTile(tile)"
             >
               <img
                 src="../../../assets/images/{{ tile.type }}/{{ tile.code }}.jpg"

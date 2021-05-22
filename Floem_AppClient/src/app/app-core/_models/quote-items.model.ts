@@ -16,7 +16,9 @@ export class QuoteItems {
   floorTiled: boolean;
   floorOther: boolean;
   floorNone: boolean;
+  floorCode: string;
   floorType: string;
+  floorPrice: number;
   floorOtherComments: string;
   //4 wall
   wallsFullHeight: boolean;
@@ -24,7 +26,9 @@ export class QuoteItems {
   wallsPlastered: boolean;
   wallsOther: boolean;
   wallsNone: boolean;
+  wallsCode: string;
   wallsType: string;
+  wallPrice: number;
   wallsOtherComments: string;
   //5 items
   bathItem: boolean;
@@ -60,14 +64,18 @@ export class QuoteItems {
     this.floorNone = true;
     this.floorTiled = false;
     this.floorOtherComments = '';
+    this.floorCode = '';
     this.floorType = '';
+    this.floorPrice = 0;
     this.wallsFullHeight = false;
     this.wallsHalfHeight = false;
     this.wallsOther = false;
     this.wallsNone = true;
     this.wallsPlastered = false;
     this.wallsOtherComments = '';
+    this.wallsCode = '';
     this.wallsType = '';
+    this.wallPrice = 0;
     this.bathItem = false;
     this.basinItem = false;
     this.otherItem = false;

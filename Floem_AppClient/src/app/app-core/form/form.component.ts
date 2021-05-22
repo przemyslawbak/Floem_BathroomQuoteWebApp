@@ -462,6 +462,10 @@ export class FormComponent {
     this.scroll(id);
   }
 
+  public focusTile(event: any): void {
+    //
+  }
+
   public calculateTotal(): void {
     this.total = this.total + 100;
   }
@@ -472,5 +476,28 @@ export class FormComponent {
 
   public setNoCeilingPainting(): void {
     this.quoteModel.paintingCeiling = false;
+  }
+
+  public setTile(tile: UnitModel): void {
+    console.log('hit');
+    /*
+    if (tile.type == 'tiles' || tile.type == 'lvt') {
+      this.quoteModel.floorPrice = tile.price;
+      this.quoteModel.floorType = tile.code;
+      this.quoteModel.floorCode = tile.type;
+      //todo: highlite tile
+      this.calculateTotal();
+    }*/
+
+    //lvt
+    //wall
+    //bath
+    //ensuite
+    //mixer
+    //toilet
+    //rail
+    //basin
+    //doors
+    //mirror
   }
 }

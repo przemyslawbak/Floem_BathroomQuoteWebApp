@@ -54,9 +54,13 @@ NO - more text in steps for SEO
 OK - mat-button-toggle click colors change
 OK - additional step: ceiling
 OK - all html events for `calculateTotal()`
-- list tile hover effect
-- list tile selected effect
+OK - list tile hover effect
+- bug: what happens on itemListed click?
+- check 190px -> 240px in small screen
 - list tile selected method
+- list tile selected effect
+- on init set all tiles index 0;
+- each list 'go up'? fixed?
 - all events for list tile update
 - tile list default
 - tile list data binding / price binding
