@@ -6,14 +6,13 @@
 </div>
 
 <mat-stepper
-  [linear]="isLinear"
   #stepper
   labelPosition="bottom"
   [orientation]="(stepperOrientation | async)!"
   (selectionChange)="scrollToIndex($event)"
 >
   <!--STEP 0-->
-  <mat-step [stepControl]="form0" [completed]="true">
+  <mat-step [stepControl]="form0">
     <div class="stepHeader col-sm rounded-top" id="step0">
       <img src="../../../assets/images/about.png" />
       <h4 class="align-text-bottom text-white">About you</h4>
@@ -47,7 +46,7 @@
   </mat-step>
 
   <!--STEP 1-->
-  <mat-step [stepControl]="form1" [completed]="true">
+  <mat-step [stepControl]="form1">
     <div class="stepHeader col-sm rounded-top" id="step1">
       <img src="../../../assets/images/dimensions.png" />
       <h4 class="align-text-bottom text-white">Bathroom dimensions</h4>
@@ -137,7 +136,7 @@
     </div>
   </mat-step>
   <!--STEP 2-->
-  <mat-step [stepControl]="form2" [completed]="true">
+  <mat-step [stepControl]="form2">
     <div class="stepHeader col-sm rounded-top" id="step2">
       <img src="../../../assets/images/removals.png" />
       <h4 class="align-text-bottom text-white">Expected removals</h4>
@@ -192,7 +191,7 @@
     </div>
   </mat-step>
   <!--STEP 3-->
-  <mat-step [stepControl]="form3" [completed]="true">
+  <mat-step [stepControl]="form3">
     <div class="stepHeader col-sm rounded-top" id="step3">
       <img src="../../../assets/images/floor.png" />
       <h4 class="align-text-bottom text-white">Floor types</h4>
@@ -259,7 +258,7 @@
               <div
                 *ngFor="let tile of getTilesFloorItems(); let i = index"
                 class="itemListed col"
-                (click)="focusTile($event); setTile(tile)"
+                (click)="setTile(tile)"
               >
                 <img
                   src="../../../assets/images/{{ tile.type }}/{{
@@ -281,9 +280,9 @@
             <label class="selectLabel col-12">Select floor LVT:</label>
             <div class="center row itemListedConainer scroller">
               <div
-                *ngFor="let tile of getTilesFloorItems(); let i = index"
+                *ngFor="let tile of getLvtFloorItems(); let i = index"
                 class="itemListed col"
-                (click)="focusTile($event)"
+                (click)="setTile(tile)"
               >
                 <img
                   src="../../../assets/images/{{ tile.type }}/{{
@@ -337,7 +336,7 @@
     </div>
   </mat-step>
   <!--STEP 4-->
-  <mat-step [stepControl]="form4" [completed]="true">
+  <mat-step [stepControl]="form4">
     <div class="stepHeader col-sm rounded-top" id="step4">
       <img src="../../../assets/images/wall.png" />
       <h4 class="align-text-bottom text-white">Wall types</h4>
@@ -432,7 +431,6 @@
             <div
               *ngFor="let tile of getTiledWallItems(); let i = index"
               class="itemListed col"
-              (click)="setTile(tile)"
             >
               <img
                 src="../../../assets/images/{{ tile.type }}/{{ tile.code }}.jpg"
@@ -481,7 +479,7 @@
     </div>
   </mat-step>
   <!--STEP 5-->
-  <mat-step [stepControl]="form5" [completed]="true">
+  <mat-step [stepControl]="form5">
     <div class="stepHeader col-sm rounded-top" id="step5">
       <img src="../../../assets/images/items.png" />
       <h4 class="align-text-bottom text-white">Additional works</h4>
@@ -720,7 +718,7 @@
     </div>
   </mat-step>
   <!--STEP 6-->
-  <mat-step [stepControl]="form6" [completed]="true">
+  <mat-step [stepControl]="form6">
     <div class="stepHeader col-sm rounded-top" id="step6">
       <img src="../../../assets/images/doors.png" />
       <h4 class="align-text-bottom text-white">Door replacement</h4>
@@ -803,7 +801,7 @@
     </div>
   </mat-step>
   <!--STEP 7-->
-  <mat-step [stepControl]="form7" [completed]="true">
+  <mat-step [stepControl]="form7">
     <div class="stepHeader col-sm rounded-top" id="step7">
       <img src="../../../assets/images/electrical.png" />
       <h4 class="align-text-bottom text-white">Electrical works</h4>
@@ -935,7 +933,7 @@
     </div>
   </mat-step>
   <!--STEP 8-->
-  <mat-step [stepControl]="form8" [completed]="true">
+  <mat-step [stepControl]="form8">
     <div class="stepHeader col-sm rounded-top" id="step8">
       <img src="../../../assets/images/ceiling.png" />
       <h4 class="align-text-bottom text-white">Ceiling</h4>
@@ -990,7 +988,7 @@
     </div>
   </mat-step>
 
-  <mat-step [completed]="true">
+  <mat-step>
     <ng-template matStepLabel (click)="scroll('summary')">Summary</ng-template>
     <p id="summary">You are now done.</p>
     <mat-list>
