@@ -258,7 +258,8 @@
               <div
                 *ngFor="let tile of getTilesFloorItems(); let i = index"
                 class="itemListed col"
-                (click)="setTile(tile)"
+                (click)="setTile(tile, i)"
+                [ngClass]="{ selected: tile.selected === true }"
               >
                 <img
                   src="../../../assets/images/{{ tile.type }}/{{
@@ -282,7 +283,8 @@
               <div
                 *ngFor="let tile of getLvtFloorItems(); let i = index"
                 class="itemListed col"
-                (click)="setTile(tile)"
+                (click)="setTile(tile, i)"
+                [ngClass]="{ selected: tile.selected === true }"
               >
                 <img
                   src="../../../assets/images/{{ tile.type }}/{{
@@ -431,6 +433,8 @@
             <div
               *ngFor="let tile of getTiledWallItems(); let i = index"
               class="itemListed col"
+              (click)="setTile(tile, i)"
+              [ngClass]="{ selected: tile.selected === true }"
             >
               <img
                 src="../../../assets/images/{{ tile.type }}/{{ tile.code }}.jpg"
@@ -560,6 +564,8 @@
             <div
               *ngFor="let tile of getBathUnitItems(); let i = index"
               class="itemListed col"
+              (click)="setTile(tile, i)"
+              [ngClass]="{ selected: tile.selected === true }"
             >
               <img
                 src="../../../assets/images/{{ tile.type }}/{{ tile.code }}.jpg"
@@ -583,6 +589,8 @@
             <div
               *ngFor="let tile of getEnsuiteUnitItems(); let i = index"
               class="itemListed col"
+              (click)="setTile(tile, i)"
+              [ngClass]="{ selected: tile.selected === true }"
             >
               <img
                 src="../../../assets/images/{{ tile.type }}/{{ tile.code }}.jpg"
@@ -604,6 +612,8 @@
             <div
               *ngFor="let tile of getMixerUnitItems(); let i = index"
               class="itemListed col"
+              (click)="setTile(tile, i)"
+              [ngClass]="{ selected: tile.selected === true }"
             >
               <img
                 src="../../../assets/images/{{ tile.type }}/{{ tile.code }}.jpg"
@@ -625,6 +635,8 @@
             <div
               *ngFor="let tile of getToiletUnitItems(); let i = index"
               class="itemListed col"
+              (click)="setTile(tile, i)"
+              [ngClass]="{ selected: tile.selected === true }"
             >
               <img
                 src="../../../assets/images/{{ tile.type }}/{{ tile.code }}.jpg"
@@ -648,6 +660,8 @@
             <div
               *ngFor="let tile of getRailUnitItems(); let i = index"
               class="itemListed col"
+              (click)="setTile(tile, i)"
+              [ngClass]="{ selected: tile.selected === true }"
             >
               <img
                 src="../../../assets/images/{{ tile.type }}/{{ tile.code }}.jpg"
@@ -669,6 +683,8 @@
             <div
               *ngFor="let tile of getBasinUnitItems(); let i = index"
               class="itemListed col"
+              (click)="setTile(tile, i)"
+              [ngClass]="{ selected: tile.selected === true }"
             >
               <img
                 src="../../../assets/images/{{ tile.type }}/{{ tile.code }}.jpg"
@@ -769,6 +785,8 @@
               <div
                 *ngFor="let tile of getDoorItems(); let i = index"
                 class="itemListed col"
+                (click)="setTile(tile, i)"
+                [ngClass]="{ selected: tile.selected === true }"
               >
                 <img
                   src="../../../assets/images/{{ tile.type }}/{{
@@ -859,6 +877,8 @@
             <div
               *ngFor="let tile of getMirrorElecricalItems(); let i = index"
               class="itemListed col"
+              (click)="setTile(tile, i)"
+              [ngClass]="{ selected: tile.selected === true }"
             >
               <img
                 src="../../../assets/images/{{ tile.type }}/{{ tile.code }}.jpg"

@@ -183,6 +183,8 @@ export class FormComponent {
     this.stepperOrientation = breakpointObserver
       .observe('(min-width: 800px)')
       .pipe(map(({ matches }) => (matches ? 'horizontal' : 'vertical')));
+
+    this.setDefaultTiles();
   }
   form0 = this._formBuilder.group({
     valid: [true, Validators.required],
@@ -462,10 +464,6 @@ export class FormComponent {
     this.scroll(id);
   }
 
-  public focusTile(event: any): void {
-    //
-  }
-
   public calculateTotal(): void {
     this.total = this.total + 100;
   }
@@ -478,16 +476,27 @@ export class FormComponent {
     this.quoteModel.paintingCeiling = false;
   }
 
-  public setTile(tile: UnitModel): void {
-    console.log('hit');
-    alert(tile.code);
+  public setDefaultTiles(): void {
+    //todo: if tile codes not selected, set defaults
+  }
 
-    if (tile.type == 'tiles' || tile.type == 'lvt') {
+  private resetArraySelection(arr: UnitModel[]): void {
+    for (var i = 0; i < arr.length; i++) {
+      if (arr[i].selected == true) {
+        arr[i].selected = false;
+        return;
+      }
+    }
+  }
+
+  public setTile(tile: UnitModel, index: number): void {
+    if (tile.type == 'tiles') {
       this.quoteModel.floorPrice = tile.price;
       this.quoteModel.floorType = tile.code;
       this.quoteModel.floorCode = tile.type;
-      //todo: highlite tile
       this.calculateTotal();
+      this.resetArraySelection(this.tiles);
+      this.tiles[index].selected = true;
     }
 
     //lvt
