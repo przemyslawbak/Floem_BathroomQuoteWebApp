@@ -249,7 +249,6 @@
               this.quoteModel.floorTiled ? 'visible' : 'hidden'
             "
             [style.height]="this.quoteModel.floorTiled ? '240px' : '0'"
-            [style.marginTop]="this.quoteModel.floorTiled ? '30px' : '0'"
             class="animatedAppearance col-12"
             id="tiled-floor"
           >
@@ -274,7 +273,6 @@
             [style.opacity]="this.quoteModel.floorLvt ? '1' : '0'"
             [style.visibility]="this.quoteModel.floorLvt ? 'visible' : 'hidden'"
             [style.height]="this.quoteModel.floorLvt ? '240px' : '0'"
-            [style.marginTop]="this.quoteModel.floorLvt ? '30px' : '0'"
             class="animatedAppearance col-12"
             id="lvt-floor"
           >
@@ -418,13 +416,6 @@
               ? '240px'
               : '0'
           "
-          [style.marginTop]="
-            this.quoteModel.wallsFullHeight ||
-            this.quoteModel.wallsHalfHeight ||
-            this.quoteModel.wallsPlastered
-              ? '30px'
-              : '0'
-          "
           class="animatedAppearance col-12"
           id="tiled-wall"
         >
@@ -555,7 +546,6 @@
           [style.opacity]="this.quoteModel.bathItem ? '1' : '0'"
           [style.visibility]="this.quoteModel.bathItem ? 'visible' : 'hidden'"
           [style.height]="this.quoteModel.bathItem ? '240px' : '0'"
-          [style.marginTop]="this.quoteModel.bathItem ? '30px' : '0'"
           class="animatedAppearance col-12"
           id="bath-unit"
         >
@@ -580,7 +570,6 @@
             this.quoteModel.ensuiteItem ? 'visible' : 'hidden'
           "
           [style.height]="this.quoteModel.ensuiteItem ? '240px' : '0'"
-          [style.marginTop]="this.quoteModel.ensuiteItem ? '30px' : '0'"
           class="animatedAppearance col-12"
           id="ensuite-unit"
         >
@@ -603,7 +592,6 @@
           [style.opacity]="this.quoteModel.mixerItem ? '1' : '0'"
           [style.visibility]="this.quoteModel.mixerItem ? 'visible' : 'hidden'"
           [style.height]="this.quoteModel.mixerItem ? '240px' : '0'"
-          [style.marginTop]="this.quoteModel.mixerItem ? '30px' : '0'"
           class="animatedAppearance col-12"
           id="mixer-unit"
         >
@@ -626,7 +614,6 @@
           [style.opacity]="this.quoteModel.toiletItem ? '1' : '0'"
           [style.visibility]="this.quoteModel.toiletItem ? 'visible' : 'hidden'"
           [style.height]="this.quoteModel.toiletItem ? '240px' : '0'"
-          [style.marginTop]="this.quoteModel.toiletItem ? '30px' : '0'"
           class="animatedAppearance col-12"
           id="toilet-unit"
         >
@@ -651,7 +638,6 @@
             this.quoteModel.towelRailItem ? 'visible' : 'hidden'
           "
           [style.height]="this.quoteModel.towelRailItem ? '240px' : '0'"
-          [style.marginTop]="this.quoteModel.towelRailItem ? '30px' : '0'"
           class="animatedAppearance col-12"
           id="rail-unit"
         >
@@ -674,7 +660,6 @@
           [style.opacity]="this.quoteModel.basinItem ? '1' : '0'"
           [style.visibility]="this.quoteModel.basinItem ? 'visible' : 'hidden'"
           [style.height]="this.quoteModel.basinItem ? '240px' : '0'"
-          [style.marginTop]="this.quoteModel.basinItem ? '30px' : '0'"
           class="animatedAppearance col-12"
           id="basin-unit"
         >
@@ -697,7 +682,6 @@
           [style.opacity]="this.quoteModel.otherItem ? '1' : '0'"
           [style.visibility]="this.quoteModel.otherItem ? 'visible' : 'hidden'"
           [style.height]="this.quoteModel.otherItem ? '70px' : '0'"
-          [style.marginTop]="this.quoteModel.otherItem ? '30px' : '0'"
           class="col-12 animatedAppearance"
           id="other-unit"
         >
@@ -776,7 +760,6 @@
               this.quoteModel.doorsChanging ? 'visible' : 'hidden'
             "
             [style.height]="this.quoteModel.doorsChanging ? '240px' : '0'"
-            [style.marginTop]="this.quoteModel.doorsChanging ? '30px' : '0'"
             class="animatedAppearance col-12"
             id="doors-type"
           >
@@ -868,7 +851,6 @@
             this.quoteModel.mirrorElectrical ? 'visible' : 'hidden'
           "
           [style.height]="this.quoteModel.mirrorElectrical ? '240px' : '0'"
-          [style.marginTop]="this.quoteModel.mirrorElectrical ? '30px' : '0'"
           class="animatedAppearance col-12"
           id="mirror-electrical"
         >
@@ -893,13 +875,12 @@
           [style.visibility]="
             this.quoteModel.socketsElectrical ? 'visible' : 'hidden'
           "
-          [style.marginTop]="this.quoteModel.socketsElectrical ? '30px' : '0'"
           class="col-12 animatedAppearance"
           id="sockets-qty"
         >
           <div class="col-lg-auto">
             <mat-form-field style="width: 50vw">
-              <mat-label>How many sockets?</mat-label>
+              <mat-label>How many power sockets?</mat-label>
               <input
                 matInput
                 placeholder="Comment"

@@ -75,6 +75,7 @@ mat-button-toggle-group {
 
 .animatedAppearance {
   transition: all 0.3s;
+  margin-top: -0px;
 }
 
 .selectLabel {
@@ -130,6 +131,10 @@ mat-button-toggle-group {
 
 mat-button-toggle:hover {
   background-color: #fff !important;
+}
+
+mat-form-field {
+  margin-top: 15px;
 }
 
 .mat-button-toggle-checked {

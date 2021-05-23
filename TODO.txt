@@ -61,28 +61,39 @@ OK - list tile selected effect
 OK - tile list default
 OK - tile list data binding / price binding
 OK - on init set all tiles index 0;
-- bug: step 5 & 7 inputs positioned wrongly
-- check 190px -> 240px in small screen
-- each list 'go up'? fixed?
-- all events for list tile update
-- quote calculation
-- dynamic total quote
-- in mobile list scroll always visible (some browsers disapearing)
-- small screen menu btns margins
+OK - select with content
+OK - dynamic total quote
+OK - all events for list tile update
+NO - on default/selected tile from the list selection - select price too? - will be selected on "setDefaultTiles"
+OK - bug: step 5 & 7 inputs positioned wrongly
+OK - check animatedAppearance 190px -> 240px in small screen
+OK - bug: mobile view distances between tile lists too big?
+- bug: step headers disapearing on auto-scrolling sometimes
+- quote calculation logic
 - data binding
-- bug: mobile view disances between tile lists too big?
-- header menu btns change to anchors
-- each step in separate component
+- page header menu btns change to anchors
 - Favicon change
-- PNG logo
-- logo redirects to Wix app
+- step 0 icon -> logo PNG
+- PNG logo?
+- logo anchor redirects to Wix app
 - links redirecting to Wix app
-- select with content
-- ft + in / cm
 - additional step? or only when sending?: contacts email, tel, address, RODO
 - summary: link
 - summary: email to Floem + email to client
-- summary: for each step price
+- summary: for each step price - quote model
+- delete reset btn?
+- ft + in / cm
 - populate arrays (waiting for pictures & prices)
-- toggle btn icons? optional
+- back-end...
+- deploy production
+
+FUTURE:
+- admin menu
+- toggle tile lists btn icons? optional
+- small screen menu btns margins
+- arrays loaded from the DB
+- each list 'go up'? fixed?
+- in mobile list scroll always visible (some browsers disapearing)
+- each step in separate component
+- dynamic linear mat-stepper? linear for new, completed for link
 - toggle btns list 1st always with diff borders, framework bug?
