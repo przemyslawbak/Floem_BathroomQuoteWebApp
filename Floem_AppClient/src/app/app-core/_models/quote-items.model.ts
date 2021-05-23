@@ -11,6 +11,7 @@ export class QuoteItems {
   units: DimentionUnits;
   //2 removal
   removals: boolean;
+  removalsPrice: number;
   //3 floor
   floorLvt: boolean;
   floorTiled: boolean;
@@ -32,28 +33,55 @@ export class QuoteItems {
   wallsOtherComments: string;
   //5 items
   bathItem: boolean;
+  bathPrice: number;
   ensuiteItem: boolean;
+  ensuitePrice: number;
   mixerItem: boolean;
+  mixerPrice: number;
   toiletItem: boolean;
+  toiletPrice: number;
   towelRailItem: boolean;
+  railPrice: number;
   basinItem: boolean;
+  basinPrice: number;
   otherItem: boolean;
   otherItemComments: string;
   //6 doors
   doorsChanging: boolean;
   doorsType: string;
+  doorsPrice: number;
   //7 electrical
   mirrorElectrical: boolean;
+  mirrorPrice: number;
   fanElectrical: boolean;
+  fanPrice: number;
   spotlightsElectrical: boolean;
+  spotlightPrice: number;
   switcherElectrical: boolean;
+  switcherPrice: number;
   socketsElectrical: boolean;
+  socketPrice: number;
   socketsQty: number;
   spotlightsQty: number;
   //8 ceiling
   paintingCeiling: boolean;
+  ceilingPrice: number;
 
   constructor() {
+    this.spotlightPrice = 0;
+    this.switcherPrice = 0;
+    this.removalsPrice = 0;
+    this.ensuitePrice = 0;
+    this.ceilingPrice = 0;
+    this.toiletPrice = 0;
+    this.socketPrice = 0;
+    this.mirrorPrice = 0;
+    this.mixerPrice = 0;
+    this.doorsPrice = 0;
+    this.basinPrice = 0;
+    this.bathPrice = 0;
+    this.railPrice = 0;
+    this.fanPrice = 0;
     this.width = 100;
     this.height = 200;
     this.depth = 100;
