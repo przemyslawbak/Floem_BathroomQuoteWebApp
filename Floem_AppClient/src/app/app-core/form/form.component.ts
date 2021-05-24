@@ -190,16 +190,40 @@ export class FormComponent {
     valid: [true, Validators.required],
   });
   form1 = this._formBuilder.group({
-    width: [
-      this.quoteModel.width,
+    widthCm: [
+      this.quoteModel.widthCm,
       [Validators.required, Validators.pattern('^[0-9]*$')],
     ],
-    height: [
-      this.quoteModel.height,
+    heightCm: [
+      this.quoteModel.heightCm,
       [Validators.required, Validators.pattern('^[0-9]*$')],
     ],
-    depth: [
-      this.quoteModel.depth,
+    depthCm: [
+      this.quoteModel.depthCm,
+      [Validators.required, Validators.pattern('^[0-9]*$')],
+    ],
+    widthFt: [
+      this.quoteModel.widthFt,
+      [Validators.required, Validators.pattern('^[0-9]*$')],
+    ],
+    heightFt: [
+      this.quoteModel.heightFt,
+      [Validators.required, Validators.pattern('^[0-9]*$')],
+    ],
+    depthFt: [
+      this.quoteModel.depthFt,
+      [Validators.required, Validators.pattern('^[0-9]*$')],
+    ],
+    widthIn: [
+      this.quoteModel.widthIn,
+      [Validators.required, Validators.pattern('^[0-9]*$')],
+    ],
+    heightIn: [
+      this.quoteModel.heightIn,
+      [Validators.required, Validators.pattern('^[0-9]*$')],
+    ],
+    depthIn: [
+      this.quoteModel.depthIn,
       [Validators.required, Validators.pattern('^[0-9]*$')],
     ],
     units: [this.quoteModel.units, Validators.required],

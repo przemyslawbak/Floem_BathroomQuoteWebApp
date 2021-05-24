@@ -68,7 +68,12 @@ NO - on default/selected tile from the list selection - select price too? - will
 OK - bug: step 5 & 7 inputs positioned wrongly
 OK - check animatedAppearance 190px -> 240px in small screen
 OK - bug: mobile view distances between tile lists too big?
-- bug: step headers disapearing on auto-scrolling sometimes
+OK - bug: step headers disapearing on auto-scrolling sometimes (ex. step 4 LVT -> other) - scrolling
+OK - ft + in / cm
+- cm <-> ft + in heights fixed for 3 rows
+- dimension picture update
+- dimension pictire fixed
+- converter cm <-> ft + in
 - quote calculation logic
 - data binding
 - page header menu btns change to anchors
@@ -77,12 +82,12 @@ OK - bug: mobile view distances between tile lists too big?
 - PNG logo?
 - logo anchor redirects to Wix app
 - links redirecting to Wix app
-- additional step? or only when sending?: contacts email, tel, address, RODO
 - summary: link
 - summary: email to Floem + email to client
 - summary: for each step price - quote model
-- delete reset btn?
-- ft + in / cm
+- summary: styling + data display
+- summary: delete reset btn? - refresh page
+- summary: contacts email, tel, address, RODO
 - populate arrays (waiting for pictures & prices)
 - back-end...
 - deploy production

@@ -147,6 +147,10 @@ mat-form-field {
   color: black;
 }
 
+.picture img {
+  width: 90%;
+}
+
 @media (min-width: 0px) {
   .col-lg-9,
   .col-lg-7 {

@@ -73,45 +73,181 @@
             </mat-select>
           </mat-form-field>
         </div>
-        <div class="row">
-          <div class="col-lg-3">
-            <mat-form-field>
-              <mat-label>Bathroom width ({{ quoteModel.units }})</mat-label>
-              <input
-                matInput
-                placeholder="Width"
-                formControlName="width"
-                required
-                (change)="calculateTotal()"
-              />
-              <mat-error *ngIf="form1.invalid">Numbers only allowed</mat-error>
-            </mat-form-field>
+        <div
+          [style.opacity]="this.quoteModel.units == 'Metric' ? '1' : '0'"
+          [style.height]="this.quoteModel.units == 'Metric' ? '240px' : '0'"
+          [style.visibility]="
+            this.quoteModel.units == 'Metric' ? 'visible' : 'hidden'
+          "
+          class="animatedAppearance dimemtions col-12"
+        >
+          <div class="row">
+            <div class="col-lg-6">
+              <div class="row">
+                <mat-form-field class="col-12">
+                  <mat-label>Bathroom width <b>(centimeters)</b></mat-label>
+                  <input
+                    matInput
+                    placeholder="Width"
+                    formControlName="widthCm"
+                    required
+                    (change)="calculateTotal()"
+                  />
+                  <mat-error *ngIf="form1.invalid"
+                    >Numbers only allowed</mat-error
+                  >
+                </mat-form-field>
+              </div>
+              <div class="row">
+                <mat-form-field class="col-12">
+                  <mat-label>Bathroom height <b>(centimeters)</b></mat-label>
+                  <input
+                    matInput
+                    placeholder="Height"
+                    formControlName="heightCm"
+                    required
+                    (change)="calculateTotal()"
+                  />
+                  <mat-error *ngIf="form1.invalid"
+                    >Numbers only allowed</mat-error
+                  >
+                </mat-form-field>
+              </div>
+              <div class="row">
+                <mat-form-field class="col-12">
+                  <mat-label>Bathroom depth <b>(centimeters)</b></mat-label>
+                  <input
+                    matInput
+                    placeholder="Depth"
+                    formControlName="depthCm"
+                    required
+                    (change)="calculateTotal()"
+                  />
+                  <mat-error *ngIf="form1.invalid"
+                    >Numbers only allowed</mat-error
+                  >
+                </mat-form-field>
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="picture center">
+                <img src="../../../assets/images/rdimensions.png" />
+              </div>
+            </div>
           </div>
-          <div class="col-lg-3">
-            <mat-form-field>
-              <mat-label>Bathroom height ({{ quoteModel.units }})</mat-label>
-              <input
-                matInput
-                placeholder="Height"
-                formControlName="height"
-                required
-                (change)="calculateTotal()"
-              />
-              <mat-error *ngIf="form1.invalid">Numbers only allowed</mat-error>
-            </mat-form-field>
-          </div>
-          <div class="col-lg-3">
-            <mat-form-field>
-              <mat-label>Bathroom depth ({{ quoteModel.units }})</mat-label>
-              <input
-                matInput
-                placeholder="Depth"
-                formControlName="depth"
-                required
-                (change)="calculateTotal()"
-              />
-              <mat-error *ngIf="form1.invalid">Numbers only allowed</mat-error>
-            </mat-form-field>
+        </div>
+        <div
+          [style.opacity]="this.quoteModel.units == 'Imperial' ? '1' : '0'"
+          [style.height]="this.quoteModel.units == 'Imperial' ? '240px' : '0'"
+          [style.visibility]="
+            this.quoteModel.units == 'Imperial' ? 'visible' : 'hidden'
+          "
+          class="animatedAppearance dimemtions col-12"
+        >
+          <div class="row">
+            <div class="col-lg-6">
+              <div class="row">
+                <div class="col-6">
+                  <mat-form-field>
+                    <mat-label>Bathroom width <b>(feet)</b></mat-label>
+                    <input
+                      matInput
+                      placeholder="Width"
+                      formControlName="widthFt"
+                      required
+                      (change)="calculateTotal()"
+                    />
+                    <mat-error *ngIf="form1.invalid"
+                      >Numbers only allowed</mat-error
+                    >
+                  </mat-form-field>
+                </div>
+                <div class="col-6">
+                  <mat-form-field>
+                    <mat-label>Bathroom width <b>(inches)</b></mat-label>
+                    <input
+                      matInput
+                      placeholder="Width"
+                      formControlName="widthIn"
+                      required
+                      (change)="calculateTotal()"
+                    />
+                    <mat-error *ngIf="form1.invalid"
+                      >Numbers only allowed</mat-error
+                    >
+                  </mat-form-field>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-6">
+                  <mat-form-field>
+                    <mat-label>Bathroom height <b>(feet)</b></mat-label>
+                    <input
+                      matInput
+                      placeholder="Height"
+                      formControlName="heightFt"
+                      required
+                      (change)="calculateTotal()"
+                    />
+                    <mat-error *ngIf="form1.invalid"
+                      >Numbers only allowed</mat-error
+                    >
+                  </mat-form-field>
+                </div>
+                <div class="col-6">
+                  <mat-form-field>
+                    <mat-label>Bathroom height <b>(inches)</b></mat-label>
+                    <input
+                      matInput
+                      placeholder="Height"
+                      formControlName="heightIn"
+                      required
+                      (change)="calculateTotal()"
+                    />
+                    <mat-error *ngIf="form1.invalid"
+                      >Numbers only allowed</mat-error
+                    >
+                  </mat-form-field>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-6">
+                  <mat-form-field>
+                    <mat-label>Bathroom depth <b>(feet)</b></mat-label>
+                    <input
+                      matInput
+                      placeholder="Depth"
+                      formControlName="depthFt"
+                      required
+                      (change)="calculateTotal()"
+                    />
+                    <mat-error *ngIf="form1.invalid"
+                      >Numbers only allowed</mat-error
+                    >
+                  </mat-form-field>
+                </div>
+                <div class="col-6">
+                  <mat-form-field>
+                    <mat-label>Bathroom depth <b>(inches)</b></mat-label>
+                    <input
+                      matInput
+                      placeholder="Depth"
+                      formControlName="depthIn"
+                      required
+                      (change)="calculateTotal()"
+                    />
+                    <mat-error *ngIf="form1.invalid"
+                      >Numbers only allowed</mat-error
+                    >
+                  </mat-form-field>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="picture center">
+                <img src="../../../assets/images/rdimensions.png" />
+              </div>
+            </div>
           </div>
         </div>
       </form>

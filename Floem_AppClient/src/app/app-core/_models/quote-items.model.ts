@@ -1,13 +1,19 @@
 export enum DimentionUnits {
-  Inches = 'in',
-  Centimeters = 'cm',
+  Inches = 'Imperial',
+  Centimeters = 'Metric',
 }
 
 export class QuoteItems {
   //1 dimemtions
-  width: number;
-  height: number;
-  depth: number;
+  widthCm: number;
+  heightCm: number;
+  depthCm: number;
+  widthIn: number;
+  heightIn: number;
+  depthIn: number;
+  widthFt: number;
+  heightFt: number;
+  depthFt: number;
   units: DimentionUnits;
   //2 removal
   removals: boolean;
@@ -82,9 +88,15 @@ export class QuoteItems {
     this.bathPrice = 0;
     this.railPrice = 0;
     this.fanPrice = 0;
-    this.width = 100;
-    this.height = 200;
-    this.depth = 100;
+    this.widthCm = 100;
+    this.heightCm = 200;
+    this.depthCm = 100;
+    this.widthFt = 0;
+    this.widthIn = 0;
+    this.heightFt = 0;
+    this.heightIn = 0;
+    this.depthFt = 0;
+    this.depthIn = 0;
     this.units = DimentionUnits.Centimeters;
     this.removals = false;
     this.floorLvt = false;
