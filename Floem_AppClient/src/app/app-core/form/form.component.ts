@@ -452,7 +452,7 @@ export class FormComponent {
       if (el.offsetHeight > 0) {
         el.scrollIntoView({
           behavior: 'smooth',
-          block: 'start',
+          block: 'nearest',
           inline: 'nearest',
         });
       }
