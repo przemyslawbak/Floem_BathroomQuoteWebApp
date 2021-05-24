@@ -563,4 +563,52 @@ export class FormComponent {
     //doors
     //mirror
   }
+
+  public convertUnits(): void {
+    if (this.quoteModel.units == DimentionUnits.Inches) {
+      this.quoteModel.heightIn = this.getInches(this.quoteModel.heightCm);
+      this.quoteModel.widthIn = this.getInches(this.quoteModel.widthCm);
+      this.quoteModel.depthIn = this.getInches(this.quoteModel.depthCm);
+      this.quoteModel.heightFt = this.getFeet(this.quoteModel.heightCm);
+      this.quoteModel.widthFt = this.getFeet(this.quoteModel.widthCm);
+      this.quoteModel.depthFt = this.getFeet(this.quoteModel.depthCm);
+      console.log(this.quoteModel.heightIn);
+      console.log(this.quoteModel.widthIn);
+      console.log(this.quoteModel.depthIn);
+      console.log(this.quoteModel.heightFt);
+      console.log(this.quoteModel.widthFt);
+      console.log(this.quoteModel.depthFt);
+    } else if (this.quoteModel.units == DimentionUnits.Centimeters) {
+      this.quoteModel.heightCm = this.getCentimeters(
+        this.quoteModel.heightIn,
+        this.quoteModel.heightFt
+      );
+      this.quoteModel.widthCm = this.getCentimeters(
+        this.quoteModel.widthIn,
+        this.quoteModel.widthFt
+      );
+      this.quoteModel.depthCm = this.getCentimeters(
+        this.quoteModel.depthIn,
+        this.quoteModel.depthFt
+      );
+      console.log(this.quoteModel.heightCm);
+      console.log(this.quoteModel.widthCm);
+      console.log(this.quoteModel.depthCm);
+    }
+  }
+  private getCentimeters(i: number, f: number): number {
+    return Math.ceil(f * 30.48 + i * 2.54);
+  }
+
+  private getFeet(n: number): number {
+    let realFeet = (n * 0.3937) / 12;
+    return Math.floor(realFeet);
+  }
+
+  private getInches(n: number): number {
+    let realFeet = (n * 0.3937) / 12;
+    let feet = Math.floor(realFeet);
+    let inches = (realFeet - feet) * 12;
+    return parseFloat(inches.toFixed(4));
+  }
 }

@@ -70,10 +70,11 @@ OK - check animatedAppearance 190px -> 240px in small screen
 OK - bug: mobile view distances between tile lists too big?
 OK - bug: step headers disapearing on auto-scrolling sometimes (ex. step 4 LVT -> other) - scrolling
 OK - ft + in / cm
-- cm <-> ft + in heights fixed for 3 rows
-- dimension picture update
-- dimension pictire fixed
-- converter cm <-> ft + in
+OK - cm <-> ft + in heights fixed for 3 rows
+OK - dimension picture update
+OK - dimension pictire fixed
+OK - converter cm <-> ft + in
+- dynamic data binding for step 1
 - quote calculation logic
 - data binding
 - page header menu btns change to anchors
