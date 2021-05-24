@@ -73,16 +73,16 @@
             </mat-select>
           </mat-form-field>
         </div>
-        <div
-          [style.opacity]="this.quoteModel.units == 'Metric' ? '1' : '0'"
-          [style.height]="this.quoteModel.units == 'Metric' ? '240px' : '0'"
-          [style.visibility]="
-            this.quoteModel.units == 'Metric' ? 'visible' : 'hidden'
-          "
-          class="animatedAppearance dimemtions col-12"
-        >
-          <div class="row">
-            <div class="col-lg-6">
+        <div class="row">
+          <div class="col-lg-6">
+            <div
+              [style.opacity]="this.quoteModel.units == 'Metric' ? '1' : '0'"
+              [style.height]="this.quoteModel.units == 'Metric' ? '240px' : '0'"
+              [style.visibility]="
+                this.quoteModel.units == 'Metric' ? 'visible' : 'hidden'
+              "
+              class="animatedAppearance dimemtions col-12"
+            >
               <div class="row">
                 <mat-form-field class="col-12">
                   <mat-label>Bathroom width <b>(centimeters)</b></mat-label>
@@ -129,23 +129,16 @@
                 </mat-form-field>
               </div>
             </div>
-            <div class="col-lg-6">
-              <div class="picture center">
-                <img src="../../../assets/images/rdimensions.png" />
-              </div>
-            </div>
-          </div>
-        </div>
-        <div
-          [style.opacity]="this.quoteModel.units == 'Imperial' ? '1' : '0'"
-          [style.height]="this.quoteModel.units == 'Imperial' ? '240px' : '0'"
-          [style.visibility]="
-            this.quoteModel.units == 'Imperial' ? 'visible' : 'hidden'
-          "
-          class="animatedAppearance dimemtions col-12"
-        >
-          <div class="row">
-            <div class="col-lg-6">
+            <div
+              [style.opacity]="this.quoteModel.units == 'Imperial' ? '1' : '0'"
+              [style.height]="
+                this.quoteModel.units == 'Imperial' ? '240px' : '0'
+              "
+              [style.visibility]="
+                this.quoteModel.units == 'Imperial' ? 'visible' : 'hidden'
+              "
+              class="animatedAppearance dimemtions col-12"
+            >
               <div class="row">
                 <div class="col-6">
                   <mat-form-field>
@@ -243,10 +236,10 @@
                 </div>
               </div>
             </div>
-            <div class="col-lg-6">
-              <div class="picture center">
-                <img src="../../../assets/images/rdimensions.png" />
-              </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="picture center">
+              <img src="../../../assets/images/rdimensions.png" />
             </div>
           </div>
         </div>
