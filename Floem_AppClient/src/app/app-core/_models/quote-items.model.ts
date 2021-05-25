@@ -78,10 +78,10 @@ export class QuoteItems {
   fanPrice: number;
   spotlightsElectrical: boolean;
   spotlightPrice: number;
-  switcherElectrical: boolean;
+  switcherInsideElectrical: boolean;
   switcherOutsideElectrical: boolean;
   switcherOutsidePrice: number;
-  switcherPrice: number;
+  switcherInsidePrice: number;
   socketsElectrical: boolean;
   socketPrice: number;
   socketsQty: number;
@@ -155,19 +155,19 @@ export class QuoteItems {
     this.doorsType = '';
     //7
     this.spotlightPrice = 50; //
-    this.switcherPrice = 50; //
-    this.switcherOutsidePrice = 50;
+    this.switcherInsidePrice = 50; //
+    this.switcherOutsidePrice = 100;
     this.socketPrice = 80; //
     this.mirrorPrice = 0; //
     this.mirrorInstallationPrice = 100; //
     this.fanPrice = 250; //
     this.spotlightsQty = 0; //
     this.socketsQty = 0; //
-    this.switcherOutsideElectrical = false;
     this.mirrorElectrical = false;
     this.fanElectrical = false;
     this.spotlightsElectrical = false;
-    this.switcherElectrical = false;
+    this.switcherInsideElectrical = false;
+    this.switcherOutsideElectrical = false;
     this.socketsElectrical = false;
     //8
     this.ceilingPriceWhite = 100;

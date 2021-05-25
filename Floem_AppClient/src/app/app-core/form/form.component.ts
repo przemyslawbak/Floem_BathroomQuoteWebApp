@@ -417,10 +417,16 @@ export class FormComponent {
     } else {
       this.quoteModel.spotlightsElectrical = false;
     }
-    if (e.includes('switch')) {
-      this.quoteModel.switcherElectrical = true;
+    if (e.includes('switchIn')) {
+      this.quoteModel.switcherInsideElectrical = true;
     } else {
-      this.quoteModel.switcherElectrical = false;
+      this.quoteModel.switcherInsideElectrical = false;
+    }
+    if (e.includes('switchOut')) {
+      this.quoteModel.switcherOutsideElectrical = true;
+      this.quoteModel.switcherInsideElectrical = false;
+    } else {
+      this.quoteModel.switcherOutsideElectrical = false;
     }
     if (e.includes('socket')) {
       this.quoteModel.socketsElectrical = true;
@@ -602,8 +608,11 @@ export class FormComponent {
         this.total +
         this.quoteModel.spotlightPrice * this.quoteModel.spotlightsQty;
     }
-    if (this.quoteModel.switcherElectrical) {
-      this.total = this.total + this.quoteModel.switcherPrice; //todo: add if switcher outside
+    if (this.quoteModel.switcherInsideElectrical) {
+      this.total = this.total + this.quoteModel.switcherInsidePrice;
+    }
+    if (this.quoteModel.switcherOutsideElectrical) {
+      this.total = this.total + this.quoteModel.switcherOutsidePrice;
     }
     if (this.quoteModel.socketsElectrical) {
       this.total =
