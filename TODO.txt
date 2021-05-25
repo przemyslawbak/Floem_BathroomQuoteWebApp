@@ -76,8 +76,9 @@ OK - dimension pictire fixed
 OK - converter cm <-> ft + in
 OK - dynamic data binding for step 1
 OK - double input validation for step 1
+OK - data binding
+- populate arrays (waiting for pictures & prices)
 - quote calculation logic
-- data binding
 - page header menu btns change to anchors
 - Favicon change
 - step 0 icon -> logo PNG
@@ -90,7 +91,6 @@ OK - double input validation for step 1
 - summary: styling + data display
 - summary: delete reset btn? - refresh page
 - summary: contacts email, tel, address, RODO
-- populate arrays (waiting for pictures & prices)
 - back-end...
 - SEO
 - deploy production
