@@ -124,7 +124,7 @@ export class QuoteItems {
     this.wallPlasteringHalfPrice = 200; //
     this.wallPaintingHalfPrice = 100; //
     this.wallPlasteringAll = 350; //
-    this.wallPaintingWhiteForPlastring = 500;
+    this.wallPaintingWhiteForPlastring = 500; //
     this.wallsFullHeight = false;
     this.wallsHalfHeight = false;
     this.wallsOther = false;
@@ -158,7 +158,7 @@ export class QuoteItems {
     //7
     this.spotlightPrice = 50; //
     this.switcherInsidePrice = 50; //
-    this.switcherOutsidePrice = 100;
+    this.switcherOutsidePrice = 100; //
     this.socketPrice = 80; //
     this.mirrorPrice = 0; //
     this.mirrorInstallationPrice = 100; //
@@ -172,8 +172,8 @@ export class QuoteItems {
     this.switcherOutsideElectrical = false;
     this.socketsElectrical = false;
     //8
-    this.ceilingPriceWhite = 100;
-    this.ceilingPricePlastered = 150;
+    this.ceilingPriceWhite = 100; //
+    this.ceilingPricePlastered = 150; //
     this.paintingCeiling = CeilingPainting.No;
   }
 }

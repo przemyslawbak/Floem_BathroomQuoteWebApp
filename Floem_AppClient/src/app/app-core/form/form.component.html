@@ -305,6 +305,18 @@
               >With removal</mat-button-toggle
             >
           </mat-button-toggle-group>
+          <div
+            [style.opacity]="this.quoteModel.removals ? '1' : '0'"
+            [style.visibility]="this.quoteModel.removals ? 'visible' : 'hidden'"
+            [style.height]="this.quoteModel.removals ? '70px' : '0'"
+            class="col-12 animatedAppearance"
+            id="other-wall"
+          >
+            <div class="col-lg-12 selectionComments">
+              Removal of all existing units, tiles and floor and preparing room
+              to work.
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -388,6 +400,10 @@
             class="animatedAppearance col-12"
             id="tiled-floor"
           >
+            <div class="col-lg-12 selectionComments">
+              Price included anti-cracking cement boards, tiles adhesive and
+              grout.
+            </div>
             <label class="selectLabel col-12">Select floor tiles:</label>
             <div class="center row itemListedConainer scroller">
               <div
@@ -412,6 +428,9 @@
             class="animatedAppearance col-12"
             id="lvt-floor"
           >
+            <div class="col-lg-12 selectionComments">
+              Price included plywood boards underneath.
+            </div>
             <label class="selectLabel col-12">Select floor LVT:</label>
             <div class="center row itemListedConainer scroller">
               <div
@@ -490,7 +509,6 @@
             value="none"
             class="col-12"
           >
-            <!--col-lg-7 Bootstrap overriden in css file-->
             <mat-button-toggle
               class="col-lg-2 col-12"
               value="none"
@@ -533,6 +551,50 @@
               >Other</mat-button-toggle
             >
           </mat-button-toggle-group>
+          <div
+            [style.opacity]="this.quoteModel.wallsFullHeight ? '1' : '0'"
+            [style.visibility]="
+              this.quoteModel.wallsFullHeight ? 'visible' : 'hidden'
+            "
+            [style.height]="this.quoteModel.wallsFullHeight ? '70px' : '0'"
+            class="col-12 animatedAppearance"
+            id="other-wall"
+          >
+            <div class="col-lg-12 selectionComments">
+              Tile adhesive and grout included.
+            </div>
+          </div>
+          <div
+            [style.opacity]="this.quoteModel.wallsHalfHeight ? '1' : '0'"
+            [style.visibility]="
+              this.quoteModel.wallsHalfHeight ? 'visible' : 'hidden'
+            "
+            [style.height]="this.quoteModel.wallsHalfHeight ? '70px' : '0'"
+            class="col-12 animatedAppearance"
+            id="other-wall"
+          >
+            <div class="col-lg-12 selectionComments">
+              Tile adhesive and grout included and anti-condensation Dulux paint
+              for walls.
+            </div>
+          </div>
+          <div
+            [style.opacity]="
+              this.quoteModel.wallsPlasteredAndPainted ? '1' : '0'
+            "
+            [style.visibility]="
+              this.quoteModel.wallsPlasteredAndPainted ? 'visible' : 'hidden'
+            "
+            [style.height]="
+              this.quoteModel.wallsPlasteredAndPainted ? '70px' : '0'
+            "
+            class="col-12 animatedAppearance"
+            id="other-wall"
+          >
+            <div class="col-lg-12 selectionComments">
+              Included anti-condensation Dulux paint.
+            </div>
+          </div>
         </div>
       </div>
       <form [formGroup]="form4">
@@ -675,6 +737,10 @@
               >Other</mat-button-toggle
             >
           </mat-button-toggle-group>
+          <div class="col-lg-12 selectionComments">
+            Pipe alternation or changing position of the units to be priced
+            separately.
+          </div>
         </div>
       </div>
       <form [formGroup]="form5">
@@ -899,6 +965,9 @@
             class="animatedAppearance col-12"
             id="doors-type"
           >
+            <div class="col-lg-12 selectionComments">
+              Hollow primed doors with handles and bolt lock.
+            </div>
             <label class="selectLabel col-12">Select doors:</label>
             <div class="center row itemListedConainer scroller">
               <div
@@ -957,7 +1026,6 @@
             multiple="true"
             (change)="onElectricalValChange($event.value); calculateTotal()"
           >
-            <!--col-lg-7 Bootstrap overriden in css file-->
             <mat-button-toggle
               class="col-lg-2 col-12"
               value="mirror"
