@@ -92,7 +92,7 @@
                     formControlName="widthCm"
                     required
                     (change)="calculateTotal()"
-                    [value]="this.quoteModel.widthCm"
+                    [(ngModel)]="this.quoteModel.widthCm"
                   />
                   <mat-error *ngIf="form1.invalid"
                     >Numbers only allowed</mat-error
@@ -108,7 +108,7 @@
                     formControlName="heightCm"
                     required
                     (change)="calculateTotal()"
-                    [value]="this.quoteModel.heightCm"
+                    [(ngModel)]="this.quoteModel.heightCm"
                   />
                   <mat-error *ngIf="form1.invalid"
                     >Numbers only allowed</mat-error
@@ -124,7 +124,7 @@
                     formControlName="depthCm"
                     required
                     (change)="calculateTotal()"
-                    [value]="this.quoteModel.depthCm"
+                    [(ngModel)]="this.quoteModel.depthCm"
                   />
                   <mat-error *ngIf="form1.invalid"
                     >Numbers only allowed</mat-error
@@ -152,7 +152,7 @@
                       formControlName="widthFt"
                       required
                       (change)="calculateTotal()"
-                      [value]="this.quoteModel.widthFt"
+                      [(ngModel)]="this.quoteModel.widthFt"
                     />
                     <mat-error *ngIf="form1.invalid"
                       >Numbers only allowed</mat-error
@@ -168,7 +168,7 @@
                       formControlName="widthIn"
                       required
                       (change)="calculateTotal()"
-                      [value]="this.quoteModel.widthIn"
+                      [(ngModel)]="this.quoteModel.widthIn"
                     />
                     <mat-error *ngIf="form1.invalid"
                       >Numbers only allowed</mat-error
@@ -186,7 +186,7 @@
                       formControlName="heightFt"
                       required
                       (change)="calculateTotal()"
-                      [value]="this.quoteModel.heightFt"
+                      [(ngModel)]="this.quoteModel.heightFt"
                     />
                     <mat-error *ngIf="form1.invalid"
                       >Numbers only allowed</mat-error
@@ -202,7 +202,7 @@
                       formControlName="heightIn"
                       required
                       (change)="calculateTotal()"
-                      [value]="this.quoteModel.heightIn"
+                      [(ngModel)]="this.quoteModel.heightIn"
                     />
                     <mat-error *ngIf="form1.invalid"
                       >Numbers only allowed</mat-error
@@ -220,7 +220,7 @@
                       formControlName="depthFt"
                       required
                       (change)="calculateTotal()"
-                      [value]="this.quoteModel.depthFt"
+                      [(ngModel)]="this.quoteModel.depthFt"
                     />
                     <mat-error *ngIf="form1.invalid"
                       >Numbers only allowed</mat-error
@@ -236,7 +236,7 @@
                       formControlName="depthIn"
                       required
                       (change)="calculateTotal()"
-                      [value]="this.quoteModel.depthIn"
+                      [(ngModel)]="this.quoteModel.depthIn"
                     />
                     <mat-error *ngIf="form1.invalid"
                       >Numbers only allowed</mat-error

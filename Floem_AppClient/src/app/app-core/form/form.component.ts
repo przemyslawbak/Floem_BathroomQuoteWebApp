@@ -192,39 +192,39 @@ export class FormComponent {
   form1 = this._formBuilder.group({
     widthCm: [
       this.quoteModel.widthCm,
-      [Validators.required, Validators.pattern('^[0-9]*$')],
+      [Validators.required, Validators.pattern('^[1-9]\\d*(\\.\\d+)?$')],
     ],
     heightCm: [
       this.quoteModel.heightCm,
-      [Validators.required, Validators.pattern('^[0-9]*$')],
+      [Validators.required, Validators.pattern('^[1-9]\\d*(\\.\\d+)?$')],
     ],
     depthCm: [
       this.quoteModel.depthCm,
-      [Validators.required, Validators.pattern('^[0-9]*$')],
+      [Validators.required, Validators.pattern('^[1-9]\\d*(\\.\\d+)?$')],
     ],
     widthFt: [
       this.quoteModel.widthFt,
-      [Validators.required, Validators.pattern('^[0-9]*$')],
+      [Validators.required, Validators.pattern('^[1-9]\\d*(\\.\\d+)?$')],
     ],
     heightFt: [
       this.quoteModel.heightFt,
-      [Validators.required, Validators.pattern('^[0-9]*$')],
+      [Validators.required, Validators.pattern('^[1-9]\\d*(\\.\\d+)?$')],
     ],
     depthFt: [
       this.quoteModel.depthFt,
-      [Validators.required, Validators.pattern('^[0-9]*$')],
+      [Validators.required, Validators.pattern('^[1-9]\\d*(\\.\\d+)?$')],
     ],
     widthIn: [
       this.quoteModel.widthIn,
-      [Validators.required, Validators.pattern('^[0-9]*$')],
+      [Validators.required, Validators.pattern('^[1-9]\\d*(\\.\\d+)?$')],
     ],
     heightIn: [
       this.quoteModel.heightIn,
-      [Validators.required, Validators.pattern('^[0-9]*$')],
+      [Validators.required, Validators.pattern('^[1-9]\\d*(\\.\\d+)?$')],
     ],
     depthIn: [
       this.quoteModel.depthIn,
-      [Validators.required, Validators.pattern('^[0-9]*$')],
+      [Validators.required, Validators.pattern('^[1-9]\\d*(\\.\\d+)?$')],
     ],
     units: [this.quoteModel.units, Validators.required],
   });

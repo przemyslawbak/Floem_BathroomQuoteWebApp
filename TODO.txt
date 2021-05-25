@@ -74,7 +74,8 @@ OK - cm <-> ft + in heights fixed for 3 rows
 OK - dimension picture update
 OK - dimension pictire fixed
 OK - converter cm <-> ft + in
-- dynamic data binding for step 1
+OK - dynamic data binding for step 1
+OK - double input validation for step 1
 - quote calculation logic
 - data binding
 - page header menu btns change to anchors
@@ -91,6 +92,7 @@ OK - converter cm <-> ft + in
 - summary: contacts email, tel, address, RODO
 - populate arrays (waiting for pictures & prices)
 - back-end...
+- SEO
 - deploy production
 
 FUTURE:
