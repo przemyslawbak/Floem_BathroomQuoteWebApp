@@ -79,19 +79,17 @@ OK - double input validation for step 1
 OK - data binding
 OK - Total selected price: 2 digits after decimal
 OK - what about paint prices? included?
-- bug: electrical text inputs not inded 2 way
-- add control: painting white? for plastered walls
-- add control: switcher outside? for switcher installation
-- add control: ceiling white/plastered. for ceiling painting
-- populate arrays (waiting for pictures & prices)
-- add excel file comments?
-- quote calculation logic
-- page header menu btns change to anchors
+OK - add control: ceiling white/plastered. for ceiling painting
+OK - add control: switcher outside? for switcher installation
+OK - bug: electrical text inputs not binded 2 way
+OK - add control: painting white? for plastered walls
+OK - quote calculation logic
+OK - add excel file comments
+OK - page header menu btns change to anchors
+OK - logo anchor redirects to Wix app
 - Favicon change
 - step 0 icon -> logo PNG
 - PNG logo?
-- logo anchor redirects to Wix app
-- links redirecting to Wix app
 - summary: link
 - summary: email to Floem + email to client
 - summary: for each step price - quote model
@@ -103,6 +101,7 @@ OK - what about paint prices? included?
 - back-end...
 - SEO
 - deploy production
+- populate arrays (waiting for pictures & prices)
 
 FUTURE:
 - admin menu
