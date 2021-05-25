@@ -1,7 +1,8 @@
 import { UnitModel } from './../_models/unit-items.model';
 import { QuoteItems } from './../_models/quote-items.model';
 import { DimentionUnits } from './../_models/quote-items.model';
-import { Component, OnInit } from '@angular/core';
+import { CeilingPainting } from './../_models/quote-items.model';
+import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { BreakpointObserver } from '@angular/cdk/layout';
 import { StepperOrientation } from '@angular/material/stepper';
@@ -536,25 +537,99 @@ export class FormComponent {
         this.quoteModel.floorPrice * floorSquareMeters;
     }
     //4.wall
-
+    if (this.quoteModel.wallsFullHeight) {
+      this.total =
+        this.total +
+        wallsSquareMeters * this.quoteModel.wallTilingPrice +
+        wallsSquareMeters * this.quoteModel.wallPrice;
+    } else if (this.quoteModel.wallsHalfHeight) {
+      this.total =
+        this.total +
+        (wallsSquareMeters * this.quoteModel.wallTilingPrice +
+          wallsSquareMeters * this.quoteModel.wallPrice) /
+          2 +
+        this.quoteModel.wallPlasteringHalfPrice +
+        this.quoteModel.wallPaintingHalfPrice;
+    } else if (this.quoteModel.wallsPlastered) {
+      this.total = this.total + this.quoteModel.wallPlasteringAll; //todo: add prop: painting white?
+    }
     //5.units
-
+    if (this.quoteModel.basinItem) {
+      this.total =
+        this.total +
+        this.quoteModel.unitInstallation +
+        this.quoteModel.basinPrice;
+    }
+    if (this.quoteModel.ensuiteItem) {
+      this.total =
+        this.total +
+        this.quoteModel.unitInstallation +
+        this.quoteModel.ensuitePrice;
+    }
+    if (this.quoteModel.toiletItem) {
+      this.total =
+        this.total +
+        this.quoteModel.unitInstallation +
+        this.quoteModel.toiletPrice;
+    }
+    if (this.quoteModel.mixerItem) {
+      this.total =
+        this.total +
+        this.quoteModel.unitInstallation +
+        this.quoteModel.mixerPrice;
+    }
+    if (this.quoteModel.bathItem) {
+      this.total =
+        this.total +
+        this.quoteModel.unitInstallation +
+        this.quoteModel.bathPrice;
+    }
+    if (this.quoteModel.towelRailItem) {
+      this.total =
+        this.total +
+        this.quoteModel.unitInstallation +
+        this.quoteModel.railPrice;
+    }
     //6.doors
     if (this.quoteModel.doorsChanging) {
-      this.total = this.total + 200;
+      this.total =
+        this.total +
+        this.quoteModel.doorChangingPrice +
+        this.quoteModel.doorsPrice;
     }
     //7.electrical
-
+    if (this.quoteModel.spotlightsElectrical) {
+      this.total =
+        this.total +
+        this.quoteModel.spotlightPrice * this.quoteModel.spotlightsQty;
+    }
+    if (this.quoteModel.switcherElectrical) {
+      this.total = this.total + this.quoteModel.switcherPrice; //todo: add if switcher outside
+    }
+    if (this.quoteModel.socketsElectrical) {
+      this.total =
+        this.total + this.quoteModel.socketsQty * this.quoteModel.socketPrice;
+    }
+    if (this.quoteModel.mirrorElectrical) {
+      this.total =
+        this.total +
+        this.quoteModel.mirrorInstallationPrice +
+        this.quoteModel.mirrorPrice;
+    }
+    if (this.quoteModel.fanElectrical) {
+      this.total = this.total + this.quoteModel.fanPrice;
+    }
     //8.ceiling
+    //todo: add if ceiling painting white or plastered
   }
 
   public setYesCeilingPainting(): void {
-    this.quoteModel.paintingCeiling = true;
+    this.quoteModel.paintingCeiling = CeilingPainting.Paint;
     this.calculateTotal();
   }
 
   public setNoCeilingPainting(): void {
-    this.quoteModel.paintingCeiling = false;
+    this.quoteModel.paintingCeiling = CeilingPainting.No;
     this.calculateTotal();
   }
 

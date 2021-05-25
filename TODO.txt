@@ -77,7 +77,14 @@ OK - converter cm <-> ft + in
 OK - dynamic data binding for step 1
 OK - double input validation for step 1
 OK - data binding
+OK - Total selected price: 2 digits after decimal
+OK - what about paint prices? included?
+- bug: electrical text inputs not inded 2 way
+- add control: painting white? for plastered walls
+- add control: switcher outside? for switcher installation
+- add control: ceiling white/plastered. for ceiling painting
 - populate arrays (waiting for pictures & prices)
+- add excel file comments?
 - quote calculation logic
 - page header menu btns change to anchors
 - Favicon change
@@ -91,6 +98,8 @@ OK - data binding
 - summary: styling + data display
 - summary: delete reset btn? - refresh page
 - summary: contacts email, tel, address, RODO
+- summary: if somewhere "other" selected, add note
+- summary: add disclaimer that prices are estimated
 - back-end...
 - SEO
 - deploy production

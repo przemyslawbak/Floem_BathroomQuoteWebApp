@@ -2,6 +2,11 @@ export enum DimentionUnits {
   Inches = 'Imperial',
   Centimeters = 'Metric',
 }
+export enum CeilingPainting {
+  No = 'NoPainting',
+  Paint = 'PaintingWhite',
+  Plastered = 'Plastered',
+}
 
 export class QuoteItems {
   //1 dimemtions
@@ -39,9 +44,10 @@ export class QuoteItems {
   wallsType: string;
   wallPrice: number;
   wallTilingPrice: number;
-  wallPlasteringPrice: number;
-  wallPaintingPrice: number;
+  wallPlasteringHalfPrice: number;
+  wallPaintingHalfPrice: number;
   wallPlasteringAll: number;
+  wallPaintingWhiteForPlastring: number;
   wallsOtherComments: string;
   //5 units
   unitInstallation: number;
@@ -73,13 +79,15 @@ export class QuoteItems {
   spotlightsElectrical: boolean;
   spotlightPrice: number;
   switcherElectrical: boolean;
+  switcherOutsideElectrical: boolean;
+  switcherOutsidePrice: number;
   switcherPrice: number;
   socketsElectrical: boolean;
   socketPrice: number;
   socketsQty: number;
   spotlightsQty: number;
   //8 ceiling
-  paintingCeiling: boolean;
+  paintingCeiling: CeilingPainting;
   ceilingPriceWhite: number;
   ceilingPricePlastered: number;
 
@@ -110,10 +118,12 @@ export class QuoteItems {
     this.floorCode = '';
     this.floorType = '';
     //4
-    this.wallTilingPrice = 45;
-    this.wallPlasteringPrice = 200; //per all? per m2? for half painted
-    this.wallPaintingPrice = 100; //per all? per m2?
-    this.wallPlasteringAll = 350; //+ 150 if painted white?
+    this.wallPrice = 0; //
+    this.wallTilingPrice = 45; //
+    this.wallPlasteringHalfPrice = 200; //
+    this.wallPaintingHalfPrice = 100; //
+    this.wallPlasteringAll = 350; //
+    this.wallPaintingWhiteForPlastring = 150;
     this.wallsFullHeight = false;
     this.wallsHalfHeight = false;
     this.wallsOther = false;
@@ -122,15 +132,14 @@ export class QuoteItems {
     this.wallsOtherComments = '';
     this.wallsCode = '';
     this.wallsType = '';
-    this.wallPrice = 0;
     //5
-    this.unitInstallation = 150;
-    this.ensuitePrice = 0;
-    this.toiletPrice = 0;
-    this.mixerPrice = 0;
-    this.basinPrice = 0;
-    this.bathPrice = 0;
-    this.railPrice = 0;
+    this.unitInstallation = 150; //
+    this.ensuitePrice = 0; //
+    this.toiletPrice = 0; //
+    this.mixerPrice = 0; //
+    this.basinPrice = 0; //
+    this.bathPrice = 0; //
+    this.railPrice = 0; //
     this.bathItem = false;
     this.basinItem = false;
     this.otherItem = false;
@@ -140,27 +149,29 @@ export class QuoteItems {
     this.towelRailItem = false;
     this.otherItemComments = '';
     //6
-    this.doorsPrice = 0;
+    this.doorsPrice = 0; //
     this.doorChangingPrice = 200; //
     this.doorsChanging = false; //
     this.doorsType = '';
     //7
-    this.spotlightPrice = 50;
-    this.switcherPrice = 50;
-    this.socketPrice = 80;
-    this.mirrorPrice = 0;
-    this.mirrorInstallationPrice = 100;
-    this.fanPrice = 250;
+    this.spotlightPrice = 50; //
+    this.switcherPrice = 50; //
+    this.switcherOutsidePrice = 50;
+    this.socketPrice = 80; //
+    this.mirrorPrice = 0; //
+    this.mirrorInstallationPrice = 100; //
+    this.fanPrice = 250; //
+    this.spotlightsQty = 0; //
+    this.socketsQty = 0; //
+    this.switcherOutsideElectrical = false;
     this.mirrorElectrical = false;
     this.fanElectrical = false;
     this.spotlightsElectrical = false;
     this.switcherElectrical = false;
     this.socketsElectrical = false;
-    this.spotlightsQty = 0;
-    this.socketsQty = 0;
     //8
     this.ceilingPriceWhite = 100;
     this.ceilingPricePlastered = 150;
-    this.paintingCeiling = false;
+    this.paintingCeiling = CeilingPainting.No;
   }
 }
