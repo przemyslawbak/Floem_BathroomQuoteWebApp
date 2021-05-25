@@ -1,7 +1,6 @@
 import { UnitModel } from './../_models/unit-items.model';
-import { QuoteItems } from './../_models/quote-items.model';
+import { QuoteItems, CeilingPainting } from './../_models/quote-items.model';
 import { DimentionUnits } from './../_models/quote-items.model';
-import { CeilingPainting } from './../_models/quote-items.model';
 import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { BreakpointObserver } from '@angular/cdk/layout';
@@ -620,7 +619,13 @@ export class FormComponent {
       this.total = this.total + this.quoteModel.fanPrice;
     }
     //8.ceiling
-    //todo: add if ceiling painting white or plastered
+    if (this.quoteModel.paintingCeiling == CeilingPainting.No) {
+      this.total = this.total;
+    } else if (this.quoteModel.paintingCeiling == CeilingPainting.Paint) {
+      this.total = this.total + this.quoteModel.ceilingPriceWhite;
+    } else if (this.quoteModel.paintingCeiling == CeilingPainting.Plastered) {
+      this.total = this.total + this.quoteModel.ceilingPricePlastered;
+    }
   }
 
   public setYesCeilingPainting(): void {
@@ -630,6 +635,11 @@ export class FormComponent {
 
   public setNoCeilingPainting(): void {
     this.quoteModel.paintingCeiling = CeilingPainting.No;
+    this.calculateTotal();
+  }
+
+  public setYesCeilingPlastered(): void {
+    this.quoteModel.paintingCeiling = CeilingPainting.Plastered;
     this.calculateTotal();
   }
 

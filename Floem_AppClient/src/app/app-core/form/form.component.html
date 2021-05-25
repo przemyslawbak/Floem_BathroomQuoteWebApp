@@ -344,7 +344,7 @@
             name="fontStyle"
             aria-label="Font Style"
             value="none"
-            class="col-sm-12"
+            class="col-12"
           >
             <mat-button-toggle
               class="col-lg-3 col-12"
@@ -1084,19 +1084,25 @@
             name="fontStyle"
             aria-label="Font Style"
             value="ceilingPaintNo"
-            class="col-lg-6 col-12"
+            class="col-12"
           >
             <mat-button-toggle
-              class="col-lg-6 col-12"
+              class="col-lg-4 col-12"
               value="ceilingPaintNo"
               (change)="setNoCeilingPainting()"
-              >No painting
+              >No ceiling painting
             </mat-button-toggle>
             <mat-button-toggle
-              class="col-lg-6 col-12"
+              class="col-lg-4 col-12"
               value="ceilingPaintYes"
               (change)="setYesCeilingPainting()"
-              >Paint ceiling
+              >Paint ceiling white
+            </mat-button-toggle>
+            <mat-button-toggle
+              class="col-lg-4 col-12"
+              value="ceilingPaintYes"
+              (change)="setYesCeilingPlastered()"
+              >Paint ceiling plastered
             </mat-button-toggle>
           </mat-button-toggle-group>
         </div>
