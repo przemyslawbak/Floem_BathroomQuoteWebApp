@@ -324,6 +324,7 @@ export class FormComponent {
     this.quoteModel.wallsHalfHeight = false;
     this.quoteModel.wallsOther = false;
     this.quoteModel.wallsPlastered = false;
+    this.quoteModel.wallsPlasteredAndPainted = false;
     this.calculateTotal();
   }
 
@@ -333,6 +334,7 @@ export class FormComponent {
     this.quoteModel.wallsHalfHeight = false;
     this.quoteModel.wallsOther = false;
     this.quoteModel.wallsPlastered = false;
+    this.quoteModel.wallsPlasteredAndPainted = false;
     this.calculateTotal();
   }
 
@@ -342,6 +344,7 @@ export class FormComponent {
     this.quoteModel.wallsHalfHeight = true;
     this.quoteModel.wallsOther = false;
     this.quoteModel.wallsPlastered = false;
+    this.quoteModel.wallsPlasteredAndPainted = false;
     this.calculateTotal();
   }
 
@@ -351,6 +354,17 @@ export class FormComponent {
     this.quoteModel.wallsHalfHeight = false;
     this.quoteModel.wallsOther = false;
     this.quoteModel.wallsPlastered = true;
+    this.quoteModel.wallsPlasteredAndPainted = false;
+    this.calculateTotal();
+  }
+
+  public setPlasteredAndPaintedWall(): void {
+    this.quoteModel.wallsNone = false;
+    this.quoteModel.wallsFullHeight = false;
+    this.quoteModel.wallsHalfHeight = false;
+    this.quoteModel.wallsOther = false;
+    this.quoteModel.wallsPlastered = false;
+    this.quoteModel.wallsPlasteredAndPainted = true;
     this.calculateTotal();
   }
 
@@ -360,6 +374,7 @@ export class FormComponent {
     this.quoteModel.wallsHalfHeight = false;
     this.quoteModel.wallsOther = true;
     this.quoteModel.wallsPlastered = false;
+    this.quoteModel.wallsPlasteredAndPainted = false;
     this.calculateTotal();
   }
 
@@ -556,7 +571,9 @@ export class FormComponent {
         this.quoteModel.wallPlasteringHalfPrice +
         this.quoteModel.wallPaintingHalfPrice;
     } else if (this.quoteModel.wallsPlastered) {
-      this.total = this.total + this.quoteModel.wallPlasteringAll; //todo: add prop: painting white?
+      this.total = this.total + this.quoteModel.wallPlasteringAll;
+    } else if (this.quoteModel.wallsPlasteredAndPainted) {
+      this.total = this.total + this.quoteModel.wallPaintingWhiteForPlastring;
     }
     //5.units
     if (this.quoteModel.basinItem) {

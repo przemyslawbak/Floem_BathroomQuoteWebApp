@@ -492,33 +492,41 @@
           >
             <!--col-lg-7 Bootstrap overriden in css file-->
             <mat-button-toggle
-              class="col-lg-7"
+              class="col-lg-2 col-12"
               value="none"
               (change)="setNoneWall()"
               >No change</mat-button-toggle
             >
             <mat-button-toggle
-              class="col-lg-7"
+              class="col-lg-2 col-12"
               value="tiled"
               (change)="setFullWall()"
               (click)="scroll('tiled-wall')"
               >Full height
             </mat-button-toggle>
             <mat-button-toggle
-              class="col-lg-7"
+              class="col-lg-2 col-12"
               value="lvt"
               (change)="setHalfWall()"
               (click)="scroll('tiled-wall')"
               >Half height</mat-button-toggle
             >
             <mat-button-toggle
-              class="col-lg-7"
+              class="col-lg-2 col-12"
               value="other"
               (change)="setPlasteredWall()"
               (click)="scroll('tiled-wall')"
               >Plastered</mat-button-toggle
-            ><mat-button-toggle
-              class="col-lg-7"
+            >
+            <mat-button-toggle
+              class="col-lg-2 col-12"
+              value="other"
+              (change)="setPlasteredAndPaintedWall()"
+              (click)="scroll('tiled-wall')"
+              >Plastered and painted</mat-button-toggle
+            >
+            <mat-button-toggle
+              class="col-lg-2 col-12"
               value="other"
               (change)="setOtherWall()"
               (click)="scroll('other-wall')"
@@ -531,23 +539,17 @@
         <!--tiles wall-->
         <div
           [style.opacity]="
-            this.quoteModel.wallsFullHeight ||
-            this.quoteModel.wallsHalfHeight ||
-            this.quoteModel.wallsPlastered
+            this.quoteModel.wallsFullHeight || this.quoteModel.wallsHalfHeight
               ? '1'
               : '0'
           "
           [style.visibility]="
-            this.quoteModel.wallsFullHeight ||
-            this.quoteModel.wallsHalfHeight ||
-            this.quoteModel.wallsPlastered
+            this.quoteModel.wallsFullHeight || this.quoteModel.wallsHalfHeight
               ? 'visible'
               : 'hidden'
           "
           [style.height]="
-            this.quoteModel.wallsFullHeight ||
-            this.quoteModel.wallsHalfHeight ||
-            this.quoteModel.wallsPlastered
+            this.quoteModel.wallsFullHeight || this.quoteModel.wallsHalfHeight
               ? '240px'
               : '0'
           "

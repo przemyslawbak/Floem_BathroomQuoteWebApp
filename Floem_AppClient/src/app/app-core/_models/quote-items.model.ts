@@ -38,6 +38,7 @@ export class QuoteItems {
   wallsFullHeight: boolean;
   wallsHalfHeight: boolean;
   wallsPlastered: boolean;
+  wallsPlasteredAndPainted: boolean;
   wallsOther: boolean;
   wallsNone: boolean;
   wallsCode: string;
@@ -123,12 +124,13 @@ export class QuoteItems {
     this.wallPlasteringHalfPrice = 200; //
     this.wallPaintingHalfPrice = 100; //
     this.wallPlasteringAll = 350; //
-    this.wallPaintingWhiteForPlastring = 150;
+    this.wallPaintingWhiteForPlastring = 500;
     this.wallsFullHeight = false;
     this.wallsHalfHeight = false;
     this.wallsOther = false;
     this.wallsNone = true;
     this.wallsPlastered = false;
+    this.wallsPlasteredAndPainted = false;
     this.wallsOtherComments = '';
     this.wallsCode = '';
     this.wallsType = '';
