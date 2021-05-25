@@ -281,6 +281,7 @@ export class FormComponent {
     this.quoteModel.floorLvt = false;
     this.quoteModel.floorOther = false;
     this.quoteModel.floorTiled = false;
+    this.calculateTotal();
   }
 
   public setTiledFloor(): void {
@@ -288,6 +289,7 @@ export class FormComponent {
     this.quoteModel.floorLvt = false;
     this.quoteModel.floorOther = false;
     this.quoteModel.floorTiled = true;
+    this.calculateTotal();
   }
 
   public setLvtFloor(): void {
@@ -295,6 +297,7 @@ export class FormComponent {
     this.quoteModel.floorLvt = true;
     this.quoteModel.floorOther = false;
     this.quoteModel.floorTiled = false;
+    this.calculateTotal();
   }
 
   public setOtherFloor(): void {
@@ -302,14 +305,17 @@ export class FormComponent {
     this.quoteModel.floorLvt = false;
     this.quoteModel.floorOther = true;
     this.quoteModel.floorTiled = false;
+    this.calculateTotal();
   }
 
   public setRemovals(): void {
     this.quoteModel.removals = true;
+    this.calculateTotal();
   }
 
   public setNoRemovals(): void {
     this.quoteModel.removals = false;
+    this.calculateTotal();
   }
 
   public setNoneWall(): void {
@@ -318,6 +324,7 @@ export class FormComponent {
     this.quoteModel.wallsHalfHeight = false;
     this.quoteModel.wallsOther = false;
     this.quoteModel.wallsPlastered = false;
+    this.calculateTotal();
   }
 
   public setFullWall(): void {
@@ -326,6 +333,7 @@ export class FormComponent {
     this.quoteModel.wallsHalfHeight = false;
     this.quoteModel.wallsOther = false;
     this.quoteModel.wallsPlastered = false;
+    this.calculateTotal();
   }
 
   public setHalfWall(): void {
@@ -334,6 +342,7 @@ export class FormComponent {
     this.quoteModel.wallsHalfHeight = true;
     this.quoteModel.wallsOther = false;
     this.quoteModel.wallsPlastered = false;
+    this.calculateTotal();
   }
 
   public setPlasteredWall(): void {
@@ -342,6 +351,7 @@ export class FormComponent {
     this.quoteModel.wallsHalfHeight = false;
     this.quoteModel.wallsOther = false;
     this.quoteModel.wallsPlastered = true;
+    this.calculateTotal();
   }
 
   public setOtherWall(): void {
@@ -350,6 +360,7 @@ export class FormComponent {
     this.quoteModel.wallsHalfHeight = false;
     this.quoteModel.wallsOther = true;
     this.quoteModel.wallsPlastered = false;
+    this.calculateTotal();
   }
 
   public onUnitsValChange(e: Array<string>): void {
@@ -420,10 +431,12 @@ export class FormComponent {
 
   public setNoChangingDoors(): void {
     this.quoteModel.doorsChanging = false;
+    this.calculateTotal();
   }
 
   public setChangingDoors(): void {
     this.quoteModel.doorsChanging = true;
+    this.calculateTotal();
   }
 
   public getMixerUnitItems(): UnitModel[] {
@@ -489,15 +502,41 @@ export class FormComponent {
   }
 
   public calculateTotal(): void {
-    this.total = this.total + 100;
+    this.total = 0;
+
+    //2.removals
+    if (this.quoteModel.removals) {
+      this.total = this.total + this.quoteModel.removalsPrice;
+    }
+    //3.floor
+    if (this.quoteModel.floorNone) {
+      this.total = this.total;
+    } else if (this.quoteModel.floorLvt) {
+      //lvt
+    } else if (this.quoteModel.floorTiled) {
+      //tiled
+    }
+    //4.wall
+
+    //5.units
+
+    //6.doors
+    if (this.quoteModel.doorsChanging) {
+      this.total = this.total + 200;
+    }
+    //7.electrical
+
+    //8.ceiling
   }
 
   public setYesCeilingPainting(): void {
     this.quoteModel.paintingCeiling = true;
+    this.calculateTotal();
   }
 
   public setNoCeilingPainting(): void {
     this.quoteModel.paintingCeiling = false;
+    this.calculateTotal();
   }
 
   public setDefaultTiles(): void {
