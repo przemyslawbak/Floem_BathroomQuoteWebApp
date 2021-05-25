@@ -1022,6 +1022,8 @@
                 matInput
                 placeholder="Comment"
                 formControlName="socketsQty"
+                [(ngModel)]="this.quoteModel.socketsQty"
+                (change)="calculateTotal()"
               />
               <mat-error *ngIf="form7.invalid">Numbers only allowed</mat-error>
             </mat-form-field>
@@ -1044,6 +1046,8 @@
                 matInput
                 placeholder="Comment"
                 formControlName="spotlightsQty"
+                [(ngModel)]="this.quoteModel.spotlightsQty"
+                (change)="calculateTotal()"
               />
               <mat-error *ngIf="form7.invalid">Numbers only allowed</mat-error>
             </mat-form-field>
