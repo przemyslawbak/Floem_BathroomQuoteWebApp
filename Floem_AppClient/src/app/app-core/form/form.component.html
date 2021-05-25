@@ -1,7 +1,7 @@
 <div class="total">
   <div>
     Total selected:
-    <h5>{{ total }} £</h5>
+    <h5>{{ total.toFixed(2) }} £</h5>
   </div>
 </div>
 
@@ -65,7 +65,7 @@
             <mat-select
               formControlName="units"
               [(value)]="this.quoteModel.units"
-              (selectionChange)="calculateTotal(); convertUnits()"
+              (selectionChange)="calculateTotal(); convertUnits(false)"
             >
               <mat-option *ngFor="let key of keys" [value]="key">
                 {{ key }}

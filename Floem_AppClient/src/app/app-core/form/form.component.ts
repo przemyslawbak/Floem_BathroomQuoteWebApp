@@ -1,3 +1,4 @@
+import { UnitModel } from './../_models/unit-items.model';
 import { QuoteItems } from './../_models/quote-items.model';
 import { DimentionUnits } from './../_models/quote-items.model';
 import { Component, OnInit } from '@angular/core';
@@ -6,7 +7,6 @@ import { BreakpointObserver } from '@angular/cdk/layout';
 import { StepperOrientation } from '@angular/material/stepper';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { UnitModel } from '../_models/unit-items.model';
 
 @Component({
   selector: 'app-form',
@@ -503,6 +503,19 @@ export class FormComponent {
 
   public calculateTotal(): void {
     this.total = 0;
+    if (this.quoteModel.units == 'Imperial') {
+      this.convertUnits(true);
+    }
+    let floorSquareMeters: number =
+      (this.quoteModel.widthCm * this.quoteModel.depthCm) / 10000;
+    let ceilingSquareMeters: number = floorSquareMeters;
+    let wallsSquareMeters: number =
+      (this.quoteModel.heightCm * this.quoteModel.widthCm * 2) / 10000 +
+      (this.quoteModel.heightCm * this.quoteModel.depthCm * 2) / 10000;
+    let lvtSquareMeters: number = Math.ceil(floorSquareMeters);
+    if (lvtSquareMeters % 2 != 0) {
+      lvtSquareMeters = lvtSquareMeters + 1;
+    }
 
     //2.removals
     if (this.quoteModel.removals) {
@@ -512,9 +525,15 @@ export class FormComponent {
     if (this.quoteModel.floorNone) {
       this.total = this.total;
     } else if (this.quoteModel.floorLvt) {
-      //lvt
+      this.total =
+        this.total +
+        (lvtSquareMeters / 2) * this.quoteModel.floorLvtPrice +
+        lvtSquareMeters * this.quoteModel.floorPrice;
     } else if (this.quoteModel.floorTiled) {
-      //tiled
+      this.total =
+        this.total +
+        this.quoteModel.floorTilingPrice * floorSquareMeters +
+        this.quoteModel.floorPrice * floorSquareMeters;
     }
     //4.wall
 
@@ -603,7 +622,7 @@ export class FormComponent {
     //mirror
   }
 
-  public convertUnits(): void {
+  public convertUnits(calc: boolean): void {
     if (this.quoteModel.units == DimentionUnits.Inches) {
       this.quoteModel.heightIn = this.getInches(this.quoteModel.heightCm);
       this.quoteModel.widthIn = this.getInches(this.quoteModel.widthCm);
@@ -617,7 +636,7 @@ export class FormComponent {
       console.log(this.quoteModel.heightFt);
       console.log(this.quoteModel.widthFt);
       console.log(this.quoteModel.depthFt);
-    } else if (this.quoteModel.units == DimentionUnits.Centimeters) {
+    } else if (this.quoteModel.units == DimentionUnits.Centimeters || calc) {
       this.quoteModel.heightCm = this.getCentimeters(
         this.quoteModel.heightIn,
         this.quoteModel.heightFt

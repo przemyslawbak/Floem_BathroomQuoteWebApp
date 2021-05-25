@@ -96,11 +96,12 @@ export class QuoteItems {
     this.depthIn = 3.37;
     this.units = DimentionUnits.Centimeters;
     //2
-    this.removalsPrice = 300; //
+    this.removalsPrice = 300; //per job
     this.removals = false; //
     //3
-    this.floorLvtPrice = 150; //per 2m2
-    this.floorTilingPrice = 60;
+    this.floorLvtPrice = 150; //per 2m2 //
+    this.floorTilingPrice = 60; //per m2 //
+    this.floorPrice = 0; //
     this.floorLvt = false;
     this.floorOther = false;
     this.floorNone = true;
@@ -108,7 +109,6 @@ export class QuoteItems {
     this.floorOtherComments = '';
     this.floorCode = '';
     this.floorType = '';
-    this.floorPrice = 0;
     //4
     this.wallTilingPrice = 45;
     this.wallPlasteringPrice = 200; //per all? per m2? for half painted
