@@ -1,24 +1,21 @@
 <div class="total">
   <div>
-    Total selected:
-    <h5>
-      {{ total.toFixed(2) }} £
-      <span
-        [style.opacity]="this.otherComment ? '1' : '0'"
-        [style.height]="this.otherComment ? '40px' : '0'"
-        [style.visibility]="this.otherComment ? 'visible' : 'hidden'"
-        class="col-12 animatedAppearance"
-      >
-        *
-      </span>
-    </h5>
+    Total selected:<span
+      [style.opacity]="this.otherComment ? '1' : '0'"
+      [style.height]="this.otherComment ? '40px' : '0'"
+      [style.visibility]="this.otherComment ? 'visible' : 'hidden'"
+      class="col-12 animatedAppearance"
+    >
+      *
+    </span>
+    <h5>{{ total.toFixed(2) }} £</h5>
 
     <span
       [style.opacity]="this.otherComment ? '1' : '0'"
       [style.display]="this.otherComment ? 'block' : 'none'"
       class="col-12 otherTotal"
     >
-      * "Other" valued separately.
+      * "Other" valued separately
     </span>
   </div>
 </div>
