@@ -458,6 +458,10 @@
             id="other-floor"
           >
             <div class="col-lg-auto">
+              <div class="col-lg-12 selectionComments">
+                Depending on the specifications of your "Other" requirements,
+                they will be valued separately.
+              </div>
               <mat-form-field style="width: 50vw">
                 <mat-label>Other floor type</mat-label>
                 <input
@@ -557,7 +561,7 @@
             "
             [style.height]="
               this.quoteModel.wallsPlastered || this.quoteModel.wallsHalfHeight
-                ? '70px'
+                ? '100px'
                 : '0'
             "
             class="col-12 animatedAppearance"
@@ -668,6 +672,11 @@
           id="other-wall"
         >
           <div class="col-lg-auto">
+            <div class="col-lg-12 selectionComments">
+              Depending on the specifications of your "Other" requirements, they
+              will be valued separately.
+            </div>
+
             <mat-form-field style="width: 50vw">
               <mat-label>Other wall type</mat-label>
               <input
@@ -916,6 +925,10 @@
           id="other-unit"
         >
           <div class="col-lg-auto">
+            <div class="col-lg-12 selectionComments">
+              Depending on the specifications of your "Other" requirements, they
+              will be valued separately.
+            </div>
             <mat-form-field style="width: 50vw">
               <mat-label>Other units</mat-label>
               <input
@@ -1209,6 +1222,25 @@
               >Paint ceiling plastered
             </mat-button-toggle>
           </mat-button-toggle-group>
+        </div>
+        <div
+          [style.opacity]="
+            this.quoteModel.paintingCeiling == 'PaintingWhite' ? '1' : '0'
+          "
+          [style.visibility]="
+            this.quoteModel.paintingCeiling == 'PaintingWhite'
+              ? 'visible'
+              : 'hidden'
+          "
+          [style.height]="
+            this.quoteModel.paintingCeiling == 'PaintingWhite' ? '70px' : '0'
+          "
+          class="col-12 animatedAppearance"
+          id="other-wall"
+        >
+          <div class="col-lg-12 selectionComments">
+            Included anti-condensation Dulux paint.
+          </div>
         </div>
       </div>
     </div>
