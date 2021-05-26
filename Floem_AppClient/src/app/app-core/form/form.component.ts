@@ -19,6 +19,7 @@ export class FormComponent {
   public isLinear: boolean = true;
   public quoteModel: QuoteItems = new QuoteItems();
   public total: number = 0;
+  public otherComment: boolean = false;
   public tiles = [
     {
       type: 'tiles',
@@ -276,11 +277,24 @@ export class FormComponent {
     //todo
   }
 
+  public verifyOthers() {
+    if (
+      this.quoteModel.floorOther ||
+      this.quoteModel.wallsOther ||
+      this.quoteModel.otherItem
+    ) {
+      this.otherComment = true;
+    } else {
+      this.otherComment = false;
+    }
+  }
+
   public setNoneFloor(): void {
     this.quoteModel.floorNone = true;
     this.quoteModel.floorLvt = false;
     this.quoteModel.floorOther = false;
     this.quoteModel.floorTiled = false;
+    this.verifyOthers();
     this.calculateTotal();
   }
 
@@ -289,6 +303,7 @@ export class FormComponent {
     this.quoteModel.floorLvt = false;
     this.quoteModel.floorOther = false;
     this.quoteModel.floorTiled = true;
+    this.verifyOthers();
     this.calculateTotal();
   }
 
@@ -297,6 +312,7 @@ export class FormComponent {
     this.quoteModel.floorLvt = true;
     this.quoteModel.floorOther = false;
     this.quoteModel.floorTiled = false;
+    this.verifyOthers();
     this.calculateTotal();
   }
 
@@ -305,6 +321,7 @@ export class FormComponent {
     this.quoteModel.floorLvt = false;
     this.quoteModel.floorOther = true;
     this.quoteModel.floorTiled = false;
+    this.verifyOthers();
     this.calculateTotal();
   }
 
@@ -324,6 +341,7 @@ export class FormComponent {
     this.quoteModel.wallsHalfHeight = false;
     this.quoteModel.wallsOther = false;
     this.quoteModel.wallsPlastered = false;
+    this.verifyOthers();
     this.calculateTotal();
   }
 
@@ -333,6 +351,7 @@ export class FormComponent {
     this.quoteModel.wallsHalfHeight = false;
     this.quoteModel.wallsOther = false;
     this.quoteModel.wallsPlastered = false;
+    this.verifyOthers();
     this.calculateTotal();
   }
 
@@ -342,6 +361,7 @@ export class FormComponent {
     this.quoteModel.wallsHalfHeight = true;
     this.quoteModel.wallsOther = false;
     this.quoteModel.wallsPlastered = false;
+    this.verifyOthers();
     this.calculateTotal();
   }
 
@@ -351,6 +371,7 @@ export class FormComponent {
     this.quoteModel.wallsHalfHeight = false;
     this.quoteModel.wallsOther = false;
     this.quoteModel.wallsPlastered = true;
+    this.verifyOthers();
     this.calculateTotal();
   }
 
@@ -360,6 +381,7 @@ export class FormComponent {
     this.quoteModel.wallsHalfHeight = false;
     this.quoteModel.wallsOther = true;
     this.quoteModel.wallsPlastered = false;
+    this.verifyOthers();
     this.calculateTotal();
   }
 
@@ -409,6 +431,7 @@ export class FormComponent {
     } else {
       this.quoteModel.basinItem = false;
     }
+    this.verifyOthers();
   }
 
   public onElectricalValChange(e: Array<string>): void {
