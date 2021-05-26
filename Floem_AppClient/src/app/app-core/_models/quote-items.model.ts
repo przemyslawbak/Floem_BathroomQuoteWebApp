@@ -38,7 +38,7 @@ export class QuoteItems {
   wallsFullHeight: boolean;
   wallsHalfHeight: boolean;
   wallsPlastered: boolean;
-  wallsPlasteredAndPainted: boolean;
+  wallsPaintedWhite: boolean;
   wallsOther: boolean;
   wallsNone: boolean;
   wallsCode: string;
@@ -46,9 +46,9 @@ export class QuoteItems {
   wallPrice: number;
   wallTilingPrice: number;
   wallPlasteringHalfPrice: number;
-  wallPaintingHalfPrice: number;
+  wallPaintingWhitePrice: number;
   wallPlasteringAll: number;
-  wallPaintingWhiteForPlastring: number;
+  wallPaintingWhite: number;
   wallsOtherComments: string;
   //5 units
   unitInstallation: number;
@@ -122,15 +122,15 @@ export class QuoteItems {
     this.wallPrice = 0; //
     this.wallTilingPrice = 45; //
     this.wallPlasteringHalfPrice = 200; //
-    this.wallPaintingHalfPrice = 100; //
+    this.wallPaintingWhitePrice = 150; //
     this.wallPlasteringAll = 350; //
-    this.wallPaintingWhiteForPlastring = 500; //
+    this.wallPaintingWhite = 150;
     this.wallsFullHeight = false;
     this.wallsHalfHeight = false;
     this.wallsOther = false;
     this.wallsNone = true;
     this.wallsPlastered = false;
-    this.wallsPlasteredAndPainted = false;
+    this.wallsPaintedWhite = false;
     this.wallsOtherComments = '';
     this.wallsCode = '';
     this.wallsType = '';

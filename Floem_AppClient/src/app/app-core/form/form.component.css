@@ -155,6 +155,10 @@ mat-form-field {
   padding-top: 20px;
 }
 
+.paintingWallSelection {
+  margin-top: 20px;
+}
+
 @media (min-width: 0px) {
   .col-lg-9,
   .col-lg-7 {

@@ -510,47 +510,79 @@
             class="col-12"
           >
             <mat-button-toggle
-              class="col-lg-2 col-12"
+              class="col-lg-7"
               value="none"
               (change)="setNoneWall()"
               >No change</mat-button-toggle
             >
             <mat-button-toggle
-              class="col-lg-2 col-12"
+              class="col-lg-7"
               value="tiled"
               (change)="setFullWall()"
               (click)="scroll('tiled-wall')"
               >Full height
             </mat-button-toggle>
             <mat-button-toggle
-              class="col-lg-2 col-12"
+              class="col-lg-7"
               value="lvt"
               (change)="setHalfWall()"
               (click)="scroll('tiled-wall')"
               >Half height</mat-button-toggle
             >
             <mat-button-toggle
-              class="col-lg-2 col-12"
+              class="col-lg-7"
               value="other"
               (change)="setPlasteredWall()"
               (click)="scroll('tiled-wall')"
               >Plastered</mat-button-toggle
             >
             <mat-button-toggle
-              class="col-lg-2 col-12"
-              value="other"
-              (change)="setPlasteredAndPaintedWall()"
-              (click)="scroll('tiled-wall')"
-              >Plastered and painted</mat-button-toggle
-            >
-            <mat-button-toggle
-              class="col-lg-2 col-12"
+              class="col-lg-7"
               value="other"
               (change)="setOtherWall()"
               (click)="scroll('other-wall')"
               >Other</mat-button-toggle
             >
           </mat-button-toggle-group>
+          <div
+            [style.opacity]="
+              this.quoteModel.wallsPlastered || this.quoteModel.wallsHalfHeight
+                ? '1'
+                : '0'
+            "
+            [style.visibility]="
+              this.quoteModel.wallsPlastered || this.quoteModel.wallsHalfHeight
+                ? 'visible'
+                : 'hidden'
+            "
+            [style.height]="
+              this.quoteModel.wallsPlastered || this.quoteModel.wallsHalfHeight
+                ? '70px'
+                : '0'
+            "
+            class="col-12 animatedAppearance"
+            id="other-wall"
+          >
+            <mat-button-toggle-group
+              name="fontStyle"
+              aria-label="Font Style"
+              value="none"
+              class="col-lg-6 col-12 paintingWallSelection"
+            >
+              <mat-button-toggle
+                class="col-lg-6 col-12"
+                value="none"
+                (change)="setWallNotPaintedWhite()"
+                >With no painting</mat-button-toggle
+              >
+              <mat-button-toggle
+                class="col-lg-6 col-12"
+                value="painted"
+                (change)="setWallPaintedWhite()"
+                >Wall painted white
+              </mat-button-toggle>
+            </mat-button-toggle-group>
+          </div>
           <div
             [style.opacity]="this.quoteModel.wallsFullHeight ? '1' : '0'"
             [style.visibility]="
@@ -574,20 +606,15 @@
             id="other-wall"
           >
             <div class="col-lg-12 selectionComments">
-              Tile adhesive and grout included and anti-condensation Dulux paint
-              for walls.
+              Tile adhesive and grout included and plastering.
             </div>
           </div>
           <div
-            [style.opacity]="
-              this.quoteModel.wallsPlasteredAndPainted ? '1' : '0'
-            "
+            [style.opacity]="this.quoteModel.wallsPaintedWhite ? '1' : '0'"
             [style.visibility]="
-              this.quoteModel.wallsPlasteredAndPainted ? 'visible' : 'hidden'
+              this.quoteModel.wallsPaintedWhite ? 'visible' : 'hidden'
             "
-            [style.height]="
-              this.quoteModel.wallsPlasteredAndPainted ? '70px' : '0'
-            "
+            [style.height]="this.quoteModel.wallsPaintedWhite ? '70px' : '0'"
             class="col-12 animatedAppearance"
             id="other-wall"
           >
