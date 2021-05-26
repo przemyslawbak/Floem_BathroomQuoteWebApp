@@ -87,6 +87,9 @@ OK - quote calculation logic
 OK - add excel file comments
 OK - page header menu btns change to anchors
 OK - logo anchor redirects to Wix app
+- wall tiles half height / plastering - optional painting white +150
+- if anywhere "other" selected, in Total selected: add note
+- for each "other" selected, add comments
 - Favicon change
 - step 0 icon -> logo PNG
 - PNG logo?
