@@ -1308,7 +1308,79 @@
       <div class="row">
         <mat-label class="selectLabel">Quote summary:</mat-label>
       </div>
-      <div class="row"></div>
+      <div class="row">
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th scope="col"></th>
+              <th scope="col">Type</th>
+              <th scope="col">Selection</th>
+              <th scope="col">Comment</th>
+              <th scope="col">Price</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!--Dimensions row-->
+            <tr>
+              <td>(change)</td>
+              <td>Dimentions</td>
+              <td>
+                <span *ngIf="this.quoteModel.units == 'Metric'"
+                  ><b>{{ this.quoteModel.widthCm }} cm</b> x
+                  <b>{{ this.quoteModel.heightCm }} cm</b> x
+                  <b>{{ this.quoteModel.depthCm }} cm</b></span
+                >
+                <span *ngIf="this.quoteModel.units == 'Imperial'">
+                  <b
+                    >{{ this.quoteModel.widthFt }} ft
+                    {{ this.quoteModel.widthIn }} in</b
+                  >
+                  x
+                  <b
+                    >{{ this.quoteModel.heightFt }} ft
+                    {{ this.quoteModel.heightIn }} in</b
+                  >
+                  x
+                  <b
+                    >{{ this.quoteModel.depthFt }} ft
+                    {{ this.quoteModel.depthIn }}</b
+                  ></span
+                >
+              </td>
+              <td>
+                Based on the dimensions of the bathroom, we calculate the
+                surfaces of the walls, floor and ceiling.
+              </td>
+              <td></td>
+            </tr>
+            <!--Removals row-->
+            <tr>
+              <td>(change)</td>
+              <td>Removals</td>
+              <td>
+                <span *ngIf="this.quoteModel.removals"><b>Selected</b></span
+                ><span *ngIf="!this.quoteModel.removals"
+                  ><b>Not selected</b></span
+                >
+              </td>
+              <td>
+                <span *ngIf="this.quoteModel.removals"
+                  >Including removal of all existing units, tiles and floor and
+                  preparing room to work.</span
+                ><span *ngIf="!this.quoteModel.removals"
+                  >Removal of all existing units, tiles and floor and preparing
+                  room to work will be made by the customer.</span
+                >
+              </td>
+              <td>
+                <span *ngIf="this.quoteModel.removals"
+                  ><b>{{ this.quoteModel.removalsPrice }} £</b></span
+                ><span *ngIf="!this.quoteModel.removals"><b>0 £</b></span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
 
     <div>
