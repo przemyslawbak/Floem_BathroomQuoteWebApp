@@ -608,9 +608,8 @@ export class FormComponent {
         this.quoteModel.wallsTotal =
           this.quoteModel.wallsTotal + this.quoteModel.wallPaintingWhitePrice;
       }
-
-      this.total = this.total + this.quoteModel.wallsTotal;
     }
+    this.total = this.total + this.quoteModel.wallsTotal;
     //5.units
     if (this.quoteModel.basinItem) {
       this.quoteModel.itemsTotal =

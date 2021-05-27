@@ -521,7 +521,7 @@
       <img src="../../../assets/images/wall.png" />
       <h4 class="align-text-bottom text-white">Wall types</h4>
     </div>
-    <ng-template matStepLabel (click)="scroll('step4')">Wall</ng-template>
+    <ng-template matStepLabel (click)="scroll('step4')">Walls</ng-template>
     <div class="formContainer">
       <div class="row">
         <mat-label class="selectLabel"
@@ -1328,7 +1328,7 @@
               >{{ this.quoteModel.depthFt }} ft {{ this.quoteModel.depthIn }}</b
             ></span
           >
-          (change):
+          (change btn):
         </mat-label>
       </div>
       <div class="row">
@@ -1336,7 +1336,7 @@
           <tbody>
             <!--removals row-->
             <tr>
-              <td>(change)</td>
+              <td>(change btn)</td>
               <td>Removals</td>
               <td>
                 <span *ngIf="this.quoteModel.removals"><b>With removal</b></span
@@ -1348,11 +1348,11 @@
               <td>
                 <span *ngIf="this.quoteModel.removals"
                   >Including removal of all existing units, tiles and floor and
-                  preparing room to work.</span
+                  preparing room to work. </span
                 ><span *ngIf="!this.quoteModel.removals"
                   >Removal of all existing units, tiles and floor and preparing
-                  room to work will be performed by the customer</span
-                >
+                  room to work will be performed by the customer.
+                </span>
               </td>
               <td>
                 <span>
@@ -1362,7 +1362,7 @@
             </tr>
             <!--floor row-->
             <tr>
-              <td>(change)</td>
+              <td>(change btn)</td>
               <td>Floor</td>
               <td>
                 <span *ngIf="this.quoteModel.floorNone"><b>No change</b></span>
@@ -1388,25 +1388,85 @@
               </td>
               <td>
                 <span *ngIf="this.quoteModel.floorNone"
-                  >The floor will remain unchanged</span
-                >
+                  >The floor will remain unchanged.
+                </span>
                 <span *ngIf="this.quoteModel.floorLvt"
-                  >Price included plywood boards underneath</span
-                >
+                  >Price included plywood boards underneath.
+                </span>
                 <span *ngIf="this.quoteModel.floorTiled"
                   >Price included anti-cracking cement boards, tiles adhesive
-                  and grout</span
-                >
+                  and grout.
+                </span>
                 <span *ngIf="this.quoteModel.floorOther"
                   >Depending on the specifications of your "Other" requirements,
-                  they will be valued separately</span
-                >
+                  they will be valued separately.
+                </span>
               </td>
               <td>
                 <span>
                   <b>{{ this.quoteModel.floorTotal }} £</b>
                 </span>
                 <span *ngIf="this.quoteModel.floorOther"><b> *</b></span>
+              </td>
+            </tr>
+            <!--walls row-->
+            <tr>
+              <td>(change)</td>
+              <td>Walls</td>
+              <td>
+                <span *ngIf="this.quoteModel.wallsFullHeight"
+                  ><b>Full height</b></span
+                >
+                <span *ngIf="this.quoteModel.wallsHalfHeight"
+                  ><b>Half height</b></span
+                >
+                <span *ngIf="this.quoteModel.wallsOther"><b>Other</b></span>
+                <span *ngIf="this.quoteModel.wallsPlastered"
+                  ><b>Plastered</b></span
+                >
+                <span *ngIf="this.quoteModel.wallsNone"><b>No change</b></span>
+              </td>
+              <td>
+                <span
+                  *ngIf="
+                    this.quoteModel.wallsFullHeight ||
+                    this.quoteModel.wallsHalfHeight
+                  "
+                >
+                  <img
+                    src="../../../assets/images/{{
+                      this.quoteModel.floorType
+                    }}/{{ this.quoteModel.floorCode }}.jpg"
+                    class="summaryTile"
+                  />
+                </span>
+              </td>
+              <td>
+                <span *ngIf="this.quoteModel.wallsFullHeight"
+                  >Tile adhesive and grout included.
+                </span>
+                <span *ngIf="this.quoteModel.wallsHalfHeight"
+                  >Tile adhesive and grout included and plastering.
+                </span>
+                <span *ngIf="this.quoteModel.wallsOther"
+                  >Depending on the specifications of your "Other" requirements,
+                  they will be valued separately.
+                </span>
+                <span *ngIf="this.quoteModel.wallsPlastered"
+                  >Plastering of walls.
+                </span>
+                <span *ngIf="this.quoteModel.wallsNone"
+                  >The walls will remain unchanged.
+                </span>
+                <span *ngIf="this.quoteModel.wallsPaintedWhite"
+                  >Included anti-condensation Dulux paint.
+                </span>
+              </td>
+              <td>
+                <span>
+                  <b>{{ this.quoteModel.wallsTotal }} £</b>
+                </span>
+                <span *ngIf="this.quoteModel.wallsOther"><b> *</b></span>
               </td>
             </tr>
           </tbody>
