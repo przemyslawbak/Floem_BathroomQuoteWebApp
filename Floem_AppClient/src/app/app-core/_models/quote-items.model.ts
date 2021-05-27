@@ -23,6 +23,7 @@ export class QuoteItems {
   //2 removal
   removals: boolean;
   removalsPrice: number;
+  removalsTotal: number;
   //3 floor
   floorLvt: boolean;
   floorTiled: boolean;
@@ -34,6 +35,7 @@ export class QuoteItems {
   floorTilingPrice: number;
   floorLvtPrice: number;
   floorOtherComments: string;
+  floorTotal: number;
   //4 wall
   wallsFullHeight: boolean;
   wallsHalfHeight: boolean;
@@ -50,6 +52,7 @@ export class QuoteItems {
   wallPlasteringAll: number;
   wallPaintingWhite: number;
   wallsOtherComments: string;
+  wallsTotal: number;
   //5 units
   unitInstallation: number;
   bathItem: boolean;
@@ -66,11 +69,13 @@ export class QuoteItems {
   basinPrice: number;
   otherItem: boolean;
   otherItemComments: string;
+  itemsTotal: number;
   //6 doors
   doorsChanging: boolean;
   doorsType: string;
   doorChangingPrice: number;
   doorsPrice: number;
+  doorsTotal: number;
   //7 electrical
   mirrorElectrical: boolean;
   mirrorInstallationPrice: number;
@@ -87,12 +92,22 @@ export class QuoteItems {
   socketPrice: number;
   socketsQty: number;
   spotlightsQty: number;
+  electricalTotal: number;
   //8 ceiling
   paintingCeiling: CeilingPainting;
   ceilingPriceWhite: number;
   ceilingPricePlastered: number;
+  ceilingTotal: number;
 
   constructor() {
+    //total
+    this.ceilingTotal = 0;
+    this.electricalTotal = 0;
+    this.doorsTotal = 0;
+    this.itemsTotal = 0;
+    this.wallsTotal = 0;
+    this.floorTotal = 0;
+    this.removalsTotal = 0;
     //1
     this.widthCm = 100;
     this.heightCm = 200;

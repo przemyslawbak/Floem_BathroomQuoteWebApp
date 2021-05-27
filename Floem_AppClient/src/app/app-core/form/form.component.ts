@@ -542,12 +542,18 @@ export class FormComponent {
 
   public calculateTotal(): void {
     this.total = 0;
+    this.quoteModel.removalsTotal = 0;
+    this.quoteModel.floorTotal = 0;
+    this.quoteModel.wallsTotal = 0;
+    this.quoteModel.itemsTotal = 0;
+    this.quoteModel.doorsTotal = 0;
+    this.quoteModel.electricalTotal = 0;
+    this.quoteModel.ceilingTotal = 0;
     if (this.quoteModel.units == 'Imperial') {
       this.convertUnits(true);
     }
     let floorSquareMeters: number =
       (this.quoteModel.widthCm * this.quoteModel.depthCm) / 10000;
-    let ceilingSquareMeters: number = floorSquareMeters;
     let wallsSquareMeters: number =
       (this.quoteModel.heightCm * this.quoteModel.widthCm * 2) / 10000 +
       (this.quoteModel.heightCm * this.quoteModel.depthCm * 2) / 10000;
@@ -558,122 +564,140 @@ export class FormComponent {
 
     //2.removals
     if (this.quoteModel.removals) {
-      this.total = this.total + this.quoteModel.removalsPrice;
+      this.quoteModel.removalsTotal =
+        this.quoteModel.removalsTotal + this.quoteModel.removalsPrice;
     }
+    this.total = this.total + this.quoteModel.removalsTotal;
     //3.floor
     if (this.quoteModel.floorNone) {
-      this.total = this.total;
+      this.quoteModel.floorTotal = this.quoteModel.floorTotal;
     } else if (this.quoteModel.floorLvt) {
-      this.total =
-        this.total +
+      this.quoteModel.floorTotal =
+        this.quoteModel.floorTotal +
         (lvtSquareMeters / 2) * this.quoteModel.floorLvtPrice +
         lvtSquareMeters * this.quoteModel.floorPrice;
     } else if (this.quoteModel.floorTiled) {
-      this.total =
-        this.total +
+      this.quoteModel.floorTotal =
+        this.quoteModel.floorTotal +
         this.quoteModel.floorTilingPrice * floorSquareMeters +
         this.quoteModel.floorPrice * floorSquareMeters;
     }
+    this.total = this.total + this.quoteModel.floorTotal;
     //4.wall
     if (this.quoteModel.wallsFullHeight) {
-      this.total =
-        this.total +
+      this.quoteModel.wallsTotal =
+        this.quoteModel.wallsTotal +
         wallsSquareMeters * this.quoteModel.wallTilingPrice +
         wallsSquareMeters * this.quoteModel.wallPrice;
     } else if (this.quoteModel.wallsHalfHeight) {
-      this.total =
-        this.total +
+      this.quoteModel.wallsTotal =
+        this.quoteModel.wallsTotal +
         (wallsSquareMeters * this.quoteModel.wallTilingPrice +
           wallsSquareMeters * this.quoteModel.wallPrice) /
           2 +
         this.quoteModel.wallPlasteringHalfPrice;
       if (this.quoteModel.wallsPaintedWhite) {
-        this.total = this.total + this.quoteModel.wallPaintingWhitePrice;
+        this.quoteModel.wallsTotal =
+          this.quoteModel.wallsTotal + this.quoteModel.wallPaintingWhitePrice;
       }
     } else if (this.quoteModel.wallsPlastered) {
-      this.total = this.total + this.quoteModel.wallPlasteringAll;
+      this.quoteModel.wallsTotal =
+        this.quoteModel.wallsTotal + this.quoteModel.wallPlasteringAll;
 
       if (this.quoteModel.wallsPaintedWhite) {
-        this.total = this.total + this.quoteModel.wallPaintingWhitePrice;
+        this.quoteModel.wallsTotal =
+          this.quoteModel.wallsTotal + this.quoteModel.wallPaintingWhitePrice;
       }
+
+      this.total = this.total + this.quoteModel.wallsTotal;
     }
     //5.units
     if (this.quoteModel.basinItem) {
-      this.total =
-        this.total +
+      this.quoteModel.itemsTotal =
+        this.quoteModel.itemsTotal +
         this.quoteModel.unitInstallation +
         this.quoteModel.basinPrice;
     }
     if (this.quoteModel.ensuiteItem) {
-      this.total =
-        this.total +
+      this.quoteModel.itemsTotal =
+        this.quoteModel.itemsTotal +
         this.quoteModel.unitInstallation +
         this.quoteModel.ensuitePrice;
     }
     if (this.quoteModel.toiletItem) {
-      this.total =
-        this.total +
+      this.quoteModel.itemsTotal =
+        this.quoteModel.itemsTotal +
         this.quoteModel.unitInstallation +
         this.quoteModel.toiletPrice;
     }
     if (this.quoteModel.mixerItem) {
-      this.total =
-        this.total +
+      this.quoteModel.itemsTotal =
+        this.quoteModel.itemsTotal +
         this.quoteModel.unitInstallation +
         this.quoteModel.mixerPrice;
     }
     if (this.quoteModel.bathItem) {
-      this.total =
-        this.total +
+      this.quoteModel.itemsTotal =
+        this.quoteModel.itemsTotal +
         this.quoteModel.unitInstallation +
         this.quoteModel.bathPrice;
     }
     if (this.quoteModel.towelRailItem) {
-      this.total =
-        this.total +
+      this.quoteModel.itemsTotal =
+        this.quoteModel.itemsTotal +
         this.quoteModel.unitInstallation +
         this.quoteModel.railPrice;
     }
+    this.total = this.total + this.quoteModel.itemsTotal;
     //6.doors
     if (this.quoteModel.doorsChanging) {
-      this.total =
-        this.total +
+      this.quoteModel.doorsTotal =
+        this.quoteModel.doorsTotal +
         this.quoteModel.doorChangingPrice +
         this.quoteModel.doorsPrice;
     }
+    this.total = this.total + this.quoteModel.doorsTotal;
     //7.electrical
     if (this.quoteModel.spotlightsElectrical) {
-      this.total =
-        this.total +
+      this.quoteModel.electricalTotal =
+        this.quoteModel.electricalTotal +
         this.quoteModel.spotlightPrice * this.quoteModel.spotlightsQty;
     }
     if (this.quoteModel.switcherInsideElectrical) {
-      this.total = this.total + this.quoteModel.switcherInsidePrice;
+      this.quoteModel.electricalTotal =
+        this.quoteModel.electricalTotal + this.quoteModel.switcherInsidePrice;
     }
     if (this.quoteModel.switcherOutsideElectrical) {
-      this.total = this.total + this.quoteModel.switcherOutsidePrice;
+      this.quoteModel.electricalTotal =
+        this.quoteModel.electricalTotal + this.quoteModel.switcherOutsidePrice;
     }
     if (this.quoteModel.socketsElectrical) {
-      this.total =
-        this.total + this.quoteModel.socketsQty * this.quoteModel.socketPrice;
+      this.quoteModel.electricalTotal =
+        this.quoteModel.electricalTotal +
+        this.quoteModel.socketsQty * this.quoteModel.socketPrice;
     }
     if (this.quoteModel.mirrorElectrical) {
-      this.total =
-        this.total +
+      this.quoteModel.electricalTotal =
+        this.quoteModel.electricalTotal +
         this.quoteModel.mirrorInstallationPrice +
         this.quoteModel.mirrorPrice;
     }
     if (this.quoteModel.fanElectrical) {
-      this.total = this.total + this.quoteModel.fanPrice;
+      this.quoteModel.electricalTotal =
+        this.quoteModel.electricalTotal + this.quoteModel.fanPrice;
     }
+    this.total = this.total + this.quoteModel.electricalTotal;
     //8.ceiling
     if (this.quoteModel.paintingCeiling == CeilingPainting.No) {
-      this.total = this.total;
+      this.quoteModel.ceilingTotal = this.quoteModel.ceilingTotal;
     } else if (this.quoteModel.paintingCeiling == CeilingPainting.Paint) {
-      this.total = this.total + this.quoteModel.ceilingPriceWhite;
+      this.quoteModel.ceilingTotal =
+        this.quoteModel.ceilingTotal + this.quoteModel.ceilingPriceWhite;
     } else if (this.quoteModel.paintingCeiling == CeilingPainting.Plastered) {
-      this.total = this.total + this.quoteModel.ceilingPricePlastered;
+      this.quoteModel.ceilingTotal =
+        this.quoteModel.ceilingTotal + this.quoteModel.ceilingPricePlastered;
     }
+    this.total = this.total + this.quoteModel.ceilingTotal;
   }
 
   public setYesCeilingPainting(): void {

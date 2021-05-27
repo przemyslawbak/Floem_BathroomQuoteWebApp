@@ -1306,7 +1306,29 @@
     <ng-template matStepLabel (click)="scroll('summary')">Summary</ng-template>
     <div class="formContainer">
       <div class="row">
-        <mat-label class="selectLabel">Quote summary:</mat-label>
+        <mat-label class="selectLabel"
+          >Quote summary for bathroom size
+          <span *ngIf="this.quoteModel.units == 'Metric'"
+            ><b>{{ this.quoteModel.widthCm }} cm</b> x
+            <b>{{ this.quoteModel.heightCm }} cm</b> x
+            <b>{{ this.quoteModel.depthCm }} cm</b></span
+          >
+          <span *ngIf="this.quoteModel.units == 'Imperial'"
+            ><b
+              >{{ this.quoteModel.widthFt }} ft
+              {{ this.quoteModel.widthIn }} in</b
+            >
+            x
+            <b
+              >{{ this.quoteModel.heightFt }} ft
+              {{ this.quoteModel.heightIn }} in</b
+            >
+            x
+            <b
+              >{{ this.quoteModel.depthFt }} ft {{ this.quoteModel.depthIn }}</b
+            ></span
+          >:
+        </mat-label>
       </div>
       <div class="row">
         <table class="table table-hover">
@@ -1320,47 +1342,13 @@
             </tr>
           </thead>
           <tbody>
-            <!--Dimensions row-->
-            <tr>
-              <td>(change)</td>
-              <td>Dimentions</td>
-              <td>
-                <span *ngIf="this.quoteModel.units == 'Metric'"
-                  ><b>{{ this.quoteModel.widthCm }} cm</b> x
-                  <b>{{ this.quoteModel.heightCm }} cm</b> x
-                  <b>{{ this.quoteModel.depthCm }} cm</b></span
-                >
-                <span *ngIf="this.quoteModel.units == 'Imperial'">
-                  <b
-                    >{{ this.quoteModel.widthFt }} ft
-                    {{ this.quoteModel.widthIn }} in</b
-                  >
-                  x
-                  <b
-                    >{{ this.quoteModel.heightFt }} ft
-                    {{ this.quoteModel.heightIn }} in</b
-                  >
-                  x
-                  <b
-                    >{{ this.quoteModel.depthFt }} ft
-                    {{ this.quoteModel.depthIn }}</b
-                  ></span
-                >
-              </td>
-              <td>
-                Based on the dimensions of the bathroom, we calculate the
-                surfaces of the walls, floor and ceiling.
-              </td>
-              <td></td>
-            </tr>
-            <!--Removals row-->
             <tr>
               <td>(change)</td>
               <td>Removals</td>
               <td>
-                <span *ngIf="this.quoteModel.removals"><b>Selected</b></span
+                <span *ngIf="this.quoteModel.removals"><b>With removal</b></span
                 ><span *ngIf="!this.quoteModel.removals"
-                  ><b>Not selected</b></span
+                  ><b>No removal</b></span
                 >
               </td>
               <td>
@@ -1369,13 +1357,46 @@
                   preparing room to work.</span
                 ><span *ngIf="!this.quoteModel.removals"
                   >Removal of all existing units, tiles and floor and preparing
-                  room to work will be made by the customer.</span
+                  room to work will be performed by the customer</span
                 >
               </td>
               <td>
                 <span *ngIf="this.quoteModel.removals"
                   ><b>{{ this.quoteModel.removalsPrice }} £</b></span
                 ><span *ngIf="!this.quoteModel.removals"><b>0 £</b></span>
+              </td>
+            </tr>
+            <tr>
+              <td>(change)</td>
+              <td>Floor</td>
+              <td>
+                <span *ngIf="this.quoteModel.floorNone"><b>No change</b></span>
+                <span *ngIf="this.quoteModel.floorLvt"><b>LVT floor</b></span>
+                <span *ngIf="this.quoteModel.floorTiled"
+                  ><b>Tiled floor</b></span
+                >
+                <span *ngIf="this.quoteModel.floorOther"
+                  ><b>Other floor</b></span
+                >
+              </td>
+              <td>
+                <span *ngIf="this.quoteModel.floorNone"
+                  >The floor will remain unchanged</span
+                >
+                <span *ngIf="this.quoteModel.floorLvt"
+                  >Price included plywood boards underneath</span
+                >
+                <span *ngIf="this.quoteModel.floorTiled"
+                  >Price included anti-cracking cement boards, tiles adhesive
+                  and grout</span
+                >
+                <span *ngIf="this.quoteModel.floorOther"
+                  >Depending on the specifications of your "Other" requirements,
+                  they will be valued separately</span
+                >
+              </td>
+              <td>
+                <span *ngIf="this.quoteModel.floorOther"><b>*</b></span>
               </td>
             </tr>
           </tbody>
