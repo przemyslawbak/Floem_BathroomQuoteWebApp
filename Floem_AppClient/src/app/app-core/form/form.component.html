@@ -1337,12 +1337,10 @@
             <!--removals row-->
             <tr>
               <td>(change btn)</td>
-              <td>Removals</td>
+              <td><b>Removals</b>:</td>
               <td>
-                <span *ngIf="this.quoteModel.removals"><b>With removal</b></span
-                ><span *ngIf="!this.quoteModel.removals"
-                  ><b>No removal</b></span
-                >
+                <span *ngIf="this.quoteModel.removals">With removal</span
+                ><span *ngIf="!this.quoteModel.removals">No removal</span>
               </td>
               <td></td>
               <td>
@@ -1363,16 +1361,12 @@
             <!--floor row-->
             <tr>
               <td>(change btn)</td>
-              <td>Floor</td>
+              <td><b>Floor</b>:</td>
               <td>
-                <span *ngIf="this.quoteModel.floorNone"><b>No change</b></span>
-                <span *ngIf="this.quoteModel.floorLvt"><b>LVT floor</b></span>
-                <span *ngIf="this.quoteModel.floorTiled"
-                  ><b>Tiled floor</b></span
-                >
-                <span *ngIf="this.quoteModel.floorOther"
-                  ><b>Other floor</b></span
-                >
+                <span *ngIf="this.quoteModel.floorNone">No change</span>
+                <span *ngIf="this.quoteModel.floorLvt">LVT floor</span>
+                <span *ngIf="this.quoteModel.floorTiled">Tiled floor</span>
+                <span *ngIf="this.quoteModel.floorOther">Other floor</span>
               </td>
               <td>
                 <span
@@ -1411,20 +1405,14 @@
             </tr>
             <!--walls row-->
             <tr>
-              <td>(change)</td>
-              <td>Walls</td>
+              <td>(change btn)</td>
+              <td><b>Walls</b>:</td>
               <td>
-                <span *ngIf="this.quoteModel.wallsFullHeight"
-                  ><b>Full height</b></span
-                >
-                <span *ngIf="this.quoteModel.wallsHalfHeight"
-                  ><b>Half height</b></span
-                >
-                <span *ngIf="this.quoteModel.wallsOther"><b>Other</b></span>
-                <span *ngIf="this.quoteModel.wallsPlastered"
-                  ><b>Plastered</b></span
-                >
-                <span *ngIf="this.quoteModel.wallsNone"><b>No change</b></span>
+                <span *ngIf="this.quoteModel.wallsFullHeight">Full height</span>
+                <span *ngIf="this.quoteModel.wallsHalfHeight">Half height</span>
+                <span *ngIf="this.quoteModel.wallsOther">Other</span>
+                <span *ngIf="this.quoteModel.wallsPlastered">Plastered</span>
+                <span *ngIf="this.quoteModel.wallsNone">No change</span>
               </td>
               <td>
                 <span
@@ -1467,6 +1455,86 @@
                   <b>{{ this.quoteModel.wallsTotal }} £</b>
                 </span>
                 <span *ngIf="this.quoteModel.wallsOther"><b> *</b></span>
+              </td>
+            </tr>
+            <!--units row-->
+            <tr>
+              <td>(change btn)</td>
+              <td><b>Units</b>:</td>
+              <td>
+                <span *ngIf="this.quoteModel.bathItem">Bath </span>
+                <span *ngIf="this.quoteModel.ensuiteItem">Shower ensuite </span>
+                <span *ngIf="this.quoteModel.mixerItem">Shower mixer </span>
+                <span *ngIf="this.quoteModel.toiletItem">Toilet </span>
+                <span *ngIf="this.quoteModel.towelRailItem">Towel rail </span>
+                <span *ngIf="this.quoteModel.basinItem">Basin </span>
+                <span *ngIf="this.quoteModel.otherItem">Other</span>
+              </td>
+              <td>
+                <span *ngIf="this.quoteModel.bathItem">
+                  <img
+                    src="../../../assets/images/{{
+                      this.quoteModel.floorType
+                    }}/{{ this.quoteModel.floorCode }}.jpg"
+                    class="summaryTile"
+                  />
+                </span>
+                <span *ngIf="this.quoteModel.ensuiteItem">
+                  <img
+                    src="../../../assets/images/{{
+                      this.quoteModel.floorType
+                    }}/{{ this.quoteModel.floorCode }}.jpg"
+                    class="summaryTile"
+                  />
+                </span>
+                <span *ngIf="this.quoteModel.mixerItem">
+                  <img
+                    src="../../../assets/images/{{
+                      this.quoteModel.floorType
+                    }}/{{ this.quoteModel.floorCode }}.jpg"
+                    class="summaryTile"
+                  />
+                </span>
+                <span *ngIf="this.quoteModel.toiletItem">
+                  <img
+                    src="../../../assets/images/{{
+                      this.quoteModel.floorType
+                    }}/{{ this.quoteModel.floorCode }}.jpg"
+                    class="summaryTile"
+                  />
+                </span>
+                <span *ngIf="this.quoteModel.towelRailItem">
+                  <img
+                    src="../../../assets/images/{{
+                      this.quoteModel.floorType
+                    }}/{{ this.quoteModel.floorCode }}.jpg"
+                    class="summaryTile"
+                  />
+                </span>
+                <span *ngIf="this.quoteModel.basinItem">
+                  <img
+                    src="../../../assets/images/{{
+                      this.quoteModel.floorType
+                    }}/{{ this.quoteModel.floorCode }}.jpg"
+                    class="summaryTile"
+                  />
+                </span>
+              </td>
+              <td>
+                <span
+                  >Pipe alternation or changing position of the units to be
+                  priced separately.
+                </span>
+                <span *ngIf="this.quoteModel.otherItem"
+                  >Depending on the specifications of your "Other" requirements,
+                  they will be valued separately.
+                </span>
+              </td>
+              <td>
+                <span>
+                  <b>{{ this.quoteModel.itemsTotal }} £</b>
+                </span>
+                <span *ngIf="this.quoteModel.otherItem"><b> *</b></span>
               </td>
             </tr>
           </tbody>

@@ -90,7 +90,9 @@ OK - logo anchor redirects to Wix app
 OK - wall tiles half height / plastering - optional painting white +150
 OK - for each "other" selected, add comments
 OK - if anywhere "other" selected, in Total selected: add note
-- summary: link
+- summary: selection & prices green color;
+- summary btn for each step?
+- summary: link with endpoint
 - summary: email to Floem + email to client
 - summary: for each step price - quote model
 - summary: styling + data display
@@ -98,6 +100,8 @@ OK - if anywhere "other" selected, in Total selected: add note
 - summary: contacts email, tel, address, RODO
 - summary: if somewhere "other" selected, add note
 - summary: add disclaimer that prices are estimated
+- summary: book online
+- summary: table hover color change to green
 - Favicon change
 - step 0 icon -> logo PNG
 - PNG logo?
@@ -107,6 +111,7 @@ OK - if anywhere "other" selected, in Total selected: add note
 - populate arrays (waiting for pictures & prices)
 
 FUTURE:
+- loading spinner
 - admin menu
 - toggle tile lists btn icons? optional
 - small screen menu btns margins
