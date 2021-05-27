@@ -1332,16 +1332,8 @@
       </div>
       <div class="row">
         <table class="table table-hover">
-          <thead>
-            <tr>
-              <th scope="col"></th>
-              <th scope="col">Type</th>
-              <th scope="col">Selection</th>
-              <th scope="col">Comment</th>
-              <th scope="col">Price</th>
-            </tr>
-          </thead>
           <tbody>
+            <!--removals row-->
             <tr>
               <td>(change)</td>
               <td>Removals</td>
@@ -1361,11 +1353,12 @@
                 >
               </td>
               <td>
-                <span *ngIf="this.quoteModel.removals"
-                  ><b>{{ this.quoteModel.removalsPrice }} £</b></span
-                ><span *ngIf="!this.quoteModel.removals"><b>0 £</b></span>
+                <span>
+                  <b>{{ this.quoteModel.removalsTotal }} £</b>
+                </span>
               </td>
             </tr>
+            <!--floor row-->
             <tr>
               <td>(change)</td>
               <td>Floor</td>
@@ -1380,6 +1373,16 @@
                 >
               </td>
               <td>
+                <span
+                  *ngIf="this.quoteModel.floorLvt || this.quoteModel.floorTiled"
+                >
+                  <img
+                    src="../../../assets/images/{{
+                      this.quoteModel.floorType
+                    }}/{{ this.quoteModel.floorCode }}.jpg"
+                    class="summaryTile"
+                  />
+                </span>
                 <span *ngIf="this.quoteModel.floorNone"
                   >The floor will remain unchanged</span
                 >
@@ -1396,7 +1399,10 @@
                 >
               </td>
               <td>
-                <span *ngIf="this.quoteModel.floorOther"><b>*</b></span>
+                <span>
+                  <b>{{ this.quoteModel.floorTotal }} £</b>
+                </span>
+                <span *ngIf="this.quoteModel.floorOther"><b> *</b></span>
               </td>
             </tr>
           </tbody>

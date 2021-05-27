@@ -136,6 +136,11 @@ mat-button-toggle-group {
   text-align: justify;
 }
 
+.summaryTile {
+  width: 60px;
+  height: 60px;
+}
+
 mat-button-toggle:hover {
   background-color: #fff !important;
 }

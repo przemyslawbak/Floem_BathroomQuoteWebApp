@@ -760,8 +760,8 @@ export class FormComponent {
     //tiles
     if (tile.type == 'tiles') {
       this.quoteModel.floorPrice = tile.price;
-      this.quoteModel.floorType = tile.code;
-      this.quoteModel.floorCode = tile.type;
+      this.quoteModel.floorType = tile.type;
+      this.quoteModel.floorCode = tile.code;
       this.calculateTotal();
       this.resetArraySelection(this.tiles);
       this.tiles[index].selected = true;
