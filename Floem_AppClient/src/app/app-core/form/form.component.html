@@ -1327,7 +1327,8 @@
             <b
               >{{ this.quoteModel.depthFt }} ft {{ this.quoteModel.depthIn }}</b
             ></span
-          >:
+          >
+          (change):
         </mat-label>
       </div>
       <div class="row">
@@ -1343,6 +1344,7 @@
                   ><b>No removal</b></span
                 >
               </td>
+              <td></td>
               <td>
                 <span *ngIf="this.quoteModel.removals"
                   >Including removal of all existing units, tiles and floor and
@@ -1383,6 +1385,8 @@
                     class="summaryTile"
                   />
                 </span>
+              </td>
+              <td>
                 <span *ngIf="this.quoteModel.floorNone"
                   >The floor will remain unchanged</span
                 >
@@ -1411,11 +1415,23 @@
     </div>
 
     <div>
-      <button type="button" class="btn btn-secondary" matStepperPrevious>
+      <button
+        type="button"
+        class="btn btn-secondary"
+        mat-button
+        matStepperPrevious
+      >
         Back
       </button>
-      <button mat-button (click)="reloadPage()">Reset</button>
-      <button mat-button (click)="submit()">Submit</button>
+      <button
+        type="button"
+        class="btn btn-danger"
+        mat-button
+        (click)="reloadPage()"
+      >
+        Clear all
+      </button>
+      <button type="button" mat-button (click)="submit()">Submit</button>
     </div>
   </mat-step>
 </mat-stepper>
