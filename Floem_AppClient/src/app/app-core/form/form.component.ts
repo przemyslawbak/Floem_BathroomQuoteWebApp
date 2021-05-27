@@ -802,4 +802,8 @@ export class FormComponent {
     let inches = (realFeet - feet) * 12;
     return parseFloat(inches.toFixed(4));
   }
+
+  public reloadPage(): void {
+    location.reload();
+  }
 }

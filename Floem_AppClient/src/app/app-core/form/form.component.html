@@ -69,8 +69,8 @@
     <ng-template matStepLabel (click)="scroll('step1')">Dimensions</ng-template>
     <div class="formContainer">
       <div class="row">
-        <label class="selectLabel"
-          >Enter below bathroom <b>dimensions</b>:</label
+        <mat-label class="selectLabel"
+          >Enter below bathroom <b>dimensions</b>:</mat-label
         >
       </div>
       <form [formGroup]="form1">
@@ -297,7 +297,9 @@
     <ng-template matStepLabel (click)="scroll('step2')">Removals</ng-template>
     <div class="formContainer">
       <div class="row">
-        <label class="selectLabel">Select below <b>one</b> option:</label>
+        <mat-label class="selectLabel"
+          >Select below <b>one</b> option:</mat-label
+        >
       </div>
       <div class="row">
         <div>
@@ -363,7 +365,9 @@
     <ng-template matStepLabel (click)="scroll('step3')">Floor</ng-template>
     <div class="formContainer">
       <div class="row">
-        <label class="selectLabel">Select below <b>one</b> option:</label>
+        <mat-label class="selectLabel"
+          >Select below <b>one</b> option:</mat-label
+        >
       </div>
       <div class="row">
         <div>
@@ -419,7 +423,9 @@
               Price included anti-cracking cement boards, tiles adhesive and
               grout.
             </div>
-            <label class="selectLabel col-12">Select floor tiles:</label>
+            <mat-label class="selectLabel col-12"
+              >Select floor tiles:</mat-label
+            >
             <div class="center row itemListedConainer scroller">
               <div
                 *ngFor="let tile of getTilesFloorItems(); let i = index"
@@ -446,7 +452,7 @@
             <div class="col-lg-12 selectionComments">
               Price included plywood boards underneath.
             </div>
-            <label class="selectLabel col-12">Select floor LVT:</label>
+            <mat-label class="selectLabel col-12">Select floor LVT:</mat-label>
             <div class="center row itemListedConainer scroller">
               <div
                 *ngFor="let tile of getLvtFloorItems(); let i = index"
@@ -518,7 +524,9 @@
     <ng-template matStepLabel (click)="scroll('step4')">Wall</ng-template>
     <div class="formContainer">
       <div class="row">
-        <label class="selectLabel">Select below <b>one</b> option:</label>
+        <mat-label class="selectLabel"
+          >Select below <b>one</b> option:</mat-label
+        >
       </div>
       <div class="row">
         <div>
@@ -664,7 +672,7 @@
           class="animatedAppearance col-12"
           id="tiled-wall"
         >
-          <label class="selectLabel col-12">Select wall tiles:</label>
+          <mat-label class="selectLabel col-12">Select wall tiles:</mat-label>
           <div class="center row itemListedConainer scroller">
             <div
               *ngFor="let tile of getTiledWallItems(); let i = index"
@@ -732,7 +740,9 @@
     <ng-template matStepLabel (click)="scroll('step5')">Units</ng-template>
     <div class="formContainer">
       <div class="row">
-        <label class="selectLabel">Select below <b>multiple</b> options:</label>
+        <mat-label class="selectLabel"
+          >Select below <b>multiple</b> options:</mat-label
+        >
       </div>
       <div class="row">
         <div>
@@ -803,7 +813,7 @@
           class="animatedAppearance col-12"
           id="bath-unit"
         >
-          <label class="selectLabel col-12">Select bath:</label>
+          <mat-label class="selectLabel col-12">Select bath:</mat-label>
           <div class="center row itemListedConainer scroller">
             <div
               *ngFor="let tile of getBathUnitItems(); let i = index"
@@ -827,7 +837,9 @@
           class="animatedAppearance col-12"
           id="ensuite-unit"
         >
-          <label class="selectLabel col-12">Select shower ensuite:</label>
+          <mat-label class="selectLabel col-12"
+            >Select shower ensuite:</mat-label
+          >
           <div class="center row itemListedConainer scroller">
             <div
               *ngFor="let tile of getEnsuiteUnitItems(); let i = index"
@@ -849,7 +861,7 @@
           class="animatedAppearance col-12"
           id="mixer-unit"
         >
-          <label class="selectLabel col-12">Select shower mixer:</label>
+          <mat-label class="selectLabel col-12">Select shower mixer:</mat-label>
           <div class="center row itemListedConainer scroller">
             <div
               *ngFor="let tile of getMixerUnitItems(); let i = index"
@@ -871,7 +883,7 @@
           class="animatedAppearance col-12"
           id="toilet-unit"
         >
-          <label class="selectLabel col-12">Select toilet:</label>
+          <mat-label class="selectLabel col-12">Select toilet:</mat-label>
           <div class="center row itemListedConainer scroller">
             <div
               *ngFor="let tile of getToiletUnitItems(); let i = index"
@@ -895,7 +907,7 @@
           class="animatedAppearance col-12"
           id="rail-unit"
         >
-          <label class="selectLabel col-12">Select towel rail:</label>
+          <mat-label class="selectLabel col-12">Select towel rail:</mat-label>
           <div class="center row itemListedConainer scroller">
             <div
               *ngFor="let tile of getRailUnitItems(); let i = index"
@@ -917,7 +929,7 @@
           class="animatedAppearance col-12"
           id="basin-unit"
         >
-          <label class="selectLabel col-12">Select basin:</label>
+          <mat-label class="selectLabel col-12">Select basin:</mat-label>
           <div class="center row itemListedConainer scroller">
             <div
               *ngFor="let tile of getBasinUnitItems(); let i = index"
@@ -984,7 +996,9 @@
     <ng-template matStepLabel (click)="scroll('step6')">Doors</ng-template>
     <div class="formContainer">
       <div class="row">
-        <label class="selectLabel">Select below <b>one</b> option:</label>
+        <mat-label class="selectLabel"
+          >Select below <b>one</b> option:</mat-label
+        >
       </div>
       <div class="row">
         <div>
@@ -1023,7 +1037,7 @@
             <div class="col-lg-12 selectionComments">
               Hollow primed doors with handles and bolt lock.
             </div>
-            <label class="selectLabel col-12">Select doors:</label>
+            <mat-label class="selectLabel col-12">Select doors:</mat-label>
             <div class="center row itemListedConainer scroller">
               <div
                 *ngFor="let tile of getDoorItems(); let i = index"
@@ -1070,7 +1084,9 @@
     <ng-template matStepLabel (click)="scroll('step7')">Electrical</ng-template>
     <div class="formContainer">
       <div class="row">
-        <label class="selectLabel">Select below <b>multiple</b> options:</label>
+        <mat-label class="selectLabel"
+          >Select below <b>multiple</b> options:</mat-label
+        >
       </div>
       <div class="row">
         <div>
@@ -1116,7 +1132,7 @@
           class="animatedAppearance col-12"
           id="mirror-electrical"
         >
-          <label class="selectLabel col-12">Select mirror:</label>
+          <mat-label class="selectLabel col-12">Select mirror:</mat-label>
           <div class="center row itemListedConainer scroller">
             <div
               *ngFor="let tile of getMirrorElecricalItems(); let i = index"
@@ -1208,7 +1224,9 @@
     <ng-template matStepLabel (click)="scroll('step8')">Ceiling</ng-template>
     <div class="formContainer">
       <div class="row">
-        <label class="selectLabel">Select below <b>one</b> option:</label>
+        <mat-label class="selectLabel"
+          >Select below <b>one</b> option:</mat-label
+        >
       </div>
       <div class="row">
         <div>
@@ -1279,47 +1297,25 @@
     </div>
   </mat-step>
 
+  <!--SUMMARY-->
   <mat-step>
+    <div class="stepHeader col-sm rounded-top" id="step8">
+      <img src="../../../assets/images/summary.png" />
+      <h4 class="align-text-bottom text-white">Summary</h4>
+    </div>
     <ng-template matStepLabel (click)="scroll('summary')">Summary</ng-template>
-    <p id="summary">You are now done.</p>
-    <mat-list>
-      <mat-list-item>
-        <strong>Name:</strong>
-        {{ this.form1.value.name }}</mat-list-item
-      >
-      <mat-list-item>
-        <strong>Amount:</strong>
-        {{ this.form2.value.amount }}</mat-list-item
-      >
-      <mat-list-item>
-        <strong>Amount:</strong>
-        {{ this.form3.value.amount }}</mat-list-item
-      >
-      <mat-list-item>
-        <strong>Amount:</strong>
-        {{ this.form4.value.amount }}</mat-list-item
-      >
-      <mat-list-item>
-        <strong>Amount:</strong>
-        {{ this.form5.value.amount }}</mat-list-item
-      >
-
-      <mat-list-item>
-        <strong>Amount:</strong>
-        {{ this.form6.value.amount }}</mat-list-item
-      >
-
-      <mat-list-item>
-        <strong>Amount:</strong>
-        {{ this.form7.value.amount }}</mat-list-item
-      >
-    </mat-list>
+    <div class="formContainer">
+      <div class="row">
+        <mat-label class="selectLabel">Quote summary:</mat-label>
+      </div>
+      <div class="row"></div>
+    </div>
 
     <div>
       <button type="button" class="btn btn-secondary" matStepperPrevious>
         Back
       </button>
-      <button mat-button (click)="stepper.reset()">Reset</button>
+      <button mat-button (click)="reloadPage()">Reset</button>
       <button mat-button (click)="submit()">Submit</button>
     </div>
   </mat-step>
