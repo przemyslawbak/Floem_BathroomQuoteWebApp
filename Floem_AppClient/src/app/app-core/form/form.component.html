@@ -1354,7 +1354,7 @@
               </td>
               <td>
                 <span>
-                  <b>{{ this.quoteModel.removalsTotal }} £</b>
+                  <b>{{ this.quoteModel.removalsTotal.toFixed(2) }} £</b>
                 </span>
               </td>
             </tr>
@@ -1398,7 +1398,7 @@
               </td>
               <td>
                 <span>
-                  <b>{{ this.quoteModel.floorTotal }} £</b>
+                  <b>{{ this.quoteModel.floorTotal.toFixed(2) }} £</b>
                 </span>
                 <span *ngIf="this.quoteModel.floorOther"><b> *</b></span>
               </td>
@@ -1452,7 +1452,7 @@
               </td>
               <td>
                 <span>
-                  <b>{{ this.quoteModel.wallsTotal }} £</b>
+                  <b>{{ this.quoteModel.wallsTotal.toFixed(2) }} £</b>
                 </span>
                 <span *ngIf="this.quoteModel.wallsOther"><b> *</b></span>
               </td>
@@ -1462,12 +1462,26 @@
               <td>(change btn)</td>
               <td><b>Units</b>:</td>
               <td>
-                <span *ngIf="this.quoteModel.bathItem">Bath </span>
-                <span *ngIf="this.quoteModel.ensuiteItem">Shower ensuite </span>
-                <span *ngIf="this.quoteModel.mixerItem">Shower mixer </span>
-                <span *ngIf="this.quoteModel.toiletItem">Toilet </span>
-                <span *ngIf="this.quoteModel.towelRailItem">Towel rail </span>
-                <span *ngIf="this.quoteModel.basinItem">Basin </span>
+                <span
+                  *ngIf="
+                    !this.quoteModel.bathItem &&
+                    !this.quoteModel.ensuiteItem &&
+                    !this.quoteModel.mixerItem &&
+                    !this.quoteModel.toiletItem &&
+                    !this.quoteModel.towelRailItem &&
+                    !this.quoteModel.basinItem &&
+                    !this.quoteModel.otherItem
+                  "
+                  >No selection
+                </span>
+                <span *ngIf="this.quoteModel.bathItem">Bath; </span>
+                <span *ngIf="this.quoteModel.ensuiteItem"
+                  >Shower ensuite;
+                </span>
+                <span *ngIf="this.quoteModel.mixerItem">Shower mixer; </span>
+                <span *ngIf="this.quoteModel.toiletItem">Toilet; </span>
+                <span *ngIf="this.quoteModel.towelRailItem">Towel rail; </span>
+                <span *ngIf="this.quoteModel.basinItem">Basin; </span>
                 <span *ngIf="this.quoteModel.otherItem">Other</span>
               </td>
               <td>
@@ -1532,9 +1546,33 @@
               </td>
               <td>
                 <span>
-                  <b>{{ this.quoteModel.itemsTotal }} £</b>
+                  <b>{{ this.quoteModel.itemsTotal.toFixed(2) }} £</b>
                 </span>
                 <span *ngIf="this.quoteModel.otherItem"><b> *</b></span>
+              </td>
+            </tr>
+            <!--doors row-->
+            <tr>
+              <td>(change btn)</td>
+              <td><b>Doors</b>:</td>
+              <td>
+                <span *ngIf="this.quoteModel.doorsChanging">Changing doors</span
+                ><span *ngIf="!this.quoteModel.doorsChanging"
+                  >No changing doors</span
+                >
+              </td>
+              <td></td>
+              <td>
+                <span *ngIf="this.quoteModel.doorsChanging"
+                  >Hollow primed doors with handles and bolt lock. </span
+                ><span *ngIf="!this.quoteModel.doorsChanging"
+                  >Doors will be not replaced.
+                </span>
+              </td>
+              <td>
+                <span>
+                  <b>{{ this.quoteModel.doorsTotal.toFixed(2) }} £</b>
+                </span>
               </td>
             </tr>
           </tbody>
