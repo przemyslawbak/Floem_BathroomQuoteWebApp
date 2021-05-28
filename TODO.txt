@@ -90,18 +90,21 @@ OK - logo anchor redirects to Wix app
 OK - wall tiles half height / plastering - optional painting white +150
 OK - for each "other" selected, add comments
 OK - if anywhere "other" selected, in Total selected: add note
+- 'Select mirror:' too high
+- fix 'light switch' & 'light switch outside" display
 - summary: selection & prices green color;
-- summary btn for each step?
+- summary: btn for each step?
 - summary: link with endpoint
 - summary: email to Floem + email to client
-- summary: for each step price - quote model
-- summary: styling + data display
-- summary: delete reset btn? - refresh page
+OK - summary: for each step price - quote model
+OK - summary: styling + data display
+OK - summary: delete reset btn? - refresh page
 - summary: contacts email, tel, address, RODO
-- summary: if somewhere "other" selected, add note
+OK - summary: if somewhere "other" selected, add note
 - summary: add disclaimer that prices are estimated
 - summary: book online
 - summary: table hover color change to green
+OK - summery: price format
 - Favicon change
 - step 0 icon -> logo PNG
 - PNG logo?

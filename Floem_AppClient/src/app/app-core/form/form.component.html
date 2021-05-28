@@ -1252,7 +1252,7 @@
               class="col-lg-4 col-12"
               value="ceilingPaintYes"
               (change)="setYesCeilingPlastered()"
-              >Paint ceiling plastered
+              >Ceiling plastered
             </mat-button-toggle>
           </mat-button-toggle-group>
         </div>
@@ -1657,13 +1657,51 @@
               </td>
               <td>
                 <span>
-                  <b>{{ this.quoteModel.itemsTotal.toFixed(2) }} £</b>
+                  <b>{{ this.quoteModel.electricalTotal.toFixed(2) }} £</b>
                 </span>
                 <span *ngIf="this.quoteModel.otherItem"><b> *</b></span>
               </td>
             </tr>
+            <!--ceiling row-->
+            <tr>
+              <td>(change btn)</td>
+              <td><b>Ceiling</b>:</td>
+              <td>
+                <span *ngIf="this.quoteModel.paintingCeiling == 'Plastered'"
+                  >Ceiling plastered;
+                </span>
+                <span *ngIf="this.quoteModel.paintingCeiling == 'NoPainting'"
+                  >No ceiling painting;
+                </span>
+                <span *ngIf="this.quoteModel.paintingCeiling == 'PaintingWhite'"
+                  >Paint ceiling white;
+                </span>
+              </td>
+              <td></td>
+              <td>
+                <span *ngIf="this.quoteModel.paintingCeiling == 'NoPainting'"
+                  >Ceiling will remain unchanged;
+                </span>
+                <span *ngIf="this.quoteModel.paintingCeiling == 'Plastered'"
+                  >Ceiling will be plastered;
+                </span>
+                <span *ngIf="this.quoteModel.paintingCeiling == 'PaintingWhite'"
+                  >Included anti-condensation Dulux paint;
+                </span>
+              </td>
+              <td>
+                <span>
+                  <b>{{ this.quoteModel.ceilingTotal.toFixed(2) }} £</b>
+                </span>
+              </td>
+            </tr>
           </tbody>
         </table>
+        <div class="col-12">
+          <b class="float-end summaryTotal"
+            >Total: {{ this.total.toFixed(2) }} £</b
+          >
+        </div>
       </div>
     </div>
 

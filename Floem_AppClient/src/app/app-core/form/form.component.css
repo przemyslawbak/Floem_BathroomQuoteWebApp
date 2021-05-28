@@ -171,6 +171,10 @@ mat-form-field {
   margin-top: 20px;
 }
 
+.summaryTotal {
+  font-size: 20px;
+}
+
 @media (min-width: 0px) {
   .col-lg-9,
   .col-lg-7 {
