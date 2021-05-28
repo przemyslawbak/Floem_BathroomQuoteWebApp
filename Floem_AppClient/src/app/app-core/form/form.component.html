@@ -1328,7 +1328,14 @@
               >{{ this.quoteModel.depthFt }} ft {{ this.quoteModel.depthIn }}</b
             ></span
           >
-          (change btn):
+          <button
+            type="button"
+            class="btn btn-success"
+            matStepperNext
+            (click)="move(1); scroll('step1')"
+          >
+            Change
+          </button>
         </mat-label>
       </div>
       <div class="row">
@@ -1336,8 +1343,17 @@
           <tbody>
             <!--removals row-->
             <tr>
-              <td>(change btn)</td>
-              <td><b>Removals</b>:</td>
+              <td>
+                <button
+                  type="button"
+                  class="btn btn-success"
+                  matStepperNext
+                  (click)="move(2); scroll('step1')"
+                >
+                  Change
+                </button>
+                <b>Removals</b>:
+              </td>
               <td>
                 <span *ngIf="this.quoteModel.removals">With removal;</span
                 ><span *ngIf="!this.quoteModel.removals">No removal;</span>
@@ -1360,8 +1376,17 @@
             </tr>
             <!--floor row-->
             <tr>
-              <td>(change btn)</td>
-              <td><b>Floor</b>:</td>
+              <td>
+                <button
+                  type="button"
+                  class="btn btn-success"
+                  matStepperNext
+                  (click)="move(3); scroll('step1')"
+                >
+                  Change
+                </button>
+                <b>Floor</b>:
+              </td>
               <td>
                 <span *ngIf="this.quoteModel.floorNone">No change; </span>
                 <span *ngIf="this.quoteModel.floorLvt">LVT floor; </span>
@@ -1405,8 +1430,17 @@
             </tr>
             <!--walls row-->
             <tr>
-              <td>(change btn)</td>
-              <td><b>Walls</b>:</td>
+              <td>
+                <button
+                  type="button"
+                  class="btn btn-success"
+                  matStepperNext
+                  (click)="move(4); scroll('step1')"
+                >
+                  Change
+                </button>
+                <b>Walls</b>:
+              </td>
               <td>
                 <span *ngIf="this.quoteModel.wallsFullHeight"
                   >Full height;
@@ -1463,8 +1497,17 @@
             </tr>
             <!--units row-->
             <tr>
-              <td>(change btn)</td>
-              <td><b>Units</b>:</td>
+              <td>
+                <button
+                  type="button"
+                  class="btn btn-success"
+                  matStepperNext
+                  (click)="move(5); scroll('step1')"
+                >
+                  Change
+                </button>
+                <b>Units</b>:
+              </td>
               <td>
                 <span
                   *ngIf="
@@ -1557,8 +1600,17 @@
             </tr>
             <!--doors row-->
             <tr>
-              <td>(change btn)</td>
-              <td><b>Doors</b>:</td>
+              <td>
+                <button
+                  type="button"
+                  class="btn btn-success"
+                  matStepperNext
+                  (click)="move(6); scroll('step1')"
+                >
+                  Change
+                </button>
+                <b>Doors</b>:
+              </td>
               <td>
                 <span *ngIf="this.quoteModel.doorsChanging"
                   >Changing doors; </span
@@ -1580,10 +1632,19 @@
                 </span>
               </td>
             </tr>
-            <!--units row-->
+            <!--electrical row-->
             <tr>
-              <td>(change btn)</td>
-              <td><b>Electrical</b>:</td>
+              <td>
+                <button
+                  type="button"
+                  class="btn btn-success"
+                  matStepperNext
+                  (click)="move(7); scroll('step1')"
+                >
+                  Change
+                </button>
+                <b>Electrical</b>:
+              </td>
               <td>
                 <span
                   *ngIf="
@@ -1664,8 +1725,17 @@
             </tr>
             <!--ceiling row-->
             <tr>
-              <td>(change btn)</td>
-              <td><b>Ceiling</b>:</td>
+              <td>
+                <button
+                  type="button"
+                  class="btn btn-success"
+                  matStepperNext
+                  (click)="move(8); scroll('step1')"
+                >
+                  Change
+                </button>
+                <b>Ceiling</b>:
+              </td>
               <td>
                 <span *ngIf="this.quoteModel.paintingCeiling == 'Plastered'"
                   >Ceiling plastered;

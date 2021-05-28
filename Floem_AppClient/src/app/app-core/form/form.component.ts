@@ -1,10 +1,10 @@
 import { UnitModel } from './../_models/unit-items.model';
 import { QuoteItems, CeilingPainting } from './../_models/quote-items.model';
 import { DimentionUnits } from './../_models/quote-items.model';
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { BreakpointObserver } from '@angular/cdk/layout';
-import { StepperOrientation } from '@angular/material/stepper';
+import { MatStepper, StepperOrientation } from '@angular/material/stepper';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
@@ -275,6 +275,12 @@ export class FormComponent {
 
   public submit(): void {
     //todo
+  }
+
+  @ViewChild('stepper')
+  stepper!: MatStepper;
+  public move(index: number): void {
+    this.stepper.selectedIndex = index;
   }
 
   public verifyOthers() {
