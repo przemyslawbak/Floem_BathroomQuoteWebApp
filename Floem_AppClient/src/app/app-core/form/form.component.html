@@ -1339,17 +1339,17 @@
               <td>(change btn)</td>
               <td><b>Removals</b>:</td>
               <td>
-                <span *ngIf="this.quoteModel.removals">With removal</span
-                ><span *ngIf="!this.quoteModel.removals">No removal</span>
+                <span *ngIf="this.quoteModel.removals">With removal;</span
+                ><span *ngIf="!this.quoteModel.removals">No removal;</span>
               </td>
               <td></td>
               <td>
                 <span *ngIf="this.quoteModel.removals"
                   >Including removal of all existing units, tiles and floor and
-                  preparing room to work. </span
+                  preparing room to work; </span
                 ><span *ngIf="!this.quoteModel.removals"
                   >Removal of all existing units, tiles and floor and preparing
-                  room to work will be performed by the customer.
+                  room to work will be performed by the customer;
                 </span>
               </td>
               <td>
@@ -1363,10 +1363,10 @@
               <td>(change btn)</td>
               <td><b>Floor</b>:</td>
               <td>
-                <span *ngIf="this.quoteModel.floorNone">No change</span>
-                <span *ngIf="this.quoteModel.floorLvt">LVT floor</span>
-                <span *ngIf="this.quoteModel.floorTiled">Tiled floor</span>
-                <span *ngIf="this.quoteModel.floorOther">Other floor</span>
+                <span *ngIf="this.quoteModel.floorNone">No change; </span>
+                <span *ngIf="this.quoteModel.floorLvt">LVT floor; </span>
+                <span *ngIf="this.quoteModel.floorTiled">Tiled floor; </span>
+                <span *ngIf="this.quoteModel.floorOther">Other floor; </span>
               </td>
               <td>
                 <span
@@ -1382,18 +1382,18 @@
               </td>
               <td>
                 <span *ngIf="this.quoteModel.floorNone"
-                  >The floor will remain unchanged.
+                  >The floor will remain unchanged;
                 </span>
                 <span *ngIf="this.quoteModel.floorLvt"
-                  >Price included plywood boards underneath.
+                  >Price included plywood boards underneath;
                 </span>
                 <span *ngIf="this.quoteModel.floorTiled"
                   >Price included anti-cracking cement boards, tiles adhesive
-                  and grout.
+                  and grout;
                 </span>
                 <span *ngIf="this.quoteModel.floorOther"
                   >Depending on the specifications of your "Other" requirements,
-                  they will be valued separately.
+                  they will be valued separately;
                 </span>
               </td>
               <td>
@@ -1408,11 +1408,15 @@
               <td>(change btn)</td>
               <td><b>Walls</b>:</td>
               <td>
-                <span *ngIf="this.quoteModel.wallsFullHeight">Full height</span>
-                <span *ngIf="this.quoteModel.wallsHalfHeight">Half height</span>
-                <span *ngIf="this.quoteModel.wallsOther">Other</span>
-                <span *ngIf="this.quoteModel.wallsPlastered">Plastered</span>
-                <span *ngIf="this.quoteModel.wallsNone">No change</span>
+                <span *ngIf="this.quoteModel.wallsFullHeight"
+                  >Full height;
+                </span>
+                <span *ngIf="this.quoteModel.wallsHalfHeight"
+                  >Half height;
+                </span>
+                <span *ngIf="this.quoteModel.wallsOther">Other; </span>
+                <span *ngIf="this.quoteModel.wallsPlastered">Plastered; </span>
+                <span *ngIf="this.quoteModel.wallsNone">No change; </span>
               </td>
               <td>
                 <span
@@ -1431,23 +1435,23 @@
               </td>
               <td>
                 <span *ngIf="this.quoteModel.wallsFullHeight"
-                  >Tile adhesive and grout included.
+                  >Tile adhesive and grout included;
                 </span>
                 <span *ngIf="this.quoteModel.wallsHalfHeight"
-                  >Tile adhesive and grout included and plastering.
+                  >Tile adhesive and grout included and plastering;
                 </span>
                 <span *ngIf="this.quoteModel.wallsOther"
                   >Depending on the specifications of your "Other" requirements,
-                  they will be valued separately.
+                  they will be valued separately;
                 </span>
                 <span *ngIf="this.quoteModel.wallsPlastered"
-                  >Plastering of walls.
+                  >Plastering of walls;
                 </span>
                 <span *ngIf="this.quoteModel.wallsNone"
-                  >The walls will remain unchanged.
+                  >The walls will remain unchanged;
                 </span>
                 <span *ngIf="this.quoteModel.wallsPaintedWhite"
-                  >Included anti-condensation Dulux paint.
+                  >Included anti-condensation Dulux paint;
                 </span>
               </td>
               <td>
@@ -1472,7 +1476,7 @@
                     !this.quoteModel.basinItem &&
                     !this.quoteModel.otherItem
                   "
-                  >No selection
+                  >No selection;
                 </span>
                 <span *ngIf="this.quoteModel.bathItem">Bath; </span>
                 <span *ngIf="this.quoteModel.ensuiteItem"
@@ -1482,7 +1486,7 @@
                 <span *ngIf="this.quoteModel.toiletItem">Toilet; </span>
                 <span *ngIf="this.quoteModel.towelRailItem">Towel rail; </span>
                 <span *ngIf="this.quoteModel.basinItem">Basin; </span>
-                <span *ngIf="this.quoteModel.otherItem">Other</span>
+                <span *ngIf="this.quoteModel.otherItem">Other; </span>
               </td>
               <td>
                 <span *ngIf="this.quoteModel.bathItem">
@@ -1537,11 +1541,11 @@
               <td>
                 <span
                   >Pipe alternation or changing position of the units to be
-                  priced separately.
+                  priced separately;
                 </span>
                 <span *ngIf="this.quoteModel.otherItem"
                   >Depending on the specifications of your "Other" requirements,
-                  they will be valued separately.
+                  they will be valued separately;
                 </span>
               </td>
               <td>
@@ -1556,23 +1560,106 @@
               <td>(change btn)</td>
               <td><b>Doors</b>:</td>
               <td>
-                <span *ngIf="this.quoteModel.doorsChanging">Changing doors</span
+                <span *ngIf="this.quoteModel.doorsChanging"
+                  >Changing doors; </span
                 ><span *ngIf="!this.quoteModel.doorsChanging"
-                  >No changing doors</span
-                >
+                  >No changing doors;
+                </span>
               </td>
               <td></td>
               <td>
                 <span *ngIf="this.quoteModel.doorsChanging"
-                  >Hollow primed doors with handles and bolt lock. </span
+                  >Hollow primed doors with handles and bolt lock; </span
                 ><span *ngIf="!this.quoteModel.doorsChanging"
-                  >Doors will be not replaced.
+                  >Doors will be not replaced;
                 </span>
               </td>
               <td>
                 <span>
                   <b>{{ this.quoteModel.doorsTotal.toFixed(2) }} £</b>
                 </span>
+              </td>
+            </tr>
+            <!--units row-->
+            <tr>
+              <td>(change btn)</td>
+              <td><b>Electrical</b>:</td>
+              <td>
+                <span
+                  *ngIf="
+                    !this.quoteModel.mirrorElectrical &&
+                    !this.quoteModel.fanElectrical &&
+                    !this.quoteModel.spotlightsElectrical &&
+                    !this.quoteModel.switcherInsideElectrical &&
+                    !this.quoteModel.switcherOutsideElectrical &&
+                    !this.quoteModel.socketsElectrical
+                  "
+                  >No selection;
+                </span>
+                <span *ngIf="this.quoteModel.mirrorElectrical"
+                  >Electrical mirror;
+                </span>
+                <span *ngIf="this.quoteModel.fanElectrical"
+                  >Mechanic fan;
+                </span>
+                <span *ngIf="this.quoteModel.spotlightsElectrical"
+                  >Spotlights;
+                </span>
+                <span *ngIf="this.quoteModel.switcherInsideElectrical"
+                  >Light switch;
+                </span>
+                <span *ngIf="this.quoteModel.switcherOutsideElectrical"
+                  >Light switch outside;
+                </span>
+                <span *ngIf="this.quoteModel.socketsElectrical"
+                  >Power sockets;
+                </span>
+              </td>
+              <td>
+                <span *ngIf="this.quoteModel.mirrorElectrical">
+                  <img
+                    src="../../../assets/images/{{
+                      this.quoteModel.floorType
+                    }}/{{ this.quoteModel.floorCode }}.jpg"
+                    class="summaryTile"
+                  />
+                </span>
+              </td>
+              <td>
+                <span
+                  *ngIf="
+                    this.quoteModel.mirrorElectrical ||
+                    this.quoteModel.fanElectrical ||
+                    this.quoteModel.spotlightsElectrical ||
+                    this.quoteModel.switcherInsideElectrical ||
+                    this.quoteModel.switcherOutsideElectrical ||
+                    this.quoteModel.socketsElectrical
+                  "
+                  >Installation and unit included;
+                </span>
+                <span
+                  *ngIf="
+                    !this.quoteModel.mirrorElectrical &&
+                    !this.quoteModel.fanElectrical &&
+                    !this.quoteModel.spotlightsElectrical &&
+                    !this.quoteModel.switcherInsideElectrical &&
+                    !this.quoteModel.switcherOutsideElectrical &&
+                    !this.quoteModel.socketsElectrical
+                  "
+                  >Electric installation will remain unchanged;
+                </span>
+                <span *ngIf="this.quoteModel.socketsElectrical"
+                  >Sockets quantity: {{ this.quoteModel.socketsQty }};
+                </span>
+                <span *ngIf="this.quoteModel.spotlightsElectrical"
+                  >Spotlights quantity: {{ this.quoteModel.spotlightsQty }};
+                </span>
+              </td>
+              <td>
+                <span>
+                  <b>{{ this.quoteModel.itemsTotal.toFixed(2) }} £</b>
+                </span>
+                <span *ngIf="this.quoteModel.otherItem"><b> *</b></span>
               </td>
             </tr>
           </tbody>
