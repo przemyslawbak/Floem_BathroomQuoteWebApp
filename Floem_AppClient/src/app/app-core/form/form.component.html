@@ -1112,10 +1112,16 @@
             <mat-button-toggle class="col-lg-2 col-12" value="switchOut"
               >Light switch outside</mat-button-toggle
             >
-            <mat-button-toggle class="col-lg-2 col-12" value="spotlight"
+            <mat-button-toggle
+              class="col-lg-2 col-12"
+              value="spotlight"
+              (click)="scroll('spotlights-qty')"
               >Spotlights</mat-button-toggle
             >
-            <mat-button-toggle class="col-lg-2 col-12" value="socket"
+            <mat-button-toggle
+              class="col-lg-2 col-12"
+              value="socket"
+              (click)="scroll('sockets-qty')"
               >Power sockets</mat-button-toggle
             >
           </mat-button-toggle-group>
@@ -1720,7 +1726,6 @@
                 <span>
                   <b>{{ this.quoteModel.electricalTotal.toFixed(2) }} £</b>
                 </span>
-                <span *ngIf="this.quoteModel.otherItem"><b> *</b></span>
               </td>
             </tr>
             <!--ceiling row-->
