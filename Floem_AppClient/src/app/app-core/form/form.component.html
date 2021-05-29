@@ -57,6 +57,13 @@
       >
         Start
       </button>
+      <button
+        type="button"
+        class="btn btn-light summaryBtn"
+        (click)="move(9); scroll('step1')"
+      >
+        Summary
+      </button>
     </div>
   </mat-step>
 
@@ -286,6 +293,13 @@
       >
         Next
       </button>
+      <button
+        type="button"
+        class="btn btn-light summaryBtn"
+        (click)="move(9); scroll('step1')"
+      >
+        Summary
+      </button>
     </div>
   </mat-step>
   <!--STEP 2-->
@@ -353,6 +367,13 @@
         (click)="scroll('step3')"
       >
         Next
+      </button>
+      <button
+        type="button"
+        class="btn btn-light summaryBtn"
+        (click)="move(9); scroll('step1')"
+      >
+        Summary
       </button>
     </div>
   </mat-step>
@@ -489,6 +510,7 @@
                   matInput
                   placeholder="Comment"
                   formControlName="floorOtherComments"
+                  [(ngModel)]="this.quoteModel.floorOtherComments"
                 />
               </mat-form-field>
             </div>
@@ -512,6 +534,13 @@
         (click)="scroll('step4')"
       >
         Next
+      </button>
+      <button
+        type="button"
+        class="btn btn-light summaryBtn"
+        (click)="move(9); scroll('step1')"
+      >
+        Summary
       </button>
     </div>
   </mat-step>
@@ -568,7 +597,7 @@
               value="other"
               (change)="setOtherWall()"
               (click)="scroll('other-wall')"
-              >Other</mat-button-toggle
+              >Other walls</mat-button-toggle
             >
           </mat-button-toggle-group>
           <div
@@ -705,7 +734,8 @@
               <input
                 matInput
                 placeholder="Comment"
-                formControlName="wallOtherComments"
+                formControlName="wallsOtherComments"
+                [(ngModel)]="this.quoteModel.wallsOtherComments"
               />
             </mat-form-field>
           </div>
@@ -728,6 +758,13 @@
         (click)="scroll('step5')"
       >
         Next
+      </button>
+      <button
+        type="button"
+        class="btn btn-light summaryBtn"
+        (click)="move(9); scroll('step1')"
+      >
+        Summary
       </button>
     </div>
   </mat-step>
@@ -962,6 +999,7 @@
                 matInput
                 placeholder="Comment"
                 formControlName="otherItemComments"
+                [(ngModel)]="this.quoteModel.otherItemComments"
               />
             </mat-form-field>
           </div>
@@ -984,6 +1022,13 @@
         (click)="scroll('step6')"
       >
         Next
+      </button>
+      <button
+        type="button"
+        class="btn btn-light summaryBtn"
+        (click)="move(9); scroll('step1')"
+      >
+        Summary
       </button>
     </div>
   </mat-step>
@@ -1072,6 +1117,13 @@
         (click)="scroll('step7')"
       >
         Next
+      </button>
+      <button
+        type="button"
+        class="btn btn-light summaryBtn"
+        (click)="move(9); scroll('step1')"
+      >
+        Summary
       </button>
     </div>
   </mat-step>
@@ -1233,6 +1285,13 @@
       >
         Next
       </button>
+      <button
+        type="button"
+        class="btn btn-light summaryBtn"
+        (click)="move(9); scroll('step1')"
+      >
+        Summary
+      </button>
     </div>
   </mat-step>
   <!--STEP 8-->
@@ -1314,6 +1373,13 @@
       >
         Next
       </button>
+      <button
+        type="button"
+        class="btn btn-light summaryBtn"
+        (click)="move(9); scroll('step1')"
+      >
+        Summary
+      </button>
     </div>
   </mat-step>
 
@@ -1351,7 +1417,6 @@
           <button
             type="button"
             class="btn btn-success"
-            matStepperNext
             (click)="move(1); scroll('step1')"
           >
             Change
@@ -1367,7 +1432,6 @@
                 <button
                   type="button"
                   class="btn btn-success"
-                  matStepperNext
                   (click)="move(2); scroll('step1')"
                 >
                   Change
@@ -1400,7 +1464,6 @@
                 <button
                   type="button"
                   class="btn btn-success"
-                  matStepperNext
                   (click)="move(3); scroll('step1')"
                 >
                   Change
@@ -1434,7 +1497,9 @@
                 </span>
                 <span *ngIf="this.quoteModel.floorTiled"
                   >Price included anti-cracking cement boards, tiles adhesive
-                  and grout;
+                  and grout; </span
+                ><span *ngIf="this.quoteModel.floorOther"
+                  >Client`s comment: {{ this.quoteModel.floorOtherComments }};
                 </span>
                 <span *ngIf="this.quoteModel.floorOther"
                   >Depending on the specifications of your "Other" requirements,
@@ -1454,7 +1519,6 @@
                 <button
                   type="button"
                   class="btn btn-success"
-                  matStepperNext
                   (click)="move(4); scroll('step1')"
                 >
                   Change
@@ -1468,7 +1532,7 @@
                 <span *ngIf="this.quoteModel.wallsHalfHeight"
                   >Half height;
                 </span>
-                <span *ngIf="this.quoteModel.wallsOther">Other; </span>
+                <span *ngIf="this.quoteModel.wallsOther">Other walls; </span>
                 <span *ngIf="this.quoteModel.wallsPlastered">Plastered; </span>
                 <span *ngIf="this.quoteModel.wallsNone">No change; </span>
               </td>
@@ -1494,10 +1558,6 @@
                 <span *ngIf="this.quoteModel.wallsHalfHeight"
                   >Tile adhesive and grout included and plastering;
                 </span>
-                <span *ngIf="this.quoteModel.wallsOther"
-                  >Depending on the specifications of your "Other" requirements,
-                  they will be valued separately;
-                </span>
                 <span *ngIf="this.quoteModel.wallsPlastered"
                   >Plastering of walls;
                 </span>
@@ -1505,7 +1565,13 @@
                   >The walls will remain unchanged;
                 </span>
                 <span *ngIf="this.quoteModel.wallsPaintedWhite"
-                  >Included anti-condensation Dulux paint;
+                  >Included anti-condensation Dulux paint; </span
+                ><span *ngIf="this.quoteModel.wallsOther"
+                  >Client`s comment: {{ this.quoteModel.wallsOtherComments }};
+                </span>
+                <span *ngIf="this.quoteModel.wallsOther"
+                  >Depending on the specifications of your "Other" requirements,
+                  they will be valued separately;
                 </span>
               </td>
               <td>
@@ -1521,7 +1587,6 @@
                 <button
                   type="button"
                   class="btn btn-success"
-                  matStepperNext
                   (click)="move(5); scroll('step1')"
                 >
                   Change
@@ -1607,6 +1672,9 @@
                   priced separately;
                 </span>
                 <span *ngIf="this.quoteModel.otherItem"
+                  >Client`s comment: {{ this.quoteModel.otherItemComments }};
+                </span>
+                <span *ngIf="this.quoteModel.otherItem"
                   >Depending on the specifications of your "Other" requirements,
                   they will be valued separately;
                 </span>
@@ -1624,7 +1692,6 @@
                 <button
                   type="button"
                   class="btn btn-success"
-                  matStepperNext
                   (click)="move(6); scroll('step1')"
                 >
                   Change
@@ -1658,7 +1725,6 @@
                 <button
                   type="button"
                   class="btn btn-success"
-                  matStepperNext
                   (click)="move(7); scroll('step1')"
                 >
                   Change
@@ -1748,7 +1814,6 @@
                 <button
                   type="button"
                   class="btn btn-success"
-                  matStepperNext
                   (click)="move(8); scroll('step1')"
                 >
                   Change
@@ -1788,7 +1853,14 @@
         </table>
         <div class="col-12">
           <b class="float-end summaryTotal"
-            >Total: {{ this.total.toFixed(2) }} £</b
+            >Total: {{ this.total.toFixed(2) }} £<span
+              [style.opacity]="this.otherComment ? '1' : '0'"
+              [style.height]="this.otherComment ? '40px' : '0'"
+              [style.visibility]="this.otherComment ? 'visible' : 'hidden'"
+              class="col-12 animatedAppearance"
+            >
+              *
+            </span></b
           >
         </div>
       </div>

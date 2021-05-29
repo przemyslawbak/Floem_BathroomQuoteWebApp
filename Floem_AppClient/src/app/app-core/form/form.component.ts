@@ -241,7 +241,7 @@ export class FormComponent {
 
   form4 = this._formBuilder.group({
     valid: [true, Validators.required],
-    wallOtherComments: [this.quoteModel.wallsOtherComments],
+    wallsOtherComments: [this.quoteModel.wallsOtherComments],
   });
 
   form5 = this._formBuilder.group({

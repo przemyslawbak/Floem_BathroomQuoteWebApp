@@ -180,6 +180,10 @@ mat-form-field {
   color: white;
 }
 
+.summaryBtn {
+  margin-left: 20px;
+}
+
 @media (min-width: 0px) {
   .col-lg-9,
   .col-lg-7 {
