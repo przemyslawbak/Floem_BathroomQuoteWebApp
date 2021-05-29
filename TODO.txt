@@ -106,9 +106,15 @@ OK - summary: "Quote summary for bathroom size " in small screen wraps, bad posi
 OK - summary: add disclaimer that prices are estimated
 - summary: print
 - summary: link with endpoint
+- summary: book online
 - summary: email to Floem + email to client
 - summary: contacts email, tel, address, RODO
-- summary: book online
+- routing
+- db
+- save & share/book: captcha
+- save & share/book: contact form
+- save & share/book: policies
+- save & share/book: print out?
 - Favicon change
 - step 0 icon -> logo PNG
 - PNG logo?

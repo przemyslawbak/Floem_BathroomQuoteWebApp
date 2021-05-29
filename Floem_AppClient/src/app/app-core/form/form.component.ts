@@ -274,15 +274,15 @@ export class FormComponent {
   }
 
   public bookQuoteOnline(): void {
-    //todo
+    alert('TODO');
   }
 
   public getQuoteLink(): void {
-    //todo
+    alert('TODO');
   }
 
   public printOutQuote(): void {
-    //todo
+    alert('TODO');
   }
 
   @ViewChild('stepper')
