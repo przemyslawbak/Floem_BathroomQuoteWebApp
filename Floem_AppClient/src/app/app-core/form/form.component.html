@@ -1106,10 +1106,24 @@
             <mat-button-toggle class="col-lg-2 col-12" value="fan"
               >Mechanic fan
             </mat-button-toggle>
-            <mat-button-toggle class="col-lg-2 col-12" value="switchIn"
-              >Light switch</mat-button-toggle
+            <mat-button-toggle
+              class="col-lg-2 col-12"
+              value="switchIn"
+              [checked]="this.quoteModel.switcherInsideElectrical"
+              (click)="
+                this.quoteModel.switcherOutsideElectrical = false;
+                this.calculateTotal()
+              "
+              >Light switch inside</mat-button-toggle
             >
-            <mat-button-toggle class="col-lg-2 col-12" value="switchOut"
+            <mat-button-toggle
+              class="col-lg-2 col-12"
+              value="switchOut"
+              [checked]="this.quoteModel.switcherOutsideElectrical"
+              (click)="
+                this.quoteModel.switcherInsideElectrical = false;
+                this.calculateTotal()
+              "
               >Light switch outside</mat-button-toggle
             >
             <mat-button-toggle
@@ -1673,7 +1687,7 @@
                   >Spotlights;
                 </span>
                 <span *ngIf="this.quoteModel.switcherInsideElectrical"
-                  >Light switch;
+                  >Light switch inside;
                 </span>
                 <span *ngIf="this.quoteModel.switcherOutsideElectrical"
                   >Light switch outside;

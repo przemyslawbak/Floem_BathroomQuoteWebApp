@@ -463,7 +463,6 @@ export class FormComponent {
     }
     if (e.includes('switchOut')) {
       this.quoteModel.switcherOutsideElectrical = true;
-      this.quoteModel.switcherInsideElectrical = false;
     } else {
       this.quoteModel.switcherOutsideElectrical = false;
     }
