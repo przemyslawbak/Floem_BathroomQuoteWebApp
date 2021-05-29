@@ -9,4 +9,12 @@
     <PackageReference Include="Microsoft.AspNetCore.SpaServices.Extensions" Version="5.0.6" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Services\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Floem_Services\Floem_Services.csproj" />
+  </ItemGroup>
+
 </Project>
