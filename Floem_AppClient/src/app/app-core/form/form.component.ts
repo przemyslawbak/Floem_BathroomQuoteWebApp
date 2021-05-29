@@ -273,7 +273,15 @@ export class FormComponent {
     return keys;
   }
 
-  public submit(): void {
+  public bookQuoteOnline(): void {
+    //todo
+  }
+
+  public getQuoteLink(): void {
+    //todo
+  }
+
+  public printOutQuote(): void {
     //todo
   }
 

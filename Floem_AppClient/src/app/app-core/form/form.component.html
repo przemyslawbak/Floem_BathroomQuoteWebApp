@@ -1502,8 +1502,8 @@
                   >Client`s comment: {{ this.quoteModel.floorOtherComments }};
                 </span>
                 <span *ngIf="this.quoteModel.floorOther"
-                  >Depending on the specifications of your "Other" requirements,
-                  they will be valued separately;
+                  >* Depending on the specifications of your "Other"
+                  requirements, they will be valued separately;
                 </span>
               </td>
               <td>
@@ -1570,8 +1570,8 @@
                   >Client`s comment: {{ this.quoteModel.wallsOtherComments }};
                 </span>
                 <span *ngIf="this.quoteModel.wallsOther"
-                  >Depending on the specifications of your "Other" requirements,
-                  they will be valued separately;
+                  >* Depending on the specifications of your "Other"
+                  requirements, they will be valued separately;
                 </span>
               </td>
               <td>
@@ -1675,8 +1675,8 @@
                   >Client`s comment: {{ this.quoteModel.otherItemComments }};
                 </span>
                 <span *ngIf="this.quoteModel.otherItem"
-                  >Depending on the specifications of your "Other" requirements,
-                  they will be valued separately;
+                  >* Depending on the specifications of your "Other"
+                  requirements, they will be valued separately;
                 </span>
               </td>
               <td>
@@ -1863,6 +1863,24 @@
             </span></b
           >
         </div>
+        <div class="col-12 summaryCommentsContainer">
+          <div
+            [style.opacity]="this.otherComment ? '1' : '0'"
+            [style.height]="this.otherComment ? '40px' : '0'"
+            [style.visibility]="this.otherComment ? 'visible' : 'hidden'"
+            class="col-12 float-start animatedAppearance"
+          >
+            * Depending on the specifications of your "Other" requirements, they
+            will be valued separately.
+          </div>
+          <div class="col-12 float-start">
+            The prices quoted are estimated. They may vary depending on the
+            current market prices of the products, their availability,
+            additional work that will have to be done on site, etc. For more
+            information, please send this form to us and book an appointment
+            online.
+          </div>
+        </div>
       </div>
     </div>
 
@@ -1877,13 +1895,36 @@
       </button>
       <button
         type="button"
+        class="btn btn-success"
+        mat-button
+        (click)="bookQuoteOnline()"
+      >
+        Book online
+      </button>
+      <button
+        type="button"
+        class="btn btn-success"
+        mat-button
+        (click)="getQuoteLink()"
+      >
+        Get link
+      </button>
+      <button
+        type="button"
+        class="btn btn-success"
+        mat-button
+        (click)="printOutQuote()"
+      >
+        Print out
+      </button>
+      <button
+        type="button"
         class="btn btn-danger"
         mat-button
         (click)="reloadPage()"
       >
         Clear all
       </button>
-      <button type="button" mat-button (click)="submit()">Submit</button>
     </div>
   </mat-step>
 </mat-stepper>

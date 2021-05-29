@@ -94,22 +94,25 @@ OK - summary: for each step price - quote model
 OK - summary: styling + data display
 OK - summary: delete reset btn? - refresh page
 OK - summary: if somewhere "other" selected, add note
-OK - summery: price format
+OK - summary: price format
 OK - summary: table hover color change to green
 OK - summary: btn for each step
 NO - correct: 'Select mirror:' too high
 OK - correct: 'light switch' & 'light switch outside" display
-- summary: add "other" comments to the summary
-- summary: "Quote summary for bathroom size " in small screen wraps, bad positioning
+NO - clear all btn on each step?
+OK - summary btn on each step
+OK - summary: add "other" comments to the summary
+OK - summary: "Quote summary for bathroom size " in small screen wraps, bad positioning
+OK - summary: add disclaimer that prices are estimated
+- summary: print
 - summary: link with endpoint
 - summary: email to Floem + email to client
 - summary: contacts email, tel, address, RODO
-- summary: add disclaimer that prices are estimated
 - summary: book online
-- summary: print
 - Favicon change
 - step 0 icon -> logo PNG
 - PNG logo?
+- admin pannel
 - back-end...
 - SEO
 - deploy production

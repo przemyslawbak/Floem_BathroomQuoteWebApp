@@ -184,6 +184,10 @@ mat-form-field {
   margin-left: 20px;
 }
 
+.summaryCommentsContainer {
+  margin-top: 30px;
+}
+
 @media (min-width: 0px) {
   .col-lg-9,
   .col-lg-7 {
