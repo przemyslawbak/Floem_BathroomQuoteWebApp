@@ -15,6 +15,10 @@ import { NgxSpinnerModule } from 'ngx-spinner';
 import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
 import { FormComponent } from './form/form.component';
+import { HttpService } from './_services/http.service';
+import { SecurityService } from './_services/security.service';
+import { ModalService } from './_services/modal.service';
+import { ErrorService } from './_services/error.service';
 
 @NgModule({
   imports: [
@@ -34,6 +38,6 @@ import { FormComponent } from './form/form.component';
   ],
   declarations: [FooterComponent, HeaderComponent, FormComponent],
   exports: [FooterComponent, HeaderComponent, FormComponent],
-  providers: [],
+  providers: [HttpService, SecurityService, ModalService, ErrorService],
 })
 export class AppCoreModule {}
