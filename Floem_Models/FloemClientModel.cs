@@ -1,9 +1,12 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace Floem_Models
 {
     public class FloemClientModel
     {
+        [Key]
+        public Guid Id { get; set; }
         [Required(ErrorMessage = "Name is required.")]
         public string Name { get; set; }
         [Required(ErrorMessage = "Email is required.")]
