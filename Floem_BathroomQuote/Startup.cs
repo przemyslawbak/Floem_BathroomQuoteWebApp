@@ -1,3 +1,4 @@
+using Floem_Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -27,6 +28,8 @@ namespace Floem_BathroomQuote
             {
                 options.HttpsPort = 443;
             });
+
+            services.AddTransient<IEmailSender, EmailSender>();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
