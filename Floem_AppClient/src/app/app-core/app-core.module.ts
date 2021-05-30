@@ -10,6 +10,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatListModule } from '@angular/material/list';
 import { NgToggleModule } from '@nth-cloud/ng-toggle';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
@@ -17,6 +18,7 @@ import { FormComponent } from './form/form.component';
 
 @NgModule({
   imports: [
+    NgxSpinnerModule,
     MatButtonToggleModule,
     NgToggleModule,
     BrowserModule,
