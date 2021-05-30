@@ -22,7 +22,7 @@ namespace Floem_BathroomQuote
                     .AllowCredentials()
                     .SetIsOriginAllowed((host) => true));
             });
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Latest);
+            services.AddControllers();
 
             services.AddTransient<IEmailSender, EmailSender>();
         }
@@ -33,12 +33,19 @@ namespace Floem_BathroomQuote
             {
                 app.UseDeveloperExceptionPage();
             }
+            else
+            {
+                app.UseDefaultFiles();
+                app.UseStaticFiles();
+            }
 
-            app.UseStaticFiles();
+            //app.UseHttpsRedirection();
             app.UseRouting();
             app.UseCors("CorsPolicy");
-            app.UseDefaultFiles();
-            app.UseStaticFiles();
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapControllers();
+            });
         }
     }
 }

@@ -276,13 +276,15 @@ export class FormComponent {
   }
 
   public bookQuoteOnline(): void {
-    this.http.postSaveQuote(this.quoteModel);
-    //todo
+    this.http.getTest('666').subscribe(async (text: string) => {
+      alert('response:' + text);
+    });
   }
 
   public getQuoteLink(): void {
-    this.http.postSaveQuote(this.quoteModel);
-    //todo
+    this.http.postTest('666').subscribe(() => {
+      alert('response: OK');
+    });
   }
 
   @ViewChild('stepper')
