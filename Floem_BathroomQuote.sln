@@ -7,6 +7,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Floem_BathroomQuote", "Floe
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Floem_Services", "Floem_Services\Floem_Services.csproj", "{F30FE4E7-5E07-4734-82E0-A447AFEA6659}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Floem_Models", "Floem_Models\Floem_Models.csproj", "{ADBB1887-4D18-40DA-ABC5-D21F7AA849F0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Floem_DAL", "Floem_DAL\Floem_DAL.csproj", "{4AE62987-01CC-49B5-8F52-B1137E0061F9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{F30FE4E7-5E07-4734-82E0-A447AFEA6659}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F30FE4E7-5E07-4734-82E0-A447AFEA6659}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F30FE4E7-5E07-4734-82E0-A447AFEA6659}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ADBB1887-4D18-40DA-ABC5-D21F7AA849F0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ADBB1887-4D18-40DA-ABC5-D21F7AA849F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ADBB1887-4D18-40DA-ABC5-D21F7AA849F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ADBB1887-4D18-40DA-ABC5-D21F7AA849F0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4AE62987-01CC-49B5-8F52-B1137E0061F9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4AE62987-01CC-49B5-8F52-B1137E0061F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4AE62987-01CC-49B5-8F52-B1137E0061F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4AE62987-01CC-49B5-8F52-B1137E0061F9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
