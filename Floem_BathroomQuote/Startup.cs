@@ -32,6 +32,8 @@ namespace Floem_BathroomQuote
             services.AddControllers();
             services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(Configuration["ConnectionStrings:DefaultConnection"]));
             services.AddTransient<IEmailSender, EmailSender>();
+            services.AddTransient<IQuoteManager, QuoteManager>();
+            services.AddTransient<IRepository, EFRepository>();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

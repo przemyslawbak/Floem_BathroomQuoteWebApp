@@ -1,4 +1,5 @@
 ﻿using Floem_Models;
+using Floem_Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Floem_BathroomQuote.Controllers
@@ -7,6 +8,12 @@ namespace Floem_BathroomQuote.Controllers
     [ApiController]
     public class QuoteController : Controller
     {
+        private readonly IQuoteManager _quotes;
+        public QuoteController(IQuoteManager quotes)
+        {
+            _quotes = quotes;
+        }
+
         /// <summary>
         /// POST: api/quote/save
         /// </summary>
