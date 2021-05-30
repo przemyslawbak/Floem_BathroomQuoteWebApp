@@ -7,6 +7,7 @@ import { BreakpointObserver } from '@angular/cdk/layout';
 import { MatStepper, StepperOrientation } from '@angular/material/stepper';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { HttpService } from '../_services/http.service';
 
 @Component({
   selector: 'app-form',
@@ -179,7 +180,8 @@ export class FormComponent {
 
   constructor(
     private _formBuilder: FormBuilder,
-    breakpointObserver: BreakpointObserver
+    public breakpointObserver: BreakpointObserver,
+    private http: HttpService
   ) {
     this.stepperOrientation = breakpointObserver
       .observe('(min-width: 800px)')
@@ -274,15 +276,13 @@ export class FormComponent {
   }
 
   public bookQuoteOnline(): void {
-    alert('TODO');
+    this.http.postSaveQuote(this.quoteModel);
+    //todo
   }
 
   public getQuoteLink(): void {
-    alert('TODO');
-  }
-
-  public printOutQuote(): void {
-    alert('TODO');
+    this.http.postSaveQuote(this.quoteModel);
+    //todo
   }
 
   @ViewChild('stepper')
