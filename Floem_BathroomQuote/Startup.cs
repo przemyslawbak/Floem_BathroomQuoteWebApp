@@ -22,8 +22,7 @@ namespace Floem_BathroomQuote
                     .AllowCredentials()
                     .SetIsOriginAllowed((host) => true));
             });
-
-            services.AddControllers();
+            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Latest);
 
             services.AddTransient<IEmailSender, EmailSender>();
         }
@@ -38,10 +37,8 @@ namespace Floem_BathroomQuote
             app.UseStaticFiles();
             app.UseRouting();
             app.UseCors("CorsPolicy");
-            app.UseEndpoints(endpoints =>
-            {
-                endpoints.MapControllers();
-            });
+            app.UseDefaultFiles();
+            app.UseStaticFiles();
         }
     }
 }

@@ -104,6 +104,7 @@ OK - summary btn on each step
 OK - summary: add "other" comments to the summary
 OK - summary: "Quote summary for bathroom size " in small screen wraps, bad positioning
 OK - summary: add disclaimer that prices are estimated
+- bug: summary click console ERROR TypeError: el is null
 - summary: print
 - summary: link with endpoint
 - summary: book online
