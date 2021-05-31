@@ -1,3 +1,4 @@
+import { ModalComponent } from './modal-views/modal-views.component';
 import { QuoteService } from './_services/quote.service';
 import { SaveAndBookComponent } from './save/save-and-book.component';
 import { SaveAndShareComponent } from './save/save-and-share.component';
@@ -45,6 +46,7 @@ import { ErrorService } from './_services/error.service';
     FormComponent,
     SaveAndShareComponent,
     SaveAndBookComponent,
+    ModalComponent,
   ],
   exports: [
     FooterComponent,
@@ -52,6 +54,7 @@ import { ErrorService } from './_services/error.service';
     FormComponent,
     SaveAndBookComponent,
     SaveAndShareComponent,
+    ModalComponent,
   ],
   providers: [
     HttpService,
