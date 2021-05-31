@@ -106,16 +106,26 @@ OK - summary: "Quote summary for bathroom size " in small screen wraps, bad posi
 OK - summary: add disclaimer that prices are estimated
 OK - routing
 - bug: summary click console ERROR TypeError: el is null
-- summary: print
-- summary: link with endpoint
-- summary: book online
-- summary: email to Floem + email to client
-- summary: contacts email, tel, address, RODO
 - backend db
-- save & share/book: captcha
-- save & share/book: contact form
-- save & share/book: policies
-- save & share/book: print out?
+- save & share: save to DB
+- save & share: generate link
+- save & share: captcha
+- save & share: email
+- save & share: fb
+- save & share: twitter
+- save & share: print
+- save & share: linkedin
+- save & share: link to save & book
+- save & book: save to DB
+- save & book: generate link
+- save & book: captcha
+- save & book: calendar
+- save & book: book online
+- save & book: contacts
+- save & book: policy accept
+- save & book: RODO
+- save & book: email to Floem + email to client
+- save & book: link to save & share
 - Favicon change
 - step 0 icon -> logo PNG
 - PNG logo?

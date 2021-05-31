@@ -86,7 +86,7 @@
             <mat-label>Units</mat-label>
             <mat-select
               formControlName="units"
-              [(value)]="this.quoteModel.units"
+              [(value)]="this.quotes.quoteState.units"
               (selectionChange)="calculateTotal(); convertUnits(false)"
             >
               <mat-option *ngFor="let key of keys" [value]="key">
@@ -98,10 +98,14 @@
         <div class="row">
           <div class="col-lg-6">
             <div
-              [style.opacity]="this.quoteModel.units == 'Metric' ? '1' : '0'"
-              [style.height]="this.quoteModel.units == 'Metric' ? '240px' : '0'"
+              [style.opacity]="
+                this.quotes.quoteState.units == 'Metric' ? '1' : '0'
+              "
+              [style.height]="
+                this.quotes.quoteState.units == 'Metric' ? '240px' : '0'
+              "
               [style.visibility]="
-                this.quoteModel.units == 'Metric' ? 'visible' : 'hidden'
+                this.quotes.quoteState.units == 'Metric' ? 'visible' : 'hidden'
               "
               class="animatedAppearance dimemtions col-12"
             >
@@ -114,7 +118,7 @@
                     formControlName="widthCm"
                     required
                     (change)="calculateTotal()"
-                    [(ngModel)]="this.quoteModel.widthCm"
+                    [(ngModel)]="this.quotes.quoteState.widthCm"
                   />
                   <mat-error *ngIf="form1.invalid"
                     >Numbers only allowed</mat-error
@@ -130,7 +134,7 @@
                     formControlName="heightCm"
                     required
                     (change)="calculateTotal()"
-                    [(ngModel)]="this.quoteModel.heightCm"
+                    [(ngModel)]="this.quotes.quoteState.heightCm"
                   />
                   <mat-error *ngIf="form1.invalid"
                     >Numbers only allowed</mat-error
@@ -146,7 +150,7 @@
                     formControlName="depthCm"
                     required
                     (change)="calculateTotal()"
-                    [(ngModel)]="this.quoteModel.depthCm"
+                    [(ngModel)]="this.quotes.quoteState.depthCm"
                   />
                   <mat-error *ngIf="form1.invalid"
                     >Numbers only allowed</mat-error
@@ -155,12 +159,16 @@
               </div>
             </div>
             <div
-              [style.opacity]="this.quoteModel.units == 'Imperial' ? '1' : '0'"
+              [style.opacity]="
+                this.quotes.quoteState.units == 'Imperial' ? '1' : '0'
+              "
               [style.height]="
-                this.quoteModel.units == 'Imperial' ? '240px' : '0'
+                this.quotes.quoteState.units == 'Imperial' ? '240px' : '0'
               "
               [style.visibility]="
-                this.quoteModel.units == 'Imperial' ? 'visible' : 'hidden'
+                this.quotes.quoteState.units == 'Imperial'
+                  ? 'visible'
+                  : 'hidden'
               "
               class="animatedAppearance dimemtions col-12"
             >
@@ -174,7 +182,7 @@
                       formControlName="widthFt"
                       required
                       (change)="calculateTotal()"
-                      [(ngModel)]="this.quoteModel.widthFt"
+                      [(ngModel)]="this.quotes.quoteState.widthFt"
                     />
                     <mat-error *ngIf="form1.invalid"
                       >Numbers only allowed</mat-error
@@ -190,7 +198,7 @@
                       formControlName="widthIn"
                       required
                       (change)="calculateTotal()"
-                      [(ngModel)]="this.quoteModel.widthIn"
+                      [(ngModel)]="this.quotes.quoteState.widthIn"
                     />
                     <mat-error *ngIf="form1.invalid"
                       >Numbers only allowed</mat-error
@@ -208,7 +216,7 @@
                       formControlName="heightFt"
                       required
                       (change)="calculateTotal()"
-                      [(ngModel)]="this.quoteModel.heightFt"
+                      [(ngModel)]="this.quotes.quoteState.heightFt"
                     />
                     <mat-error *ngIf="form1.invalid"
                       >Numbers only allowed</mat-error
@@ -224,7 +232,7 @@
                       formControlName="heightIn"
                       required
                       (change)="calculateTotal()"
-                      [(ngModel)]="this.quoteModel.heightIn"
+                      [(ngModel)]="this.quotes.quoteState.heightIn"
                     />
                     <mat-error *ngIf="form1.invalid"
                       >Numbers only allowed</mat-error
@@ -242,7 +250,7 @@
                       formControlName="depthFt"
                       required
                       (change)="calculateTotal()"
-                      [(ngModel)]="this.quoteModel.depthFt"
+                      [(ngModel)]="this.quotes.quoteState.depthFt"
                     />
                     <mat-error *ngIf="form1.invalid"
                       >Numbers only allowed</mat-error
@@ -258,7 +266,7 @@
                       formControlName="depthIn"
                       required
                       (change)="calculateTotal()"
-                      [(ngModel)]="this.quoteModel.depthIn"
+                      [(ngModel)]="this.quotes.quoteState.depthIn"
                     />
                     <mat-error *ngIf="form1.invalid"
                       >Numbers only allowed</mat-error
@@ -337,9 +345,11 @@
             >
           </mat-button-toggle-group>
           <div
-            [style.opacity]="this.quoteModel.removals ? '1' : '0'"
-            [style.visibility]="this.quoteModel.removals ? 'visible' : 'hidden'"
-            [style.height]="this.quoteModel.removals ? '70px' : '0'"
+            [style.opacity]="this.quotes.quoteState.removals ? '1' : '0'"
+            [style.visibility]="
+              this.quotes.quoteState.removals ? 'visible' : 'hidden'
+            "
+            [style.height]="this.quotes.quoteState.removals ? '70px' : '0'"
             class="col-12 animatedAppearance"
             id="other-wall"
           >
@@ -432,11 +442,11 @@
         <form [formGroup]="form3" class="col-12">
           <!--tiles floor-->
           <div
-            [style.opacity]="this.quoteModel.floorTiled ? '1' : '0'"
+            [style.opacity]="this.quotes.quoteState.floorTiled ? '1' : '0'"
             [style.visibility]="
-              this.quoteModel.floorTiled ? 'visible' : 'hidden'
+              this.quotes.quoteState.floorTiled ? 'visible' : 'hidden'
             "
-            [style.height]="this.quoteModel.floorTiled ? '240px' : '0'"
+            [style.height]="this.quotes.quoteState.floorTiled ? '240px' : '0'"
             class="animatedAppearance col-12"
             id="tiled-floor"
           >
@@ -464,9 +474,11 @@
           </div>
           <!--lvt floor-->
           <div
-            [style.opacity]="this.quoteModel.floorLvt ? '1' : '0'"
-            [style.visibility]="this.quoteModel.floorLvt ? 'visible' : 'hidden'"
-            [style.height]="this.quoteModel.floorLvt ? '240px' : '0'"
+            [style.opacity]="this.quotes.quoteState.floorLvt ? '1' : '0'"
+            [style.visibility]="
+              this.quotes.quoteState.floorLvt ? 'visible' : 'hidden'
+            "
+            [style.height]="this.quotes.quoteState.floorLvt ? '240px' : '0'"
             class="animatedAppearance col-12"
             id="lvt-floor"
           >
@@ -491,11 +503,11 @@
           </div>
           <!--other floor-->
           <div
-            [style.opacity]="this.quoteModel.floorOther ? '1' : '0'"
+            [style.opacity]="this.quotes.quoteState.floorOther ? '1' : '0'"
             [style.visibility]="
-              this.quoteModel.floorOther ? 'visible' : 'hidden'
+              this.quotes.quoteState.floorOther ? 'visible' : 'hidden'
             "
-            [style.height]="this.quoteModel.floorOther ? '70px' : '0'"
+            [style.height]="this.quotes.quoteState.floorOther ? '70px' : '0'"
             class="col-12 animatedAppearance"
             id="other-floor"
           >
@@ -510,7 +522,7 @@
                   matInput
                   placeholder="Comment"
                   formControlName="floorOtherComments"
-                  [(ngModel)]="this.quoteModel.floorOtherComments"
+                  [(ngModel)]="this.quotes.quoteState.floorOtherComments"
                 />
               </mat-form-field>
             </div>
@@ -602,17 +614,20 @@
           </mat-button-toggle-group>
           <div
             [style.opacity]="
-              this.quoteModel.wallsPlastered || this.quoteModel.wallsHalfHeight
+              this.quotes.quoteState.wallsPlastered ||
+              this.quotes.quoteState.wallsHalfHeight
                 ? '1'
                 : '0'
             "
             [style.visibility]="
-              this.quoteModel.wallsPlastered || this.quoteModel.wallsHalfHeight
+              this.quotes.quoteState.wallsPlastered ||
+              this.quotes.quoteState.wallsHalfHeight
                 ? 'visible'
                 : 'hidden'
             "
             [style.height]="
-              this.quoteModel.wallsPlastered || this.quoteModel.wallsHalfHeight
+              this.quotes.quoteState.wallsPlastered ||
+              this.quotes.quoteState.wallsHalfHeight
                 ? '100px'
                 : '0'
             "
@@ -640,11 +655,13 @@
             </mat-button-toggle-group>
           </div>
           <div
-            [style.opacity]="this.quoteModel.wallsFullHeight ? '1' : '0'"
+            [style.opacity]="this.quotes.quoteState.wallsFullHeight ? '1' : '0'"
             [style.visibility]="
-              this.quoteModel.wallsFullHeight ? 'visible' : 'hidden'
+              this.quotes.quoteState.wallsFullHeight ? 'visible' : 'hidden'
             "
-            [style.height]="this.quoteModel.wallsFullHeight ? '70px' : '0'"
+            [style.height]="
+              this.quotes.quoteState.wallsFullHeight ? '70px' : '0'
+            "
             class="col-12 animatedAppearance"
             id="other-wall"
           >
@@ -653,11 +670,13 @@
             </div>
           </div>
           <div
-            [style.opacity]="this.quoteModel.wallsHalfHeight ? '1' : '0'"
+            [style.opacity]="this.quotes.quoteState.wallsHalfHeight ? '1' : '0'"
             [style.visibility]="
-              this.quoteModel.wallsHalfHeight ? 'visible' : 'hidden'
+              this.quotes.quoteState.wallsHalfHeight ? 'visible' : 'hidden'
             "
-            [style.height]="this.quoteModel.wallsHalfHeight ? '70px' : '0'"
+            [style.height]="
+              this.quotes.quoteState.wallsHalfHeight ? '70px' : '0'
+            "
             class="col-12 animatedAppearance"
             id="other-wall"
           >
@@ -666,11 +685,15 @@
             </div>
           </div>
           <div
-            [style.opacity]="this.quoteModel.wallsPaintedWhite ? '1' : '0'"
-            [style.visibility]="
-              this.quoteModel.wallsPaintedWhite ? 'visible' : 'hidden'
+            [style.opacity]="
+              this.quotes.quoteState.wallsPaintedWhite ? '1' : '0'
             "
-            [style.height]="this.quoteModel.wallsPaintedWhite ? '70px' : '0'"
+            [style.visibility]="
+              this.quotes.quoteState.wallsPaintedWhite ? 'visible' : 'hidden'
+            "
+            [style.height]="
+              this.quotes.quoteState.wallsPaintedWhite ? '70px' : '0'
+            "
             class="col-12 animatedAppearance"
             id="other-wall"
           >
@@ -684,17 +707,20 @@
         <!--tiles wall-->
         <div
           [style.opacity]="
-            this.quoteModel.wallsFullHeight || this.quoteModel.wallsHalfHeight
+            this.quotes.quoteState.wallsFullHeight ||
+            this.quotes.quoteState.wallsHalfHeight
               ? '1'
               : '0'
           "
           [style.visibility]="
-            this.quoteModel.wallsFullHeight || this.quoteModel.wallsHalfHeight
+            this.quotes.quoteState.wallsFullHeight ||
+            this.quotes.quoteState.wallsHalfHeight
               ? 'visible'
               : 'hidden'
           "
           [style.height]="
-            this.quoteModel.wallsFullHeight || this.quoteModel.wallsHalfHeight
+            this.quotes.quoteState.wallsFullHeight ||
+            this.quotes.quoteState.wallsHalfHeight
               ? '240px'
               : '0'
           "
@@ -717,9 +743,11 @@
         </div>
         <!--other wall-->
         <div
-          [style.opacity]="this.quoteModel.wallsOther ? '1' : '0'"
-          [style.visibility]="this.quoteModel.wallsOther ? 'visible' : 'hidden'"
-          [style.height]="this.quoteModel.wallsOther ? '70px' : '0'"
+          [style.opacity]="this.quotes.quoteState.wallsOther ? '1' : '0'"
+          [style.visibility]="
+            this.quotes.quoteState.wallsOther ? 'visible' : 'hidden'
+          "
+          [style.height]="this.quotes.quoteState.wallsOther ? '70px' : '0'"
           class="col-12 animatedAppearance"
           id="other-wall"
         >
@@ -735,7 +763,7 @@
                 matInput
                 placeholder="Comment"
                 formControlName="wallsOtherComments"
-                [(ngModel)]="this.quoteModel.wallsOtherComments"
+                [(ngModel)]="this.quotes.quoteState.wallsOtherComments"
               />
             </mat-form-field>
           </div>
@@ -844,9 +872,11 @@
       <form [formGroup]="form5">
         <!--bath units-->
         <div
-          [style.opacity]="this.quoteModel.bathItem ? '1' : '0'"
-          [style.visibility]="this.quoteModel.bathItem ? 'visible' : 'hidden'"
-          [style.height]="this.quoteModel.bathItem ? '240px' : '0'"
+          [style.opacity]="this.quotes.quoteState.bathItem ? '1' : '0'"
+          [style.visibility]="
+            this.quotes.quoteState.bathItem ? 'visible' : 'hidden'
+          "
+          [style.height]="this.quotes.quoteState.bathItem ? '240px' : '0'"
           class="animatedAppearance col-12"
           id="bath-unit"
         >
@@ -866,11 +896,11 @@
         </div>
         <!--shower ensuite units-->
         <div
-          [style.opacity]="this.quoteModel.ensuiteItem ? '1' : '0'"
+          [style.opacity]="this.quotes.quoteState.ensuiteItem ? '1' : '0'"
           [style.visibility]="
-            this.quoteModel.ensuiteItem ? 'visible' : 'hidden'
+            this.quotes.quoteState.ensuiteItem ? 'visible' : 'hidden'
           "
-          [style.height]="this.quoteModel.ensuiteItem ? '240px' : '0'"
+          [style.height]="this.quotes.quoteState.ensuiteItem ? '240px' : '0'"
           class="animatedAppearance col-12"
           id="ensuite-unit"
         >
@@ -892,9 +922,11 @@
         </div>
         <!--shower mixer units-->
         <div
-          [style.opacity]="this.quoteModel.mixerItem ? '1' : '0'"
-          [style.visibility]="this.quoteModel.mixerItem ? 'visible' : 'hidden'"
-          [style.height]="this.quoteModel.mixerItem ? '240px' : '0'"
+          [style.opacity]="this.quotes.quoteState.mixerItem ? '1' : '0'"
+          [style.visibility]="
+            this.quotes.quoteState.mixerItem ? 'visible' : 'hidden'
+          "
+          [style.height]="this.quotes.quoteState.mixerItem ? '240px' : '0'"
           class="animatedAppearance col-12"
           id="mixer-unit"
         >
@@ -914,9 +946,11 @@
         </div>
         <!--toilet units-->
         <div
-          [style.opacity]="this.quoteModel.toiletItem ? '1' : '0'"
-          [style.visibility]="this.quoteModel.toiletItem ? 'visible' : 'hidden'"
-          [style.height]="this.quoteModel.toiletItem ? '240px' : '0'"
+          [style.opacity]="this.quotes.quoteState.toiletItem ? '1' : '0'"
+          [style.visibility]="
+            this.quotes.quoteState.toiletItem ? 'visible' : 'hidden'
+          "
+          [style.height]="this.quotes.quoteState.toiletItem ? '240px' : '0'"
           class="animatedAppearance col-12"
           id="toilet-unit"
         >
@@ -936,11 +970,11 @@
         </div>
         <!--towel rail units-->
         <div
-          [style.opacity]="this.quoteModel.towelRailItem ? '1' : '0'"
+          [style.opacity]="this.quotes.quoteState.towelRailItem ? '1' : '0'"
           [style.visibility]="
-            this.quoteModel.towelRailItem ? 'visible' : 'hidden'
+            this.quotes.quoteState.towelRailItem ? 'visible' : 'hidden'
           "
-          [style.height]="this.quoteModel.towelRailItem ? '240px' : '0'"
+          [style.height]="this.quotes.quoteState.towelRailItem ? '240px' : '0'"
           class="animatedAppearance col-12"
           id="rail-unit"
         >
@@ -960,9 +994,11 @@
         </div>
         <!--basin units-->
         <div
-          [style.opacity]="this.quoteModel.basinItem ? '1' : '0'"
-          [style.visibility]="this.quoteModel.basinItem ? 'visible' : 'hidden'"
-          [style.height]="this.quoteModel.basinItem ? '240px' : '0'"
+          [style.opacity]="this.quotes.quoteState.basinItem ? '1' : '0'"
+          [style.visibility]="
+            this.quotes.quoteState.basinItem ? 'visible' : 'hidden'
+          "
+          [style.height]="this.quotes.quoteState.basinItem ? '240px' : '0'"
           class="animatedAppearance col-12"
           id="basin-unit"
         >
@@ -982,9 +1018,11 @@
         </div>
         <!--other units-->
         <div
-          [style.opacity]="this.quoteModel.otherItem ? '1' : '0'"
-          [style.visibility]="this.quoteModel.otherItem ? 'visible' : 'hidden'"
-          [style.height]="this.quoteModel.otherItem ? '70px' : '0'"
+          [style.opacity]="this.quotes.quoteState.otherItem ? '1' : '0'"
+          [style.visibility]="
+            this.quotes.quoteState.otherItem ? 'visible' : 'hidden'
+          "
+          [style.height]="this.quotes.quoteState.otherItem ? '70px' : '0'"
           class="col-12 animatedAppearance"
           id="other-unit"
         >
@@ -999,7 +1037,7 @@
                 matInput
                 placeholder="Comment"
                 formControlName="otherItemComments"
-                [(ngModel)]="this.quoteModel.otherItemComments"
+                [(ngModel)]="this.quotes.quoteState.otherItemComments"
               />
             </mat-form-field>
           </div>
@@ -1071,11 +1109,13 @@
         <form [formGroup]="form6">
           <!--doors type-->
           <div
-            [style.opacity]="this.quoteModel.doorsChanging ? '1' : '0'"
+            [style.opacity]="this.quotes.quoteState.doorsChanging ? '1' : '0'"
             [style.visibility]="
-              this.quoteModel.doorsChanging ? 'visible' : 'hidden'
+              this.quotes.quoteState.doorsChanging ? 'visible' : 'hidden'
             "
-            [style.height]="this.quoteModel.doorsChanging ? '240px' : '0'"
+            [style.height]="
+              this.quotes.quoteState.doorsChanging ? '240px' : '0'
+            "
             class="animatedAppearance col-12"
             id="doors-type"
           >
@@ -1161,9 +1201,9 @@
             <mat-button-toggle
               class="col-lg-2 col-12"
               value="switchIn"
-              [checked]="this.quoteModel.switcherInsideElectrical"
+              [checked]="this.quotes.quoteState.switcherInsideElectrical"
               (click)="
-                this.quoteModel.switcherOutsideElectrical = false;
+                this.quotes.quoteState.switcherOutsideElectrical = false;
                 this.calculateTotal()
               "
               >Light switch inside</mat-button-toggle
@@ -1171,9 +1211,9 @@
             <mat-button-toggle
               class="col-lg-2 col-12"
               value="switchOut"
-              [checked]="this.quoteModel.switcherOutsideElectrical"
+              [checked]="this.quotes.quoteState.switcherOutsideElectrical"
               (click)="
-                this.quoteModel.switcherInsideElectrical = false;
+                this.quotes.quoteState.switcherInsideElectrical = false;
                 this.calculateTotal()
               "
               >Light switch outside</mat-button-toggle
@@ -1196,11 +1236,13 @@
       <form [formGroup]="form7">
         <!--mirror electrical-->
         <div
-          [style.opacity]="this.quoteModel.mirrorElectrical ? '1' : '0'"
+          [style.opacity]="this.quotes.quoteState.mirrorElectrical ? '1' : '0'"
           [style.visibility]="
-            this.quoteModel.mirrorElectrical ? 'visible' : 'hidden'
+            this.quotes.quoteState.mirrorElectrical ? 'visible' : 'hidden'
           "
-          [style.height]="this.quoteModel.mirrorElectrical ? '240px' : '0'"
+          [style.height]="
+            this.quotes.quoteState.mirrorElectrical ? '240px' : '0'
+          "
           class="animatedAppearance col-12"
           id="mirror-electrical"
         >
@@ -1220,10 +1262,12 @@
         </div>
         <!--sockets qty-->
         <div
-          [style.opacity]="this.quoteModel.socketsElectrical ? '1' : '0'"
-          [style.height]="this.quoteModel.socketsElectrical ? '70px' : '0'"
+          [style.opacity]="this.quotes.quoteState.socketsElectrical ? '1' : '0'"
+          [style.height]="
+            this.quotes.quoteState.socketsElectrical ? '70px' : '0'
+          "
           [style.visibility]="
-            this.quoteModel.socketsElectrical ? 'visible' : 'hidden'
+            this.quotes.quoteState.socketsElectrical ? 'visible' : 'hidden'
           "
           class="col-12 animatedAppearance"
           id="sockets-qty"
@@ -1235,7 +1279,7 @@
                 matInput
                 placeholder="Comment"
                 formControlName="socketsQty"
-                [(ngModel)]="this.quoteModel.socketsQty"
+                [(ngModel)]="this.quotes.quoteState.socketsQty"
                 (change)="calculateTotal()"
               />
               <mat-error *ngIf="form7.invalid">Numbers only allowed</mat-error>
@@ -1244,10 +1288,14 @@
         </div>
         <!--spotlights qty-->
         <div
-          [style.opacity]="this.quoteModel.spotlightsElectrical ? '1' : '0'"
-          [style.height]="this.quoteModel.spotlightsElectrical ? '70px' : '0'"
+          [style.opacity]="
+            this.quotes.quoteState.spotlightsElectrical ? '1' : '0'
+          "
+          [style.height]="
+            this.quotes.quoteState.spotlightsElectrical ? '70px' : '0'
+          "
           [style.visibility]="
-            this.quoteModel.spotlightsElectrical ? 'visible' : 'hidden'
+            this.quotes.quoteState.spotlightsElectrical ? 'visible' : 'hidden'
           "
           class="col-12 animatedAppearance"
           id="spotlights-qty"
@@ -1259,7 +1307,7 @@
                 matInput
                 placeholder="Comment"
                 formControlName="spotlightsQty"
-                [(ngModel)]="this.quoteModel.spotlightsQty"
+                [(ngModel)]="this.quotes.quoteState.spotlightsQty"
                 (change)="calculateTotal()"
               />
               <mat-error *ngIf="form7.invalid">Numbers only allowed</mat-error>
@@ -1337,15 +1385,19 @@
         </div>
         <div
           [style.opacity]="
-            this.quoteModel.paintingCeiling == 'PaintingWhite' ? '1' : '0'
+            this.quotes.quoteState.paintingCeiling == 'PaintingWhite'
+              ? '1'
+              : '0'
           "
           [style.visibility]="
-            this.quoteModel.paintingCeiling == 'PaintingWhite'
+            this.quotes.quoteState.paintingCeiling == 'PaintingWhite'
               ? 'visible'
               : 'hidden'
           "
           [style.height]="
-            this.quoteModel.paintingCeiling == 'PaintingWhite' ? '70px' : '0'
+            this.quotes.quoteState.paintingCeiling == 'PaintingWhite'
+              ? '70px'
+              : '0'
           "
           class="col-12 animatedAppearance"
           id="other-wall"
@@ -1394,24 +1446,25 @@
       <div class="row">
         <mat-label class="selectLabel"
           >Quote summary for bathroom size
-          <span *ngIf="this.quoteModel.units == 'Metric'"
-            ><b>{{ this.quoteModel.widthCm }} cm</b> x
-            <b>{{ this.quoteModel.heightCm }} cm</b> x
-            <b>{{ this.quoteModel.depthCm }} cm</b></span
+          <span *ngIf="this.quotes.quoteState.units == 'Metric'"
+            ><b>{{ this.quotes.quoteState.widthCm }} cm</b> x
+            <b>{{ this.quotes.quoteState.heightCm }} cm</b> x
+            <b>{{ this.quotes.quoteState.depthCm }} cm</b></span
           >
-          <span *ngIf="this.quoteModel.units == 'Imperial'"
+          <span *ngIf="this.quotes.quoteState.units == 'Imperial'"
             ><b
-              >{{ this.quoteModel.widthFt }} ft
-              {{ this.quoteModel.widthIn }} in</b
+              >{{ this.quotes.quoteState.widthFt }} ft
+              {{ this.quotes.quoteState.widthIn }} in</b
             >
             x
             <b
-              >{{ this.quoteModel.heightFt }} ft
-              {{ this.quoteModel.heightIn }} in</b
+              >{{ this.quotes.quoteState.heightFt }} ft
+              {{ this.quotes.quoteState.heightIn }} in</b
             >
             x
             <b
-              >{{ this.quoteModel.depthFt }} ft {{ this.quoteModel.depthIn }}</b
+              >{{ this.quotes.quoteState.depthFt }} ft
+              {{ this.quotes.quoteState.depthIn }}</b
             ></span
           >
           <button
@@ -1439,22 +1492,25 @@
                 <b>Removals</b>:
               </td>
               <td>
-                <span *ngIf="this.quoteModel.removals">With removal;</span
-                ><span *ngIf="!this.quoteModel.removals">No removal;</span>
+                <span *ngIf="this.quotes.quoteState.removals"
+                  >With removal;</span
+                ><span *ngIf="!this.quotes.quoteState.removals"
+                  >No removal;</span
+                >
               </td>
               <td></td>
               <td>
-                <span *ngIf="this.quoteModel.removals"
+                <span *ngIf="this.quotes.quoteState.removals"
                   >Including removal of all existing units, tiles and floor and
                   preparing room to work; </span
-                ><span *ngIf="!this.quoteModel.removals"
+                ><span *ngIf="!this.quotes.quoteState.removals"
                   >Removal of all existing units, tiles and floor and preparing
                   room to work will be performed by the customer;
                 </span>
               </td>
               <td>
                 <span>
-                  <b>{{ this.quoteModel.removalsTotal.toFixed(2) }} £</b>
+                  <b>{{ this.quotes.quoteState.removalsTotal.toFixed(2) }} £</b>
                 </span>
               </td>
             </tr>
@@ -1471,46 +1527,56 @@
                 <b>Floor</b>:
               </td>
               <td>
-                <span *ngIf="this.quoteModel.floorNone">No change; </span>
-                <span *ngIf="this.quoteModel.floorLvt">LVT floor; </span>
-                <span *ngIf="this.quoteModel.floorTiled">Tiled floor; </span>
-                <span *ngIf="this.quoteModel.floorOther">Other floor; </span>
+                <span *ngIf="this.quotes.quoteState.floorNone"
+                  >No change;
+                </span>
+                <span *ngIf="this.quotes.quoteState.floorLvt">LVT floor; </span>
+                <span *ngIf="this.quotes.quoteState.floorTiled"
+                  >Tiled floor;
+                </span>
+                <span *ngIf="this.quotes.quoteState.floorOther"
+                  >Other floor;
+                </span>
               </td>
               <td>
                 <span
-                  *ngIf="this.quoteModel.floorLvt || this.quoteModel.floorTiled"
+                  *ngIf="
+                    this.quotes.quoteState.floorLvt ||
+                    this.quotes.quoteState.floorTiled
+                  "
                 >
                   <img
                     src="../../../assets/images/{{
-                      this.quoteModel.floorType
-                    }}/{{ this.quoteModel.floorCode }}.jpg"
+                      this.quotes.quoteState.floorType
+                    }}/{{ this.quotes.quoteState.floorCode }}.jpg"
                     class="summaryTile"
                   />
                 </span>
               </td>
               <td>
-                <span *ngIf="this.quoteModel.floorNone"
+                <span *ngIf="this.quotes.quoteState.floorNone"
                   >The floor will remain unchanged;
                 </span>
-                <span *ngIf="this.quoteModel.floorLvt"
+                <span *ngIf="this.quotes.quoteState.floorLvt"
                   >Price included plywood boards underneath;
                 </span>
-                <span *ngIf="this.quoteModel.floorTiled"
+                <span *ngIf="this.quotes.quoteState.floorTiled"
                   >Price included anti-cracking cement boards, tiles adhesive
                   and grout; </span
-                ><span *ngIf="this.quoteModel.floorOther"
-                  >Client`s comment: {{ this.quoteModel.floorOtherComments }};
+                ><span *ngIf="this.quotes.quoteState.floorOther"
+                  >Client`s comment:
+                  {{ this.quotes.quoteState.floorOtherComments }};
                 </span>
-                <span *ngIf="this.quoteModel.floorOther"
+                <span *ngIf="this.quotes.quoteState.floorOther"
                   >* Depending on the specifications of your "Other"
                   requirements, they will be valued separately;
                 </span>
               </td>
               <td>
                 <span>
-                  <b>{{ this.quoteModel.floorTotal.toFixed(2) }} £</b>
+                  <b>{{ this.quotes.quoteState.floorTotal.toFixed(2) }} £</b>
                 </span>
-                <span *ngIf="this.quoteModel.floorOther"><b> *</b></span>
+                <span *ngIf="this.quotes.quoteState.floorOther"><b> *</b></span>
               </td>
             </tr>
             <!--walls row-->
@@ -1526,59 +1592,66 @@
                 <b>Walls</b>:
               </td>
               <td>
-                <span *ngIf="this.quoteModel.wallsFullHeight"
+                <span *ngIf="this.quotes.quoteState.wallsFullHeight"
                   >Full height;
                 </span>
-                <span *ngIf="this.quoteModel.wallsHalfHeight"
+                <span *ngIf="this.quotes.quoteState.wallsHalfHeight"
                   >Half height;
                 </span>
-                <span *ngIf="this.quoteModel.wallsOther">Other walls; </span>
-                <span *ngIf="this.quoteModel.wallsPlastered">Plastered; </span>
-                <span *ngIf="this.quoteModel.wallsNone">No change; </span>
+                <span *ngIf="this.quotes.quoteState.wallsOther"
+                  >Other walls;
+                </span>
+                <span *ngIf="this.quotes.quoteState.wallsPlastered"
+                  >Plastered;
+                </span>
+                <span *ngIf="this.quotes.quoteState.wallsNone"
+                  >No change;
+                </span>
               </td>
               <td>
                 <span
                   *ngIf="
-                    this.quoteModel.wallsFullHeight ||
-                    this.quoteModel.wallsHalfHeight
+                    this.quotes.quoteState.wallsFullHeight ||
+                    this.quotes.quoteState.wallsHalfHeight
                   "
                 >
                   <img
                     src="../../../assets/images/{{
-                      this.quoteModel.floorType
-                    }}/{{ this.quoteModel.floorCode }}.jpg"
+                      this.quotes.quoteState.floorType
+                    }}/{{ this.quotes.quoteState.floorCode }}.jpg"
                     class="summaryTile"
                   />
                 </span>
               </td>
               <td>
-                <span *ngIf="this.quoteModel.wallsFullHeight"
+                <span *ngIf="this.quotes.quoteState.wallsFullHeight"
                   >Tile adhesive and grout included;
                 </span>
-                <span *ngIf="this.quoteModel.wallsHalfHeight"
+                <span *ngIf="this.quotes.quoteState.wallsHalfHeight"
                   >Tile adhesive and grout included and plastering;
                 </span>
-                <span *ngIf="this.quoteModel.wallsPlastered"
+                <span *ngIf="this.quotes.quoteState.wallsPlastered"
                   >Plastering of walls;
                 </span>
-                <span *ngIf="this.quoteModel.wallsNone"
+                <span *ngIf="this.quotes.quoteState.wallsNone"
                   >The walls will remain unchanged;
                 </span>
-                <span *ngIf="this.quoteModel.wallsPaintedWhite"
+                <span *ngIf="this.quotes.quoteState.wallsPaintedWhite"
                   >Included anti-condensation Dulux paint; </span
-                ><span *ngIf="this.quoteModel.wallsOther"
-                  >Client`s comment: {{ this.quoteModel.wallsOtherComments }};
+                ><span *ngIf="this.quotes.quoteState.wallsOther"
+                  >Client`s comment:
+                  {{ this.quotes.quoteState.wallsOtherComments }};
                 </span>
-                <span *ngIf="this.quoteModel.wallsOther"
+                <span *ngIf="this.quotes.quoteState.wallsOther"
                   >* Depending on the specifications of your "Other"
                   requirements, they will be valued separately;
                 </span>
               </td>
               <td>
                 <span>
-                  <b>{{ this.quoteModel.wallsTotal.toFixed(2) }} £</b>
+                  <b>{{ this.quotes.quoteState.wallsTotal.toFixed(2) }} £</b>
                 </span>
-                <span *ngIf="this.quoteModel.wallsOther"><b> *</b></span>
+                <span *ngIf="this.quotes.quoteState.wallsOther"><b> *</b></span>
               </td>
             </tr>
             <!--units row-->
@@ -1596,72 +1669,76 @@
               <td>
                 <span
                   *ngIf="
-                    !this.quoteModel.bathItem &&
-                    !this.quoteModel.ensuiteItem &&
-                    !this.quoteModel.mixerItem &&
-                    !this.quoteModel.toiletItem &&
-                    !this.quoteModel.towelRailItem &&
-                    !this.quoteModel.basinItem &&
-                    !this.quoteModel.otherItem
+                    !this.quotes.quoteState.bathItem &&
+                    !this.quotes.quoteState.ensuiteItem &&
+                    !this.quotes.quoteState.mixerItem &&
+                    !this.quotes.quoteState.toiletItem &&
+                    !this.quotes.quoteState.towelRailItem &&
+                    !this.quotes.quoteState.basinItem &&
+                    !this.quotes.quoteState.otherItem
                   "
                   >No selection;
                 </span>
-                <span *ngIf="this.quoteModel.bathItem">Bath; </span>
-                <span *ngIf="this.quoteModel.ensuiteItem"
+                <span *ngIf="this.quotes.quoteState.bathItem">Bath; </span>
+                <span *ngIf="this.quotes.quoteState.ensuiteItem"
                   >Shower ensuite;
                 </span>
-                <span *ngIf="this.quoteModel.mixerItem">Shower mixer; </span>
-                <span *ngIf="this.quoteModel.toiletItem">Toilet; </span>
-                <span *ngIf="this.quoteModel.towelRailItem">Towel rail; </span>
-                <span *ngIf="this.quoteModel.basinItem">Basin; </span>
-                <span *ngIf="this.quoteModel.otherItem">Other; </span>
+                <span *ngIf="this.quotes.quoteState.mixerItem"
+                  >Shower mixer;
+                </span>
+                <span *ngIf="this.quotes.quoteState.toiletItem">Toilet; </span>
+                <span *ngIf="this.quotes.quoteState.towelRailItem"
+                  >Towel rail;
+                </span>
+                <span *ngIf="this.quotes.quoteState.basinItem">Basin; </span>
+                <span *ngIf="this.quotes.quoteState.otherItem">Other; </span>
               </td>
               <td>
-                <span *ngIf="this.quoteModel.bathItem">
+                <span *ngIf="this.quotes.quoteState.bathItem">
                   <img
                     src="../../../assets/images/{{
-                      this.quoteModel.floorType
-                    }}/{{ this.quoteModel.floorCode }}.jpg"
+                      this.quotes.quoteState.floorType
+                    }}/{{ this.quotes.quoteState.floorCode }}.jpg"
                     class="summaryTile"
                   />
                 </span>
-                <span *ngIf="this.quoteModel.ensuiteItem">
+                <span *ngIf="this.quotes.quoteState.ensuiteItem">
                   <img
                     src="../../../assets/images/{{
-                      this.quoteModel.floorType
-                    }}/{{ this.quoteModel.floorCode }}.jpg"
+                      this.quotes.quoteState.floorType
+                    }}/{{ this.quotes.quoteState.floorCode }}.jpg"
                     class="summaryTile"
                   />
                 </span>
-                <span *ngIf="this.quoteModel.mixerItem">
+                <span *ngIf="this.quotes.quoteState.mixerItem">
                   <img
                     src="../../../assets/images/{{
-                      this.quoteModel.floorType
-                    }}/{{ this.quoteModel.floorCode }}.jpg"
+                      this.quotes.quoteState.floorType
+                    }}/{{ this.quotes.quoteState.floorCode }}.jpg"
                     class="summaryTile"
                   />
                 </span>
-                <span *ngIf="this.quoteModel.toiletItem">
+                <span *ngIf="this.quotes.quoteState.toiletItem">
                   <img
                     src="../../../assets/images/{{
-                      this.quoteModel.floorType
-                    }}/{{ this.quoteModel.floorCode }}.jpg"
+                      this.quotes.quoteState.floorType
+                    }}/{{ this.quotes.quoteState.floorCode }}.jpg"
                     class="summaryTile"
                   />
                 </span>
-                <span *ngIf="this.quoteModel.towelRailItem">
+                <span *ngIf="this.quotes.quoteState.towelRailItem">
                   <img
                     src="../../../assets/images/{{
-                      this.quoteModel.floorType
-                    }}/{{ this.quoteModel.floorCode }}.jpg"
+                      this.quotes.quoteState.floorType
+                    }}/{{ this.quotes.quoteState.floorCode }}.jpg"
                     class="summaryTile"
                   />
                 </span>
-                <span *ngIf="this.quoteModel.basinItem">
+                <span *ngIf="this.quotes.quoteState.basinItem">
                   <img
                     src="../../../assets/images/{{
-                      this.quoteModel.floorType
-                    }}/{{ this.quoteModel.floorCode }}.jpg"
+                      this.quotes.quoteState.floorType
+                    }}/{{ this.quotes.quoteState.floorCode }}.jpg"
                     class="summaryTile"
                   />
                 </span>
@@ -1671,19 +1748,20 @@
                   >Pipe alternation or changing position of the units to be
                   priced separately;
                 </span>
-                <span *ngIf="this.quoteModel.otherItem"
-                  >Client`s comment: {{ this.quoteModel.otherItemComments }};
+                <span *ngIf="this.quotes.quoteState.otherItem"
+                  >Client`s comment:
+                  {{ this.quotes.quoteState.otherItemComments }};
                 </span>
-                <span *ngIf="this.quoteModel.otherItem"
+                <span *ngIf="this.quotes.quoteState.otherItem"
                   >* Depending on the specifications of your "Other"
                   requirements, they will be valued separately;
                 </span>
               </td>
               <td>
                 <span>
-                  <b>{{ this.quoteModel.itemsTotal.toFixed(2) }} £</b>
+                  <b>{{ this.quotes.quoteState.itemsTotal.toFixed(2) }} £</b>
                 </span>
-                <span *ngIf="this.quoteModel.otherItem"><b> *</b></span>
+                <span *ngIf="this.quotes.quoteState.otherItem"><b> *</b></span>
               </td>
             </tr>
             <!--doors row-->
@@ -1699,23 +1777,23 @@
                 <b>Doors</b>:
               </td>
               <td>
-                <span *ngIf="this.quoteModel.doorsChanging"
+                <span *ngIf="this.quotes.quoteState.doorsChanging"
                   >Changing doors; </span
-                ><span *ngIf="!this.quoteModel.doorsChanging"
+                ><span *ngIf="!this.quotes.quoteState.doorsChanging"
                   >No changing doors;
                 </span>
               </td>
               <td></td>
               <td>
-                <span *ngIf="this.quoteModel.doorsChanging"
+                <span *ngIf="this.quotes.quoteState.doorsChanging"
                   >Hollow primed doors with handles and bolt lock; </span
-                ><span *ngIf="!this.quoteModel.doorsChanging"
+                ><span *ngIf="!this.quotes.quoteState.doorsChanging"
                   >Doors will be not replaced;
                 </span>
               </td>
               <td>
                 <span>
-                  <b>{{ this.quoteModel.doorsTotal.toFixed(2) }} £</b>
+                  <b>{{ this.quotes.quoteState.doorsTotal.toFixed(2) }} £</b>
                 </span>
               </td>
             </tr>
@@ -1734,40 +1812,40 @@
               <td>
                 <span
                   *ngIf="
-                    !this.quoteModel.mirrorElectrical &&
-                    !this.quoteModel.fanElectrical &&
-                    !this.quoteModel.spotlightsElectrical &&
-                    !this.quoteModel.switcherInsideElectrical &&
-                    !this.quoteModel.switcherOutsideElectrical &&
-                    !this.quoteModel.socketsElectrical
+                    !this.quotes.quoteState.mirrorElectrical &&
+                    !this.quotes.quoteState.fanElectrical &&
+                    !this.quotes.quoteState.spotlightsElectrical &&
+                    !this.quotes.quoteState.switcherInsideElectrical &&
+                    !this.quotes.quoteState.switcherOutsideElectrical &&
+                    !this.quotes.quoteState.socketsElectrical
                   "
                   >No selection;
                 </span>
-                <span *ngIf="this.quoteModel.mirrorElectrical"
+                <span *ngIf="this.quotes.quoteState.mirrorElectrical"
                   >Electrical mirror;
                 </span>
-                <span *ngIf="this.quoteModel.fanElectrical"
+                <span *ngIf="this.quotes.quoteState.fanElectrical"
                   >Mechanic fan;
                 </span>
-                <span *ngIf="this.quoteModel.spotlightsElectrical"
+                <span *ngIf="this.quotes.quoteState.spotlightsElectrical"
                   >Spotlights;
                 </span>
-                <span *ngIf="this.quoteModel.switcherInsideElectrical"
+                <span *ngIf="this.quotes.quoteState.switcherInsideElectrical"
                   >Light switch inside;
                 </span>
-                <span *ngIf="this.quoteModel.switcherOutsideElectrical"
+                <span *ngIf="this.quotes.quoteState.switcherOutsideElectrical"
                   >Light switch outside;
                 </span>
-                <span *ngIf="this.quoteModel.socketsElectrical"
+                <span *ngIf="this.quotes.quoteState.socketsElectrical"
                   >Power sockets;
                 </span>
               </td>
               <td>
-                <span *ngIf="this.quoteModel.mirrorElectrical">
+                <span *ngIf="this.quotes.quoteState.mirrorElectrical">
                   <img
                     src="../../../assets/images/{{
-                      this.quoteModel.floorType
-                    }}/{{ this.quoteModel.floorCode }}.jpg"
+                      this.quotes.quoteState.floorType
+                    }}/{{ this.quotes.quoteState.floorCode }}.jpg"
                     class="summaryTile"
                   />
                 </span>
@@ -1775,36 +1853,42 @@
               <td>
                 <span
                   *ngIf="
-                    this.quoteModel.mirrorElectrical ||
-                    this.quoteModel.fanElectrical ||
-                    this.quoteModel.spotlightsElectrical ||
-                    this.quoteModel.switcherInsideElectrical ||
-                    this.quoteModel.switcherOutsideElectrical ||
-                    this.quoteModel.socketsElectrical
+                    this.quotes.quoteState.mirrorElectrical ||
+                    this.quotes.quoteState.fanElectrical ||
+                    this.quotes.quoteState.spotlightsElectrical ||
+                    this.quotes.quoteState.switcherInsideElectrical ||
+                    this.quotes.quoteState.switcherOutsideElectrical ||
+                    this.quotes.quoteState.socketsElectrical
                   "
                   >Installation and unit included;
                 </span>
                 <span
                   *ngIf="
-                    !this.quoteModel.mirrorElectrical &&
-                    !this.quoteModel.fanElectrical &&
-                    !this.quoteModel.spotlightsElectrical &&
-                    !this.quoteModel.switcherInsideElectrical &&
-                    !this.quoteModel.switcherOutsideElectrical &&
-                    !this.quoteModel.socketsElectrical
+                    !this.quotes.quoteState.mirrorElectrical &&
+                    !this.quotes.quoteState.fanElectrical &&
+                    !this.quotes.quoteState.spotlightsElectrical &&
+                    !this.quotes.quoteState.switcherInsideElectrical &&
+                    !this.quotes.quoteState.switcherOutsideElectrical &&
+                    !this.quotes.quoteState.socketsElectrical
                   "
                   >Electric installation will remain unchanged;
                 </span>
-                <span *ngIf="this.quoteModel.socketsElectrical"
-                  >Sockets quantity: {{ this.quoteModel.socketsQty }};
+                <span *ngIf="this.quotes.quoteState.socketsElectrical"
+                  >Sockets quantity: {{ this.quotes.quoteState.socketsQty }};
                 </span>
-                <span *ngIf="this.quoteModel.spotlightsElectrical"
-                  >Spotlights quantity: {{ this.quoteModel.spotlightsQty }};
+                <span *ngIf="this.quotes.quoteState.spotlightsElectrical"
+                  >Spotlights quantity:
+                  {{ this.quotes.quoteState.spotlightsQty }};
                 </span>
               </td>
               <td>
                 <span>
-                  <b>{{ this.quoteModel.electricalTotal.toFixed(2) }} £</b>
+                  <b
+                    >{{
+                      this.quotes.quoteState.electricalTotal.toFixed(2)
+                    }}
+                    £</b
+                  >
                 </span>
               </td>
             </tr>
@@ -1821,31 +1905,41 @@
                 <b>Ceiling</b>:
               </td>
               <td>
-                <span *ngIf="this.quoteModel.paintingCeiling == 'Plastered'"
+                <span
+                  *ngIf="this.quotes.quoteState.paintingCeiling == 'Plastered'"
                   >Ceiling plastered;
                 </span>
-                <span *ngIf="this.quoteModel.paintingCeiling == 'NoPainting'"
+                <span
+                  *ngIf="this.quotes.quoteState.paintingCeiling == 'NoPainting'"
                   >No ceiling painting;
                 </span>
-                <span *ngIf="this.quoteModel.paintingCeiling == 'PaintingWhite'"
+                <span
+                  *ngIf="
+                    this.quotes.quoteState.paintingCeiling == 'PaintingWhite'
+                  "
                   >Paint ceiling white;
                 </span>
               </td>
               <td></td>
               <td>
-                <span *ngIf="this.quoteModel.paintingCeiling == 'NoPainting'"
+                <span
+                  *ngIf="this.quotes.quoteState.paintingCeiling == 'NoPainting'"
                   >Ceiling will remain unchanged;
                 </span>
-                <span *ngIf="this.quoteModel.paintingCeiling == 'Plastered'"
+                <span
+                  *ngIf="this.quotes.quoteState.paintingCeiling == 'Plastered'"
                   >Ceiling will be plastered;
                 </span>
-                <span *ngIf="this.quoteModel.paintingCeiling == 'PaintingWhite'"
+                <span
+                  *ngIf="
+                    this.quotes.quoteState.paintingCeiling == 'PaintingWhite'
+                  "
                   >Included anti-condensation Dulux paint;
                 </span>
               </td>
               <td>
                 <span>
-                  <b>{{ this.quoteModel.ceilingTotal.toFixed(2) }} £</b>
+                  <b>{{ this.quotes.quoteState.ceilingTotal.toFixed(2) }} £</b>
                 </span>
               </td>
             </tr>

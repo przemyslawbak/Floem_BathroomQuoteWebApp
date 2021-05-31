@@ -1,13 +1,14 @@
 import { UnitModel } from './../_models/unit-items.model';
 import { QuoteItems, CeilingPainting } from './../_models/quote-items.model';
 import { DimentionUnits } from './../_models/quote-items.model';
-import { Component, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { BreakpointObserver } from '@angular/cdk/layout';
 import { MatStepper, StepperOrientation } from '@angular/material/stepper';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Router } from '@angular/router';
+import { QuoteService } from '@services/quote.service';
 
 @Component({
   selector: 'app-form',
@@ -18,7 +19,6 @@ export class FormComponent {
   unitsDimentions = DimentionUnits;
   keys: Array<string> = this.getKeys();
   public isLinear: boolean = true;
-  public quoteModel: QuoteItems = new QuoteItems();
   public total: number = 0;
   public otherComment: boolean = false;
   public tiles = [
@@ -181,7 +181,8 @@ export class FormComponent {
   constructor(
     private _formBuilder: FormBuilder,
     public breakpointObserver: BreakpointObserver,
-    private router: Router
+    private router: Router,
+    public quotes: QuoteService
   ) {
     this.stepperOrientation = breakpointObserver
       .observe('(min-width: 800px)')
@@ -189,47 +190,48 @@ export class FormComponent {
 
     this.setDefaultTiles();
   }
+
   form0 = this._formBuilder.group({
     valid: [true, Validators.required],
   });
   form1 = this._formBuilder.group({
     widthCm: [
-      this.quoteModel.widthCm,
+      this.quotes.quoteState.widthCm,
       [Validators.required, Validators.pattern('^[1-9]\\d*(\\.\\d+)?$')],
     ],
     heightCm: [
-      this.quoteModel.heightCm,
+      this.quotes.quoteState.heightCm,
       [Validators.required, Validators.pattern('^[1-9]\\d*(\\.\\d+)?$')],
     ],
     depthCm: [
-      this.quoteModel.depthCm,
+      this.quotes.quoteState.depthCm,
       [Validators.required, Validators.pattern('^[1-9]\\d*(\\.\\d+)?$')],
     ],
     widthFt: [
-      this.quoteModel.widthFt,
+      this.quotes.quoteState.widthFt,
       [Validators.required, Validators.pattern('^[1-9]\\d*(\\.\\d+)?$')],
     ],
     heightFt: [
-      this.quoteModel.heightFt,
+      this.quotes.quoteState.heightFt,
       [Validators.required, Validators.pattern('^[1-9]\\d*(\\.\\d+)?$')],
     ],
     depthFt: [
-      this.quoteModel.depthFt,
+      this.quotes.quoteState.depthFt,
       [Validators.required, Validators.pattern('^[1-9]\\d*(\\.\\d+)?$')],
     ],
     widthIn: [
-      this.quoteModel.widthIn,
+      this.quotes.quoteState.widthIn,
       [Validators.required, Validators.pattern('^[1-9]\\d*(\\.\\d+)?$')],
     ],
     heightIn: [
-      this.quoteModel.heightIn,
+      this.quotes.quoteState.heightIn,
       [Validators.required, Validators.pattern('^[1-9]\\d*(\\.\\d+)?$')],
     ],
     depthIn: [
-      this.quoteModel.depthIn,
+      this.quotes.quoteState.depthIn,
       [Validators.required, Validators.pattern('^[1-9]\\d*(\\.\\d+)?$')],
     ],
-    units: [this.quoteModel.units, Validators.required],
+    units: [this.quotes.quoteState.units, Validators.required],
   });
 
   form2 = this._formBuilder.group({
@@ -238,17 +240,17 @@ export class FormComponent {
 
   form3 = this._formBuilder.group({
     valid: [true, Validators.required],
-    floorOtherComments: [this.quoteModel.floorOtherComments],
+    floorOtherComments: [this.quotes.quoteState.floorOtherComments],
   });
 
   form4 = this._formBuilder.group({
     valid: [true, Validators.required],
-    wallsOtherComments: [this.quoteModel.wallsOtherComments],
+    wallsOtherComments: [this.quotes.quoteState.wallsOtherComments],
   });
 
   form5 = this._formBuilder.group({
     valid: [true, Validators.required],
-    otherItemComments: [this.quoteModel.otherItemComments],
+    otherItemComments: [this.quotes.quoteState.otherItemComments],
   });
 
   form6 = this._formBuilder.group({
@@ -257,9 +259,12 @@ export class FormComponent {
 
   form7 = this._formBuilder.group({
     valid: [true, Validators.required],
-    socketsQty: [this.quoteModel.socketsQty, Validators.pattern('^[0-9]*$')],
+    socketsQty: [
+      this.quotes.quoteState.socketsQty,
+      Validators.pattern('^[0-9]*$'),
+    ],
     spotlightsQty: [
-      this.quoteModel.spotlightsQty,
+      this.quotes.quoteState.spotlightsQty,
       Validators.pattern('^[0-9]*$'),
     ],
   });
@@ -283,9 +288,9 @@ export class FormComponent {
 
   public verifyOthers() {
     if (
-      this.quoteModel.floorOther ||
-      this.quoteModel.wallsOther ||
-      this.quoteModel.otherItem
+      this.quotes.quoteState.floorOther ||
+      this.quotes.quoteState.wallsOther ||
+      this.quotes.quoteState.otherItem
     ) {
       this.otherComment = true;
     } else {
@@ -294,190 +299,190 @@ export class FormComponent {
   }
 
   public setNoneFloor(): void {
-    this.quoteModel.floorNone = true;
-    this.quoteModel.floorLvt = false;
-    this.quoteModel.floorOther = false;
-    this.quoteModel.floorTiled = false;
+    this.quotes.quoteState.floorNone = true;
+    this.quotes.quoteState.floorLvt = false;
+    this.quotes.quoteState.floorOther = false;
+    this.quotes.quoteState.floorTiled = false;
     this.verifyOthers();
     this.calculateTotal();
   }
 
   public setTiledFloor(): void {
-    this.quoteModel.floorNone = false;
-    this.quoteModel.floorLvt = false;
-    this.quoteModel.floorOther = false;
-    this.quoteModel.floorTiled = true;
+    this.quotes.quoteState.floorNone = false;
+    this.quotes.quoteState.floorLvt = false;
+    this.quotes.quoteState.floorOther = false;
+    this.quotes.quoteState.floorTiled = true;
     this.verifyOthers();
     this.calculateTotal();
   }
 
   public setLvtFloor(): void {
-    this.quoteModel.floorNone = false;
-    this.quoteModel.floorLvt = true;
-    this.quoteModel.floorOther = false;
-    this.quoteModel.floorTiled = false;
+    this.quotes.quoteState.floorNone = false;
+    this.quotes.quoteState.floorLvt = true;
+    this.quotes.quoteState.floorOther = false;
+    this.quotes.quoteState.floorTiled = false;
     this.verifyOthers();
     this.calculateTotal();
   }
 
   public setOtherFloor(): void {
-    this.quoteModel.floorNone = false;
-    this.quoteModel.floorLvt = false;
-    this.quoteModel.floorOther = true;
-    this.quoteModel.floorTiled = false;
+    this.quotes.quoteState.floorNone = false;
+    this.quotes.quoteState.floorLvt = false;
+    this.quotes.quoteState.floorOther = true;
+    this.quotes.quoteState.floorTiled = false;
     this.verifyOthers();
     this.calculateTotal();
   }
 
   public setRemovals(): void {
-    this.quoteModel.removals = true;
+    this.quotes.quoteState.removals = true;
     this.calculateTotal();
   }
 
   public setNoRemovals(): void {
-    this.quoteModel.removals = false;
+    this.quotes.quoteState.removals = false;
     this.calculateTotal();
   }
 
   public setNoneWall(): void {
-    this.quoteModel.wallsNone = true;
-    this.quoteModel.wallsFullHeight = false;
-    this.quoteModel.wallsHalfHeight = false;
-    this.quoteModel.wallsOther = false;
-    this.quoteModel.wallsPlastered = false;
+    this.quotes.quoteState.wallsNone = true;
+    this.quotes.quoteState.wallsFullHeight = false;
+    this.quotes.quoteState.wallsHalfHeight = false;
+    this.quotes.quoteState.wallsOther = false;
+    this.quotes.quoteState.wallsPlastered = false;
     this.verifyOthers();
     this.calculateTotal();
   }
 
   public setFullWall(): void {
-    this.quoteModel.wallsNone = false;
-    this.quoteModel.wallsFullHeight = true;
-    this.quoteModel.wallsHalfHeight = false;
-    this.quoteModel.wallsOther = false;
-    this.quoteModel.wallsPlastered = false;
+    this.quotes.quoteState.wallsNone = false;
+    this.quotes.quoteState.wallsFullHeight = true;
+    this.quotes.quoteState.wallsHalfHeight = false;
+    this.quotes.quoteState.wallsOther = false;
+    this.quotes.quoteState.wallsPlastered = false;
     this.verifyOthers();
     this.calculateTotal();
   }
 
   public setHalfWall(): void {
-    this.quoteModel.wallsNone = false;
-    this.quoteModel.wallsFullHeight = false;
-    this.quoteModel.wallsHalfHeight = true;
-    this.quoteModel.wallsOther = false;
-    this.quoteModel.wallsPlastered = false;
+    this.quotes.quoteState.wallsNone = false;
+    this.quotes.quoteState.wallsFullHeight = false;
+    this.quotes.quoteState.wallsHalfHeight = true;
+    this.quotes.quoteState.wallsOther = false;
+    this.quotes.quoteState.wallsPlastered = false;
     this.verifyOthers();
     this.calculateTotal();
   }
 
   public setPlasteredWall(): void {
-    this.quoteModel.wallsNone = false;
-    this.quoteModel.wallsFullHeight = false;
-    this.quoteModel.wallsHalfHeight = false;
-    this.quoteModel.wallsOther = false;
-    this.quoteModel.wallsPlastered = true;
+    this.quotes.quoteState.wallsNone = false;
+    this.quotes.quoteState.wallsFullHeight = false;
+    this.quotes.quoteState.wallsHalfHeight = false;
+    this.quotes.quoteState.wallsOther = false;
+    this.quotes.quoteState.wallsPlastered = true;
     this.verifyOthers();
     this.calculateTotal();
   }
 
   public setOtherWall(): void {
-    this.quoteModel.wallsNone = false;
-    this.quoteModel.wallsFullHeight = false;
-    this.quoteModel.wallsHalfHeight = false;
-    this.quoteModel.wallsOther = true;
-    this.quoteModel.wallsPlastered = false;
+    this.quotes.quoteState.wallsNone = false;
+    this.quotes.quoteState.wallsFullHeight = false;
+    this.quotes.quoteState.wallsHalfHeight = false;
+    this.quotes.quoteState.wallsOther = true;
+    this.quotes.quoteState.wallsPlastered = false;
     this.verifyOthers();
     this.calculateTotal();
   }
 
   public setWallNotPaintedWhite(): void {
-    this.quoteModel.wallsPaintedWhite = false;
+    this.quotes.quoteState.wallsPaintedWhite = false;
     this.calculateTotal();
   }
 
   public setWallPaintedWhite(): void {
-    this.quoteModel.wallsPaintedWhite = true;
+    this.quotes.quoteState.wallsPaintedWhite = true;
     this.calculateTotal();
   }
 
   public onUnitsValChange(e: Array<string>): void {
     if (e.includes('other')) {
-      this.quoteModel.otherItem = true;
+      this.quotes.quoteState.otherItem = true;
     } else {
-      this.quoteModel.otherItem = false;
+      this.quotes.quoteState.otherItem = false;
     }
     if (e.includes('bath')) {
-      this.quoteModel.bathItem = true;
+      this.quotes.quoteState.bathItem = true;
     } else {
-      this.quoteModel.bathItem = false;
+      this.quotes.quoteState.bathItem = false;
     }
     if (e.includes('ensuite')) {
-      this.quoteModel.ensuiteItem = true;
+      this.quotes.quoteState.ensuiteItem = true;
     } else {
-      this.quoteModel.ensuiteItem = false;
+      this.quotes.quoteState.ensuiteItem = false;
     }
     if (e.includes('mixer')) {
-      this.quoteModel.mixerItem = true;
+      this.quotes.quoteState.mixerItem = true;
     } else {
-      this.quoteModel.mixerItem = false;
+      this.quotes.quoteState.mixerItem = false;
     }
     if (e.includes('toilet')) {
-      this.quoteModel.toiletItem = true;
+      this.quotes.quoteState.toiletItem = true;
     } else {
-      this.quoteModel.toiletItem = false;
+      this.quotes.quoteState.toiletItem = false;
     }
     if (e.includes('rail')) {
-      this.quoteModel.towelRailItem = true;
+      this.quotes.quoteState.towelRailItem = true;
     } else {
-      this.quoteModel.towelRailItem = false;
+      this.quotes.quoteState.towelRailItem = false;
     }
     if (e.includes('basin')) {
-      this.quoteModel.basinItem = true;
+      this.quotes.quoteState.basinItem = true;
     } else {
-      this.quoteModel.basinItem = false;
+      this.quotes.quoteState.basinItem = false;
     }
     this.verifyOthers();
   }
 
   public onElectricalValChange(e: Array<string>): void {
     if (e.includes('mirror')) {
-      this.quoteModel.mirrorElectrical = true;
+      this.quotes.quoteState.mirrorElectrical = true;
     } else {
-      this.quoteModel.mirrorElectrical = false;
+      this.quotes.quoteState.mirrorElectrical = false;
     }
     if (e.includes('fan')) {
-      this.quoteModel.fanElectrical = true;
+      this.quotes.quoteState.fanElectrical = true;
     } else {
-      this.quoteModel.fanElectrical = false;
+      this.quotes.quoteState.fanElectrical = false;
     }
     if (e.includes('spotlight')) {
-      this.quoteModel.spotlightsElectrical = true;
+      this.quotes.quoteState.spotlightsElectrical = true;
     } else {
-      this.quoteModel.spotlightsElectrical = false;
+      this.quotes.quoteState.spotlightsElectrical = false;
     }
     if (e.includes('switchIn')) {
-      this.quoteModel.switcherInsideElectrical = true;
+      this.quotes.quoteState.switcherInsideElectrical = true;
     } else {
-      this.quoteModel.switcherInsideElectrical = false;
+      this.quotes.quoteState.switcherInsideElectrical = false;
     }
     if (e.includes('switchOut')) {
-      this.quoteModel.switcherOutsideElectrical = true;
+      this.quotes.quoteState.switcherOutsideElectrical = true;
     } else {
-      this.quoteModel.switcherOutsideElectrical = false;
+      this.quotes.quoteState.switcherOutsideElectrical = false;
     }
     if (e.includes('socket')) {
-      this.quoteModel.socketsElectrical = true;
+      this.quotes.quoteState.socketsElectrical = true;
     } else {
-      this.quoteModel.socketsElectrical = false;
+      this.quotes.quoteState.socketsElectrical = false;
     }
   }
 
   public setNoChangingDoors(): void {
-    this.quoteModel.doorsChanging = false;
+    this.quotes.quoteState.doorsChanging = false;
     this.calculateTotal();
   }
 
   public setChangingDoors(): void {
-    this.quoteModel.doorsChanging = true;
+    this.quotes.quoteState.doorsChanging = true;
     this.calculateTotal();
   }
 
@@ -545,181 +550,197 @@ export class FormComponent {
 
   public calculateTotal(): void {
     this.total = 0;
-    this.quoteModel.removalsTotal = 0;
-    this.quoteModel.floorTotal = 0;
-    this.quoteModel.wallsTotal = 0;
-    this.quoteModel.itemsTotal = 0;
-    this.quoteModel.doorsTotal = 0;
-    this.quoteModel.electricalTotal = 0;
-    this.quoteModel.ceilingTotal = 0;
-    if (this.quoteModel.units == 'Imperial') {
+    this.quotes.quoteState.removalsTotal = 0;
+    this.quotes.quoteState.floorTotal = 0;
+    this.quotes.quoteState.wallsTotal = 0;
+    this.quotes.quoteState.itemsTotal = 0;
+    this.quotes.quoteState.doorsTotal = 0;
+    this.quotes.quoteState.electricalTotal = 0;
+    this.quotes.quoteState.ceilingTotal = 0;
+    if (this.quotes.quoteState.units == 'Imperial') {
       this.convertUnits(true);
     }
     let floorSquareMeters: number =
-      (this.quoteModel.widthCm * this.quoteModel.depthCm) / 10000;
+      (this.quotes.quoteState.widthCm * this.quotes.quoteState.depthCm) / 10000;
     let wallsSquareMeters: number =
-      (this.quoteModel.heightCm * this.quoteModel.widthCm * 2) / 10000 +
-      (this.quoteModel.heightCm * this.quoteModel.depthCm * 2) / 10000;
+      (this.quotes.quoteState.heightCm * this.quotes.quoteState.widthCm * 2) /
+        10000 +
+      (this.quotes.quoteState.heightCm * this.quotes.quoteState.depthCm * 2) /
+        10000;
     let lvtSquareMeters: number = Math.ceil(floorSquareMeters);
     if (lvtSquareMeters % 2 != 0) {
       lvtSquareMeters = lvtSquareMeters + 1;
     }
 
     //2.removals
-    if (this.quoteModel.removals) {
-      this.quoteModel.removalsTotal =
-        this.quoteModel.removalsTotal + this.quoteModel.removalsPrice;
+    if (this.quotes.quoteState.removals) {
+      this.quotes.quoteState.removalsTotal =
+        this.quotes.quoteState.removalsTotal +
+        this.quotes.quoteState.removalsPrice;
     }
-    this.total = this.total + this.quoteModel.removalsTotal;
+    this.total = this.total + this.quotes.quoteState.removalsTotal;
     //3.floor
-    if (this.quoteModel.floorNone) {
-      this.quoteModel.floorTotal = this.quoteModel.floorTotal;
-    } else if (this.quoteModel.floorLvt) {
-      this.quoteModel.floorTotal =
-        this.quoteModel.floorTotal +
-        (lvtSquareMeters / 2) * this.quoteModel.floorLvtPrice +
-        lvtSquareMeters * this.quoteModel.floorPrice;
-    } else if (this.quoteModel.floorTiled) {
-      this.quoteModel.floorTotal =
-        this.quoteModel.floorTotal +
-        this.quoteModel.floorTilingPrice * floorSquareMeters +
-        this.quoteModel.floorPrice * floorSquareMeters;
+    if (this.quotes.quoteState.floorNone) {
+      this.quotes.quoteState.floorTotal = this.quotes.quoteState.floorTotal;
+    } else if (this.quotes.quoteState.floorLvt) {
+      this.quotes.quoteState.floorTotal =
+        this.quotes.quoteState.floorTotal +
+        (lvtSquareMeters / 2) * this.quotes.quoteState.floorLvtPrice +
+        lvtSquareMeters * this.quotes.quoteState.floorPrice;
+    } else if (this.quotes.quoteState.floorTiled) {
+      this.quotes.quoteState.floorTotal =
+        this.quotes.quoteState.floorTotal +
+        this.quotes.quoteState.floorTilingPrice * floorSquareMeters +
+        this.quotes.quoteState.floorPrice * floorSquareMeters;
     }
-    this.total = this.total + this.quoteModel.floorTotal;
+    this.total = this.total + this.quotes.quoteState.floorTotal;
     //4.wall
-    if (this.quoteModel.wallsFullHeight) {
-      this.quoteModel.wallsTotal =
-        this.quoteModel.wallsTotal +
-        wallsSquareMeters * this.quoteModel.wallTilingPrice +
-        wallsSquareMeters * this.quoteModel.wallPrice;
-    } else if (this.quoteModel.wallsHalfHeight) {
-      this.quoteModel.wallsTotal =
-        this.quoteModel.wallsTotal +
-        (wallsSquareMeters * this.quoteModel.wallTilingPrice +
-          wallsSquareMeters * this.quoteModel.wallPrice) /
+    if (this.quotes.quoteState.wallsFullHeight) {
+      this.quotes.quoteState.wallsTotal =
+        this.quotes.quoteState.wallsTotal +
+        wallsSquareMeters * this.quotes.quoteState.wallTilingPrice +
+        wallsSquareMeters * this.quotes.quoteState.wallPrice;
+    } else if (this.quotes.quoteState.wallsHalfHeight) {
+      this.quotes.quoteState.wallsTotal =
+        this.quotes.quoteState.wallsTotal +
+        (wallsSquareMeters * this.quotes.quoteState.wallTilingPrice +
+          wallsSquareMeters * this.quotes.quoteState.wallPrice) /
           2 +
-        this.quoteModel.wallPlasteringHalfPrice;
-      if (this.quoteModel.wallsPaintedWhite) {
-        this.quoteModel.wallsTotal =
-          this.quoteModel.wallsTotal + this.quoteModel.wallPaintingWhitePrice;
+        this.quotes.quoteState.wallPlasteringHalfPrice;
+      if (this.quotes.quoteState.wallsPaintedWhite) {
+        this.quotes.quoteState.wallsTotal =
+          this.quotes.quoteState.wallsTotal +
+          this.quotes.quoteState.wallPaintingWhitePrice;
       }
-    } else if (this.quoteModel.wallsPlastered) {
-      this.quoteModel.wallsTotal =
-        this.quoteModel.wallsTotal + this.quoteModel.wallPlasteringAll;
+    } else if (this.quotes.quoteState.wallsPlastered) {
+      this.quotes.quoteState.wallsTotal =
+        this.quotes.quoteState.wallsTotal +
+        this.quotes.quoteState.wallPlasteringAll;
 
-      if (this.quoteModel.wallsPaintedWhite) {
-        this.quoteModel.wallsTotal =
-          this.quoteModel.wallsTotal + this.quoteModel.wallPaintingWhitePrice;
+      if (this.quotes.quoteState.wallsPaintedWhite) {
+        this.quotes.quoteState.wallsTotal =
+          this.quotes.quoteState.wallsTotal +
+          this.quotes.quoteState.wallPaintingWhitePrice;
       }
     }
-    this.total = this.total + this.quoteModel.wallsTotal;
+    this.total = this.total + this.quotes.quoteState.wallsTotal;
     //5.units
-    if (this.quoteModel.basinItem) {
-      this.quoteModel.itemsTotal =
-        this.quoteModel.itemsTotal +
-        this.quoteModel.unitInstallation +
-        this.quoteModel.basinPrice;
+    if (this.quotes.quoteState.basinItem) {
+      this.quotes.quoteState.itemsTotal =
+        this.quotes.quoteState.itemsTotal +
+        this.quotes.quoteState.unitInstallation +
+        this.quotes.quoteState.basinPrice;
     }
-    if (this.quoteModel.ensuiteItem) {
-      this.quoteModel.itemsTotal =
-        this.quoteModel.itemsTotal +
-        this.quoteModel.unitInstallation +
-        this.quoteModel.ensuitePrice;
+    if (this.quotes.quoteState.ensuiteItem) {
+      this.quotes.quoteState.itemsTotal =
+        this.quotes.quoteState.itemsTotal +
+        this.quotes.quoteState.unitInstallation +
+        this.quotes.quoteState.ensuitePrice;
     }
-    if (this.quoteModel.toiletItem) {
-      this.quoteModel.itemsTotal =
-        this.quoteModel.itemsTotal +
-        this.quoteModel.unitInstallation +
-        this.quoteModel.toiletPrice;
+    if (this.quotes.quoteState.toiletItem) {
+      this.quotes.quoteState.itemsTotal =
+        this.quotes.quoteState.itemsTotal +
+        this.quotes.quoteState.unitInstallation +
+        this.quotes.quoteState.toiletPrice;
     }
-    if (this.quoteModel.mixerItem) {
-      this.quoteModel.itemsTotal =
-        this.quoteModel.itemsTotal +
-        this.quoteModel.unitInstallation +
-        this.quoteModel.mixerPrice;
+    if (this.quotes.quoteState.mixerItem) {
+      this.quotes.quoteState.itemsTotal =
+        this.quotes.quoteState.itemsTotal +
+        this.quotes.quoteState.unitInstallation +
+        this.quotes.quoteState.mixerPrice;
     }
-    if (this.quoteModel.bathItem) {
-      this.quoteModel.itemsTotal =
-        this.quoteModel.itemsTotal +
-        this.quoteModel.unitInstallation +
-        this.quoteModel.bathPrice;
+    if (this.quotes.quoteState.bathItem) {
+      this.quotes.quoteState.itemsTotal =
+        this.quotes.quoteState.itemsTotal +
+        this.quotes.quoteState.unitInstallation +
+        this.quotes.quoteState.bathPrice;
     }
-    if (this.quoteModel.towelRailItem) {
-      this.quoteModel.itemsTotal =
-        this.quoteModel.itemsTotal +
-        this.quoteModel.unitInstallation +
-        this.quoteModel.railPrice;
+    if (this.quotes.quoteState.towelRailItem) {
+      this.quotes.quoteState.itemsTotal =
+        this.quotes.quoteState.itemsTotal +
+        this.quotes.quoteState.unitInstallation +
+        this.quotes.quoteState.railPrice;
     }
-    this.total = this.total + this.quoteModel.itemsTotal;
+    this.total = this.total + this.quotes.quoteState.itemsTotal;
     //6.doors
-    if (this.quoteModel.doorsChanging) {
-      this.quoteModel.doorsTotal =
-        this.quoteModel.doorsTotal +
-        this.quoteModel.doorChangingPrice +
-        this.quoteModel.doorsPrice;
+    if (this.quotes.quoteState.doorsChanging) {
+      this.quotes.quoteState.doorsTotal =
+        this.quotes.quoteState.doorsTotal +
+        this.quotes.quoteState.doorChangingPrice +
+        this.quotes.quoteState.doorsPrice;
     }
-    this.total = this.total + this.quoteModel.doorsTotal;
+    this.total = this.total + this.quotes.quoteState.doorsTotal;
     //7.electrical
-    if (this.quoteModel.spotlightsElectrical) {
-      this.quoteModel.electricalTotal =
-        this.quoteModel.electricalTotal +
-        this.quoteModel.spotlightPrice * this.quoteModel.spotlightsQty;
+    if (this.quotes.quoteState.spotlightsElectrical) {
+      this.quotes.quoteState.electricalTotal =
+        this.quotes.quoteState.electricalTotal +
+        this.quotes.quoteState.spotlightPrice *
+          this.quotes.quoteState.spotlightsQty;
     }
-    if (this.quoteModel.switcherInsideElectrical) {
-      this.quoteModel.electricalTotal =
-        this.quoteModel.electricalTotal + this.quoteModel.switcherInsidePrice;
+    if (this.quotes.quoteState.switcherInsideElectrical) {
+      this.quotes.quoteState.electricalTotal =
+        this.quotes.quoteState.electricalTotal +
+        this.quotes.quoteState.switcherInsidePrice;
     }
-    if (this.quoteModel.switcherOutsideElectrical) {
-      this.quoteModel.electricalTotal =
-        this.quoteModel.electricalTotal + this.quoteModel.switcherOutsidePrice;
+    if (this.quotes.quoteState.switcherOutsideElectrical) {
+      this.quotes.quoteState.electricalTotal =
+        this.quotes.quoteState.electricalTotal +
+        this.quotes.quoteState.switcherOutsidePrice;
     }
-    if (this.quoteModel.socketsElectrical) {
-      this.quoteModel.electricalTotal =
-        this.quoteModel.electricalTotal +
-        this.quoteModel.socketsQty * this.quoteModel.socketPrice;
+    if (this.quotes.quoteState.socketsElectrical) {
+      this.quotes.quoteState.electricalTotal =
+        this.quotes.quoteState.electricalTotal +
+        this.quotes.quoteState.socketsQty * this.quotes.quoteState.socketPrice;
     }
-    if (this.quoteModel.mirrorElectrical) {
-      this.quoteModel.electricalTotal =
-        this.quoteModel.electricalTotal +
-        this.quoteModel.mirrorInstallationPrice +
-        this.quoteModel.mirrorPrice;
+    if (this.quotes.quoteState.mirrorElectrical) {
+      this.quotes.quoteState.electricalTotal =
+        this.quotes.quoteState.electricalTotal +
+        this.quotes.quoteState.mirrorInstallationPrice +
+        this.quotes.quoteState.mirrorPrice;
     }
-    if (this.quoteModel.fanElectrical) {
-      this.quoteModel.electricalTotal =
-        this.quoteModel.electricalTotal + this.quoteModel.fanPrice;
+    if (this.quotes.quoteState.fanElectrical) {
+      this.quotes.quoteState.electricalTotal =
+        this.quotes.quoteState.electricalTotal +
+        this.quotes.quoteState.fanPrice;
     }
-    this.total = this.total + this.quoteModel.electricalTotal;
+    this.total = this.total + this.quotes.quoteState.electricalTotal;
     //8.ceiling
-    if (this.quoteModel.paintingCeiling == CeilingPainting.No) {
-      this.quoteModel.ceilingTotal = this.quoteModel.ceilingTotal;
-    } else if (this.quoteModel.paintingCeiling == CeilingPainting.Paint) {
-      this.quoteModel.ceilingTotal =
-        this.quoteModel.ceilingTotal + this.quoteModel.ceilingPriceWhite;
-    } else if (this.quoteModel.paintingCeiling == CeilingPainting.Plastered) {
-      this.quoteModel.ceilingTotal =
-        this.quoteModel.ceilingTotal + this.quoteModel.ceilingPricePlastered;
+    if (this.quotes.quoteState.paintingCeiling == CeilingPainting.No) {
+      this.quotes.quoteState.ceilingTotal = this.quotes.quoteState.ceilingTotal;
+    } else if (
+      this.quotes.quoteState.paintingCeiling == CeilingPainting.Paint
+    ) {
+      this.quotes.quoteState.ceilingTotal =
+        this.quotes.quoteState.ceilingTotal +
+        this.quotes.quoteState.ceilingPriceWhite;
+    } else if (
+      this.quotes.quoteState.paintingCeiling == CeilingPainting.Plastered
+    ) {
+      this.quotes.quoteState.ceilingTotal =
+        this.quotes.quoteState.ceilingTotal +
+        this.quotes.quoteState.ceilingPricePlastered;
     }
-    this.total = this.total + this.quoteModel.ceilingTotal;
+    this.total = this.total + this.quotes.quoteState.ceilingTotal;
   }
 
   public setYesCeilingPainting(): void {
-    this.quoteModel.paintingCeiling = CeilingPainting.Paint;
+    this.quotes.quoteState.paintingCeiling = CeilingPainting.Paint;
     this.calculateTotal();
   }
 
   public setNoCeilingPainting(): void {
-    this.quoteModel.paintingCeiling = CeilingPainting.No;
+    this.quotes.quoteState.paintingCeiling = CeilingPainting.No;
     this.calculateTotal();
   }
 
   public setYesCeilingPlastered(): void {
-    this.quoteModel.paintingCeiling = CeilingPainting.Plastered;
+    this.quotes.quoteState.paintingCeiling = CeilingPainting.Plastered;
     this.calculateTotal();
   }
 
   public setDefaultTiles(): void {
     //tiles
-    this.setTileSelected(this.tiles, this.quoteModel.floorCode);
+    this.setTileSelected(this.tiles, this.quotes.quoteState.floorCode);
     //lvt
     //wall
     //bath
@@ -761,9 +782,9 @@ export class FormComponent {
   public setTile(tile: UnitModel, index: number): void {
     //tiles
     if (tile.type == 'tiles') {
-      this.quoteModel.floorPrice = tile.price;
-      this.quoteModel.floorType = tile.type;
-      this.quoteModel.floorCode = tile.code;
+      this.quotes.quoteState.floorPrice = tile.price;
+      this.quotes.quoteState.floorType = tile.type;
+      this.quotes.quoteState.floorCode = tile.code;
       this.calculateTotal();
       this.resetArraySelection(this.tiles);
       this.tiles[index].selected = true;
@@ -782,35 +803,50 @@ export class FormComponent {
   }
 
   public convertUnits(calc: boolean): void {
-    if (this.quoteModel.units == DimentionUnits.Inches) {
-      this.quoteModel.heightIn = this.getInches(this.quoteModel.heightCm);
-      this.quoteModel.widthIn = this.getInches(this.quoteModel.widthCm);
-      this.quoteModel.depthIn = this.getInches(this.quoteModel.depthCm);
-      this.quoteModel.heightFt = this.getFeet(this.quoteModel.heightCm);
-      this.quoteModel.widthFt = this.getFeet(this.quoteModel.widthCm);
-      this.quoteModel.depthFt = this.getFeet(this.quoteModel.depthCm);
-      console.log(this.quoteModel.heightIn);
-      console.log(this.quoteModel.widthIn);
-      console.log(this.quoteModel.depthIn);
-      console.log(this.quoteModel.heightFt);
-      console.log(this.quoteModel.widthFt);
-      console.log(this.quoteModel.depthFt);
-    } else if (this.quoteModel.units == DimentionUnits.Centimeters || calc) {
-      this.quoteModel.heightCm = this.getCentimeters(
-        this.quoteModel.heightIn,
-        this.quoteModel.heightFt
+    if (this.quotes.quoteState.units == DimentionUnits.Inches) {
+      this.quotes.quoteState.heightIn = this.getInches(
+        this.quotes.quoteState.heightCm
       );
-      this.quoteModel.widthCm = this.getCentimeters(
-        this.quoteModel.widthIn,
-        this.quoteModel.widthFt
+      this.quotes.quoteState.widthIn = this.getInches(
+        this.quotes.quoteState.widthCm
       );
-      this.quoteModel.depthCm = this.getCentimeters(
-        this.quoteModel.depthIn,
-        this.quoteModel.depthFt
+      this.quotes.quoteState.depthIn = this.getInches(
+        this.quotes.quoteState.depthCm
       );
-      console.log(this.quoteModel.heightCm);
-      console.log(this.quoteModel.widthCm);
-      console.log(this.quoteModel.depthCm);
+      this.quotes.quoteState.heightFt = this.getFeet(
+        this.quotes.quoteState.heightCm
+      );
+      this.quotes.quoteState.widthFt = this.getFeet(
+        this.quotes.quoteState.widthCm
+      );
+      this.quotes.quoteState.depthFt = this.getFeet(
+        this.quotes.quoteState.depthCm
+      );
+      console.log(this.quotes.quoteState.heightIn);
+      console.log(this.quotes.quoteState.widthIn);
+      console.log(this.quotes.quoteState.depthIn);
+      console.log(this.quotes.quoteState.heightFt);
+      console.log(this.quotes.quoteState.widthFt);
+      console.log(this.quotes.quoteState.depthFt);
+    } else if (
+      this.quotes.quoteState.units == DimentionUnits.Centimeters ||
+      calc
+    ) {
+      this.quotes.quoteState.heightCm = this.getCentimeters(
+        this.quotes.quoteState.heightIn,
+        this.quotes.quoteState.heightFt
+      );
+      this.quotes.quoteState.widthCm = this.getCentimeters(
+        this.quotes.quoteState.widthIn,
+        this.quotes.quoteState.widthFt
+      );
+      this.quotes.quoteState.depthCm = this.getCentimeters(
+        this.quotes.quoteState.depthIn,
+        this.quotes.quoteState.depthFt
+      );
+      console.log(this.quotes.quoteState.heightCm);
+      console.log(this.quotes.quoteState.widthCm);
+      console.log(this.quotes.quoteState.depthCm);
     }
   }
   private getCentimeters(i: number, f: number): number {

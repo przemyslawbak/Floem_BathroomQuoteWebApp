@@ -9,6 +9,7 @@ export enum CeilingPainting {
 }
 
 export class QuoteItems {
+  id: string;
   //1 dimemtions
   widthCm: number;
   heightCm: number;
