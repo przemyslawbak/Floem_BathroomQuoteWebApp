@@ -7,7 +7,7 @@ import { QuoteItems } from '@models/quote-items.model';
 
 @Component({
   templateUrl: './save-and-share.component.html',
-  styleUrls: ['./save-and-share.component.css'],
+  styleUrls: ['./save.component.css'],
 })
 export class SaveAndShareComponent implements OnInit {
   public form: FormGroup;

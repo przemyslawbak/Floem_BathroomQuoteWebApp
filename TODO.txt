@@ -108,6 +108,7 @@ OK - routing
 - bug: summary click console ERROR TypeError: el is null
 - backend db
 - on main form init, if quote ID != null, move to summary
+- save & share: display link?
 - save & share: save to DB
 - save & share: generate link
 - save & share: captcha
@@ -117,6 +118,7 @@ OK - routing
 - save & share: print
 - save & share: linkedin
 - save & share: link to save & book
+- save & book: display link?
 - save & book: save to DB
 - save & book: generate link
 - save & book: captcha

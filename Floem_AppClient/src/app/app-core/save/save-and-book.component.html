@@ -1,1 +1,51 @@
-save and book
+<div class="row">
+  <div class="form-container col-lg-6 col-12">
+    <h2 class="form-title">Book consultation with Floem</h2>
+    <div class="col-12">(a few words about)</div>
+    <form [formGroup]="form" (ngSubmit)="onSubmit()" class="login-form">
+      <!--date/time *-->
+      <!--name *-->
+      <div
+        class="form-group"
+        [ngClass]="{ 'has-error has-feedback': hasError('Email') }"
+      >
+        <input
+          type="text"
+          required
+          formControlName="Email"
+          class="form-control col-12"
+          placeholder="Email address"
+        />
+        <span
+          *ngIf="hasError('Email')"
+          class="form-controlfeedback"
+          aria-hidden="true"
+        ></span>
+        <div *ngIf="hasError('Email')" class="help-block">
+          Please insert e-mail address.
+        </div>
+      </div>
+      <!--phone-->
+      <!--street *-->
+      <!--apt. / floor no -->
+      <!--city *-->
+      <!--state-->
+      <!--message-->
+      <button
+        type="submit"
+        [disabled]="form.invalid"
+        class="btn btn-md btn-primary btn-block btn-signin col-12"
+      >
+        Send request
+        <div class="float-end"></div>
+      </button>
+    </form>
+    <button
+      class="btn btn-sm btn-light btn-block col-12"
+      type="submit"
+      (click)="onCancel()"
+    >
+      Go back
+    </button>
+  </div>
+</div>
