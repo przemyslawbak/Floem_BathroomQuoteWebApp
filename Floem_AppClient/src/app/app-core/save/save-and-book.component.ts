@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { HttpService } from '@services/http.service';
@@ -7,6 +7,7 @@ import { QuoteService } from '@services/quote.service';
 @Component({
   templateUrl: './save-and-book.component.html',
   styleUrls: ['./save.component.css'],
+  encapsulation: ViewEncapsulation.None,
 })
 export class SaveAndBookComponent implements OnInit {
   public form: FormGroup;
@@ -33,7 +34,7 @@ export class SaveAndBookComponent implements OnInit {
       City: ['', [Validators.required]],
       State: [''],
       Message: [''],
-      PrivacyAccept: [false, [Validators.required]],
+      PrivacyAccept: [false, [Validators.requiredTrue]],
     });
   }
 
@@ -48,7 +49,8 @@ export class SaveAndBookComponent implements OnInit {
 
   public onSubmit() {
     const email = this.form.value.Email;
-    alert('will send an email');
+    console.log(this.form.value.PrivacyAccept);
+    alert('will send an email to you and the client');
   }
 
   public saveAndShare(): void {

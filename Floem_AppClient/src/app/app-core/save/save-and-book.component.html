@@ -10,9 +10,13 @@
         type="text"
         required
         formControlName="DateTime"
-        placeholder="DateTime"
+        placeholder="Date and time"
       />
-      <mat-error *ngIf="hasError('DateTime')" class="help-block">
+      <mat-error
+        *ngIf="hasError('DateTime')"
+        class="help-block"
+        formControlName="DateTime"
+      >
         Please insert date and time.
       </mat-error>
     </mat-form-field>
@@ -99,6 +103,21 @@
         placeholder="Message to us"
       />
     </mat-form-field>
+    <div class="col-6">
+      <mat-checkbox
+        color="primary"
+        class="example-margin"
+        required
+        formControlName="PrivacyAccept"
+      >
+        I accept privacy policy *
+      </mat-checkbox>
+      <mat-error
+        *ngIf="hasError('PrivacyAccept')"
+        class="help-block checkboxError"
+        ><span>Please accept privacy policy first.</span></mat-error
+      >
+    </div>
     <div><span class="float-end">* Required Info</span></div>
     <button
       type="submit"

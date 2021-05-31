@@ -60,3 +60,25 @@ form {
   color: #e74c3c;
   text-align: center;
 }
+
+.mat-checkbox .mat-checkbox-frame {
+  transform: scale(2);
+}
+
+.mat-checkbox-checked .mat-checkbox-background {
+  transform: scale(2);
+}
+
+mat-checkbox {
+  margin-left: 10px;
+}
+
+mat-checkbox span {
+  color: #717171;
+  padding-left: 10px;
+}
+
+.checkboxError {
+  margin-top: 5px;
+  font-size: 13px;
+}
