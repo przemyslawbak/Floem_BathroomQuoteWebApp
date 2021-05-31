@@ -1,3 +1,4 @@
+import { QuoteService } from './_services/quote.service';
 import { SaveAndBookComponent } from './save/save-and-book.component';
 import { SaveAndShareComponent } from './save/save-and-share.component';
 import { NgModule } from '@angular/core';
@@ -45,7 +46,19 @@ import { ErrorService } from './_services/error.service';
     SaveAndShareComponent,
     SaveAndBookComponent,
   ],
-  exports: [FooterComponent, HeaderComponent, FormComponent],
-  providers: [HttpService, SecurityService, ModalService, ErrorService],
+  exports: [
+    FooterComponent,
+    HeaderComponent,
+    FormComponent,
+    SaveAndBookComponent,
+    SaveAndShareComponent,
+  ],
+  providers: [
+    HttpService,
+    SecurityService,
+    ModalService,
+    ErrorService,
+    QuoteService,
+  ],
 })
 export class AppCoreModule {}
