@@ -11,6 +11,25 @@ import { QuoteService } from '@services/quote.service';
 })
 export class SaveAndBookComponent implements OnInit {
   public form: FormGroup;
+  public minDate: Date = new Date();
+  public timeOptions: string[] = [
+    '11:00 am',
+    '11:30 am',
+    '12:00 pm',
+    '12:30 pm',
+    '1:00 pm',
+    '1:30 pm',
+    '2:00 pm',
+    '2:30 pm',
+    '3:00 pm',
+    '3:30 pm',
+    '4:00 pm',
+    '4:30 pm',
+    '5:00 pm',
+    '5:30 pm',
+    '6:00 pm',
+    '6:30 pm',
+  ];
 
   constructor(
     private http: HttpService,
@@ -23,11 +42,17 @@ export class SaveAndBookComponent implements OnInit {
     this.createForm();
   }
 
+  public weekendsDatesFilter(d: Date): boolean {
+    const day = d.getDay();
+    return day !== 0 && day !== 6;
+  }
+
   private createForm() {
     this.form = this.formBuilder.group({
+      Date: ['', [Validators.required]],
+      Time: ['', [Validators.required]],
       Email: ['', [Validators.required, Validators.email]],
       Name: ['', [Validators.required]],
-      DateTime: ['', [Validators.required]],
       Phone: [''], //todo: phone validation
       Street: ['', [Validators.required]],
       AptNo: [''],

@@ -2,22 +2,46 @@
   <h2 class="form-title">Book consultation with Floem</h2>
   <form [formGroup]="form" (ngSubmit)="onSubmit()" class="login-form row">
     <mat-form-field
+      appearance="fill"
       class="col-6"
-      [ngClass]="{ 'has-error has-feedback': hasError('DateTime') }"
+      [ngClass]="{ 'has-error has-feedback': hasError('Date') }"
     >
+      <mat-label>Choose a date</mat-label>
       <input
         matInput
-        type="text"
-        required
-        formControlName="DateTime"
-        placeholder="Date and time"
+        [value]="this.minDate"
+        [min]="this.minDate"
+        [matDatepicker]="picker"
+        formControlName="Date"
+        [matDatepickerFilter]="weekendsDatesFilter"
+        (click)="picker.open()"
       />
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
       <mat-error
-        *ngIf="hasError('DateTime')"
+        *ngIf="hasError('Date')"
         class="help-block"
-        formControlName="DateTime"
+        formControlName="Date"
       >
-        Please insert date and time.
+        Please insert date.
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field
+      class="col-6"
+      [ngClass]="{ 'has-error has-feedback': hasError('Time') }"
+    >
+      <mat-label>Choose a time</mat-label>
+      <mat-select required formControlName="Time">
+        <mat-option *ngFor="let time of this.timeOptions" [value]="time">
+          {{ time }}
+        </mat-option>
+      </mat-select>
+      <mat-error
+        *ngIf="hasError('Time')"
+        class="help-block"
+        formControlName="Time"
+      >
+        Please insert time.
       </mat-error>
     </mat-form-field>
     <mat-form-field
@@ -118,26 +142,13 @@
         ><span>Please accept privacy policy first.</span></mat-error
       >
     </div>
-    <div><span class="float-end">* Required Info</span></div>
+    <div><span class="float-end">* Required info</span></div>
     <button
       type="submit"
       [disabled]="form.invalid"
       class="btn btn-md btn-primary btn-block btn-signin col-12"
     >
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="30"
-        height="30"
-        fill="currentColor"
-        class="bi bi-arrow-right-square-fill float-start"
-        viewBox="0 0 16 16"
-      >
-        <path
-          d="M0 14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2a2 2 0 0 0-2 2v12zm4.5-6.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5a.5.5 0 0 1 0-1z"
-        />
-      </svg>
       Send request
-      <div class="float-end"></div>
     </button>
   </form>
 </div>

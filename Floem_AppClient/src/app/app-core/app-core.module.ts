@@ -15,6 +15,8 @@ import { MatListModule } from '@angular/material/list';
 import { NgToggleModule } from '@nth-cloud/ng-toggle';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { NgxSpinnerModule } from 'ngx-spinner';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatDatepickerModule } from '@angular/material/datepicker';
 
 import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
@@ -23,9 +25,13 @@ import { HttpService } from './_services/http.service';
 import { SecurityService } from './_services/security.service';
 import { ModalService } from './_services/modal.service';
 import { ErrorService } from './_services/error.service';
+import { MatNativeDateModule } from '@angular/material/core';
 
 @NgModule({
   imports: [
+    MatNativeDateModule,
+    MatDatepickerModule,
+    MatCheckboxModule,
     NgxSpinnerModule,
     MatButtonToggleModule,
     NgToggleModule,
