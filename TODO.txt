@@ -107,6 +107,7 @@ OK - summary: add disclaimer that prices are estimated
 OK - routing
 - bug: summary click console ERROR TypeError: el is null
 - backend db
+- on main form init, if quote ID != null, move to summary
 - save & share: save to DB
 - save & share: generate link
 - save & share: captcha

@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpService } from '@services/http.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { QuoteItems } from '@models/quote-items.model';
 
 @Component({
   templateUrl: './save-and-share.component.html',
@@ -16,10 +17,20 @@ export class SaveAndShareComponent implements OnInit {
     private quotes: QuoteService,
     private formBuilder: FormBuilder,
     private router: Router
-  ) {}
+  ) {
+    if (this.quotes.quoteId == '') {
+      quotes.quoteId = this.saveQuoteAndGetId(this.quotes.quoteState);
+    }
+  }
 
   public ngOnInit() {
     this.createForm();
+  }
+
+  private saveQuoteAndGetId(quoteState: QuoteItems): string {
+    //todo: save quote in db
+    //todo: return quote id
+    return '';
   }
 
   private createForm() {
@@ -37,28 +48,40 @@ export class SaveAndShareComponent implements OnInit {
     return this.form.get(name);
   }
 
-  public bookQuoteOnline(): void {
-    this.http.getTest('666').subscribe(async (text: string) => {
-      alert('response:' + text);
-    });
-  }
-
-  public getQuoteLink(): void {
-    this.http.postSaveQuote(this.quotes.quoteState).subscribe(() => {
-      //todo
-    });
-  }
-
   public onSubmit() {
     const email = this.form.value.Email;
-    //todo: send via http
+    alert('will send an email');
   }
 
   public saveAndBook(): void {
     this.router.navigate(['save-and-book']);
   }
 
-  public cancel(): void {
+  public onCancel(): void {
     this.router.navigate(['']);
+  }
+
+  public onPrint(): void {
+    alert('will open printing window');
+  }
+
+  public onShareTwitter(): void {
+    alert('will redirect to the Twitter');
+  }
+
+  public onShareFacebook(): void {
+    alert('will redirect to the Facebook');
+  }
+
+  public getTest(): void {
+    this.http.getTest('666').subscribe(async (text: string) => {
+      alert('response:' + text);
+    });
+  }
+
+  public postTest(): void {
+    this.http.postSaveQuote(this.quotes.quoteState).subscribe(() => {
+      //todo
+    });
   }
 }
