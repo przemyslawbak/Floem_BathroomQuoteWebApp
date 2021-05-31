@@ -1,3 +1,5 @@
+import { SaveAndBookComponent } from './save/save-and-book.component';
+import { SaveAndShareComponent } from './save/save-and-share.component';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from '../app-routing.module';
@@ -36,7 +38,13 @@ import { ErrorService } from './_services/error.service';
     BrowserAnimationsModule,
     MatInputModule,
   ],
-  declarations: [FooterComponent, HeaderComponent, FormComponent],
+  declarations: [
+    FooterComponent,
+    HeaderComponent,
+    FormComponent,
+    SaveAndShareComponent,
+    SaveAndBookComponent,
+  ],
   exports: [FooterComponent, HeaderComponent, FormComponent],
   providers: [HttpService, SecurityService, ModalService, ErrorService],
 })
