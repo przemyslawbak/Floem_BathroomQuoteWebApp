@@ -6,7 +6,7 @@
       class="col-6"
       [ngClass]="{ 'has-error has-feedback': hasError('Date') }"
     >
-      <mat-label>Choose a date</mat-label>
+      <mat-label>Choose a day *</mat-label>
       <input
         matInput
         [value]="this.minDate"
@@ -30,7 +30,7 @@
       class="col-6"
       [ngClass]="{ 'has-error has-feedback': hasError('Time') }"
     >
-      <mat-label>Choose a time</mat-label>
+      <mat-label>Choose an hour</mat-label>
       <mat-select required formControlName="Time">
         <mat-option *ngFor="let time of this.timeOptions" [value]="time">
           {{ time }}
@@ -142,11 +142,12 @@
         ><span>Please accept privacy policy first.</span></mat-error
       >
     </div>
-    <div><span class="float-end">* Required info</span></div>
+    <div class="col-6"><span class="float-end">* Required info</span></div>
     <button
       type="submit"
       [disabled]="form.invalid"
       class="btn btn-md btn-primary btn-block btn-signin col-12"
+      style="margin-top: 30px"
     >
       Send request
     </button>

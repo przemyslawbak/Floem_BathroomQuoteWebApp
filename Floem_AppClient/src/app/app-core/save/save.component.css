@@ -1,6 +1,7 @@
 button {
   height: 50px;
-  margin: 5px;
+  margin: 5px 0 5px 0;
+  font-size: 17px !important;
 }
 
 .bi {
@@ -59,6 +60,10 @@ form {
 .form-container .login-form .error-panel {
   color: #e74c3c;
   text-align: center;
+}
+
+.form-container h2 {
+  margin: 20px 0 20px 0;
 }
 
 .mat-checkbox .mat-checkbox-frame {
