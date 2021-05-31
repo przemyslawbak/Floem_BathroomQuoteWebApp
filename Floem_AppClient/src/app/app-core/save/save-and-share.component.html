@@ -1,1 +1,51 @@
-save and share
+<div class="row">
+  <div class="form-container col-lg-6 col-12">
+    <h2 class="form-title">Share this quote with friends and family</h2>
+    <button class="btn btn-sm btn-primary btn-block col-12" type="submit">
+      Print out
+    </button>
+    <button class="btn btn-sm btn-primary btn-block col-12" type="submit">
+      Share on Facebook
+    </button>
+    <button class="btn btn-sm btn-primary btn-block col-12" type="submit">
+      Share on Twitter
+    </button>
+    <h2 class="form-title">or send by email</h2>
+    <form [formGroup]="form" (ngSubmit)="onSubmit()" class="login-form">
+      <div *ngIf="form.errors?.auth" class="error-panel help-block">
+        {{ form.errors.auth }}
+      </div>
+      <div
+        class="form-group"
+        [ngClass]="{ 'has-error has-feedback': hasError('Email') }"
+      >
+        <input
+          type="text"
+          required
+          formControlName="Email"
+          class="form-control col-12"
+          placeholder="Email address"
+        />
+        <span
+          *ngIf="hasError('Email')"
+          class="form-controlfeedback"
+          aria-hidden="true"
+        ></span>
+        <div *ngIf="hasError('Email')" class="help-block">
+          Please insert e-mail address.
+        </div>
+      </div>
+      <button
+        type="submit"
+        [disabled]="form.invalid"
+        class="btn btn-md btn-primary btn-block btn-signin col-12"
+      >
+        Send
+      </button>
+      <h2 class="form-title">30 min Free consultation</h2>
+      <button class="btn btn-sm btn-success btn-block col-12" type="submit">
+        Book Online
+      </button>
+    </form>
+  </div>
+</div>
