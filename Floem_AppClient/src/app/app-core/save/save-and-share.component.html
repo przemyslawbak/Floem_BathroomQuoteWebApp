@@ -66,26 +66,21 @@
     </button>
     <h2 class="form-title">or send by email</h2>
     <form [formGroup]="form" (ngSubmit)="onSubmit()" class="login-form">
-      <div
-        class="form-group"
+      <mat-form-field
+        class="col-12"
         [ngClass]="{ 'has-error has-feedback': hasError('Email') }"
       >
         <input
+          matInput
           type="text"
           required
           formControlName="Email"
-          class="form-control col-12"
-          placeholder="Email address"
+          placeholder="Email"
         />
-        <span
-          *ngIf="hasError('Email')"
-          class="form-controlfeedback"
-          aria-hidden="true"
-        ></span>
-        <div *ngIf="hasError('Email')" class="help-block">
+        <mat-error *ngIf="hasError('Email')" class="help-block">
           Please insert e-mail address.
-        </div>
-      </div>
+        </mat-error>
+      </mat-form-field>
       <button
         type="submit"
         [disabled]="form.invalid"
@@ -106,15 +101,19 @@
         Send email
         <div class="float-end"></div>
       </button>
-      <h2 class="form-title">30 min Free consultation</h2>
-      <button
-        class="btn btn-sm btn-success btn-block col-12"
-        type="submit"
-        (click)="saveAndBook()"
-      >
-        Book Online
-      </button>
     </form>
+  </div>
+</div>
+<div class="row">
+  <div class="form-container col-lg-6 col-12">
+    <h2 class="form-title">Book consultation with Floem</h2>
+    <button
+      class="btn btn-sm btn-success btn-block col-12"
+      type="submit"
+      (click)="saveAndBook()"
+    >
+      Book Online
+    </button>
     <button
       class="btn btn-sm btn-light btn-block col-12"
       type="submit"

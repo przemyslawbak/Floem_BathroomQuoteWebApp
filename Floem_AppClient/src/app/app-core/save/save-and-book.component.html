@@ -1,45 +1,137 @@
+<div class="form-container col-lg-6 col-12">
+  <h2 class="form-title">Book consultation with Floem</h2>
+  <form [formGroup]="form" (ngSubmit)="onSubmit()" class="login-form row">
+    <mat-form-field
+      class="col-6"
+      [ngClass]="{ 'has-error has-feedback': hasError('DateTime') }"
+    >
+      <input
+        matInput
+        type="text"
+        required
+        formControlName="DateTime"
+        placeholder="DateTime"
+      />
+      <mat-error *ngIf="hasError('DateTime')" class="help-block">
+        Please insert date and time.
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field
+      class="col-12"
+      [ngClass]="{ 'has-error has-feedback': hasError('Name') }"
+    >
+      <input
+        matInput
+        type="text"
+        required
+        formControlName="Name"
+        placeholder="Name"
+      />
+      <mat-error *ngIf="hasError('Name')" class="help-block">
+        Please insert your name.
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field
+      class="col-12"
+      [ngClass]="{ 'has-error has-feedback': hasError('Email') }"
+    >
+      <input
+        matInput
+        type="text"
+        required
+        formControlName="Email"
+        placeholder="Email"
+      />
+      <mat-error *ngIf="hasError('Email')" class="help-block">
+        Please insert your e-mail address.
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field class="col-12">
+      <input matInput type="text" formControlName="Phone" placeholder="Phone" />
+    </mat-form-field>
+    <mat-form-field
+      class="col-6"
+      [ngClass]="{ 'has-error has-feedback': hasError('Street') }"
+    >
+      <input
+        matInput
+        type="text"
+        required
+        formControlName="Street"
+        placeholder="Street"
+      />
+      <mat-error *ngIf="hasError('Street')" class="help-block">
+        Please insert your street name.
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field class="col-6">
+      <input
+        matInput
+        type="text"
+        formControlName="AptNo"
+        placeholder="Apt. / Floor No."
+      />
+    </mat-form-field>
+
+    <mat-form-field
+      class="col-6"
+      [ngClass]="{ 'has-error has-feedback': hasError('City') }"
+    >
+      <input
+        matInput
+        type="text"
+        required
+        formControlName="City"
+        placeholder="City"
+      />
+      <mat-error *ngIf="hasError('City')" class="help-block">
+        Please insert your city.
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field class="col-6">
+      <input matInput type="text" formControlName="State" placeholder="State" />
+    </mat-form-field>
+    <mat-form-field class="col-12">
+      <input
+        matInput
+        type="text"
+        formControlName="Message"
+        placeholder="Message to us"
+      />
+    </mat-form-field>
+    <div><span class="float-end">* Required Info</span></div>
+    <button
+      type="submit"
+      [disabled]="form.invalid"
+      class="btn btn-md btn-primary btn-block btn-signin col-12"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="30"
+        height="30"
+        fill="currentColor"
+        class="bi bi-arrow-right-square-fill float-start"
+        viewBox="0 0 16 16"
+      >
+        <path
+          d="M0 14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2a2 2 0 0 0-2 2v12zm4.5-6.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5a.5.5 0 0 1 0-1z"
+        />
+      </svg>
+      Send request
+      <div class="float-end"></div>
+    </button>
+  </form>
+</div>
 <div class="row">
   <div class="form-container col-lg-6 col-12">
-    <h2 class="form-title">Book consultation with Floem</h2>
-    <div class="col-12">(a few words about)</div>
-    <form [formGroup]="form" (ngSubmit)="onSubmit()" class="login-form">
-      <!--date/time *-->
-      <!--name *-->
-      <div
-        class="form-group"
-        [ngClass]="{ 'has-error has-feedback': hasError('Email') }"
-      >
-        <input
-          type="text"
-          required
-          formControlName="Email"
-          class="form-control col-12"
-          placeholder="Email address"
-        />
-        <span
-          *ngIf="hasError('Email')"
-          class="form-controlfeedback"
-          aria-hidden="true"
-        ></span>
-        <div *ngIf="hasError('Email')" class="help-block">
-          Please insert e-mail address.
-        </div>
-      </div>
-      <!--phone-->
-      <!--street *-->
-      <!--apt. / floor no -->
-      <!--city *-->
-      <!--state-->
-      <!--message-->
-      <button
-        type="submit"
-        [disabled]="form.invalid"
-        class="btn btn-md btn-primary btn-block btn-signin col-12"
-      >
-        Send request
-        <div class="float-end"></div>
-      </button>
-    </form>
+    <h2 class="form-title">Share this quote with friends and family</h2>
+    <button
+      class="btn btn-sm btn-success btn-block col-12"
+      type="submit"
+      (click)="saveAndShare()"
+    >
+      Share Quote
+    </button>
     <button
       class="btn btn-sm btn-light btn-block col-12"
       type="submit"

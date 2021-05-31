@@ -27,13 +27,13 @@ export class SaveAndBookComponent implements OnInit {
       Email: ['', [Validators.required, Validators.email]],
       Name: ['', [Validators.required]],
       DateTime: ['', [Validators.required]],
-      Phone: [''],
+      Phone: [''], //todo: phone validation
       Street: ['', [Validators.required]],
       AptNo: [''],
       City: ['', [Validators.required]],
       State: [''],
       Message: [''],
-      PrivacyAccept: [false],
+      PrivacyAccept: [false, [Validators.required]],
     });
   }
 
@@ -49,6 +49,14 @@ export class SaveAndBookComponent implements OnInit {
   public onSubmit() {
     const email = this.form.value.Email;
     alert('will send an email');
+  }
+
+  public saveAndShare(): void {
+    this.router.navigate(['save-and-share']);
+  }
+
+  public onCancel(): void {
+    this.router.navigate(['']);
   }
 
   public getTest(): void {

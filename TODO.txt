@@ -105,13 +105,15 @@ OK - summary: add "other" comments to the summary
 OK - summary: "Quote summary for bathroom size " in small screen wraps, bad positioning
 OK - summary: add disclaimer that prices are estimated
 OK - routing
+OK - in share & book move last 2 btns to separate form view
 - bug: summary click console ERROR TypeError: el is null
 - backend db
 - on main form init, if quote ID != null, move to summary
+- in share & book scroll to top
 - save & share: display link?
 - save & share: save to DB
 - save & share: generate link
-- save & share: captcha
+- save & share: captcha?
 - save & share: email
 - save & share: fb
 - save & share: twitter
@@ -121,7 +123,7 @@ OK - routing
 - save & book: display link?
 - save & book: save to DB
 - save & book: generate link
-- save & book: captcha
+- save & book: captcha?
 - save & book: calendar
 - save & book: book online
 - save & book: contacts
