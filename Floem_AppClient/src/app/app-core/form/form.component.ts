@@ -870,12 +870,10 @@ export class FormComponent {
   }
 
   public saveAndBook(): void {
-    console.log('hit');
     this.router.navigate(['save-and-book']);
   }
 
   public saveAndShare(): void {
-    console.log('hit');
     this.router.navigate(['save-and-share']);
   }
 }

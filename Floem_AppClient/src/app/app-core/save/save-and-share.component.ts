@@ -2,6 +2,7 @@ import { QuoteService } from './../_services/quote.service';
 import { Component, OnInit } from '@angular/core';
 import { HttpService } from '@services/http.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   templateUrl: './save-and-share.component.html',
@@ -13,7 +14,8 @@ export class SaveAndShareComponent implements OnInit {
   constructor(
     private http: HttpService,
     private quotes: QuoteService,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private router: Router
   ) {}
 
   public ngOnInit() {
@@ -50,5 +52,13 @@ export class SaveAndShareComponent implements OnInit {
   public onSubmit() {
     const email = this.form.value.Email;
     //todo: send via http
+  }
+
+  public saveAndBook(): void {
+    this.router.navigate(['save-and-book']);
+  }
+
+  public cancel(): void {
+    this.router.navigate(['']);
   }
 }

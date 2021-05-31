@@ -9,6 +9,10 @@ html {
   scroll-behavior: smooth;
 }
 
+h1 {
+  margin-bottom: 30px;
+}
+
 app-root {
   min-height: 100%;
   display: block;
