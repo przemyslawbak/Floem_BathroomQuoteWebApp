@@ -5,6 +5,7 @@ import { Observable, Subject } from 'rxjs';
 
 import { QuoteItems } from '../_models/quote-items.model';
 import { ClientModel } from '@models/quote-client.model';
+import { EmailLinkModel } from '@models/email-link.model';
 
 @Injectable()
 export class HttpService {
@@ -22,6 +23,14 @@ export class HttpService {
     const url: string = environment.apiUrl + 'api/client/save-client';
     let subject = new Subject<any>();
     this.http.post<any>(url, client).subscribe((res) => subject.next(res));
+
+    return subject.asObservable();
+  }
+
+  public postEmailLink(model: EmailLinkModel): Observable<any> {
+    const url: string = environment.apiUrl + 'api/client/email-link';
+    let subject = new Subject<any>();
+    this.http.post<any>(url, model).subscribe((res) => subject.next(res));
 
     return subject.asObservable();
   }

@@ -18,11 +18,14 @@ namespace Floem_Services
         public string CombineClientBookingMessage(string name, string link, string clientsDate, string clientsTime)
         {
             string clientsName = string.IsNullOrEmpty(name) ? "customer" : name;
-            string message = @"Dear " + clientsName + @", your booking request for " + clientsDate.Substring(0, 10) + " - " + clientsTime + @" was sent to Floem. We will contact you soon to confirm your reservation.
+            string message = @"Dear " + clientsName + @", your booking request for " + clientsDate.Substring(0, 10) + " - " + clientsTime + @" was sent to Floem. We will contact you soon to confirm your reservation. For any further questions, please do not hesitate to contact us, we will be happy to answer your questions.
             
 You can find and edit your quote entering here: " + link + @"
 
-Floem Renovations";
+Floem Renovations
+w: https://www.floem.co.uk/
+e: info@floem.co.uk
+t: 7405679021";
             return message;
         }
 
@@ -51,6 +54,19 @@ Floem Renovations";
             State: " + clientsState + @"
             Message from the client: " + clientsMessage + @"
             Quote link: " + clientsQuoteLink;
+            return message;
+        }
+
+        public string CombineLinkEmailMessage(string link)
+        {
+            string message = @"Dear customer, below you can find a link to a bathroom renovation quote with Floem. For any further questions, please do not hesitate to contact us, we will be happy to answer your questions.
+            
+" + link + @"
+
+Floem Renovations
+w: https://www.floem.co.uk/
+e: info@floem.co.uk
+t: 7405679021";
             return message;
         }
 

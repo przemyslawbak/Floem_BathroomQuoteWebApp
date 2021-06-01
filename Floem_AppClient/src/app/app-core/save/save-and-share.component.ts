@@ -1,3 +1,4 @@
+import { EmailLinkModel } from './../_models/email-link.model';
 import { QuoteService } from './../_services/quote.service';
 import { Component, OnInit } from '@angular/core';
 import { HttpService } from '@services/http.service';
@@ -62,8 +63,17 @@ export class SaveAndShareComponent implements OnInit {
   }
 
   public onSubmit() {
-    const email = this.form.value.Email;
-    alert('will send an email');
+    let model: EmailLinkModel = {} as EmailLinkModel;
+    model.email = this.form.value.Email;
+    model.link = this.quoteLink;
+    this.sendLinkByEmail(model);
+  }
+
+  private sendLinkByEmail(model: EmailLinkModel) {
+    this.spinner.show();
+    this.http.postEmailLink(model).subscribe(() => {
+      this.spinner.hide();
+    });
   }
 
   public saveAndBook(): void {
@@ -84,10 +94,6 @@ export class SaveAndShareComponent implements OnInit {
     this.modals.open('info-modal', 'Copied link to the clipboard');
   }
 
-  public onPrint(): void {
-    alert('will open printing window');
-  }
-
   public onShareTwitter(): void {
     alert('will redirect to the Twitter');
   }
@@ -99,12 +105,6 @@ export class SaveAndShareComponent implements OnInit {
   public getTest(): void {
     this.http.getTest('666').subscribe(async (text: string) => {
       alert('response:' + text);
-    });
-  }
-
-  public postTest(): void {
-    this.http.postSaveQuote(this.quotes.quoteState).subscribe(() => {
-      //todo
     });
   }
 

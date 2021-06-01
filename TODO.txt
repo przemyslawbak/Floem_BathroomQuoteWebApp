@@ -137,7 +137,7 @@ NO - save & share: linkedin
 OK - on main form init, if quote ID != null, move to summary
 OK - save & book: email to Floem + email to client
 OK - email sending - fix the format 2021-05-31T22:00:00.000Z
-- save & share: email
+OK - save & share: email
 - save & share: fb
 - save & share: twitter
 - save & share: remove print btn
