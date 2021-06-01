@@ -2,7 +2,7 @@ import { HttpService } from '@services/http.service';
 import { UnitModel } from './../_models/unit-items.model';
 import { CeilingPainting, QuoteItems } from './../_models/quote-items.model';
 import { DimentionUnits } from './../_models/quote-items.model';
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, AfterViewInit, ViewChild, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { BreakpointObserver } from '@angular/cdk/layout';
 import { MatStepper, StepperOrientation } from '@angular/material/stepper';
@@ -19,7 +19,7 @@ import { NgxSpinnerService } from 'ngx-spinner';
   templateUrl: './form.component.html',
   styleUrls: ['./form.component.css'],
 })
-export class FormComponent implements OnInit {
+export class FormComponent implements AfterViewInit, OnInit {
   unitsDimentions = DimentionUnits;
   keys: Array<string> = this.getKeys();
   public isLinear: boolean = true;
@@ -52,8 +52,6 @@ export class FormComponent implements OnInit {
         if (res) {
           this.quotes.quoteState = res;
           this.calculateTotal();
-          this.move(9);
-          this.scroll('summary');
         } else {
           //??
         }
@@ -61,6 +59,13 @@ export class FormComponent implements OnInit {
       });
     } else {
       this.setDefaultTiles(); //todo dry
+    }
+  }
+
+  public ngAfterViewInit(): void {
+    if (this.quotes.quoteId != '') {
+      this.move(9);
+      this.scroll('summary');
     }
   }
 
