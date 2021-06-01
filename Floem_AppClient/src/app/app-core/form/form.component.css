@@ -112,10 +112,6 @@ mat-button-toggle-group {
   scrollbar-width: thin;
 }
 
-.text-justify {
-  text-align: justify;
-}
-
 .summaryTile {
   width: 60px;
   height: 60px;

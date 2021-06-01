@@ -106,13 +106,15 @@ OK - summary: "Quote summary for bathroom size " in small screen wraps, bad posi
 OK - summary: add disclaimer that prices are estimated
 OK - routing
 OK - in share & book move last 2 btns to separate form view
-- policies menu btn
-- policies view
+OK - btn font size?
+OK - in share & book scroll to top on init
+OK - policies menu btn
+OK - policies view
 - bug: summary click console ERROR TypeError: el is null
 - backend db
 - on main form init, if quote ID != null, move to summary
-- in share & book scroll to top
-- btn font size?
+- in share & book btn margins top/bottom?
+- summary: save btns in one row
 - save & share: display link?
 - save & share: save to DB
 - save & share: generate link

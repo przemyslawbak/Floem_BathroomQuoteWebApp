@@ -56,3 +56,7 @@ app-footer {
   width: 50px;
   margin: 25px;
 }
+
+.text-justify {
+  text-align: justify;
+}
