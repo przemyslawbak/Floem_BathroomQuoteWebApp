@@ -1,3 +1,4 @@
+import { UnitsService } from './_services/units.service';
 import { PolicyComponent } from './policy/policy.component';
 import { ModalComponent } from './modal-views/modal-views.component';
 import { QuoteService } from './_services/quote.service';
@@ -71,6 +72,7 @@ import { MatNativeDateModule } from '@angular/material/core';
     ModalService,
     ErrorService,
     QuoteService,
+    UnitsService,
   ],
 })
 export class AppCoreModule {}
