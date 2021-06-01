@@ -1979,38 +1979,42 @@
     </div>
 
     <div>
-      <button
-        type="button"
-        class="btn btn-secondary"
-        mat-button
-        matStepperPrevious
-      >
-        Back
-      </button>
-      <button
-        type="button"
-        class="btn btn-success"
-        mat-button
-        (click)="saveAndBook()"
-      >
-        Save and Book
-      </button>
-      <button
-        type="button"
-        class="btn btn-success"
-        mat-button
-        (click)="saveAndShare()"
-      >
-        Save and Share
-      </button>
-      <button
-        type="button"
-        class="btn btn-danger"
-        mat-button
-        (click)="reloadPage()"
-      >
-        Clear all
-      </button>
+      <div>
+        <button
+          type="button"
+          class="btn btn-success"
+          mat-button
+          (click)="saveAndBook()"
+        >
+          Save and Book
+        </button>
+        <button
+          type="button"
+          class="btn btn-success"
+          mat-button
+          (click)="saveAndShare()"
+        >
+          Save and Share
+        </button>
+      </div>
+      <div>
+        <button
+          type="button"
+          class="btn btn-secondary"
+          mat-button
+          matStepperPrevious
+        >
+          Back
+        </button>
+        <button
+          type="button"
+          class="btn btn-danger"
+          mat-button
+          (click)="reloadPage()"
+        >
+          Clear all
+        </button>
+      </div>
     </div>
   </mat-step>
 </mat-stepper>

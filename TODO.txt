@@ -110,11 +110,9 @@ OK - btn font size?
 OK - in share & book scroll to top on init
 OK - policies menu btn
 OK - policies view
-- bug: summary click console ERROR TypeError: el is null
+OK - summary: save btns in one row
+OK - in share & book btn margins top/bottom?
 - backend db
-- on main form init, if quote ID != null, move to summary
-- in share & book btn margins top/bottom?
-- summary: save btns in one row
 - save & share: display link?
 - save & share: save to DB
 - save & share: generate link
@@ -137,6 +135,8 @@ OK - policies view
 - save & book: email to Floem + email to client
 - save & book: link to save & share
 - save & book: save client info
+- on main form init, if quote ID != null, move to summary
+- bug: summary click console ERROR TypeError: el is null
 - Favicon change
 - step 0 icon -> logo PNG
 - PNG logo?

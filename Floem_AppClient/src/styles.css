@@ -60,3 +60,9 @@ app-footer {
 .text-justify {
   text-align: justify;
 }
+
+.formContainer {
+  margin-top: 20px;
+  margin-bottom: 60px;
+  min-height: 100px;
+}
