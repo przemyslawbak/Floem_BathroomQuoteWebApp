@@ -95,11 +95,32 @@ export class SaveAndShareComponent implements OnInit {
   }
 
   public onShareTwitter(): void {
-    alert('will redirect to the Twitter');
+    this.socialWindow(this.quoteLink, 'Twitter');
   }
 
   public onShareFacebook(): void {
-    alert('will redirect to the Facebook');
+    this.socialWindow(this.quoteLink, 'Facebook');
+  }
+
+  private socialWindow(quoteLink: string, social: string): void {
+    let url: string = '';
+    if (social == 'Twitter') {
+      url =
+        'https://twitter.com/intent/tweet?text=Floem Renovations bathroom quote: ' +
+        quoteLink;
+    }
+
+    if (social == 'Facebook') {
+      url = 'https://www.facebook.com/sharer.php?u=' + quoteLink;
+    }
+    var left = (screen.width - 570) / 2;
+    var top = (screen.height - 570) / 2;
+    var params =
+      'menubar=no,toolbar=no,status=no,width=570,height=570,top=' +
+      top +
+      ',left=' +
+      left;
+    window.open(url, 'Share link', params);
   }
 
   public getTest(): void {
