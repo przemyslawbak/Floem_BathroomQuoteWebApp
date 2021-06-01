@@ -14,8 +14,6 @@ namespace Floem_Models
         [Required(ErrorMessage = "Email is required.")]
         [EmailAddress(ErrorMessage = "Valid email address is required.")]
         public string Email { get; set; }
-        [Required(ErrorMessage = "Phone is required.")]
-        [Phone(ErrorMessage = "Valid phone number is required.")]
         public string PhoneNumber { get; set; }
         [Required(ErrorMessage = "Street is required.")]
         public string Street { get; set; }

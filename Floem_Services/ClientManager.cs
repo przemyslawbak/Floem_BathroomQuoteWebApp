@@ -1,4 +1,5 @@
 ﻿using Floem_DAL;
+using Floem_Models;
 
 namespace Floem_Services
 {
@@ -8,6 +9,11 @@ namespace Floem_Services
         public ClientManager(IRepository repo)
         {
             _repo = repo;
+        }
+
+        public void AddClient(FloemClientModel model)
+        {
+            _repo.SaveClinetToDb(model);
         }
     }
 }

@@ -1,3 +1,4 @@
+import { ClientModel } from './../_models/quote-client.model';
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -74,9 +75,27 @@ export class SaveAndBookComponent implements OnInit {
   }
 
   public onSubmit() {
-    const email = this.form.value.Email;
-    console.log(this.form.value.PrivacyAccept);
+    let client: ClientModel = {} as ClientModel;
+    client.email = this.form.value.Email;
+    client.date = this.form.value.Date;
+    client.time = this.form.value.Time;
+    client.name = this.form.value.Name;
+    client.phoneNumber = this.form.value.Phone;
+    client.street = this.form.value.Street;
+    client.aptNo = this.form.value.AptNo;
+    client.city = this.form.value.City;
+    client.state = this.form.value.State;
+    client.message = this.form.value.Message;
+
+    this.postBookingClient(client);
+
     alert('will send an email to you and the client');
+  }
+
+  public postBookingClient(client: ClientModel): void {
+    this.http.postClient(client).subscribe(() => {
+      //todo
+    });
   }
 
   public saveAndShare(): void {
@@ -90,12 +109,6 @@ export class SaveAndBookComponent implements OnInit {
   public getTest(): void {
     this.http.getTest('666').subscribe(async (text: string) => {
       alert('response:' + text);
-    });
-  }
-
-  public postTest(): void {
-    this.http.postSaveQuote(this.quotes.quoteState).subscribe(() => {
-      //todo
     });
   }
 

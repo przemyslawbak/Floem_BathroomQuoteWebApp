@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable, Subject } from 'rxjs';
 
 import { QuoteItems } from '../_models/quote-items.model';
+import { ClientModel } from '@models/quote-client.model';
 
 @Injectable()
 export class HttpService {
@@ -13,6 +14,14 @@ export class HttpService {
     const url: string = environment.apiUrl + 'api/quote/save';
     let subject = new Subject<any>();
     this.http.post<any>(url, model).subscribe((res) => subject.next(res));
+
+    return subject.asObservable();
+  }
+
+  public postClient(client: ClientModel): Observable<any> {
+    const url: string = environment.apiUrl + 'api/client/save-client';
+    let subject = new Subject<any>();
+    this.http.post<any>(url, client).subscribe((res) => subject.next(res));
 
     return subject.asObservable();
   }

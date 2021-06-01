@@ -18,10 +18,20 @@ namespace Floem_BathroomQuote.Controllers
         /// POST: api/quote/save-client
         /// </summary>
         /// <returns>Status code.</returns>
-        [HttpPost("save")]
-        public IActionResult SaveQuote([FromBody] FloemClientModel model)
+        [HttpPost("save-client")]
+        public IActionResult SaveClient([FromBody] FloemClientModel model)
         {
-            return Ok();
+            //todo: model validation
+
+            if (model != null)
+            {
+                _clients.AddClient(model);
+                return Ok();
+            }
+            else
+            {
+                return new ObjectResult("User data is wrong.") { StatusCode = 422 };
+            }
         }
     }
 }
