@@ -15,12 +15,14 @@ namespace Floem_Services
             _configuration = configuration;
         }
 
-        public string CombineClientBookingMessage(string name, string link)
+        public string CombineClientBookingMessage(string name, string link, string clientsDate, string clientsTime)
         {
             string clientsName = string.IsNullOrEmpty(name) ? "customer" : name;
-            string message = @"Dear " + clientsName + @", your booking request was sent to Floem. We will contact you soon to confirm your reservation.
+            string message = @"Dear " + clientsName + @", your booking request for " + clientsDate.Substring(0, 10) + " - " + clientsTime + @" was sent to Floem. We will contact you soon to confirm your reservation.
+            
+You can find and edit your quote entering here: " + link + @"
 
-            Floem Renovations";
+Floem Renovations";
             return message;
         }
 
@@ -38,7 +40,7 @@ namespace Floem_Services
             string clientsTime = string.IsNullOrEmpty(client.Time) ? "(unknown)" : client.Time;
             string clientsQuoteLink = string.IsNullOrEmpty(client.QuoteLink) ? "(unknown)" : client.QuoteLink;
 
-            string message = "Booking request received for " + clientsDate + " - " + clientsTime + @". Client details:
+            string message = "Booking request received for " + clientsDate.Substring(0, 10) + " - " + clientsTime + @". Client details:
 
             Name: " + clientsName + @"
             Email: " + clientsEmail + @"
@@ -80,7 +82,7 @@ namespace Floem_Services
                 using (SmtpClient client = new SmtpClient())
                 {
                     client.ServerCertificateValidationCallback = (s, c, h, e) => true;
-                    client.Connect("EmailSender:Host", 465, true);
+                    client.Connect(_configuration["EmailSender:Host"], 587, false);
                     client.Authenticate(_configuration["EmailSender:Address"], _configuration["EmailSender:Password"]);
                     await client.SendAsync(msg);
                     client.Disconnect(true);

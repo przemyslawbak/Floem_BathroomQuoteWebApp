@@ -37,7 +37,7 @@ namespace Floem_BathroomQuote.Controllers
             }
 
             _clients.AddClient(model);
-            _email.SendEmailAsync(model.Email, "Floem consultancy booked", _email.CombineClientBookingMessage(model.Name, model.QuoteLink));
+            _email.SendEmailAsync(model.Email, "Floem consultancy booked", _email.CombineClientBookingMessage(model.Name, model.QuoteLink, model.Date, model.Time));
             _email.SendEmailAsync(_configuration["EmailSender:FloemEmailAddress"], "Floem consultancy booked", _email.CombineFloemBookingMessage(model));
             return Ok();
         }
