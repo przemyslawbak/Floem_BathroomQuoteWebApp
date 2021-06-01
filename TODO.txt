@@ -120,26 +120,29 @@ OK - save & book: policy accept
 NO - save & book: RODO
 OK - save & book: save client info
 OK - backend db
-- in share & book views display quote link
+OK - before saving quote to the DB verify changed values
+OK - if quote not changed, can not go to save
+OK - in save & share copy quote link
+NO - in form page init spinner off?
+No - save & share: display link?
+OK - save & share: save to DB
+NO - save & book: display link?
+OK - save & share: generate link
+NO - save & share: captcha?
+OK - save & book: generate link
+OK - save & book: save to DB
+OK - save & book: link to save & share
+OK - save & share: link to save & book
+NO - save & share: linkedin
+OK - on main form init, if quote ID != null, move to summary
 - in share & book if quote id exists, update entity
-- in form page init spinner off?
-- before saving quote to the DB verify changed values
-- save & share: display link?
-- save & share: save to DB
-- save & share: generate link
-- save & share: captcha?
 - save & share: email
 - save & share: fb
 - save & share: twitter
 - save & share: print
-- save & share: linkedin
-- save & share: link to save & book
-- save & book: display link?
-- save & book: save to DB
-- save & book: generate link
 - save & book: email to Floem + email to client
-- save & book: link to save & share
-- on main form init, if quote ID != null, move to summary
+- get quote back end
+- get quote front end
 - bug: summary click console ERROR TypeError: el is null
 - Favicon change
 - step 0 icon -> logo PNG
