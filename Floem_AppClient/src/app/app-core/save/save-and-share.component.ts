@@ -4,6 +4,9 @@ import { HttpService } from '@services/http.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { QuoteItems } from '@models/quote-items.model';
+import { environment } from '@environments/environment';
+import { NgxSpinnerService } from 'ngx-spinner';
+import { ModalService } from '@services/modal.service';
 
 @Component({
   templateUrl: './save-and-share.component.html',
@@ -11,17 +14,21 @@ import { QuoteItems } from '@models/quote-items.model';
 })
 export class SaveAndShareComponent implements OnInit {
   public form: FormGroup;
+  public quoteLink: string = '';
 
   constructor(
     private http: HttpService,
     private quotes: QuoteService,
     private formBuilder: FormBuilder,
-    private router: Router
+    private router: Router,
+    private spinner: NgxSpinnerService,
+    private modals: ModalService
   ) {
     if (this.quotes.quoteId == '') {
-      quotes.quoteId = this.saveQuoteAndGetId(this.quotes.quoteState);
+      this.saveQuoteAndGetId(this.quotes.quoteState);
     } else {
-      //todo: put quote
+      this.quoteLink = environment.clientUrl + this.quotes.quoteId;
+      //todo: update quote
     }
   }
 
@@ -30,12 +37,13 @@ export class SaveAndShareComponent implements OnInit {
     this.scroll('logo');
   }
 
-  private saveQuoteAndGetId(quoteState: QuoteItems): string {
-    let id: string = '';
+  private saveQuoteAndGetId(quoteState: QuoteItems): void {
+    this.spinner.show();
     this.http.postSaveQuote(quoteState).subscribe((res: string) => {
-      id = res;
+      this.quotes.quoteId = res;
+      this.quoteLink = environment.clientUrl + res;
+      this.spinner.hide();
     });
-    return id;
   }
 
   private createForm() {
@@ -64,6 +72,16 @@ export class SaveAndShareComponent implements OnInit {
 
   public onCancel(): void {
     this.router.navigate(['']);
+  }
+
+  public onCopyLink(): void {
+    document.addEventListener('copy', (e: ClipboardEvent) => {
+      e.clipboardData.setData('text/plain', this.quoteLink);
+      e.preventDefault();
+      document.removeEventListener('copy', null);
+    });
+    document.execCommand('copy');
+    this.modals.open('info-modal', 'Copied link to the clipboard');
   }
 
   public onPrint(): void {

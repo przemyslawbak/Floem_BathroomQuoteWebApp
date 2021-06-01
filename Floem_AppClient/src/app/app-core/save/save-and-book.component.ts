@@ -6,6 +6,7 @@ import { HttpService } from '@services/http.service';
 import { QuoteService } from '@services/quote.service';
 import { QuoteItems } from '@models/quote-items.model';
 import { NgxSpinnerService } from 'ngx-spinner';
+import { environment } from '@environments/environment';
 
 @Component({
   templateUrl: './save-and-book.component.html',
@@ -15,6 +16,7 @@ import { NgxSpinnerService } from 'ngx-spinner';
 export class SaveAndBookComponent implements OnInit {
   public form: FormGroup;
   public minDate: Date = new Date();
+  public quoteLink: string = '';
   public timeOptions: string[] = [
     '11:00 am',
     '11:30 am',
@@ -41,10 +43,10 @@ export class SaveAndBookComponent implements OnInit {
     private router: Router,
     private spinner: NgxSpinnerService
   ) {
-    console.log('quote id:' + this.quotes.quoteId);
     if (this.quotes.quoteId == '') {
       this.saveQuoteAndGetId(this.quotes.quoteState);
     } else {
+      this.quoteLink = environment.clientUrl + this.quotes.quoteId;
       //todo: update quote
     }
   }
@@ -55,10 +57,10 @@ export class SaveAndBookComponent implements OnInit {
   }
 
   private saveQuoteAndGetId(quoteState: QuoteItems): void {
-    console.log('quote id:' + this.quotes.quoteId);
     this.spinner.show();
     this.http.postSaveQuote(quoteState).subscribe((res: string) => {
       this.quotes.quoteId = res;
+      this.quoteLink = environment.clientUrl + res;
       this.spinner.hide();
     });
   }
