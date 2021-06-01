@@ -1,11 +1,13 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Floem_Models
 {
     public class FloemClientModel
     {
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public Guid Id { get; set; }
         [Required(ErrorMessage = "Name is required.")]
         public string Name { get; set; }
@@ -22,5 +24,7 @@ namespace Floem_Models
         public string City { get; set; }
         public string State { get; set; }
         public string Message { get; set; }
+        public string Date { get; set; }
+        public string Time { get; set; }
     }
 }

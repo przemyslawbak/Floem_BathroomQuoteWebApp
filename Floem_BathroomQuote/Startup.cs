@@ -33,6 +33,7 @@ namespace Floem_BathroomQuote
             services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(Configuration["ConnectionStrings:DefaultConnection"]));
             services.AddTransient<IEmailSender, EmailSender>();
             services.AddTransient<IQuoteManager, QuoteManager>();
+            services.AddTransient<IClientManager, ClientManager>();
             services.AddTransient<IRepository, EFRepository>();
         }
 
