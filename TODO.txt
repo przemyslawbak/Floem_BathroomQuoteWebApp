@@ -143,14 +143,14 @@ OK - save & share: fb
 OK - save & share: twitter
 OK - back-end...
 OK - in share & book if quote id exists, update entity (PUT)
-- bug: removal binding with model
-- bug: floor binding with model
-- bug: walls binding with model
-- bug: units binding with model
-- bug: units binding with model
-- get quote back-end
-- get quote front-end
-- on loaded quote from DB go to summary
+OK - get quote back-end
+OK - get quote front-end
+OK - on loaded quote from DB go to summary
+OK - bug: floor, removal, walls, units, doors, electrical, ceiling controls binding to the model
+OK - bug: on quote load mechanic fan missing
+OK - bug: on quote load tile from list displayed wrong
+OK - bug: on quote load units not loaded or binded
+- on 'go back' from 'save' views shift to the summary?
 - bug: summary click console ERROR TypeError: el is null
 - Favicon change
 - step 0 icon -> logo PNG

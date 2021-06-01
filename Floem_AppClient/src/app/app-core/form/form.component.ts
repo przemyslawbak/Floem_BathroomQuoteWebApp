@@ -37,14 +37,14 @@ export class FormComponent implements OnInit {
     private http: HttpService,
     private spinner: NgxSpinnerService
   ) {
+    console.log('constr');
     this.stepperOrientation = breakpointObserver
       .observe('(min-width: 800px)')
       .pipe(map(({ matches }) => (matches ? 'horizontal' : 'vertical')));
-
-    this.setDefaultTiles();
   }
 
   public ngOnInit(): void {
+    this.quotes.quoteState = new QuoteItems();
     const id: string = this.route.snapshot.paramMap.get('id');
     if (id) {
       this.quotes.quoteId = id;
@@ -52,12 +52,15 @@ export class FormComponent implements OnInit {
         if (res) {
           this.quotes.quoteState = res;
           this.calculateTotal();
+          this.move(9);
+          this.scroll('summary');
         } else {
-          this.quotes.quoteState = new QuoteItems();
+          //??
         }
+        this.setDefaultTiles(); //todo dry
       });
     } else {
-      this.quotes.quoteState = new QuoteItems();
+      this.setDefaultTiles(); //todo dry
     }
   }
 
@@ -467,9 +470,7 @@ export class FormComponent implements OnInit {
 
     //2.removals
     if (this.quotes.quoteState.removals) {
-      this.quotes.quoteState.removalsTotal =
-        this.quotes.quoteState.removalsTotal +
-        this.quotes.quoteState.removalsPrice;
+      this.quotes.quoteState.removalsTotal = this.quotes.quoteState.removalsPrice;
     }
     this.total = this.total + this.quotes.quoteState.removalsTotal;
     //3.floor
@@ -633,6 +634,8 @@ export class FormComponent implements OnInit {
 
   public setDefaultTiles(): void {
     //tiles
+    console.log('tile array ' + this.tiles);
+    console.log('floor code ' + this.quotes.quoteState.floorCode);
     this.setTileSelected(this.tiles, this.quotes.quoteState.floorCode);
     //lvt
     //wall
@@ -647,6 +650,7 @@ export class FormComponent implements OnInit {
   }
 
   private setTileSelected(arr: UnitModel[], code: string): void {
+    console.log('passed code ' + code);
     if (code == '') {
       this.setTile(arr[0], 0);
       return;

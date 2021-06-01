@@ -335,12 +335,14 @@
               class="col-lg-6 col-12"
               value="removalNo"
               (change)="setNoRemovals()"
+              [checked]="!this.quotes.quoteState.removals"
               >No removal
             </mat-button-toggle>
             <mat-button-toggle
               class="col-lg-6 col-12"
               value="removalYes"
               (change)="setRemovals()"
+              [checked]="this.quotes.quoteState.removals"
               >With removal</mat-button-toggle
             >
           </mat-button-toggle-group>
@@ -412,6 +414,7 @@
               class="col-lg-3 col-12"
               value="none"
               (change)="setNoneFloor()"
+              [checked]="this.quotes.quoteState.floorNone"
               >No change</mat-button-toggle
             >
             <mat-button-toggle
@@ -419,6 +422,7 @@
               value="tiled"
               (change)="setTiledFloor()"
               (click)="scroll('tiled-floor')"
+              [checked]="this.quotes.quoteState.floorTiled"
               >Tiled floor</mat-button-toggle
             >
             <mat-button-toggle
@@ -426,6 +430,7 @@
               value="lvt"
               (change)="setLvtFloor()"
               (click)="scroll('lvt-floor')"
+              [checked]="this.quotes.quoteState.floorLvt"
               >LVT floor</mat-button-toggle
             >
             <mat-button-toggle
@@ -433,6 +438,7 @@
               value="other"
               (change)="setOtherFloor()"
               (click)="scroll('other-floor')"
+              [checked]="this.quotes.quoteState.floorOther"
               >Other</mat-button-toggle
             >
           </mat-button-toggle-group>
@@ -581,6 +587,7 @@
               class="col-lg-7"
               value="none"
               (change)="setNoneWall()"
+              [checked]="this.quotes.quoteState.wallsNone"
               >No change</mat-button-toggle
             >
             <mat-button-toggle
@@ -588,6 +595,7 @@
               value="tiled"
               (change)="setFullWall()"
               (click)="scroll('tiled-wall')"
+              [checked]="this.quotes.quoteState.wallsFullHeight"
               >Full height
             </mat-button-toggle>
             <mat-button-toggle
@@ -595,6 +603,7 @@
               value="lvt"
               (change)="setHalfWall()"
               (click)="scroll('tiled-wall')"
+              [checked]="this.quotes.quoteState.wallsHalfHeight"
               >Half height</mat-button-toggle
             >
             <mat-button-toggle
@@ -602,6 +611,7 @@
               value="other"
               (change)="setPlasteredWall()"
               (click)="scroll('tiled-wall')"
+              [checked]="this.quotes.quoteState.wallsPlastered"
               >Plastered</mat-button-toggle
             >
             <mat-button-toggle
@@ -609,6 +619,7 @@
               value="other"
               (change)="setOtherWall()"
               (click)="scroll('other-wall')"
+              [checked]="this.quotes.quoteState.wallsOther"
               >Other walls</mat-button-toggle
             >
           </mat-button-toggle-group>
@@ -644,12 +655,14 @@
                 class="col-lg-6 col-12"
                 value="none"
                 (change)="setWallNotPaintedWhite()"
+                [checked]="!this.quotes.quoteState.wallsPaintedWhite"
                 >With no painting</mat-button-toggle
               >
               <mat-button-toggle
                 class="col-lg-6 col-12"
                 value="painted"
                 (change)="setWallPaintedWhite()"
+                [checked]="this.quotes.quoteState.wallsPaintedWhite"
                 >Wall painted white
               </mat-button-toggle>
             </mat-button-toggle-group>
@@ -824,42 +837,49 @@
               class="col-lg-9"
               value="bath"
               (click)="scroll('bath-unit')"
+              [checked]="this.quotes.quoteState.bathItem"
               >Bath</mat-button-toggle
             >
             <mat-button-toggle
               class="col-lg-9"
               value="ensuite"
               (click)="scroll('ensuite-unit')"
+              [checked]="this.quotes.quoteState.ensuiteItem"
               >Shower ensuite</mat-button-toggle
             >
             <mat-button-toggle
               class="col-lg-9"
               value="mixer"
               (click)="scroll('mixer-unit')"
+              [checked]="this.quotes.quoteState.mixerItem"
               >Shower mixer</mat-button-toggle
             >
             <mat-button-toggle
               class="col-lg-9"
               value="toilet"
               (click)="scroll('toilet-unit')"
+              [checked]="this.quotes.quoteState.toiletItem"
               >Toilet</mat-button-toggle
             >
             <mat-button-toggle
               class="col-lg-9"
               value="rail"
               (click)="scroll('rail-unit')"
+              [checked]="this.quotes.quoteState.towelRailItem"
               >Towel rail</mat-button-toggle
             >
             <mat-button-toggle
               class="col-lg-9"
               value="basin"
               (click)="scroll('basin-unit')"
+              [checked]="this.quotes.quoteState.basinItem"
               >Basin</mat-button-toggle
             >
             <mat-button-toggle
               class="col-lg-9"
               value="other"
               (click)="scroll('other-unit')"
+              [checked]="this.quotes.quoteState.otherItem"
               >Other</mat-button-toggle
             >
           </mat-button-toggle-group>
@@ -1095,6 +1115,7 @@
               class="col-lg-6 col-12"
               value="changingNo"
               (change)="setNoChangingDoors()"
+              [checked]="!this.quotes.quoteState.doorsChanging"
               >No changing doors
             </mat-button-toggle>
             <mat-button-toggle
@@ -1102,6 +1123,7 @@
               value="changingYes"
               (change)="setChangingDoors()"
               (click)="scroll('doors-type')"
+              [checked]="this.quotes.quoteState.doorsChanging"
               >Changing doors
             </mat-button-toggle>
           </mat-button-toggle-group>
@@ -1193,9 +1215,13 @@
               class="col-lg-2 col-12"
               value="mirror"
               (click)="scroll('mirror-electrical')"
+              [checked]="this.quotes.quoteState.mirrorElectrical"
               >Elecrical mirror</mat-button-toggle
             >
-            <mat-button-toggle class="col-lg-2 col-12" value="fan"
+            <mat-button-toggle
+              class="col-lg-2 col-12"
+              value="fan"
+              [checked]="this.quotes.quoteState.fanElectrical"
               >Mechanic fan
             </mat-button-toggle>
             <mat-button-toggle
@@ -1222,12 +1248,14 @@
               class="col-lg-2 col-12"
               value="spotlight"
               (click)="scroll('spotlights-qty')"
+              [checked]="this.quotes.quoteState.spotlightsElectrical"
               >Spotlights</mat-button-toggle
             >
             <mat-button-toggle
               class="col-lg-2 col-12"
               value="socket"
               (click)="scroll('sockets-qty')"
+              [checked]="this.quotes.quoteState.socketsElectrical"
               >Power sockets</mat-button-toggle
             >
           </mat-button-toggle-group>
@@ -1367,18 +1395,23 @@
               class="col-lg-4 col-12"
               value="ceilingPaintNo"
               (change)="setNoCeilingPainting()"
+              [checked]="this.quotes.quoteState.paintingCeiling == 'NoPainting'"
               >No ceiling painting
             </mat-button-toggle>
             <mat-button-toggle
               class="col-lg-4 col-12"
               value="ceilingPaintYes"
               (change)="setYesCeilingPainting()"
+              [checked]="
+                this.quotes.quoteState.paintingCeiling == 'PaintingWhite'
+              "
               >Paint ceiling white
             </mat-button-toggle>
             <mat-button-toggle
               class="col-lg-4 col-12"
               value="ceilingPaintYes"
               (change)="setYesCeilingPlastered()"
+              [checked]="this.quotes.quoteState.paintingCeiling == 'Plastered'"
               >Ceiling plastered
             </mat-button-toggle>
           </mat-button-toggle-group>
