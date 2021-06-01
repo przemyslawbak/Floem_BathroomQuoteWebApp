@@ -1,4 +1,5 @@
 ﻿using Floem_DAL;
+using Floem_Models;
 
 namespace Floem_Services
 {
@@ -8,6 +9,11 @@ namespace Floem_Services
         public QuoteManager(IRepository repo)
         {
             _repo = repo;
+        }
+
+        public string AddQuote(FloemQuoteModel model)
+        {
+            return _repo.SaveQuoteToDbAndReturnId(model);
         }
     }
 }

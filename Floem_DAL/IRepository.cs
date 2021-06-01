@@ -5,5 +5,6 @@ namespace Floem_DAL
     public interface IRepository
     {
         void SaveClinetToDb(FloemClientModel model);
+        string SaveQuoteToDbAndReturnId(FloemQuoteModel model);
     }
 }

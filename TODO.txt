@@ -112,7 +112,15 @@ OK - policies menu btn
 OK - policies view
 OK - summary: save btns in one row
 OK - in share & book btn margins top/bottom?
+NO - save & book: captcha?
+OK - save & book: calendar
+OK - save & book: book online
+OK - save & book: contacts
+OK - save & book: policy accept
+NO - save & book: RODO
+OK - save & book: save client info
 - backend db
+- before saving quote to the DB verify changed values
 - save & share: display link?
 - save & share: save to DB
 - save & share: generate link
@@ -126,15 +134,8 @@ OK - in share & book btn margins top/bottom?
 - save & book: display link?
 - save & book: save to DB
 - save & book: generate link
-- save & book: captcha?
-- save & book: calendar
-- save & book: book online
-- save & book: contacts
-- save & book: policy accept
-- save & book: RODO
 - save & book: email to Floem + email to client
 - save & book: link to save & share
-- save & book: save client info
 - on main form init, if quote ID != null, move to summary
 - bug: summary click console ERROR TypeError: el is null
 - Favicon change

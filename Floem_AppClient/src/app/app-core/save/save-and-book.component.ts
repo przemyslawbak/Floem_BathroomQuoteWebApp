@@ -4,6 +4,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { HttpService } from '@services/http.service';
 import { QuoteService } from '@services/quote.service';
+import { QuoteItems } from '@models/quote-items.model';
 
 @Component({
   templateUrl: './save-and-book.component.html',
@@ -37,11 +38,23 @@ export class SaveAndBookComponent implements OnInit {
     private quotes: QuoteService,
     private formBuilder: FormBuilder,
     private router: Router
-  ) {}
+  ) {
+    if (this.quotes.quoteId == '') {
+      quotes.quoteId = this.saveQuoteAndGetId(this.quotes.quoteState);
+    }
+  }
 
   public ngOnInit() {
     this.createForm();
     this.scroll('logo');
+  }
+
+  private saveQuoteAndGetId(quoteState: QuoteItems): string {
+    this.http.postSaveQuote(quoteState).subscribe((res) => {
+      console.log(res);
+    });
+    //todo: return quote id
+    return '';
   }
 
   public weekendsDatesFilter(d: Date): boolean {

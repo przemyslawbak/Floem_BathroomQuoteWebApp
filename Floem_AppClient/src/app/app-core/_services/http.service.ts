@@ -11,7 +11,7 @@ export class HttpService {
   constructor(private http: HttpClient) {}
 
   public postSaveQuote(model: QuoteItems): Observable<any> {
-    const url: string = environment.apiUrl + 'api/quote/save';
+    const url: string = environment.apiUrl + 'api/quote/save-quote';
     let subject = new Subject<any>();
     this.http.post<any>(url, model).subscribe((res) => subject.next(res));
 

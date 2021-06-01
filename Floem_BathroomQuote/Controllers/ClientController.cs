@@ -21,17 +21,18 @@ namespace Floem_BathroomQuote.Controllers
         [HttpPost("save-client")]
         public IActionResult SaveClient([FromBody] FloemClientModel model)
         {
-            //todo: model validation
-
-            if (model != null)
-            {
-                _clients.AddClient(model);
-                return Ok();
-            }
-            else
+            if (model == null)
             {
                 return new ObjectResult("User data is wrong.") { StatusCode = 422 };
             }
+
+            if (!ModelState.IsValid)
+            {
+                return new ObjectResult("User data is wrong.") { StatusCode = 422 };
+            }
+
+            _clients.AddClient(model);
+            return Ok("dupa");
         }
     }
 }

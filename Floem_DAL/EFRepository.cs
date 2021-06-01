@@ -19,5 +19,18 @@ namespace Floem_DAL
                 _context.SaveChanges();
             }
         }
+
+        public string SaveQuoteToDbAndReturnId(FloemQuoteModel model)
+        {
+            if (model != null)
+            {
+                _context.FloemQuotes.Add(model);
+                _context.SaveChanges();
+
+                return model.Id.ToString();
+            }
+
+            return string.Empty;
+        }
     }
 }
