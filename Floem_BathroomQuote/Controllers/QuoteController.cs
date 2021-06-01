@@ -64,12 +64,19 @@ namespace Floem_BathroomQuote.Controllers
         }
 
         /// <summary>
-        /// GET: api/quote/test-get
+        /// GET: api/quote/get-quote
         /// </summary>
-        [HttpGet("test-get")]
-        public IActionResult TestGetEndpoint(int id)
+        [HttpGet("get-quote")]
+        public IActionResult TestGetEndpoint(string id)
         {
-            return Json("GET works fine. Id:" + id);
+            FloemQuoteModel quote = _quotes.FindQuoteById(id);
+            
+            if (quote == null)
+            {
+                return new ObjectResult("Quote not fund.") { StatusCode = 400 };
+            }
+
+            return Json(quote);
         }
     }
 }

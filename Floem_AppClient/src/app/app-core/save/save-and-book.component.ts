@@ -141,12 +141,6 @@ export class SaveAndBookComponent implements OnInit {
     this.router.navigate(['']);
   }
 
-  public getTest(): void {
-    this.http.getTest('666').subscribe(async (text: string) => {
-      alert('response:' + text);
-    });
-  }
-
   //todo: dry
   public scroll(id: string): void {
     setTimeout(function () {

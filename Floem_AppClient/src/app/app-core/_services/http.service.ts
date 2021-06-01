@@ -43,20 +43,8 @@ export class HttpService {
     return subject.asObservable();
   }
 
-  public getTest(id: string): Observable<any> {
-    const url: string = environment.apiUrl + 'api/quote/test-get?id=' + id;
-    console.log(environment.apiUrl);
-    console.log(url);
+  public getQuote(id: string): Observable<any> {
+    const url: string = environment.apiUrl + 'api/quote/get-quote?id=' + id;
     return this.http.get(url);
-  }
-
-  public postTest(id: string): Observable<any> {
-    const url: string = environment.apiUrl + 'api/quote/test-post';
-    let subject = new Subject<any>();
-    this.http
-      .post<any>(url, { id: id })
-      .subscribe((res) => subject.next(res));
-
-    return subject.asObservable();
   }
 }

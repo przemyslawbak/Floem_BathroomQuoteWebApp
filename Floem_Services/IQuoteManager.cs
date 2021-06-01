@@ -6,5 +6,6 @@ namespace Floem_Services
     {
         string AddQuote(FloemQuoteModel model);
         void UpdateQuote(FloemQuoteModel model);
+        FloemQuoteModel FindQuoteById(string id);
     }
 }

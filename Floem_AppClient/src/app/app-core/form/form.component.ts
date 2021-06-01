@@ -1,3 +1,4 @@
+import { HttpService } from '@services/http.service';
 import { UnitModel } from './../_models/unit-items.model';
 import { CeilingPainting, QuoteItems } from './../_models/quote-items.model';
 import { DimentionUnits } from './../_models/quote-items.model';
@@ -5,19 +6,20 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { BreakpointObserver } from '@angular/cdk/layout';
 import { MatStepper, StepperOrientation } from '@angular/material/stepper';
-import { Observable } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { QuoteService } from '@services/quote.service';
 import { UnitsService } from '@services/units.service';
 import { ModalService } from '@services/modal.service';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-form',
   templateUrl: './form.component.html',
   styleUrls: ['./form.component.css'],
 })
-export class FormComponent {
+export class FormComponent implements OnInit {
   unitsDimentions = DimentionUnits;
   keys: Array<string> = this.getKeys();
   public isLinear: boolean = true;
@@ -30,13 +32,33 @@ export class FormComponent {
     private router: Router,
     public quotes: QuoteService,
     private units: UnitsService,
-    private modals: ModalService
+    private modals: ModalService,
+    private route: ActivatedRoute,
+    private http: HttpService,
+    private spinner: NgxSpinnerService
   ) {
     this.stepperOrientation = breakpointObserver
       .observe('(min-width: 800px)')
       .pipe(map(({ matches }) => (matches ? 'horizontal' : 'vertical')));
 
     this.setDefaultTiles();
+  }
+
+  public ngOnInit(): void {
+    const id: string = this.route.snapshot.paramMap.get('id');
+    if (id) {
+      this.quotes.quoteId = id;
+      this.loadQuoteState(id).subscribe((res) => {
+        if (res) {
+          this.quotes.quoteState = res;
+          this.calculateTotal();
+        } else {
+          this.quotes.quoteState = new QuoteItems();
+        }
+      });
+    } else {
+      this.quotes.quoteState = new QuoteItems();
+    }
   }
 
   public tiles: UnitModel[] = this.units.getFloorTiles();
@@ -134,6 +156,26 @@ export class FormComponent {
   stepper!: MatStepper;
   public move(index: number): void {
     this.stepper.selectedIndex = index;
+  }
+
+  private loadQuoteState(id: string): Observable<QuoteItems> {
+    this.spinner.show();
+    let subject = new Subject<QuoteItems>();
+    this.http.getQuote(id).subscribe({
+      next: (q) => {
+        subject.next(q);
+        this.modals.open('info-modal', 'Previous quote successfuly loaded.');
+      },
+      error: (e) => {
+        subject.next(null);
+        this.modals.open('info-modal', 'Could not load previous quote. ' + e);
+      },
+      complete: () => {
+        this.spinner.hide();
+      },
+    });
+
+    return subject.asObservable();
   }
 
   public verifyOthers() {
@@ -673,12 +715,6 @@ export class FormComponent {
       this.quotes.quoteState.depthFt = this.getFeet(
         this.quotes.quoteState.depthCm
       );
-      console.log(this.quotes.quoteState.heightIn);
-      console.log(this.quotes.quoteState.widthIn);
-      console.log(this.quotes.quoteState.depthIn);
-      console.log(this.quotes.quoteState.heightFt);
-      console.log(this.quotes.quoteState.widthFt);
-      console.log(this.quotes.quoteState.depthFt);
     } else if (
       this.quotes.quoteState.units == DimentionUnits.Centimeters ||
       calc
@@ -695,9 +731,6 @@ export class FormComponent {
         this.quotes.quoteState.depthIn,
         this.quotes.quoteState.depthFt
       );
-      console.log(this.quotes.quoteState.heightCm);
-      console.log(this.quotes.quoteState.widthCm);
-      console.log(this.quotes.quoteState.depthCm);
     }
   }
   private getCentimeters(i: number, f: number): number {

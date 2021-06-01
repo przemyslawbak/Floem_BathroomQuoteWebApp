@@ -143,8 +143,14 @@ OK - save & share: fb
 OK - save & share: twitter
 OK - back-end...
 OK - in share & book if quote id exists, update entity (PUT)
+- bug: removal binding with model
+- bug: floor binding with model
+- bug: walls binding with model
+- bug: units binding with model
+- bug: units binding with model
 - get quote back-end
 - get quote front-end
+- on loaded quote from DB go to summary
 - bug: summary click console ERROR TypeError: el is null
 - Favicon change
 - step 0 icon -> logo PNG

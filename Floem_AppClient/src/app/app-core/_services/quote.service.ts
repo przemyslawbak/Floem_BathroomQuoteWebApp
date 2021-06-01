@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 
 @Injectable()
 export class QuoteService {
-  public quoteState: QuoteItems = new QuoteItems();
+  public quoteState: QuoteItems = {} as QuoteItems;
   public quoteId: string = '';
 
   constructor() {}

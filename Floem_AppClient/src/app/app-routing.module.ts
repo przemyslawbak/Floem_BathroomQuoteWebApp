@@ -22,6 +22,10 @@ const routes: Routes = [
     path: 'save-and-book',
     component: SaveAndBookComponent,
   },
+  {
+    path: ':id',
+    component: FormComponent,
+  },
 ];
 
 @NgModule({

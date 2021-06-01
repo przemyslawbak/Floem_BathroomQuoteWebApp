@@ -7,5 +7,6 @@ namespace Floem_DAL
         void SaveClinetToDb(FloemClientModel model);
         string SaveQuoteToDbAndReturnId(FloemQuoteModel model);
         void UpdateQuoteInDb(FloemQuoteModel model);
+        FloemQuoteModel GetQuote(string id);
     }
 }

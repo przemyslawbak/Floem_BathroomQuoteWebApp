@@ -12,6 +12,18 @@ namespace Floem_DAL
             _context = ctx;
         }
 
+        public FloemQuoteModel GetQuote(string id)
+        {
+            FloemQuoteModel quote = _context.FloemQuotes.Where(q => q.Id.ToString() == id).FirstOrDefault();
+
+            if (quote == null)
+            {
+                return null;
+            }
+
+            return quote;
+        }
+
         public void SaveClinetToDb(FloemClientModel model)
         {
             if (model != null)

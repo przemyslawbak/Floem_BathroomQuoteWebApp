@@ -131,12 +131,6 @@ export class SaveAndShareComponent implements OnInit {
     window.open(url, 'Share link', params);
   }
 
-  public getTest(): void {
-    this.http.getTest('666').subscribe(async (text: string) => {
-      alert('response:' + text);
-    });
-  }
-
   public scroll(id: string): void {
     setTimeout(function () {
       let el: HTMLElement = document.getElementById(id)!;
