@@ -136,12 +136,12 @@ OK - save & share: link to save & book
 NO - save & share: linkedin
 OK - on main form init, if quote ID != null, move to summary
 OK - save & book: email to Floem + email to client
-- email sending - fix the format 2021-05-31T22:00:00.000Z
-- in share & book if quote id exists, update entity (PUT)
+OK - email sending - fix the format 2021-05-31T22:00:00.000Z
 - save & share: email
 - save & share: fb
 - save & share: twitter
 - save & share: remove print btn
+- in share & book if quote id exists, update entity (PUT)
 - get quote back-end
 - get quote front-end
 - bug: summary click console ERROR TypeError: el is null

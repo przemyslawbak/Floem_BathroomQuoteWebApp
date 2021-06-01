@@ -49,14 +49,5 @@ namespace Floem_BathroomQuote.Controllers
         {
             return Json("GET works fine. Id:" + id);
         }
-
-        /// <summary>
-        /// POST: api/quote/test-post
-        /// </summary>
-        [HttpPost("test-post")]
-        public IActionResult TestPostEndpoint([FromBody] TestModel model)
-        {
-            return Ok();
-        }
     }
 }

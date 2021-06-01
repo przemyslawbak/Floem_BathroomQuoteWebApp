@@ -7,6 +7,7 @@ import { QuoteService } from '@services/quote.service';
 import { QuoteItems } from '@models/quote-items.model';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { environment } from '@environments/environment';
+import { ModalService } from '@services/modal.service';
 
 @Component({
   templateUrl: './save-and-book.component.html',
@@ -41,7 +42,8 @@ export class SaveAndBookComponent implements OnInit {
     private quotes: QuoteService,
     private formBuilder: FormBuilder,
     private router: Router,
-    private spinner: NgxSpinnerService
+    private spinner: NgxSpinnerService,
+    private modals: ModalService
   ) {
     if (this.quotes.quoteId == '') {
       this.saveQuoteAndGetId(this.quotes.quoteState);
@@ -110,18 +112,16 @@ export class SaveAndBookComponent implements OnInit {
     client.quoteLink = this.quoteLink;
 
     this.saveBookingClient(client);
-    this.sendBookingMessages(this.quotes.quoteId);
-  }
-
-  public sendBookingMessages(quoteId: string): void {
-    //todo: httpget with id
-    //todo: modal window with confirmation
   }
 
   public saveBookingClient(client: ClientModel): void {
     this.spinner.show();
     this.http.postClient(client).subscribe(() => {
       this.spinner.hide();
+      this.modals.open(
+        'info-modal',
+        'The reservation request has been sent. You now will receive a confirmation e-mail with a link to the quote. We will contact you soon.'
+      );
     });
   }
 

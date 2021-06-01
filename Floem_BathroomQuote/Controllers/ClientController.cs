@@ -24,7 +24,7 @@ namespace Floem_BathroomQuote.Controllers
         /// </summary>
         /// <returns>Status code.</returns>
         [HttpPost("save-client")]
-        public IActionResult SaveClient([FromBody] FloemClientModel model)
+        public IActionResult SaveClientAndSendMessages([FromBody] FloemClientModel model)
         {
             if (model == null)
             {
@@ -37,6 +37,8 @@ namespace Floem_BathroomQuote.Controllers
             }
 
             _clients.AddClient(model);
+
+            //todo: separate endpoint (future)
             _email.SendEmailAsync(model.Email, "Floem consultancy booked", _email.CombineClientBookingMessage(model.Name, model.QuoteLink, model.Date, model.Time));
             _email.SendEmailAsync(_configuration["EmailSender:FloemEmailAddress"], "Floem consultancy booked", _email.CombineFloemBookingMessage(model));
             return Ok();
