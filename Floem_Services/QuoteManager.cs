@@ -15,5 +15,10 @@ namespace Floem_Services
         {
             return _repo.SaveQuoteToDbAndReturnId(model);
         }
+
+        public void UpdateQuote(FloemQuoteModel model)
+        {
+            _repo.UpdateQuoteInDb(model);
+        }
     }
 }

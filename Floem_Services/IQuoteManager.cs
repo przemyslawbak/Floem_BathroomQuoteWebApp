@@ -5,5 +5,6 @@ namespace Floem_Services
     public interface IQuoteManager
     {
         string AddQuote(FloemQuoteModel model);
+        void UpdateQuote(FloemQuoteModel model);
     }
 }

@@ -49,13 +49,21 @@ export class SaveAndBookComponent implements OnInit {
       this.saveQuoteAndGetId(this.quotes.quoteState);
     } else {
       this.quoteLink = environment.clientUrl + this.quotes.quoteId;
-      //todo: update quote
+      this.putQuote(this.quotes.quoteState);
     }
   }
 
   public ngOnInit() {
     this.createForm();
     this.scroll('logo');
+  }
+
+  private putQuote(quoteState: QuoteItems): void {
+    quoteState.id = this.quotes.quoteId;
+    this.spinner.show();
+    this.http.putQuote(quoteState).subscribe(() => {
+      this.spinner.hide();
+    });
   }
 
   private saveQuoteAndGetId(quoteState: QuoteItems): void {

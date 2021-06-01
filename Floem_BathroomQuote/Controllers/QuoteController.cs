@@ -15,7 +15,7 @@ namespace Floem_BathroomQuote.Controllers
         }
 
         /// <summary>
-        /// POST: api/quote/save
+        /// POST: api/quote/save-quote
         /// </summary>
         /// <returns>Status code.</returns>
         [HttpPost("save-quote")]
@@ -39,6 +39,28 @@ namespace Floem_BathroomQuote.Controllers
             }
 
             return Json(id);
+        }
+
+        /// <summary>
+        /// POST: api/quote/put-quote
+        /// </summary>
+        /// <returns>Status code.</returns>
+        [HttpPut("put-quote")]
+        public IActionResult PutQuote([FromBody] FloemQuoteModel model)
+        {
+            if (model == null)
+            {
+                return new ObjectResult("Quote data is wrong.") { StatusCode = 422 };
+            }
+
+            if (!ModelState.IsValid)
+            {
+                return new ObjectResult("Quote data is wrong.") { StatusCode = 422 };
+            }
+
+            _quotes.UpdateQuote(model);
+
+            return Ok();
         }
 
         /// <summary>

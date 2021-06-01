@@ -19,6 +19,14 @@ export class HttpService {
     return subject.asObservable();
   }
 
+  public putQuote(model: QuoteItems): Observable<any> {
+    const url: string = environment.apiUrl + 'api/quote/put-quote';
+    let subject = new Subject<any>();
+    this.http.put<any>(url, model).subscribe((res) => subject.next(res));
+
+    return subject.asObservable();
+  }
+
   public postClient(client: ClientModel): Observable<any> {
     const url: string = environment.apiUrl + 'api/client/save-client';
     let subject = new Subject<any>();

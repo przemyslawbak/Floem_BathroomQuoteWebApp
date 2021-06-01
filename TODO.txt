@@ -138,10 +138,11 @@ OK - on main form init, if quote ID != null, move to summary
 OK - save & book: email to Floem + email to client
 OK - email sending - fix the format 2021-05-31T22:00:00.000Z
 OK - save & share: email
-- save & share: fb
-- save & share: twitter
-- save & share: remove print btn
-- in share & book if quote id exists, update entity (PUT)
+OK - save & share: remove print btn
+OK - save & share: fb
+OK - save & share: twitter
+OK - back-end...
+OK - in share & book if quote id exists, update entity (PUT)
 - get quote back-end
 - get quote front-end
 - bug: summary click console ERROR TypeError: el is null
@@ -149,8 +150,8 @@ OK - save & share: email
 - step 0 icon -> logo PNG
 - PNG logo?
 - admin pannel
-- back-end...
 - SEO
+- meta
 - deploy production
 - populate arrays (waiting for pictures & prices)
 

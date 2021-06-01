@@ -1,4 +1,5 @@
 ﻿using Floem_Models;
+using System.Linq;
 
 namespace Floem_DAL
 {
@@ -31,6 +32,15 @@ namespace Floem_DAL
             }
 
             return string.Empty;
+        }
+
+        public void UpdateQuoteInDb(FloemQuoteModel model)
+        {
+            if (model != null)
+            {
+                _context.FloemQuotes.Update(model);
+                _context.SaveChanges();
+            }
         }
     }
 }
