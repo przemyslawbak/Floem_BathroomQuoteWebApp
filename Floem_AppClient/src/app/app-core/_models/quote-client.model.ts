@@ -10,4 +10,5 @@ export interface ClientModel {
   message: string;
   date: string;
   time: string;
+  quoteLink: string;
 }

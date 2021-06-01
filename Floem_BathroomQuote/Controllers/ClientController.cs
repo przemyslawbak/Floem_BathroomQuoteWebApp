@@ -1,6 +1,7 @@
 ﻿using Floem_Models;
 using Floem_Services;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
 
 namespace Floem_BathroomQuote.Controllers
 {
@@ -8,10 +9,14 @@ namespace Floem_BathroomQuote.Controllers
     [ApiController]
     public class ClientController : Controller
     {
+        private readonly IConfiguration _configuration;
         private readonly IClientManager _clients;
-        public ClientController(IClientManager clients)
+        private readonly IEmailSender _email;
+        public ClientController(IClientManager clients, IEmailSender email, IConfiguration config)
         {
+            _configuration = config;
             _clients = clients;
+            _email = email;
         }
 
         /// <summary>
@@ -32,6 +37,8 @@ namespace Floem_BathroomQuote.Controllers
             }
 
             _clients.AddClient(model);
+            _email.SendEmailAsync(model.Email, "Floem consultancy booked", _email.CombineClientBookingMessage(model.Name, model.QuoteLink));
+            _email.SendEmailAsync(_configuration["EmailSender:FloemEmailAddress"], "Floem consultancy booked", _email.CombineFloemBookingMessage(model));
             return Ok();
         }
     }

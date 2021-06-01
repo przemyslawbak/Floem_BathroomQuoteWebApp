@@ -135,14 +135,14 @@ OK - save & book: link to save & share
 OK - save & share: link to save & book
 NO - save & share: linkedin
 OK - on main form init, if quote ID != null, move to summary
-- in share & book if quote id exists, update entity
+- save & book: email to Floem + email to client
+- in share & book if quote id exists, update entity (PUT)
 - save & share: email
 - save & share: fb
 - save & share: twitter
-- save & share: print
-- save & book: email to Floem + email to client
-- get quote back end
-- get quote front end
+- save & share: remove print btn
+- get quote back-end
+- get quote front-end
 - bug: summary click console ERROR TypeError: el is null
 - Favicon change
 - step 0 icon -> logo PNG
@@ -154,11 +154,12 @@ OK - on main form init, if quote ID != null, move to summary
 - populate arrays (waiting for pictures & prices)
 
 FUTURE:
-- loading spinner
+- save & share: print
+- main form loading spinner
 - admin menu
 - toggle tile lists btn icons? optional
 - small screen menu btns margins
-- arrays loaded from the DB
+- arrays loaded from the DBs
 - each list 'go up'? fixed?
 - in mobile list scroll always visible (some browsers disapearing)
 - each step in separate component

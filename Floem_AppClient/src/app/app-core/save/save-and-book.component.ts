@@ -107,6 +107,7 @@ export class SaveAndBookComponent implements OnInit {
     client.city = this.form.value.City;
     client.state = this.form.value.State;
     client.message = this.form.value.Message;
+    client.quoteLink = this.quoteLink;
 
     this.saveBookingClient(client);
     this.sendBookingMessages(this.quotes.quoteId);
