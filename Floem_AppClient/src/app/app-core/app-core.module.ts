@@ -1,3 +1,4 @@
+import { PolicyComponent } from './policy/policy.component';
 import { ModalComponent } from './modal-views/modal-views.component';
 import { QuoteService } from './_services/quote.service';
 import { SaveAndBookComponent } from './save/save-and-book.component';
@@ -53,6 +54,7 @@ import { MatNativeDateModule } from '@angular/material/core';
     SaveAndShareComponent,
     SaveAndBookComponent,
     ModalComponent,
+    PolicyComponent,
   ],
   exports: [
     FooterComponent,
@@ -61,6 +63,7 @@ import { MatNativeDateModule } from '@angular/material/core';
     SaveAndBookComponent,
     SaveAndShareComponent,
     ModalComponent,
+    PolicyComponent,
   ],
   providers: [
     HttpService,

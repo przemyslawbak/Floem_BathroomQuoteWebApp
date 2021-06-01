@@ -25,6 +25,7 @@ export class SaveAndShareComponent implements OnInit {
 
   public ngOnInit() {
     this.createForm();
+    this.scroll('logo');
   }
 
   private saveQuoteAndGetId(quoteState: QuoteItems): string {
@@ -83,5 +84,18 @@ export class SaveAndShareComponent implements OnInit {
     this.http.postSaveQuote(this.quotes.quoteState).subscribe(() => {
       //todo
     });
+  }
+
+  public scroll(id: string): void {
+    setTimeout(function () {
+      let el: HTMLElement = document.getElementById(id)!;
+      if (el.offsetHeight > 0) {
+        el.scrollIntoView({
+          behavior: 'smooth',
+          block: 'nearest',
+          inline: 'nearest',
+        });
+      }
+    }, 400);
   }
 }

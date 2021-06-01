@@ -530,6 +530,7 @@ export class FormComponent {
     return this.tiles;
   }
 
+  //todo: dry
   public scroll(id: string): void {
     setTimeout(function () {
       let el: HTMLElement = document.getElementById(id)!;

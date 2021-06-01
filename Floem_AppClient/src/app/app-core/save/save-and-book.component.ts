@@ -40,6 +40,7 @@ export class SaveAndBookComponent implements OnInit {
 
   public ngOnInit() {
     this.createForm();
+    this.scroll('logo');
   }
 
   public weekendsDatesFilter(d: Date): boolean {
@@ -96,5 +97,19 @@ export class SaveAndBookComponent implements OnInit {
     this.http.postSaveQuote(this.quotes.quoteState).subscribe(() => {
       //todo
     });
+  }
+
+  //todo: dry
+  public scroll(id: string): void {
+    setTimeout(function () {
+      let el: HTMLElement = document.getElementById(id)!;
+      if (el.offsetHeight > 0) {
+        el.scrollIntoView({
+          behavior: 'smooth',
+          block: 'nearest',
+          inline: 'nearest',
+        });
+      }
+    }, 400);
   }
 }
