@@ -1,5 +1,5 @@
 import { UnitModel } from './../_models/unit-items.model';
-import { CeilingPainting } from './../_models/quote-items.model';
+import { CeilingPainting, QuoteItems } from './../_models/quote-items.model';
 import { DimentionUnits } from './../_models/quote-items.model';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
@@ -10,6 +10,7 @@ import { map } from 'rxjs/operators';
 import { Router } from '@angular/router';
 import { QuoteService } from '@services/quote.service';
 import { UnitsService } from '@services/units.service';
+import { ModalService } from '@services/modal.service';
 
 @Component({
   selector: 'app-form',
@@ -28,7 +29,8 @@ export class FormComponent {
     public breakpointObserver: BreakpointObserver,
     private router: Router,
     public quotes: QuoteService,
-    public units: UnitsService
+    private units: UnitsService,
+    private modals: ModalService
   ) {
     this.stepperOrientation = breakpointObserver
       .observe('(min-width: 800px)')
@@ -719,10 +721,18 @@ export class FormComponent {
   }
 
   public saveAndBook(): void {
-    this.router.navigate(['save-and-book']);
+    if (!this.quotes.verifyQuoteChanges(this.quotes.quoteState)) {
+      this.modals.open('info-modal', 'You did not select any services!');
+    } else {
+      this.router.navigate(['save-and-book']);
+    }
   }
 
   public saveAndShare(): void {
-    this.router.navigate(['save-and-share']);
+    if (!this.quotes.verifyQuoteChanges(this.quotes.quoteState)) {
+      this.modals.open('info-modal', 'You did not select any services!');
+    } else {
+      this.router.navigate(['save-and-share']);
+    }
   }
 }

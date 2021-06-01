@@ -74,7 +74,7 @@ export class SaveAndBookComponent implements OnInit {
       Time: ['', [Validators.required]],
       Email: ['', [Validators.required, Validators.email]],
       Name: ['', [Validators.required]],
-      Phone: [''], //todo: phone validation
+      Phone: [''], //todo: phone validation?
       Street: ['', [Validators.required]],
       AptNo: [''],
       City: ['', [Validators.required]],
