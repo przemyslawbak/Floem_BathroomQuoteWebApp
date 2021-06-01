@@ -20,6 +20,8 @@ export class SaveAndShareComponent implements OnInit {
   ) {
     if (this.quotes.quoteId == '') {
       quotes.quoteId = this.saveQuoteAndGetId(this.quotes.quoteState);
+    } else {
+      //todo: put quote
     }
   }
 
@@ -29,9 +31,11 @@ export class SaveAndShareComponent implements OnInit {
   }
 
   private saveQuoteAndGetId(quoteState: QuoteItems): string {
-    //todo: save quote in db
-    //todo: return quote id
-    return '';
+    let id: string = '';
+    this.http.postSaveQuote(quoteState).subscribe((res: string) => {
+      id = res;
+    });
+    return id;
   }
 
   private createForm() {

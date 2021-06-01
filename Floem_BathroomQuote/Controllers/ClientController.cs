@@ -32,7 +32,7 @@ namespace Floem_BathroomQuote.Controllers
             }
 
             _clients.AddClient(model);
-            return Ok("dupa");
+            return Ok();
         }
     }
 }

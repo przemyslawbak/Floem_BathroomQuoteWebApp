@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { HttpService } from '@services/http.service';
 import { QuoteService } from '@services/quote.service';
 import { QuoteItems } from '@models/quote-items.model';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   templateUrl: './save-and-book.component.html',
@@ -37,10 +38,14 @@ export class SaveAndBookComponent implements OnInit {
     private http: HttpService,
     private quotes: QuoteService,
     private formBuilder: FormBuilder,
-    private router: Router
+    private router: Router,
+    private spinner: NgxSpinnerService
   ) {
+    console.log('quote id:' + this.quotes.quoteId);
     if (this.quotes.quoteId == '') {
-      quotes.quoteId = this.saveQuoteAndGetId(this.quotes.quoteState);
+      this.saveQuoteAndGetId(this.quotes.quoteState);
+    } else {
+      //todo: update quote
     }
   }
 
@@ -49,12 +54,13 @@ export class SaveAndBookComponent implements OnInit {
     this.scroll('logo');
   }
 
-  private saveQuoteAndGetId(quoteState: QuoteItems): string {
-    this.http.postSaveQuote(quoteState).subscribe((res) => {
-      console.log(res);
+  private saveQuoteAndGetId(quoteState: QuoteItems): void {
+    console.log('quote id:' + this.quotes.quoteId);
+    this.spinner.show();
+    this.http.postSaveQuote(quoteState).subscribe((res: string) => {
+      this.quotes.quoteId = res;
+      this.spinner.hide();
     });
-    //todo: return quote id
-    return '';
   }
 
   public weekendsDatesFilter(d: Date): boolean {
@@ -100,14 +106,19 @@ export class SaveAndBookComponent implements OnInit {
     client.state = this.form.value.State;
     client.message = this.form.value.Message;
 
-    this.postBookingClient(client);
-
-    alert('will send an email to you and the client');
+    this.saveBookingClient(client);
+    this.sendBookingMessages(this.quotes.quoteId);
   }
 
-  public postBookingClient(client: ClientModel): void {
+  public sendBookingMessages(quoteId: string): void {
+    //todo: httpget with id
+    //todo: modal window with confirmation
+  }
+
+  public saveBookingClient(client: ClientModel): void {
+    this.spinner.show();
     this.http.postClient(client).subscribe(() => {
-      //todo
+      this.spinner.hide();
     });
   }
 

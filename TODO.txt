@@ -119,7 +119,10 @@ OK - save & book: contacts
 OK - save & book: policy accept
 NO - save & book: RODO
 OK - save & book: save client info
-- backend db
+OK - backend db
+- in share & book views display quote link
+- in share & book if quote id exists, update entity
+- in form page init spinner off?
 - before saving quote to the DB verify changed values
 - save & share: display link?
 - save & share: save to DB
