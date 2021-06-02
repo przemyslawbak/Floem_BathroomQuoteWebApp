@@ -149,9 +149,14 @@ OK - on loaded quote from DB go to summary
 OK - bug: floor, removal, walls, units, doors, electrical, ceiling controls binding to the model
 OK - bug: on quote load mechanic fan missing
 OK - bug: on quote load tile from list displayed wrong
-OK - bug: on quote load units not loaded or binded
 OK - on 'go back' from 'save' views shift to the summary?
+- fix links, remove /#/
+- bug: swap share <-> book causes 400 status in production
+- bug: in production routing with id not working, ex.0969F49D-61BD-40CB-4039-08D925533CF6
+- bug: on quote load units not loaded or binded
 - bug: summary click console ERROR TypeError: el is null
+- bug: no-reply EmailSender:Name
+- bug: go back from 'policies' clears quote model
 - Favicon change
 - step 0 icon -> logo PNG
 - PNG logo?
