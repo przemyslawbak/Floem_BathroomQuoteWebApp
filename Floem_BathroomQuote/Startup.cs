@@ -50,18 +50,7 @@ namespace Floem_BathroomQuote
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
-                endpoints.MapFallbackToFile("/form/{id}", "/index.html?id={id}");
-                /*
-                endpoints.MapFallbackToFile("/test/{id}", "/test.html", new StaticFileOptions
-                {
-                    OnPrepareResponse = x =>
-                    {
-                        var httpContext = x.Context;
-                        var path = httpContext.Request.RouteValues["path"];
-                        // now you get the original request path
-                    }
-                });
-                */
+                endpoints.MapFallbackToFile("/{id}", "/index.html");
                 endpoints.MapFallbackToFile("/", "/index.html");
             });
         }
