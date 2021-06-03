@@ -444,6 +444,9 @@ export class FormComponent implements AfterViewInit, OnInit {
 
   public scrollToIndex(event: any): void {
     let id = 'step' + event.selectedIndex;
+    if (event.selectedIndex == 9) {
+      id = 'summary';
+    }
     this.scroll(id);
   }
 
