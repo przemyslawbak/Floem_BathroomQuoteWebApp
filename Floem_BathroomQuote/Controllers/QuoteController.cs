@@ -45,8 +45,8 @@ namespace Floem_BathroomQuote.Controllers
         /// POST: api/quote/put-quote
         /// </summary>
         /// <returns>Status code.</returns>
-        [HttpPut("put-quote")]
-        public IActionResult PutQuote([FromBody] FloemQuoteModel model)
+        [HttpPost("update-quote")]
+        public IActionResult UpdateQuote([FromBody] FloemQuoteModel model)
         {
             if (model == null)
             {

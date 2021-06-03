@@ -43,7 +43,10 @@ namespace Floem_BathroomQuote
             {
                 app.UseDeveloperExceptionPage();
             }
-            app.UseStaticFiles();
+            else
+            {
+                app.UseStaticFiles();
+            }
             app.UseHttpsRedirection();
             app.UseRouting();
             app.UseCors("CorsPolicy");

@@ -152,11 +152,12 @@ OK - bug: on quote load tile from list displayed wrong
 OK - on 'go back' from 'save' views shift to the summary?
 OK - fix links, remove /#/
 OK - bug: in production routing with id not working, ex.0969F49D-61BD-40CB-4039-08D925533CF6
-- bug: swap share <-> book causes 400 status in production
+OK - bug: go back from 'policies' clears quote model
+OK - bug: swap share <-> book causes 400 status in production
 - bug: on quote load units not loaded or binded
 - bug: summary click console ERROR TypeError: el is null
 - bug: no-reply EmailSender:Name
-- bug: go back from 'policies' clears quote model
+- do sth with 'Loading...'
 - Favicon change
 - step 0 icon -> logo PNG
 - PNG logo?

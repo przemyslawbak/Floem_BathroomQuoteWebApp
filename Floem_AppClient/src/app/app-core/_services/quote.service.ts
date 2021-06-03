@@ -3,10 +3,12 @@ import { Injectable } from '@angular/core';
 
 @Injectable()
 export class QuoteService {
-  public quoteState: QuoteItems = {} as QuoteItems;
+  public quoteState: QuoteItems;
   public quoteId: string = '';
 
-  constructor() {}
+  constructor() {
+    this.quoteState = new QuoteItems();
+  }
 
   public verifyQuoteChanges(quoteState: QuoteItems): boolean {
     if (

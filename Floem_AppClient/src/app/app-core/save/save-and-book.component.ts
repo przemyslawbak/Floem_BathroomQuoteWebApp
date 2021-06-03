@@ -61,7 +61,7 @@ export class SaveAndBookComponent implements OnInit {
   private putQuote(quoteState: QuoteItems): void {
     quoteState.id = this.quotes.quoteId;
     this.spinner.show();
-    this.http.putQuote(quoteState).subscribe(() => {
+    this.http.updateQuote(quoteState).subscribe(() => {
       this.spinner.hide();
     });
   }

@@ -37,16 +37,13 @@ export class FormComponent implements AfterViewInit, OnInit {
     private http: HttpService,
     private spinner: NgxSpinnerService
   ) {
-    console.log('constr');
     this.stepperOrientation = breakpointObserver
       .observe('(min-width: 800px)')
       .pipe(map(({ matches }) => (matches ? 'horizontal' : 'vertical')));
   }
 
   public ngOnInit(): void {
-    this.quotes.quoteState = new QuoteItems();
     const id: string = this.route.snapshot.paramMap.get('id');
-    console.log('id: ' + id);
     if (id) {
       this.quotes.quoteId = id;
       this.loadQuoteState(id).subscribe((res) => {
@@ -640,8 +637,6 @@ export class FormComponent implements AfterViewInit, OnInit {
 
   public setDefaultTiles(): void {
     //tiles
-    console.log('tile array ' + this.tiles);
-    console.log('floor code ' + this.quotes.quoteState.floorCode);
     this.setTileSelected(this.tiles, this.quotes.quoteState.floorCode);
     //lvt
     //wall
@@ -656,7 +651,6 @@ export class FormComponent implements AfterViewInit, OnInit {
   }
 
   private setTileSelected(arr: UnitModel[], code: string): void {
-    console.log('passed code ' + code);
     if (code == '') {
       this.setTile(arr[0], 0);
       return;
