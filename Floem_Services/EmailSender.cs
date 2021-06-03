@@ -80,8 +80,8 @@ t: 7405679021";
         private MimeMessage PrepareMesaage(string message, string subject, string to)
         {
             MimeMessage mailMessage = new MimeMessage();
-            mailMessage.From.Add(new MailboxAddress("EmailSender:Name", _configuration["EmailSender:Address"]));
-            mailMessage.To.Add(new MailboxAddress("EmailSender:Name", to));
+            mailMessage.From.Add(new MailboxAddress(_configuration["EmailSender:Name"], _configuration["EmailSender:Address"]));
+            mailMessage.To.Add(new MailboxAddress(_configuration["EmailSender:Name"], to));
             mailMessage.Subject = subject;
             mailMessage.Body = new TextPart("plain")
             {
