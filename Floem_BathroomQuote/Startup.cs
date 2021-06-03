@@ -43,12 +43,6 @@ namespace Floem_BathroomQuote
             {
                 app.UseDeveloperExceptionPage();
             }
-            else
-            {
-                app.UseDefaultFiles();
-                app.UseStaticFiles();
-            }
-            app.UseDefaultFiles();
             app.UseStaticFiles();
             app.UseHttpsRedirection();
             app.UseRouting();
@@ -56,6 +50,19 @@ namespace Floem_BathroomQuote
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+                endpoints.MapFallbackToFile("/form/{id}", "/index.html?id={id}");
+                /*
+                endpoints.MapFallbackToFile("/test/{id}", "/test.html", new StaticFileOptions
+                {
+                    OnPrepareResponse = x =>
+                    {
+                        var httpContext = x.Context;
+                        var path = httpContext.Request.RouteValues["path"];
+                        // now you get the original request path
+                    }
+                });
+                */
+                endpoints.MapFallbackToFile("/", "/index.html");
             });
         }
     }

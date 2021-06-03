@@ -7,7 +7,6 @@ import { AppComponent } from './app.component';
 
 import { AppCoreModule } from './app-core/app-core.module';
 import { NgxSpinnerModule } from 'ngx-spinner';
-import { LocationStrategy, PathLocationStrategy } from '@angular/common';
 
 @NgModule({
   declarations: [AppComponent],
@@ -18,10 +17,7 @@ import { LocationStrategy, PathLocationStrategy } from '@angular/common';
     HttpClientModule,
     NgxSpinnerModule,
   ],
-  providers: [
-    Location,
-    { provide: LocationStrategy, useClass: PathLocationStrategy },
-  ],
+  providers: [],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

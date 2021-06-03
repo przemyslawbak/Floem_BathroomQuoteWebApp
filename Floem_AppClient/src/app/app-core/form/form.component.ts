@@ -46,6 +46,7 @@ export class FormComponent implements AfterViewInit, OnInit {
   public ngOnInit(): void {
     this.quotes.quoteState = new QuoteItems();
     const id: string = this.route.snapshot.paramMap.get('id');
+    console.log('id: ' + id);
     if (id) {
       this.quotes.quoteId = id;
       this.loadQuoteState(id).subscribe((res) => {

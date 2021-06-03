@@ -28,7 +28,7 @@ export class SaveAndShareComponent implements OnInit {
     if (this.quotes.quoteId == '') {
       this.saveQuoteAndGetId(this.quotes.quoteState);
     } else {
-      this.quoteLink = environment.clientUrl + this.quotes.quoteId;
+      this.quoteLink = environment.clientUrl + '/form/' + this.quotes.quoteId;
       this.putQuote(this.quotes.quoteState);
     }
   }
@@ -50,7 +50,7 @@ export class SaveAndShareComponent implements OnInit {
     this.spinner.show();
     this.http.postSaveQuote(quoteState).subscribe((res: string) => {
       this.quotes.quoteId = res;
-      this.quoteLink = environment.clientUrl + res;
+      this.quoteLink = environment.clientUrl + '/form/' + res;
       this.spinner.hide();
     });
   }
