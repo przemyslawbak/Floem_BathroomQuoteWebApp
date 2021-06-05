@@ -8,7 +8,7 @@ import { SaveAndShareComponent } from './app-core/save/save-and-share.component'
 
 const routes: Routes = [
   {
-    path: 'admin',
+    path: 'adinm',
     component: AdminComponent,
   },
   {

@@ -1,3 +1,4 @@
+import { AdminService } from './_services/admin.service';
 import { AdminComponent } from './admin/admin.component';
 import { UnitsService } from './_services/units.service';
 import { PolicyComponent } from './policy/policy.component';
@@ -76,6 +77,7 @@ import { MatNativeDateModule } from '@angular/material/core';
     ErrorService,
     QuoteService,
     UnitsService,
+    AdminService,
   ],
 })
 export class AppCoreModule {}
