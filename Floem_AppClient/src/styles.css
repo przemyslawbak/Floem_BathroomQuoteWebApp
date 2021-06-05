@@ -67,14 +67,14 @@ app-footer {
   min-height: 100px;
 }
 
-.loadingPic {
+.centered {
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
 
-.loadingPic div {
+.centered div {
   text-align: center;
   font-size: 2vw;
 }

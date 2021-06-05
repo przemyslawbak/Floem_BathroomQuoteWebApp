@@ -1,3 +1,4 @@
+import { AdminComponent } from './admin/admin.component';
 import { UnitsService } from './_services/units.service';
 import { PolicyComponent } from './policy/policy.component';
 import { ModalComponent } from './modal-views/modal-views.component';
@@ -49,6 +50,7 @@ import { MatNativeDateModule } from '@angular/material/core';
     MatInputModule,
   ],
   declarations: [
+    AdminComponent,
     FooterComponent,
     HeaderComponent,
     FormComponent,
@@ -58,6 +60,7 @@ import { MatNativeDateModule } from '@angular/material/core';
     PolicyComponent,
   ],
   exports: [
+    AdminComponent,
     FooterComponent,
     HeaderComponent,
     FormComponent,
