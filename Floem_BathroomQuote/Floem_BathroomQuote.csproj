@@ -12,10 +12,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Services\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\Floem_Models\Floem_Models.csproj" />
     <ProjectReference Include="..\Floem_Services\Floem_Services.csproj" />
   </ItemGroup>

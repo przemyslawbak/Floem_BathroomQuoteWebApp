@@ -1,4 +1,5 @@
 using Floem_DAL;
+using Floem_Models;
 using Floem_Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -34,6 +35,7 @@ namespace Floem_BathroomQuote
             services.AddTransient<IEmailSender, EmailSender>();
             services.AddTransient<IQuoteManager, QuoteManager>();
             services.AddTransient<IClientManager, ClientManager>();
+            services.AddTransient<IConfigUpdater, ConfigUpdater>();
             services.AddTransient<IRepository, EFRepository>();
         }
 

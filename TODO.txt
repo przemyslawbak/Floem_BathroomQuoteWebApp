@@ -155,13 +155,15 @@ OK - bug: in production routing with id not working, ex.0969F49D-61BD-40CB-4039-
 OK - bug: go back from 'policies' clears quote model
 OK - bug: swap share <-> book causes 400 status in production
 OK - bug: on quote load units not loaded or binded
-- bug: summary click console ERROR TypeError: el is null
-- bug: no-reply EmailSender:Name
-- do sth with 'Loading...'
+OK - bug: summary click console ERROR TypeError: el is null
+OK - bug: no-reply EmailSender:Name
+OK - do sth with 'Loading...'
+- admin pannel
+- testing IConfigUpdater
+- get / set in back/front ends
 - Favicon change
 - step 0 icon -> logo PNG
 - PNG logo?
-- admin pannel
 - SEO
 - meta
 - deploy production
@@ -171,7 +173,6 @@ FUTURE:
 - PUT quote failing?
 - save & share: print
 - main form loading spinner
-- admin menu
 - toggle tile lists btn icons? optional
 - small screen menu btns margins
 - arrays loaded from the DBs

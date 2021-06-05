@@ -5,11 +5,11 @@ VisualStudioVersion = 16.0.31112.23
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Floem_BathroomQuote", "Floem_BathroomQuote\Floem_BathroomQuote.csproj", "{350DE087-E8D2-4149-9B27-51E88392686B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Floem_Services", "Floem_Services\Floem_Services.csproj", "{F30FE4E7-5E07-4734-82E0-A447AFEA6659}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Floem_Services", "Floem_Services\Floem_Services.csproj", "{F30FE4E7-5E07-4734-82E0-A447AFEA6659}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Floem_Models", "Floem_Models\Floem_Models.csproj", "{ADBB1887-4D18-40DA-ABC5-D21F7AA849F0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Floem_Models", "Floem_Models\Floem_Models.csproj", "{ADBB1887-4D18-40DA-ABC5-D21F7AA849F0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Floem_DAL", "Floem_DAL\Floem_DAL.csproj", "{4AE62987-01CC-49B5-8F52-B1137E0061F9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Floem_DAL", "Floem_DAL\Floem_DAL.csproj", "{4AE62987-01CC-49B5-8F52-B1137E0061F9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
