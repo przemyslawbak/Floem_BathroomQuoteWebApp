@@ -41,8 +41,11 @@ export class FormComponent implements AfterViewInit, OnInit {
     private admin: AdminService
   ) {
     this.getAdminModel().subscribe((res) => {
+      console.log('hit');
       if (res) {
         this.admin.adminModel = res;
+        console.log('rem pr' + this.admin.adminModel.removalsPrice);
+        console.log('model' + this.admin.adminModel);
       } else {
         //??
       }
@@ -56,14 +59,17 @@ export class FormComponent implements AfterViewInit, OnInit {
     let subject = new Subject<AdminModel>();
     this.http.getAdminModel().subscribe({
       next: (a) => {
+        console.log('hit next');
         subject.next(a);
       },
       error: (e) => {
+        console.log('hit error ' + e.error);
         subject.next(null);
       },
       complete: () => {},
     });
 
+    console.log('hit return');
     return subject.asObservable();
   }
 
@@ -501,7 +507,7 @@ export class FormComponent implements AfterViewInit, OnInit {
 
     //2.removals
     if (this.quotes.quoteState.removals) {
-      this.quotes.quoteState.removalsTotal = this.quotes.quoteState.removalsPrice;
+      this.quotes.quoteState.removalsTotal = this.admin.adminModel.removalsPrice;
     }
     this.total = this.total + this.quotes.quoteState.removalsTotal;
     //3.floor
@@ -510,12 +516,12 @@ export class FormComponent implements AfterViewInit, OnInit {
     } else if (this.quotes.quoteState.floorLvt) {
       this.quotes.quoteState.floorTotal =
         this.quotes.quoteState.floorTotal +
-        (lvtSquareMeters / 2) * this.quotes.quoteState.floorLvtPrice +
+        (lvtSquareMeters / 2) * this.admin.adminModel.floorLvtPrice +
         lvtSquareMeters * this.quotes.quoteState.floorPrice;
     } else if (this.quotes.quoteState.floorTiled) {
       this.quotes.quoteState.floorTotal =
         this.quotes.quoteState.floorTotal +
-        this.quotes.quoteState.floorTilingPrice * floorSquareMeters +
+        this.admin.adminModel.floorTilingPrice * floorSquareMeters +
         this.quotes.quoteState.floorPrice * floorSquareMeters;
     }
     this.total = this.total + this.quotes.quoteState.floorTotal;
@@ -523,29 +529,29 @@ export class FormComponent implements AfterViewInit, OnInit {
     if (this.quotes.quoteState.wallsFullHeight) {
       this.quotes.quoteState.wallsTotal =
         this.quotes.quoteState.wallsTotal +
-        wallsSquareMeters * this.quotes.quoteState.wallTilingPrice +
+        wallsSquareMeters * this.admin.adminModel.wallTilingPrice +
         wallsSquareMeters * this.quotes.quoteState.wallPrice;
     } else if (this.quotes.quoteState.wallsHalfHeight) {
       this.quotes.quoteState.wallsTotal =
         this.quotes.quoteState.wallsTotal +
-        (wallsSquareMeters * this.quotes.quoteState.wallTilingPrice +
+        (wallsSquareMeters * this.admin.adminModel.wallTilingPrice +
           wallsSquareMeters * this.quotes.quoteState.wallPrice) /
           2 +
-        this.quotes.quoteState.wallPlasteringHalfPrice;
+        this.admin.adminModel.wallPlasteringHalfPrice;
       if (this.quotes.quoteState.wallsPaintedWhite) {
         this.quotes.quoteState.wallsTotal =
           this.quotes.quoteState.wallsTotal +
-          this.quotes.quoteState.wallPaintingWhitePrice;
+          this.admin.adminModel.wallPaintingWhitePrice;
       }
     } else if (this.quotes.quoteState.wallsPlastered) {
       this.quotes.quoteState.wallsTotal =
         this.quotes.quoteState.wallsTotal +
-        this.quotes.quoteState.wallPlasteringAll;
+        this.admin.adminModel.wallPlasteringAll;
 
       if (this.quotes.quoteState.wallsPaintedWhite) {
         this.quotes.quoteState.wallsTotal =
           this.quotes.quoteState.wallsTotal +
-          this.quotes.quoteState.wallPaintingWhitePrice;
+          this.admin.adminModel.wallPaintingWhitePrice;
       }
     }
     this.total = this.total + this.quotes.quoteState.wallsTotal;
@@ -553,37 +559,37 @@ export class FormComponent implements AfterViewInit, OnInit {
     if (this.quotes.quoteState.basinItem) {
       this.quotes.quoteState.itemsTotal =
         this.quotes.quoteState.itemsTotal +
-        this.quotes.quoteState.unitInstallation +
+        this.admin.adminModel.unitInstallation +
         this.quotes.quoteState.basinPrice;
     }
     if (this.quotes.quoteState.ensuiteItem) {
       this.quotes.quoteState.itemsTotal =
         this.quotes.quoteState.itemsTotal +
-        this.quotes.quoteState.unitInstallation +
+        this.admin.adminModel.unitInstallation +
         this.quotes.quoteState.ensuitePrice;
     }
     if (this.quotes.quoteState.toiletItem) {
       this.quotes.quoteState.itemsTotal =
         this.quotes.quoteState.itemsTotal +
-        this.quotes.quoteState.unitInstallation +
+        this.admin.adminModel.unitInstallation +
         this.quotes.quoteState.toiletPrice;
     }
     if (this.quotes.quoteState.mixerItem) {
       this.quotes.quoteState.itemsTotal =
         this.quotes.quoteState.itemsTotal +
-        this.quotes.quoteState.unitInstallation +
+        this.admin.adminModel.unitInstallation +
         this.quotes.quoteState.mixerPrice;
     }
     if (this.quotes.quoteState.bathItem) {
       this.quotes.quoteState.itemsTotal =
         this.quotes.quoteState.itemsTotal +
-        this.quotes.quoteState.unitInstallation +
+        this.admin.adminModel.unitInstallation +
         this.quotes.quoteState.bathPrice;
     }
     if (this.quotes.quoteState.towelRailItem) {
       this.quotes.quoteState.itemsTotal =
         this.quotes.quoteState.itemsTotal +
-        this.quotes.quoteState.unitInstallation +
+        this.admin.adminModel.unitInstallation +
         this.quotes.quoteState.railPrice;
     }
     this.total = this.total + this.quotes.quoteState.itemsTotal;
@@ -591,7 +597,7 @@ export class FormComponent implements AfterViewInit, OnInit {
     if (this.quotes.quoteState.doorsChanging) {
       this.quotes.quoteState.doorsTotal =
         this.quotes.quoteState.doorsTotal +
-        this.quotes.quoteState.doorChangingPrice +
+        this.admin.adminModel.doorChangingPrice +
         this.quotes.quoteState.doorsPrice;
     }
     this.total = this.total + this.quotes.quoteState.doorsTotal;
@@ -599,34 +605,33 @@ export class FormComponent implements AfterViewInit, OnInit {
     if (this.quotes.quoteState.spotlightsElectrical) {
       this.quotes.quoteState.electricalTotal =
         this.quotes.quoteState.electricalTotal +
-        this.quotes.quoteState.spotlightPrice *
+        this.admin.adminModel.spotlightPrice *
           this.quotes.quoteState.spotlightsQty;
     }
     if (this.quotes.quoteState.switcherInsideElectrical) {
       this.quotes.quoteState.electricalTotal =
         this.quotes.quoteState.electricalTotal +
-        this.quotes.quoteState.switcherInsidePrice;
+        this.admin.adminModel.switcherInsidePrice;
     }
     if (this.quotes.quoteState.switcherOutsideElectrical) {
       this.quotes.quoteState.electricalTotal =
         this.quotes.quoteState.electricalTotal +
-        this.quotes.quoteState.switcherOutsidePrice;
+        this.admin.adminModel.switcherOutsidePrice;
     }
     if (this.quotes.quoteState.socketsElectrical) {
       this.quotes.quoteState.electricalTotal =
         this.quotes.quoteState.electricalTotal +
-        this.quotes.quoteState.socketsQty * this.quotes.quoteState.socketPrice;
+        this.quotes.quoteState.socketsQty * this.admin.adminModel.socketPrice;
     }
     if (this.quotes.quoteState.mirrorElectrical) {
       this.quotes.quoteState.electricalTotal =
         this.quotes.quoteState.electricalTotal +
-        this.quotes.quoteState.mirrorInstallationPrice +
+        this.admin.adminModel.mirrorInstallationPrice +
         this.quotes.quoteState.mirrorPrice;
     }
     if (this.quotes.quoteState.fanElectrical) {
       this.quotes.quoteState.electricalTotal =
-        this.quotes.quoteState.electricalTotal +
-        this.quotes.quoteState.fanPrice;
+        this.quotes.quoteState.electricalTotal + this.admin.adminModel.fanPrice;
     }
     this.total = this.total + this.quotes.quoteState.electricalTotal;
     //8.ceiling
@@ -637,13 +642,13 @@ export class FormComponent implements AfterViewInit, OnInit {
     ) {
       this.quotes.quoteState.ceilingTotal =
         this.quotes.quoteState.ceilingTotal +
-        this.quotes.quoteState.ceilingPriceWhite;
+        this.admin.adminModel.ceilingPriceWhite;
     } else if (
       this.quotes.quoteState.paintingCeiling == CeilingPainting.Plastered
     ) {
       this.quotes.quoteState.ceilingTotal =
         this.quotes.quoteState.ceilingTotal +
-        this.quotes.quoteState.ceilingPricePlastered;
+        this.admin.adminModel.ceilingPricePlastered;
     }
     this.total = this.total + this.quotes.quoteState.ceilingTotal;
   }

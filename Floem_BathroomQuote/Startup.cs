@@ -35,7 +35,7 @@ namespace Floem_BathroomQuote
             services.AddTransient<IEmailSender, EmailSender>();
             services.AddTransient<IQuoteManager, QuoteManager>();
             services.AddTransient<IClientManager, ClientManager>();
-            services.AddTransient<IConfigUpdater, ConfigUpdater>();
+            services.AddTransient<IAdminManager, AdminManager>();
             services.AddTransient<IRepository, EFRepository>();
         }
 

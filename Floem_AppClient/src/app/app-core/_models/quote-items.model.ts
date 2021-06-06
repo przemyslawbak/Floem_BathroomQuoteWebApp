@@ -23,7 +23,6 @@ export class QuoteItems {
   units: DimentionUnits;
   //2 removal
   removals: boolean;
-  removalsPrice: number;
   removalsTotal: number;
   //3 floor
   floorLvt: boolean;
@@ -33,8 +32,6 @@ export class QuoteItems {
   floorCode: string;
   floorType: string;
   floorPrice: number;
-  floorTilingPrice: number;
-  floorLvtPrice: number;
   floorOtherComments: string;
   floorTotal: number;
   //4 wall
@@ -47,15 +44,9 @@ export class QuoteItems {
   wallsCode: string;
   wallsType: string;
   wallPrice: number;
-  wallTilingPrice: number;
-  wallPlasteringHalfPrice: number;
-  wallPaintingWhitePrice: number;
-  wallPlasteringAll: number;
-  wallPaintingWhite: number;
   wallsOtherComments: string;
   wallsTotal: number;
   //5 units
-  unitInstallation: number;
   bathItem: boolean;
   bathPrice: number;
   ensuiteItem: boolean;
@@ -74,30 +65,21 @@ export class QuoteItems {
   //6 doors
   doorsChanging: boolean;
   doorsType: string;
-  doorChangingPrice: number;
   doorsPrice: number;
   doorsTotal: number;
   //7 electrical
   mirrorElectrical: boolean;
-  mirrorInstallationPrice: number;
   mirrorPrice: number;
   fanElectrical: boolean;
-  fanPrice: number;
   spotlightsElectrical: boolean;
-  spotlightPrice: number;
   switcherInsideElectrical: boolean;
   switcherOutsideElectrical: boolean;
-  switcherOutsidePrice: number;
-  switcherInsidePrice: number;
   socketsElectrical: boolean;
-  socketPrice: number;
   socketsQty: number;
   spotlightsQty: number;
   electricalTotal: number;
   //8 ceiling
   paintingCeiling: CeilingPainting;
-  ceilingPriceWhite: number;
-  ceilingPricePlastered: number;
   ceilingTotal: number;
 
   constructor() {
@@ -121,11 +103,8 @@ export class QuoteItems {
     this.depthIn = 3.37;
     this.units = DimentionUnits.Centimeters;
     //2
-    this.removalsPrice = 300; //per job
     this.removals = false; //
     //3
-    this.floorLvtPrice = 150; //per 2m2 //
-    this.floorTilingPrice = 60; //per m2 //
     this.floorPrice = 0; //
     this.floorLvt = false;
     this.floorOther = false;
@@ -136,11 +115,6 @@ export class QuoteItems {
     this.floorType = '';
     //4
     this.wallPrice = 0; //
-    this.wallTilingPrice = 45; //
-    this.wallPlasteringHalfPrice = 200; //
-    this.wallPaintingWhitePrice = 150; //
-    this.wallPlasteringAll = 350; //
-    this.wallPaintingWhite = 150;
     this.wallsFullHeight = false;
     this.wallsHalfHeight = false;
     this.wallsOther = false;
@@ -151,7 +125,6 @@ export class QuoteItems {
     this.wallsCode = '';
     this.wallsType = '';
     //5
-    this.unitInstallation = 150; //
     this.ensuitePrice = 0; //
     this.toiletPrice = 0; //
     this.mixerPrice = 0; //
@@ -168,17 +141,10 @@ export class QuoteItems {
     this.otherItemComments = '';
     //6
     this.doorsPrice = 0; //
-    this.doorChangingPrice = 200; //
     this.doorsChanging = false; //
     this.doorsType = '';
     //7
-    this.spotlightPrice = 50; //
-    this.switcherInsidePrice = 50; //
-    this.switcherOutsidePrice = 100; //
-    this.socketPrice = 80; //
     this.mirrorPrice = 0; //
-    this.mirrorInstallationPrice = 100; //
-    this.fanPrice = 250; //
     this.spotlightsQty = 0; //
     this.socketsQty = 0; //
     this.mirrorElectrical = false;
@@ -188,8 +154,6 @@ export class QuoteItems {
     this.switcherOutsideElectrical = false;
     this.socketsElectrical = false;
     //8
-    this.ceilingPriceWhite = 100; //
-    this.ceilingPricePlastered = 150; //
     this.paintingCeiling = CeilingPainting.No;
   }
 }

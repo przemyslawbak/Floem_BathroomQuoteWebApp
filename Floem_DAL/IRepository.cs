@@ -8,5 +8,6 @@ namespace Floem_DAL
         string SaveQuoteToDbAndReturnId(FloemQuoteModel model);
         void UpdateQuoteInDb(FloemQuoteModel model);
         FloemQuoteModel GetQuote(string id);
+        FloemAdminModel GetAdminManager();
     }
 }

@@ -8,21 +8,21 @@ namespace Floem_BathroomQuote.Controllers
     [ApiController]
     public class AdminController : Controller
     {
-        private readonly IConfigUpdater _configUpdate;
+        private readonly IAdminManager _admin;
 
-        public AdminController(IConfigUpdater configUpdate)
+        public AdminController(IAdminManager admin)
         {
-            _configUpdate = configUpdate;
+            _admin = admin;
         }
 
         /// <summary>
-        /// POST: api/admin/get-settings
+        /// GET: api/admin/get-settings
         /// </summary>
         /// <returns>Status code.</returns>
         [HttpGet("get-settings")]
         public IActionResult GetAdminSettings()
         {
-            AdminModel settings = _configUpdate.GetAdminSettings();
+            FloemAdminModel settings = _admin.GetAdminModel();
             return Json(settings);
         }
     }

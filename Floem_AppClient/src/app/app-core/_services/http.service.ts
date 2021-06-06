@@ -51,6 +51,7 @@ export class HttpService {
 
   public getAdminModel(): Observable<any> {
     const url: string = environment.apiUrl + 'api/admin/get-settings';
+    console.log('hit get');
     return this.http.get(url);
   }
 }

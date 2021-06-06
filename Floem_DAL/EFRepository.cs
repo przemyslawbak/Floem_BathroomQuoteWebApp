@@ -12,6 +12,11 @@ namespace Floem_DAL
             _context = ctx;
         }
 
+        public FloemAdminModel GetAdminManager()
+        {
+            return _context.FloemAdminModel.FirstOrDefault();
+        }
+
         public FloemQuoteModel GetQuote(string id)
         {
             FloemQuoteModel quote = _context.FloemQuotes.Where(q => q.Id.ToString() == id).FirstOrDefault();

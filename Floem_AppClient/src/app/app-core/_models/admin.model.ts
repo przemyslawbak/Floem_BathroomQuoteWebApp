@@ -1,4 +1,5 @@
 export interface AdminModel {
+  id: number;
   removalsPrice: number;
   floorLvtPrice: number;
   floorTilingPrice: number;
