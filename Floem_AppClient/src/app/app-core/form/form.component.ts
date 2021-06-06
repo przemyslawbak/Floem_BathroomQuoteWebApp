@@ -13,6 +13,8 @@ import { QuoteService } from '@services/quote.service';
 import { UnitsService } from '@services/units.service';
 import { ModalService } from '@services/modal.service';
 import { NgxSpinnerService } from 'ngx-spinner';
+import { AdminService } from '@services/admin.service';
+import { AdminModel } from '@models/admin.model';
 
 @Component({
   selector: 'app-form',
@@ -35,11 +37,34 @@ export class FormComponent implements AfterViewInit, OnInit {
     private modals: ModalService,
     private route: ActivatedRoute,
     private http: HttpService,
-    private spinner: NgxSpinnerService
+    private spinner: NgxSpinnerService,
+    private admin: AdminService
   ) {
+    this.getAdminModel().subscribe((res) => {
+      if (res) {
+        this.admin.adminModel = res;
+      } else {
+        //??
+      }
+    });
     this.stepperOrientation = breakpointObserver
       .observe('(min-width: 800px)')
       .pipe(map(({ matches }) => (matches ? 'horizontal' : 'vertical')));
+  }
+
+  public getAdminModel(): Observable<AdminModel> {
+    let subject = new Subject<AdminModel>();
+    this.http.getAdminModel().subscribe({
+      next: (a) => {
+        subject.next(a);
+      },
+      error: (e) => {
+        subject.next(null);
+      },
+      complete: () => {},
+    });
+
+    return subject.asObservable();
   }
 
   public ngOnInit(): void {

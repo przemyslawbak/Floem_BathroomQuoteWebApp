@@ -160,6 +160,8 @@ OK - bug: no-reply EmailSender:Name
 OK - do sth with 'Loading...'
 - admin pannel
 - testing IConfigUpdater
+- admin service
+- load/save admin model from the server, verify pass from the config
 - get / set in back/front ends
 - Favicon change
 - step 0 icon -> logo PNG

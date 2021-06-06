@@ -6,6 +6,7 @@ import { Observable, Subject } from 'rxjs';
 import { QuoteItems } from '../_models/quote-items.model';
 import { ClientModel } from '@models/quote-client.model';
 import { EmailLinkModel } from '@models/email-link.model';
+import { AdminModel } from '@models/admin.model';
 
 @Injectable()
 export class HttpService {
@@ -45,6 +46,11 @@ export class HttpService {
 
   public getQuote(id: string): Observable<any> {
     const url: string = environment.apiUrl + 'api/quote/get-quote?id=' + id;
+    return this.http.get(url);
+  }
+
+  public getAdminModel(): Observable<any> {
+    const url: string = environment.apiUrl + 'api/admin/get-settings';
     return this.http.get(url);
   }
 }

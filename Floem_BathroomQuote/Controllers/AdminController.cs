@@ -1,4 +1,5 @@
 ﻿using Floem_Models;
+using Floem_Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Floem_BathroomQuote.Controllers
@@ -7,6 +8,13 @@ namespace Floem_BathroomQuote.Controllers
     [ApiController]
     public class AdminController : Controller
     {
+        private readonly IConfigUpdater _configUpdate;
+
+        public AdminController(IConfigUpdater configUpdate)
+        {
+            _configUpdate = configUpdate;
+        }
+
         /// <summary>
         /// POST: api/admin/get-settings
         /// </summary>
@@ -14,7 +22,8 @@ namespace Floem_BathroomQuote.Controllers
         [HttpGet("get-settings")]
         public IActionResult GetAdminSettings()
         {
-            return Ok();
+            AdminModel settings = _configUpdate.GetAdminSettings();
+            return Json(settings);
         }
     }
 }
