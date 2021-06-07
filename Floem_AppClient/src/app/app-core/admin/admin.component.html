@@ -1,1 +1,29 @@
-admin
+<div class="form-container col-lg-6 col-12">
+  <h2 class="form-title">Admin component</h2>
+  <form [formGroup]="form" (ngSubmit)="onSubmit()" class="login-form row">
+    <mat-form-field
+      class="col-12"
+      [ngClass]="{ 'has-error has-feedback': hasError('MirrorInstallation') }"
+    >
+      <input
+        matInput
+        type="text"
+        required
+        formControlName="MirrorInstallation"
+        placeholder="Mirror installation price"
+      />
+      <mat-error *ngIf="hasError('MirrorInstallation')" class="help-block">
+        Field required.
+      </mat-error>
+    </mat-form-field>
+    <div class="col-6"><span class="float-end">* Required info</span></div>
+    <button
+      type="submit"
+      [disabled]="form.invalid"
+      class="btn btn-md btn-primary btn-block btn-signin col-12"
+      style="margin-top: 30px"
+    >
+      Update settings
+    </button>
+  </form>
+</div>
