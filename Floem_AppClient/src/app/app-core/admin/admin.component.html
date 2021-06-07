@@ -26,7 +26,7 @@
         type="text"
         required
         formControlName="RemovalsPrice"
-        placeholder="Mirror installation price"
+        placeholder="Removals price"
         [(value)]="this.admin.adminModel.removalsPrice"
       />
       <mat-error *ngIf="hasError('RemovalsPrice')" class="help-block">
@@ -42,7 +42,7 @@
         type="text"
         required
         formControlName="FloorLvtPrice"
-        placeholder="Mirror installation price"
+        placeholder="Floor LVT price (per 2*m2)"
         [(value)]="this.admin.adminModel.floorLvtPrice"
       />
       <mat-error *ngIf="hasError('FloorLvtPrice')" class="help-block">
@@ -58,7 +58,7 @@
         type="text"
         required
         formControlName="FloorTilingPrice"
-        placeholder="Mirror installation price"
+        placeholder="Floor tiling price (per m2)"
         [(value)]="this.admin.adminModel.floorTilingPrice"
       />
       <mat-error *ngIf="hasError('FloorTilingPrice')" class="help-block">
@@ -74,7 +74,7 @@
         type="text"
         required
         formControlName="WallTilingPrice"
-        placeholder="Mirror installation price"
+        placeholder="Wall tiling price (per m2)"
         [(value)]="this.admin.adminModel.wallTilingPrice"
       />
       <mat-error *ngIf="hasError('WallTilingPrice')" class="help-block">
@@ -92,7 +92,7 @@
         type="text"
         required
         formControlName="WallPlasteringHalfPrice"
-        placeholder="Mirror installation price"
+        placeholder="Wall plastering price (half)"
         [(value)]="this.admin.adminModel.wallPlasteringHalfPrice"
       />
       <mat-error *ngIf="hasError('WallPlasteringHalfPrice')" class="help-block">
@@ -110,7 +110,7 @@
         type="text"
         required
         formControlName="WallPaintingWhitePrice"
-        placeholder="Mirror installation price"
+        placeholder="Wall painting white price"
         [(value)]="this.admin.adminModel.wallPaintingWhitePrice"
       />
       <mat-error *ngIf="hasError('WallPaintingWhitePrice')" class="help-block">
@@ -128,28 +128,10 @@
         type="text"
         required
         formControlName="WallPlasteringAll"
-        placeholder="Mirror installation price"
+        placeholder="Wall plastering price (all)"
         [(value)]="this.admin.adminModel.wallPlasteringAll"
       />
       <mat-error *ngIf="hasError('WallPlasteringAll')" class="help-block">
-        Valid number required.
-      </mat-error>
-    </mat-form-field>
-    <mat-form-field
-      class="col-12"
-      [ngClass]="{
-        'has-error has-feedback': hasError('WallPaintingWhite')
-      }"
-    >
-      <input
-        matInput
-        type="text"
-        required
-        formControlName="WallPaintingWhite"
-        placeholder="Mirror installation price"
-        [(value)]="this.admin.adminModel.wallPaintingWhite"
-      />
-      <mat-error *ngIf="hasError('WallPaintingWhite')" class="help-block">
         Valid number required.
       </mat-error>
     </mat-form-field>
@@ -164,7 +146,7 @@
         type="text"
         required
         formControlName="UnitInstallation"
-        placeholder="Mirror installation price"
+        placeholder="Single unit installation price"
         [(value)]="this.admin.adminModel.unitInstallation"
       />
       <mat-error *ngIf="hasError('UnitInstallation')" class="help-block">
@@ -182,7 +164,7 @@
         type="text"
         required
         formControlName="DoorChangingPrice"
-        placeholder="Mirror installation price"
+        placeholder="Doors changing price"
         [(value)]="this.admin.adminModel.doorChangingPrice"
       />
       <mat-error *ngIf="hasError('DoorChangingPrice')" class="help-block">
@@ -200,7 +182,7 @@
         type="text"
         required
         formControlName="SpotlightPrice"
-        placeholder="Mirror installation price"
+        placeholder="Spotlight price"
         [(value)]="this.admin.adminModel.spotlightPrice"
       />
       <mat-error *ngIf="hasError('SpotlightPrice')" class="help-block">
@@ -218,7 +200,7 @@
         type="text"
         required
         formControlName="SwitcherInsidePrice"
-        placeholder="Mirror installation price"
+        placeholder="Switcher inside price"
         [(value)]="this.admin.adminModel.switcherInsidePrice"
       />
       <mat-error *ngIf="hasError('SwitcherInsidePrice')" class="help-block">
@@ -236,7 +218,7 @@
         type="text"
         required
         formControlName="SwitcherOutsidePrice"
-        placeholder="Mirror installation price"
+        placeholder="Switcher ouside price"
         [(value)]="this.admin.adminModel.switcherOutsidePrice"
       />
       <mat-error *ngIf="hasError('SwitcherOutsidePrice')" class="help-block">
@@ -254,7 +236,7 @@
         type="text"
         required
         formControlName="SocketPrice"
-        placeholder="Mirror installation price"
+        placeholder="Socket price"
         [(value)]="this.admin.adminModel.socketPrice"
       />
       <mat-error *ngIf="hasError('SocketPrice')" class="help-block">
@@ -272,7 +254,7 @@
         type="text"
         required
         formControlName="FanPrice"
-        placeholder="Mirror installation price"
+        placeholder="Fan price"
         [(value)]="this.admin.adminModel.fanPrice"
       />
       <mat-error *ngIf="hasError('FanPrice')" class="help-block">
@@ -290,7 +272,7 @@
         type="text"
         required
         formControlName="CeilingPriceWhite"
-        placeholder="Mirror installation price"
+        placeholder="Ceiling painting white price"
         [(value)]="this.admin.adminModel.ceilingPriceWhite"
       />
       <mat-error *ngIf="hasError('CeilingPriceWhite')" class="help-block">
@@ -308,7 +290,7 @@
         type="text"
         required
         formControlName="CeilingPricePlastered"
-        placeholder="Mirror installation price"
+        placeholder="Ceiling plastering price"
         [(value)]="this.admin.adminModel.ceilingPricePlastered"
       />
       <mat-error *ngIf="hasError('CeilingPricePlastered')" class="help-block">
@@ -326,7 +308,7 @@
         type="text"
         required
         formControlName="Password"
-        placeholder="Mirror installation price"
+        placeholder="Password"
         (value)="hashPassword()"
       />
       <mat-error *ngIf="hasError('Password')" class="help-block">

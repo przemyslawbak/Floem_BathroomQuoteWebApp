@@ -158,10 +158,15 @@ OK - bug: on quote load units not loaded or binded
 OK - bug: summary click console ERROR TypeError: el is null
 OK - bug: no-reply EmailSender:Name
 OK - do sth with 'Loading...'
+NO - testing IConfigUpdater
+OK - admin service
+OK - verify pass from the config
+- 'wallPaintingWhite' in admin model?
+- clean up back-end quote model of admin model
 - admin pannel
-- testing IConfigUpdater
-- admin service
-- load/save admin model from the server, verify pass from the config
+- hash password: https://stackoverflow.com/a/50697025
+- in admin form numbers validation
+- load/save admin model from the server
 - get / set in back/front ends
 - Favicon change
 - step 0 icon -> logo PNG
