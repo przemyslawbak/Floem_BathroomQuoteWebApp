@@ -61,9 +61,82 @@ export class AdminComponent implements OnInit {
     this.form = this.formBuilder.group({
       MirrorInstallation: [
         this.admin.adminModel.mirrorInstallationPrice,
-        [Validators.required],
+        [Validators.required, Validators.pattern('^[0-9]*$')],
       ],
+      RemovalsPrice: [
+        this.admin.adminModel.removalsPrice,
+        [Validators.required, Validators.pattern('^[0-9]*$')],
+      ],
+      FloorLvtPrice: [
+        this.admin.adminModel.floorLvtPrice,
+        [Validators.required, Validators.pattern('^[0-9]*$')],
+      ],
+      FloorTilingPrice: [
+        this.admin.adminModel.floorTilingPrice,
+        [Validators.required, Validators.pattern('^[0-9]*$')],
+      ],
+      WallTilingPrice: [
+        this.admin.adminModel.wallTilingPrice,
+        [Validators.required, Validators.pattern('^[0-9]*$')],
+      ],
+      WallPlasteringHalfPrice: [
+        this.admin.adminModel.wallPlasteringHalfPrice,
+        [Validators.required, Validators.pattern('^[0-9]*$')],
+      ],
+      WallPaintingWhitePrice: [
+        this.admin.adminModel.wallPaintingWhitePrice,
+        [Validators.required, Validators.pattern('^[0-9]*$')],
+      ],
+      WallPlasteringAll: [
+        this.admin.adminModel.wallPlasteringAll,
+        [Validators.required, Validators.pattern('^[0-9]*$')],
+      ],
+      WallPaintingWhite: [
+        this.admin.adminModel.wallPaintingWhite,
+        [Validators.required, Validators.pattern('^[0-9]*$')],
+      ],
+      UnitInstallation: [
+        this.admin.adminModel.unitInstallation,
+        [Validators.required, Validators.pattern('^[0-9]*$')],
+      ],
+      DoorChangingPrice: [
+        this.admin.adminModel.doorChangingPrice,
+        [Validators.required, Validators.pattern('^[0-9]*$')],
+      ],
+      SpotlightPrice: [
+        this.admin.adminModel.spotlightPrice,
+        [Validators.required, Validators.pattern('^[0-9]*$')],
+      ],
+      SwitcherInsidePrice: [
+        this.admin.adminModel.switcherInsidePrice,
+        [Validators.required, Validators.pattern('^[0-9]*$')],
+      ],
+      SwitcherOutsidePrice: [
+        this.admin.adminModel.switcherOutsidePrice,
+        [Validators.required, Validators.pattern('^[0-9]*$')],
+      ],
+      SocketPrice: [
+        this.admin.adminModel.socketPrice,
+        [Validators.required, Validators.pattern('^[0-9]*$')],
+      ],
+      FanPrice: [
+        this.admin.adminModel.fanPrice,
+        [Validators.required, Validators.pattern('^[0-9]*$')],
+      ],
+      CeilingPriceWhite: [
+        this.admin.adminModel.ceilingPriceWhite,
+        [Validators.required, Validators.pattern('^[0-9]*$')],
+      ],
+      CeilingPricePlastered: [
+        this.admin.adminModel.ceilingPricePlastered,
+        [Validators.required, Validators.pattern('^[0-9]*$')],
+      ],
+      Password: [this.admin.adminModel.password, [Validators.required]],
     });
+  }
+
+  public hashPassword(): string {
+    return '*'.repeat(this.admin.adminModel.password.length);
   }
 
   public onSubmit(): void {
