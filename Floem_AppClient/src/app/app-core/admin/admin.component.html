@@ -11,6 +11,7 @@
         required
         formControlName="MirrorInstallation"
         placeholder="Mirror installation price"
+        [(value)]="this.admin.adminModel.mirrorInstallationPrice"
       />
       <mat-error *ngIf="hasError('MirrorInstallation')" class="help-block">
         Field required.
