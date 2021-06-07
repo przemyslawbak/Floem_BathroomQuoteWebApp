@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { AdminModel } from '@models/admin.model';
 import { AdminService } from '@services/admin.service';
 import { HttpService } from '@services/http.service';
@@ -16,7 +17,8 @@ export class AdminComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     public admin: AdminService,
-    private http: HttpService
+    private http: HttpService,
+    private router: Router
   ) {
     this.getAdminModel().subscribe((res) => {
       if (res) {
@@ -67,5 +69,9 @@ export class AdminComponent implements OnInit {
   public onSubmit(): void {
     //todo: send post request;
     //todo: update admin service
+  }
+
+  public onCancel(): void {
+    this.router.navigate(['']);
   }
 }
