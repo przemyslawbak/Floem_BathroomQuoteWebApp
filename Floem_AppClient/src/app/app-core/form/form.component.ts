@@ -41,11 +41,8 @@ export class FormComponent implements AfterViewInit, OnInit {
     private admin: AdminService
   ) {
     this.getAdminModel().subscribe((res) => {
-      console.log('hit');
       if (res) {
         this.admin.adminModel = res;
-        console.log('rem pr' + this.admin.adminModel.removalsPrice);
-        console.log('model' + this.admin.adminModel);
       } else {
         //??
       }
@@ -59,17 +56,14 @@ export class FormComponent implements AfterViewInit, OnInit {
     let subject = new Subject<AdminModel>();
     this.http.getAdminModel().subscribe({
       next: (a) => {
-        console.log('hit next');
         subject.next(a);
       },
       error: (e) => {
-        console.log('hit error ' + e.error);
         subject.next(null);
       },
       complete: () => {},
     });
 
-    console.log('hit return');
     return subject.asObservable();
   }
 

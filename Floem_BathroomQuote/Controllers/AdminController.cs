@@ -1,6 +1,7 @@
 ﻿using Floem_Models;
 using Floem_Services;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
 
 namespace Floem_BathroomQuote.Controllers
 {
@@ -9,10 +10,12 @@ namespace Floem_BathroomQuote.Controllers
     public class AdminController : Controller
     {
         private readonly IAdminManager _admin;
+        private readonly IConfiguration _configuration;
 
-        public AdminController(IAdminManager admin)
+        public AdminController(IAdminManager admin, IConfiguration config)
         {
             _admin = admin;
+            _configuration = config;
         }
 
         /// <summary>
@@ -24,6 +27,23 @@ namespace Floem_BathroomQuote.Controllers
         {
             FloemAdminModel settings = _admin.GetAdminModel();
             return Json(settings);
+        }
+
+        /// <summary>
+        /// POST: api/admin/set-settings
+        /// </summary>
+        /// <returns>Status code.</returns>
+        [HttpGet("set-settings")]
+        public IActionResult SetAdminSettings([FromBody] FloemAdminModel model)
+        {
+            if (model.Password != _configuration["Admin:Password"])
+            {
+                return new ObjectResult("Wrong password.") { StatusCode = 401 };
+            }
+
+            _admin.UpdateAdminModel(model);
+
+            return Ok();
         }
     }
 }

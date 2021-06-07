@@ -24,5 +24,6 @@ namespace Floem_Models
         public int FanPrice { get; set; }
         public int CeilingPriceWhite { get; set; }
         public int CeilingPricePlastered { get; set; }
+        public string Password { get; set; }
     }
 }

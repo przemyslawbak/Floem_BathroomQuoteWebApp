@@ -9,5 +9,6 @@ namespace Floem_DAL
         void UpdateQuoteInDb(FloemQuoteModel model);
         FloemQuoteModel GetQuote(string id);
         FloemAdminModel GetAdminManager();
+        void UpdateAdminModelInDb(FloemAdminModel model);
     }
 }

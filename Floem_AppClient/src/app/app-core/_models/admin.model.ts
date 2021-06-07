@@ -18,4 +18,5 @@ export interface AdminModel {
   fanPrice: number;
   ceilingPriceWhite: number;
   ceilingPricePlastered: number;
+  password: string;
 }

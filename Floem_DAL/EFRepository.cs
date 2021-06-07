@@ -51,6 +51,15 @@ namespace Floem_DAL
             return string.Empty;
         }
 
+        public void UpdateAdminModelInDb(FloemAdminModel model)
+        {
+            if (model != null)
+            {
+                _context.FloemAdminModel.Update(model);
+                _context.SaveChanges();
+            }
+        }
+
         public void UpdateQuoteInDb(FloemQuoteModel model)
         {
             if (model != null)

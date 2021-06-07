@@ -15,5 +15,10 @@ namespace Floem_Services
         {
             return _repo.GetAdminManager();
         }
+
+        public void UpdateAdminModel(FloemAdminModel model)
+        {
+            _repo.UpdateAdminModelInDb(model);
+        }
     }
 }
