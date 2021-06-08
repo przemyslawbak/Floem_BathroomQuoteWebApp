@@ -20,7 +20,6 @@ namespace Floem_Models
         public string Units { get; set; }
         //2
         public bool Removals { get; set; }
-        public decimal RemovalsPrice { get; set; }
         public decimal RemovalsTotal { get; set; }
         //3
         public bool FloorLvt { get; set; }
@@ -30,8 +29,6 @@ namespace Floem_Models
         public string FloorCode { get; set; }
         public string FloorType { get; set; }
         public decimal FloorPrice { get; set; }
-        public decimal FloorTilingPrice { get; set; }
-        public decimal FloorLvtPrice { get; set; }
         public string FloorOtherComments { get; set; }
         public decimal FloorTotal { get; set; }
         //4
@@ -44,15 +41,10 @@ namespace Floem_Models
         public string WallsCode { get; set; }
         public string WallsType { get; set; }
         public decimal WallPrice { get; set; }
-        public decimal WallTilingPrice { get; set; }
-        public decimal WallPlasteringHalfPrice { get; set; }
-        public decimal WallPaintingWhitePrice { get; set; }
-        public int WallPlasteringAll { get; set; }
         public int WallPaintingWhite { get; set; }
         public string WallsOtherComments { get; set; }
         public decimal WallsTotal { get; set; }
         //5
-        public int UnitInstallation { get; set; }
         public bool BathItem { get; set; }
         public decimal BathPrice { get; set; }
         public bool EnsuiteItem { get; set; }
@@ -71,30 +63,21 @@ namespace Floem_Models
         //6
         public bool DoorsChanging { get; set; }
         public string DoorsType { get; set; }
-        public decimal DoorChangingPrice { get; set; }
         public decimal DoorsPrice { get; set; }
         public decimal DoorsTotal { get; set; }
         //7
         public bool MirrorElectrical { get; set; }
-        public decimal MirrorInstallationPrice { get; set; }
         public decimal MirrorPrice { get; set; }
         public bool FanElectrical { get; set; }
-        public decimal FanPrice { get; set; }
         public bool SpotlightsElectrical { get; set; }
-        public decimal SpotlightPrice { get; set; }
         public bool SwitcherInsideElectrical { get; set; }
         public bool SwitcherOutsideElectrical { get; set; }
-        public decimal SwitcherOutsidePrice { get; set; }
-        public decimal SwitcherInsidePrice { get; set; }
         public bool SocketsElectrical { get; set; }
-        public decimal SocketPrice { get; set; }
         public int SocketsQty { get; set; }
         public int SpotlightsQty { get; set; }
         public decimal ElectricalTotal { get; set; }
         //8
         public string PaintingCeiling { get; set; }
-        public decimal CeilingPriceWhite { get; set; }
-        public decimal CeilingPricePlastered { get; set; }
         public decimal CeilingTotal { get; set; }
     }
 }
