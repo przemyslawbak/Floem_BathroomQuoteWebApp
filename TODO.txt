@@ -161,13 +161,16 @@ OK - do sth with 'Loading...'
 NO - testing IConfigUpdater
 OK - admin service
 OK - verify pass from the config
-- 'wallPaintingWhite' in admin model?
-- clean up back-end quote model of admin model
-- admin pannel
-- hash password: https://stackoverflow.com/a/50697025
-- in admin form numbers validation
-- load/save admin model from the server
-- get / set in back/front ends
+OK - 'wallPaintingWhite' in admin model?
+OK - in admin form numbers validation
+OK - clean up back-end quote model of admin model
+OK - clean up quote DB of admin model props
+OK - admin panel
+OK - load/save admin model from the server
+OK - get / set in back/front ends
+OK - hash password
+- why loaded inputs are not valid in admin panel?
+- in admin panel browsing bookings
 - Favicon change
 - step 0 icon -> logo PNG
 - PNG logo?

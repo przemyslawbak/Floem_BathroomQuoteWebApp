@@ -305,11 +305,10 @@
     >
       <input
         matInput
-        type="text"
+        type="password"
         required
         formControlName="Password"
         placeholder="Password"
-        (value)="hashPassword()"
       />
       <mat-error *ngIf="hasError('Password')" class="help-block">
         Valid number required.
