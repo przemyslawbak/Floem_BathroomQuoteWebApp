@@ -53,6 +53,7 @@ export class FormComponent implements AfterViewInit, OnInit {
   }
 
   public getAdminModel(): Observable<AdminModel> {
+    this.spinner.show();
     let subject = new Subject<AdminModel>();
     this.http.getAdminModel().subscribe({
       next: (a) => {
@@ -61,7 +62,9 @@ export class FormComponent implements AfterViewInit, OnInit {
       error: (e) => {
         subject.next(null);
       },
-      complete: () => {},
+      complete: () => {
+        this.spinner.hide();
+      },
     });
 
     return subject.asObservable();

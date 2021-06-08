@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { AdminModel } from '@models/admin.model';
 import { AdminService } from '@services/admin.service';
 import { HttpService } from '@services/http.service';
+import { NgxSpinnerService } from 'ngx-spinner';
 import { Subject } from 'rxjs';
 import { Observable } from 'rxjs/internal/Observable';
 
@@ -18,7 +19,8 @@ export class AdminComponent implements OnInit {
     private formBuilder: FormBuilder,
     public admin: AdminService,
     private http: HttpService,
-    private router: Router
+    private router: Router,
+    private spinner: NgxSpinnerService
   ) {
     this.getAdminModel().subscribe((res) => {
       if (res) {
@@ -30,6 +32,7 @@ export class AdminComponent implements OnInit {
   }
 
   public getAdminModel(): Observable<AdminModel> {
+    this.spinner.show();
     let subject = new Subject<AdminModel>();
     this.http.getAdminModel().subscribe({
       next: (a) => {
@@ -38,7 +41,9 @@ export class AdminComponent implements OnInit {
       error: (e) => {
         subject.next(null);
       },
-      complete: () => {},
+      complete: () => {
+        this.spinner.hide();
+      },
     });
 
     return subject.asObservable();
@@ -89,10 +94,6 @@ export class AdminComponent implements OnInit {
       ],
       WallPlasteringAll: [
         this.admin.adminModel.wallPlasteringAll,
-        [Validators.required, Validators.pattern('^[0-9]*$')],
-      ],
-      WallPaintingWhite: [
-        this.admin.adminModel.wallPaintingWhite,
         [Validators.required, Validators.pattern('^[0-9]*$')],
       ],
       UnitInstallation: [
