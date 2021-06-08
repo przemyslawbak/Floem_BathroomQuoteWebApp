@@ -6,5 +6,6 @@ namespace Floem_Services
     {
         FloemAdminModel GetAdminModel();
         void UpdateAdminModel(FloemAdminModel model);
+        FloemAdminModel GetInitialSettings();
     }
 }

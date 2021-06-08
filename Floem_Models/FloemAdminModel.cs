@@ -13,7 +13,6 @@ namespace Floem_Models
         public int WallPlasteringHalfPrice { get; set; }
         public int WallPaintingWhitePrice { get; set; }
         public int WallPlasteringAll { get; set; }
-        public int WallPaintingWhite { get; set; }
         public int UnitInstallation { get; set; }
         public int DoorChangingPrice { get; set; }
         public int SpotlightPrice { get; set; }

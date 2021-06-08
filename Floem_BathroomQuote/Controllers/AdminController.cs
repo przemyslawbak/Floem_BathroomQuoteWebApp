@@ -26,6 +26,12 @@ namespace Floem_BathroomQuote.Controllers
         public IActionResult GetAdminSettings()
         {
             FloemAdminModel settings = _admin.GetAdminModel();
+
+            if (settings == null)
+            {
+                return Json(_admin.GetInitialSettings());
+            }
+
             return Json(settings);
         }
 
