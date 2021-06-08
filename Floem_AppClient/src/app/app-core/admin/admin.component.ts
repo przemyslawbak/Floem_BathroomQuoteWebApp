@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { AdminModel } from '@models/admin.model';
 import { AdminService } from '@services/admin.service';
 import { HttpService } from '@services/http.service';
+import { ModalService } from '@services/modal.service';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { Subject } from 'rxjs';
 import { Observable } from 'rxjs/internal/Observable';
@@ -20,7 +21,8 @@ export class AdminComponent implements OnInit {
     public admin: AdminService,
     private http: HttpService,
     private router: Router,
-    private spinner: NgxSpinnerService
+    private spinner: NgxSpinnerService,
+    private modals: ModalService
   ) {
     this.getAdminModel().subscribe((res) => {
       if (res) {
@@ -132,17 +134,40 @@ export class AdminComponent implements OnInit {
         this.admin.adminModel.ceilingPricePlastered,
         [Validators.required, Validators.pattern('^[0-9]*$')],
       ],
-      Password: [this.admin.adminModel.password, [Validators.required]],
+      Password: ['', [Validators.required]],
     });
   }
 
-  public hashPassword(): string {
-    return '*'.repeat(this.admin.adminModel.password.length);
+  public onSubmit(): void {
+    this.admin.adminModel.password = this.form.value.Password;
+    this.admin.adminModel.ceilingPricePlastered = this.form.value.CeilingPricePlastered;
+    this.admin.adminModel.ceilingPriceWhite = this.form.value.CeilingPriceWhite;
+    this.admin.adminModel.fanPrice = this.form.value.FanPrice;
+    this.admin.adminModel.socketPrice = this.form.value.SocketPrice;
+    this.admin.adminModel.switcherOutsidePrice = this.form.value.SwitcherOutsidePrice;
+    this.admin.adminModel.switcherInsidePrice = this.form.value.SwitcherInsidePrice;
+    this.admin.adminModel.spotlightPrice = this.form.value.SpotlightPrice;
+    this.admin.adminModel.doorChangingPrice = this.form.value.DoorChangingPrice;
+    this.admin.adminModel.unitInstallation = this.form.value.UnitInstallation;
+    this.admin.adminModel.wallPlasteringAll = this.form.value.WallPlasteringAll;
+    this.admin.adminModel.wallPaintingWhitePrice = this.form.value.WallPaintingWhitePrice;
+    this.admin.adminModel.wallPlasteringHalfPrice = this.form.value.WallPlasteringHalfPrice;
+    this.admin.adminModel.wallTilingPrice = this.form.value.WallTilingPrice;
+    this.admin.adminModel.floorTilingPrice = this.form.value.FloorTilingPrice;
+    this.admin.adminModel.floorLvtPrice = this.form.value.FloorLvtPrice;
+    this.admin.adminModel.removalsPrice = this.form.value.RemovalsPrice;
+    this.admin.adminModel.MirrorInstallation = this.form.value.MirrorInstallation;
+    this.putAdminModel(this.admin.adminModel);
   }
 
-  public onSubmit(): void {
-    //todo: send post request;
-    //todo: update admin service
+  private putAdminModel(adminModel: AdminModel): void {
+    this.spinner.show();
+    this.http.updateAdmin(adminModel).subscribe(() => {
+      this.spinner.hide();
+      this.modals.open('info-modal', 'Updaed settings.');
+      this.admin.adminModel.password = '';
+      this.form.value.Password = '';
+    });
   }
 
   public onCancel(): void {

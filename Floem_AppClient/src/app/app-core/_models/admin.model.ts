@@ -1,4 +1,5 @@
 export interface AdminModel {
+  MirrorInstallation: any;
   id: number;
   removalsPrice: number;
   floorLvtPrice: number;

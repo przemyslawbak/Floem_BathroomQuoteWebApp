@@ -39,7 +39,7 @@ namespace Floem_BathroomQuote.Controllers
         /// POST: api/admin/set-settings
         /// </summary>
         /// <returns>Status code.</returns>
-        [HttpGet("set-settings")]
+        [HttpPost("set-settings")]
         public IActionResult SetAdminSettings([FromBody] FloemAdminModel model)
         {
             if (model.Password != _configuration["Admin:Password"])

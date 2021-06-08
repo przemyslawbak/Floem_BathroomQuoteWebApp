@@ -169,7 +169,7 @@ OK - admin panel
 OK - load/save admin model from the server
 OK - get / set in back/front ends
 OK - hash password
-- why loaded inputs are not valid in admin panel?
+OK - why loaded inputs are not valid in admin panel?
 - in admin panel browsing bookings
 - Favicon change
 - step 0 icon -> logo PNG

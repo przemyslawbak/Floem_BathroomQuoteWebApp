@@ -28,6 +28,14 @@ export class HttpService {
     return subject.asObservable();
   }
 
+  public updateAdmin(model: AdminModel): Observable<any> {
+    const url: string = environment.apiUrl + 'api/admin/set-settings/';
+    let subject = new Subject<any>();
+    this.http.post<any>(url, model).subscribe((res) => subject.next(res));
+
+    return subject.asObservable();
+  }
+
   public postClient(client: ClientModel): Observable<any> {
     const url: string = environment.apiUrl + 'api/client/save-client';
     let subject = new Subject<any>();
