@@ -7,7 +7,6 @@ export interface AdminModel {
   wallPlasteringHalfPrice: number;
   wallPaintingWhitePrice: number;
   wallPlasteringAll: number;
-  wallPaintingWhite: number;
   unitInstallation: number;
   doorChangingPrice: number;
   spotlightPrice: number;
