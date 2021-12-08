@@ -20,25 +20,25 @@ namespace Floem_Services
         {
             return new FloemAdminModel()
             {
-                WallPlasteringAll = 100,
-                CeilingPricePlastered = 110,
-                CeilingPriceWhite = 90,
-                DoorChangingPrice = 100,
-                FanPrice = 80,
+                WallPlasteringAll = 350,
+                CeilingPricePlastered = 150,
+                CeilingPriceWhite = 100,
+                DoorChangingPrice = 200,
+                FanPrice = 250,
                 FloorLvtPrice = 150,
-                FloorTilingPrice = 100,
+                FloorTilingPrice = 60,
                 Id = 1,
-                MirrorInstallationPrice = 130,
+                MirrorInstallationPrice = 100,
                 Password = "",
                 RemovalsPrice = 300,
-                SocketPrice = 50,
-                SpotlightPrice = 70,
+                SocketPrice = 80,
+                SpotlightPrice = 50,
                 SwitcherInsidePrice = 50,
                 SwitcherOutsidePrice = 100,
-                UnitInstallation = 50,
+                UnitInstallation = 150,
                 WallPaintingWhitePrice = 150,
-                WallPlasteringHalfPrice = 100,
-                WallTilingPrice = 140
+                WallPlasteringHalfPrice = 200,
+                WallTilingPrice = 45
             };
         }
 

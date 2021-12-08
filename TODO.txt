@@ -170,7 +170,6 @@ OK - load/save admin model from the server
 OK - get / set in back/front ends
 OK - hash password
 OK - why loaded inputs are not valid in admin panel?
-- in admin panel browsing bookings
 - Favicon change
 - step 0 icon -> logo PNG
 - PNG logo?
@@ -180,6 +179,11 @@ OK - why loaded inputs are not valid in admin panel?
 - populate arrays (waiting for pictures & prices)
 
 FUTURE:
+- bookings calendar
+- get bookings arrays
+- import booking array to the calendar
+- edit booking
+- in admin panel browsing bookings
 - PUT quote failing?
 - save & share: print
 - main form loading spinner
